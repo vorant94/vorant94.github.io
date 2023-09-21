@@ -1,4 +1,6 @@
 ---
+import 'boxicons/css/boxicons.css'
+
 interface Props {
 	title: string;
 }
@@ -10,42 +12,30 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="flex flex-col max-w-lg mx-auto gap-4 min-h-screen">
+	<header class="flex py-4 border-b">
+		<nav>
+			<a href="/">vorant94</a>
+		</nav>
+	</header>
+	<main class="flex-1">
 		<slot />
+	</main>
+
+	<footer class="flex flex-row-reverse py-4 border-t gap-1">
+		<a href="https://github.com/vorant94/"
+			 target="_blank">
+			<i class='bx bxl-github bx-sm'></i>
+		</a>
+
+		<a href="https://vorant94.medium.com/"
+			 target="_blank">
+			<i class='bx bxl-medium bx-sm'></i>
+		</a>
+	</footer>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
+

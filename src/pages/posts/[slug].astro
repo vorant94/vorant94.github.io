@@ -1,0 +1,26 @@
+---
+import { getCollection,getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import {getPostTitle} from "../../shared/utility";
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+
+  return posts.map(post => ({
+    params: {slug: post.slug}
+  }));
+}
+
+const { slug } = Astro.params;
+
+const post = await getEntry('posts', slug);
+const { Content } = await post.render();
+
+---
+
+<Layout title={getPostTitle(post)}>
+  <Content />
+</Layout>
+
+<style>
+</style>
