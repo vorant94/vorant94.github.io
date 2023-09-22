@@ -1,5 +1,5 @@
 ---
-import { getCollection,getEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
@@ -12,7 +12,9 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 
-const post = await getEntry('posts', slug);
+// https://github.com/withastro/astro/issues/8450
+// @ts-ignore
+const post: CollectionEntry<'posts'> = await getEntry('posts', slug);
 const { Content } = await post.render();
 
 ---
