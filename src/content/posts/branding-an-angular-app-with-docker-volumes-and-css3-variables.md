@@ -1,4 +1,6 @@
 ---
+title: Branding an Angular app with Docker volumes and CSS3 variables
+description: Hi, there! My name is Mordechai and it is my first post here. I thought what to write about and came up with an idea of sharing small tips and tricks which made my life as a developer a little bit easier, so here am I
 tags:
   - programming
   - docker
@@ -7,10 +9,6 @@ platforms:
   - https://vorant94.medium.com/skin-replacement-in-angular-after-image-build-bfeb7d2be3f6
 publishedAt: 2021-01-26
 ---
-*Hi, there! My name is Mordechai and it is my first post here. I thought what to write about and came up with an idea of sharing small tips and tricks which made my life as a developer a little bit easier, so here am I.*
-
----
-
 ### The problem
 
 When you develop an app that is meant to be hosted on customer environment and you have several customers each customer will probably request to have its own theme for the app, which consists of set of images and colors that fit these images. And we are not talking here about runtime theme switch by user like light/dark theme, we are talking about environment theme, about branding of the app.

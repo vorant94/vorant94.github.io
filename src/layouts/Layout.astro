@@ -1,11 +1,15 @@
 ---
-import 'boxicons/css/boxicons.css'
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
-	title: string;
+	title?: string;
 }
 
-const { title } = Astro.props;
+let title = `vorant94`;
+if(Astro.props.title) {
+	title += ` | ${Astro.props.title}`;
+}
 ---
 
 <!doctype html>
@@ -15,27 +19,16 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<title>{title}</title>
 	</head>
-	<body class="flex flex-col max-w-lg mx-auto gap-4 min-h-screen">
-	<header class="flex py-4 border-b">
-		<nav>
-			<a href="/">vorant94</a>
-		</nav>
-	</header>
+	<body class="flex flex-col max-w-2xl mx-auto gap-4 min-h-screen">
+
+	<Header />
+
 	<main class="flex-1">
 		<slot />
 	</main>
 
-	<footer class="flex flex-row-reverse py-4 border-t gap-1">
-		<a href="https://github.com/vorant94/"
-			 target="_blank">
-			<i class='bx bxl-github bx-sm'></i>
-		</a>
+	<Footer />
 
-		<a href="https://vorant94.medium.com/"
-			 target="_blank">
-			<i class='bx bxl-medium bx-sm'></i>
-		</a>
-	</footer>
 	</body>
 </html>
 

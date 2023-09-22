@@ -1,7 +1,6 @@
 ---
 import { getCollection,getEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import {getPostTitle} from "../../shared/utility";
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -18,7 +17,7 @@ const { Content } = await post.render();
 
 ---
 
-<Layout title={getPostTitle(post)}>
+<Layout title={post.data.title}>
   <Content />
 </Layout>
 

@@ -1,18 +1,14 @@
 ---
+title: Pitfalls of AWS Amplify Serverless containers
+description: Recently I've got a task that led me to exploring AWS Amplify Serverless Containers and I would like to share with you the experience I earned from it. I built a small Angular app that allows to convert Word files into PDF
 tags:
   - amplify
   - programming
   - serverless
 platforms:
   - https://vorant94.medium.com/pitfalls-with-aws-amplify-serverless-containers-ba9e2e87a6f
-  - https://www.facebook.com/vorant94/posts/pfbid0a2e1N1sYoEBCgTtHss5bB7CQQi1WS19fTjbtC3Fzgu9bwFyZEVs9ndKGLfJGkoZrl
-  - https://www.linkedin.com/posts/vorant94_pitfalls-of-aws-amplify-serverless-containers-activity-7026472881312178176-jlqn?utm_source=share&utm_medium=member_desktop
 publishedAt: 2023-01-31
 ---
-*Recently I've got a task that led me to exploring AWS Amplify Serverless Containers and I would like to share with you the experience I earned from it. I built a small Angular app that allows to convert Word files into PDF*
-
----
-
 ### Starting point 
 
 In order to get to the point of serverless containers let's assume we have an Angular project that is configured with AWS according to [this guide](https://docs.amplify.aws/start/q/integration/angular/). After the project is initialized it needs also to be configured to allow advanced workflows by running `aws configure project`.

@@ -1,0 +1,47 @@
+---
+import '@fortawesome/fontawesome-free/css/fontawesome.css';
+import '@fortawesome/fontawesome-free/css/brands.css';
+import { Image } from 'astro:assets';
+import logo from '../images/logo.svg';
+
+interface SocialLink {
+  icon: string;
+  url: string;
+}
+
+const socialLinks: SocialLink[] = [
+  {
+    icon: 'fa-github',
+    url: 'https://github.com/vorant94/'
+  },
+  {
+    icon: 'fa-x-twitter',
+    url: 'https://twitter.com/vorant94'
+  },
+  {
+    icon: 'fa-medium',
+    url: 'https://vorant94.medium.com/'
+  },
+];
+---
+
+<header class="flex py-4 border-b items-center">
+  <nav>
+    <a href="/">
+      <Image src={logo} alt="Logo" height="24"/>
+    </a>
+  </nav>
+
+  <span class="flex-1"></span>
+
+  <ul class="flex gap-3">
+    {socialLinks.map(link => (
+        <li>
+          <a href={link.url}
+             target="_blank">
+            <i class={`fa-brands ${link.icon} fa-lg`}></i>
+          </a>
+        </li>
+    ))}
+  </ul>
+</header>
