@@ -85,7 +85,7 @@ CMD [ "node", "index.js" ]
 
 Nothing special, it is a common instructions to bundle NodeJS applications with Docker and all steps make sense. In my case I don't need to modify publicly available image of Gotenberg. But when you are playing "Spot 5 differences!", you need to do weird stuff from time to time, so I decided to try and add a dummy Dockerfile, that just extends Getenberg image and runs it. It goes as followed:
 
-```Dockerfile
+```dockerfile
 FROM gotenberg/gotenberg:7
 
 EXPOSE 3000
