@@ -3,7 +3,9 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
 const posts = (await getCollection('posts')).sort((a,b) => {
-  return new Date(b.data.publishedAt) - new Date(a.data.publishedAt);
+  const bPublishedAt = new Date(b.data.publishedAt);
+  const aPublishedAt = new Date(a.data.publishedAt);
+  return bPublishedAt.getTime() - aPublishedAt.getTime();
 });
 
 ---
