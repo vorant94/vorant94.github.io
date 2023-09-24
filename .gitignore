@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 .idea
 .vscode
+
+src/content/.obsidian
+src/content/templates

@@ -16,14 +16,15 @@ if(Astro.props.title) {
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<title>{title}</title>
 	</head>
-	<body class="flex flex-col max-w-2xl mx-auto gap-4 min-h-screen">
+	<body class="flex flex-col min-h-screen mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
 
 	<Header />
 
-	<main class="flex-1">
+	<main class="flex-1 p-4">
 		<slot />
 	</main>
 
