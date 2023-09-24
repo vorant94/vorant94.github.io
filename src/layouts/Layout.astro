@@ -4,21 +4,30 @@ import Footer from "../components/Footer.astro";
 
 interface Props {
 	title?: string;
+	image?: string;
 }
 
-let title = `vorant94`;
-if(Astro.props.title) {
-	title += ` | ${Astro.props.title}`;
-}
+const {title, image} = Astro.props;
+
+const pageTitle = title ? `vorant94 | ${title}` : `vorant94's Blog`;
+
+const ogTitle = title ?? `A personal space of yet another full-stack dev`
+const ogType = title ? 'article' : 'website'
+const ogUrl = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image ?? '/favicon.ico', Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta property="og:title" content={ogTitle} />
+		<meta property="og:type" content={ogType} />
+		<meta property="og:url" content={ogUrl} />
+		<meta property="og:image" content={ogImage} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-		<title>{title}</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body class="flex flex-col min-h-screen mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
 
