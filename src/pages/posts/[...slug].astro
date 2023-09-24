@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { getImage, Image } from "astro:assets";
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -16,12 +17,20 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
 
+const {title, coverImage} = post.data;
+const coverImageSrc = coverImage && (await getImage({src: coverImage, format: coverImage.format})).src;
+
+const { Content } = await post.render();
 ---
 
-<Layout title={post.data.title}>
+<Layout title={title}
+        image={coverImageSrc}>
   <article class="prose">
+    <h1>{title}</h1>
+
+    { coverImage && <Image src={coverImage} alt="" /> }
+
     <Content />
   </article>
 

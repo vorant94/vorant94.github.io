@@ -8,6 +8,7 @@ tags:
 platforms:
   - https://vorant94.medium.com/aws-amplify-functions-on-steroids-bffbfc09960c
 publishedAt: 2023-07-05
+coverImage: ../attachments/amplify-functions-on-steroids-cover.png
 ---
 ### What we have out of the box
 
