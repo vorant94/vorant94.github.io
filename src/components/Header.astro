@@ -12,15 +12,15 @@ interface SocialLink {
 const socialLinks: SocialLink[] = [
   {
     icon: 'fa-github',
-    url: 'https://github.com/vorant94/'
+    url: 'https://github.com/vorant94/',
   },
   {
     icon: 'fa-x-twitter',
-    url: 'https://twitter.com/vorant94'
+    url: 'https://twitter.com/vorant94',
   },
   {
     icon: 'fa-medium',
-    url: 'https://vorant94.medium.com/'
+    url: 'https://vorant94.medium.com/',
   },
 ];
 ---
@@ -28,20 +28,27 @@ const socialLinks: SocialLink[] = [
 <header class="flex gap-1 items-center p-4 border-b">
   <nav>
     <a href="/">
-      <Image src={logo} alt="Logo" height="24"/>
+      <Image
+        src={logo}
+        alt="Logo"
+        height="24"
+      />
     </a>
   </nav>
 
   <span class="flex-1"></span>
 
   <ul class="flex gap-3">
-    {socialLinks.map(link => (
+    {
+      socialLinks.map((link) => (
         <li>
-          <a href={link.url}
-             target="_blank">
-            <i class={`fa-brands ${link.icon} fa-lg`}></i>
+          <a
+            href={link.url}
+            target="_blank">
+            <i class={`fa-brands ${link.icon} fa-lg`} />
           </a>
         </li>
-    ))}
+      ))
+    }
   </ul>
 </header>

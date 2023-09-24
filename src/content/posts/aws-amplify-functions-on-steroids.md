@@ -10,6 +10,7 @@ platforms:
 publishedAt: 2023-07-05
 coverImage: ../attachments/amplify-functions-on-steroids-cover.png
 ---
+
 ### What we have out of the box
 
 When we add an API to Amplify project it out-of-the-box offers us key-value storage to store all of our data (using DynamoDB) and GraphQL-based CRUD API to access it (using AppSync) with a bunch of directives to customize the schema. The customization means we as a developers are not limited to CRUD only. For example, there are a couple of ways to implement a custom resolvers based on our business logic requirements. One of these ways is to define a Lambda function and link it in schema via `@function` directive. Those lambdas can be written in different languages, but we will focus more on Node.JS since it is nice to have the same language ecosystem both on Front-End and Back-End side. In our case there will be three custom mutation resolvers: one to mark all current todos as completed, second to delete all of the completed todos and third to toggle completion of a todo (instead of setting it to either `true` or `false` manually). The UI should look something like this:
@@ -23,13 +24,14 @@ A couple of side bonuses:
 
 > First thing no note is that Amplify CLI offers to name the function with project name used as a prefix (e.g. `functionsonsteroids1fa063ec`). You would like to follow this pattern (maybe use some shortened version of your project name like in my case it is `fos`) since without in lambdas from different projects with the same name can cause conflicts. When it comes to different environments of the same project Amplify under-the-hood adds suffix of the environment to avoid conflicts, but for some reason it doesn't automatically add project name as prefix, so we need to to it manually.
 
-> In case you are using WebStorm / IntelliJ in order for IDE not to scream at you about "unknown directives" and so on, you'd like to create `appsync.graphql` with content from this [Gist](https://gist.github.com/cietho/87463cfa77ffa9917d1b1425e01049bd)  and mention it as a schema alongside with your actual project schema in `graphql.config.yml` at the root of the repo.
+> In case you are using WebStorm / IntelliJ in order for IDE not to scream at you about "unknown directives" and so on, you'd like to create `appsync.graphql` with content from this [Gist](https://gist.github.com/cietho/87463cfa77ffa9917d1b1425e01049bd) and mention it as a schema alongside with your actual project schema in `graphql.config.yml` at the root of the repo.
 
 So as of now we have three separate JavaScript lambda functions with all the necessary logic already implemented. Here are file structure and code of one of our three lambdas just for a reference:
 
 ![](../attachments/amplify-functions-on-steroids-3.png)
 
 Our goals are:
+
 - Migrate them to TypeScript
 - Share common code between them
 - Get types for them from Amplify CLI Codegen
@@ -71,23 +73,23 @@ Both those options are about sharing JavaScript code, but since we migrated to T
 
 - Amplify CLI cannot detect lambda changes if only a shared code is changed. It doesn't matter for CI/CD since we are ignoring all `.js` files, which means it will build it each time, but locally we might need to build lambda manually from time to time so `amplify push` can catch the stuff up.
 
--  Since `tsc` is building the whole shared folder each lambda have to include all its dependencies even though it might not use the functionality that requires those dependencies. E.g. if one of lambdas need to use `lodash` and its code is places into shared folder the lib have to be installed into all lambdas who benefit from shared code. It may lead to exceeding the lambda max size limit, but in that case we can swap TypeScript compiler with a Webpack, so lambda become bundled and the dependencies become tree-shakable.
+- Since `tsc` is building the whole shared folder each lambda have to include all its dependencies even though it might not use the functionality that requires those dependencies. E.g. if one of lambdas need to use `lodash` and its code is places into shared folder the lib have to be installed into all lambdas who benefit from shared code. It may lead to exceeding the lambda max size limit, but in that case we can swap TypeScript compiler with a Webpack, so lambda become bundled and the dependencies become tree-shakable.
 
 - Shared lambda code is not telling by itself the permissions or environment variables that lambda must have in order to successfully execute it, so we need to remember to update it accordingly.
 
 > As a bonus in order to avoid long `../../../../` imports from shared folder, you can add a couple of path aliases into `tsconfig.json`. But if you do so, don't forget to convert shortened imports back to long ones after transpilation. It can be done by adding `tsc-alias` run (after `tsc` run) into `amplify:...` scripts, that we added as a part of Amplify "Build options" guide.
-
 
 ### Amplify CLI Codegen multi-target
 
 Now that we have a good support for TS it and we placed removed repetitive code, it would be nice just like in UI to benefit from auto-generated types based on our AppSync schema. According to this GitHub [issue](https://github.com/aws-amplify/amplify-codegen/issues/49) there is no support for multiple targets in Amplify Codegen at the moment, but... Since Amplify stores Codegen config as a file in the root of our repo we can update it manually to our needs and Codegen will do what we want him to do without any problem... Just don't tell this secret to anyone😜
 
 ![](../attachments/amplify-functions-on-steroids-8.png)
+
 > For some reason it only works if you agreed to generate all possible operations and types during adding or re-adding Codegen. Otherwise Codegen throws an exception that multiple projects are not supported.
 
 The only problem with this approach is that the Codegen runs after the code is built and pushed to the cloud. E.g. if you change the schema you first need to do `amplify push`, then after you get updated types you need to make `amplify push` once again to re-build lambdas, that depends on those types. A possible workaround for it may be a separate push of API and lambdas (e.g. `amplify push api` at first and `amplify push function` after it). Or we can mock API (`amplify mock api`), which will trigger the build of API, which will trigger Codegen with latest changes, and then we can push everything together.
 
-### Conclusion 
+### Conclusion
 
 To sum up we achieved everything we wanted and are now ready to boost the productivity of any Amplify-based project, the trade-offs that we have as a result are:
 

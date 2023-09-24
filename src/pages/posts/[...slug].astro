@@ -1,7 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import { getImage, Image } from "astro:assets";
+import { getImage, Image } from 'astro:assets';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -10,36 +10,49 @@ interface Props {
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
 
-  return posts.map(post => ({
+  return posts.map((post) => ({
     params: { slug: post.slug },
-    props: { post }
+    props: { post },
   }));
 }
 
 const { post } = Astro.props;
 
-const {title, coverImage} = post.data;
-const coverImageSrc = coverImage && (await getImage({src: coverImage, format: coverImage.format})).src;
+const { title, coverImage, description } = post.data;
+const coverImageSrc =
+  coverImage &&
+  (await getImage({ src: coverImage, format: coverImage.format })).src;
 
 const { Content } = await post.render();
 ---
 
-<Layout title={title}
-        image={coverImageSrc}>
+<Layout
+  title={title}
+  image={coverImageSrc}>
   <article class="prose">
     <h1>{title}</h1>
 
-    { coverImage && <Image src={coverImage} alt="" /> }
+    {
+      coverImage && (
+        <Image
+          src={coverImage}
+          alt=""
+        />
+      )
+    }
+
+    <p><em>{description}</em></p>
 
     <Content />
   </article>
 
-  <script src="https://utteranc.es/client.js"
-          repo="vorant94/vorant94.github.io"
-          issue-term="og:title"
-          label="comment"
-          theme="github-light"
-          crossorigin="anonymous"
-          async>
-  </script>
+  <script
+    src="https://utteranc.es/client.js"
+    repo="vorant94/vorant94.github.io"
+    issue-term="og:title"
+    label="comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
 </Layout>

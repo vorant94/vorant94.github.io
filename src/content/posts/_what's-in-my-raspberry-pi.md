@@ -1,8 +1,9 @@
 ---
-title: 
-description: 
-tags: 
-platforms: 
+title:
+description:
+tags:
+platforms:
 publishedAt:
 ---
+
 ### Section title

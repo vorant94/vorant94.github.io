@@ -9,11 +9,12 @@ platforms:
   - https://vorant94.medium.com/pitfalls-with-aws-amplify-serverless-containers-ba9e2e87a6f
 publishedAt: 2023-01-31
 ---
-### Starting point 
+
+### Starting point
 
 In order to get to the point of serverless containers let's assume we have an Angular project that is configured with AWS according to [this guide](https://docs.amplify.aws/start/q/integration/angular/). After the project is initialized it needs also to be configured to allow advanced workflows by running `aws configure project`.
 
-### File converter API 
+### File converter API
 
 The API that I chose to implement in the scope of this app is [Gotenberg](https://gotenberg.dev/). It is basically a wrapper on top of the LibreOffice API distributed as a nice stateless Docker container, what makes it a perfect candidate for our purpose.
 
@@ -54,7 +55,7 @@ services:
 python:
 	build:
 		context: ./python
-		dockerfile: Dockerfile	
+		dockerfile: Dockerfile
 	networks:
 		- public
 		- private
@@ -96,7 +97,7 @@ CMD [ "gotenberg" ]
 Updated compose file looks like this
 
 ```yaml
-version: "3"  
+version: "3"
 
 services:
 	gotenberg:

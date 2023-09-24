@@ -9,6 +9,7 @@ platforms:
   - https://vorant94.medium.com/skin-replacement-in-angular-after-image-build-bfeb7d2be3f6
 publishedAt: 2021-01-26
 ---
+
 ### The problem
 
 When you develop an app that is meant to be hosted on customer environment and you have several customers each customer will probably request to have its own theme for the app, which consists of set of images and colors that fit these images. And we are not talking here about runtime theme switch by user like light/dark theme, we are talking about environment theme, about branding of the app.
@@ -49,7 +50,7 @@ So here is my proposal, which is easy not only to implement but also to scale wi
 Let's say we want to replace the following image in our app
 
 ```html
-<img src='./assets/theme/background.png'>
+<img src="./assets/theme/background.png" />
 ```
 
 In order to replace it we can we can use Docker volumes as I already mentioned before. And since images are only files and nothings more there is no bicycle to invent, the syntax of `docker-compose.yml` can be as follows. The only thing I can advise here is to create a folder to store all theme related images so there will be no need to create new volume for each new themed image
@@ -64,12 +65,11 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "4200:80"
+      - '4200:80'
     volumes:
       - ng-app-theme:/usr/share/nginx/html/assets/theme
 
-volumes:
-  ng-app-theme
+volumes: ng-app-theme
 ```
 
 **/usr/share/nginx/html** - is just a path where the app lives in order to be served by NGINX
@@ -93,27 +93,32 @@ And of course you need to provide a file where you configure all default values 
 ```javascript
 var root = document.documentElement;
 
-root.style.setProperty('--styled-text-color', 'blue')
+root.style.setProperty('--styled-text-color', 'blue');
 ```
 
 and add it manually to `index.html`
 
 ```html
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-  <meta charset='utf-8' />
-  <title>SkinReplacementAfterBuild</title>
-  <base href='/' />
-  <meta name='viewport' content='width=device-width, initial-scale=1' />
-  <link rel='icon' type='image/x-icon' href='favicon.ico' />
-</head>
-<body>
-<app-root></app-root>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SkinReplacementAfterBuild</title>
+    <base href="/" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="favicon.ico" />
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
 </html>
 
-<script src='./assets/theme/theme.js'></script>
+<script src="./assets/theme/theme.js"></script>
 ```
 
 So with all this set up we have our default theme in `theme.js` and what we should do here is to add a modified copy of this file into our Docker volume. Since we are storing all theme files in one directory e.g. one volume there is no need to change `docker-compose.yml`
