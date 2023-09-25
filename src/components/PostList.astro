@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import { format, compareDesc } from 'date-fns';
+import { DATE_FORMAT } from '../shared/date-helpers';
+
+const posts = (await getCollection('posts')).sort((a, b) =>
+  compareDesc(a.data.publishedAt, b.data.publishedAt),
+);
+---
+
+<ul class="flex flex-col divide-y divide-dashed">
+  {
+    posts.map((post) => (
+      <li class="flex flex-col">
+        <a
+          class="hover:text-blue-600 hover:underline flex gap-3 py-3"
+          href={`/posts/${post.slug}`}>
+          <span class="flex-1 truncate">{post.data.title}</span>
+          <span>{format(post.data.publishedAt, DATE_FORMAT)}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
