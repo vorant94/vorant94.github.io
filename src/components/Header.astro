@@ -2,7 +2,7 @@
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/brands.css';
 import { Image } from 'astro:assets';
-import logo from '../images/logo.svg';
+import logoHeader from '../images/logo-header.svg';
 
 interface SocialLink {
   icon: string;
@@ -29,7 +29,7 @@ const socialLinks: SocialLink[] = [
   <nav>
     <a href="/">
       <Image
-        src={logo}
+        src={logoHeader}
         alt="Logo"
         height="24"
       />
@@ -43,6 +43,7 @@ const socialLinks: SocialLink[] = [
       socialLinks.map((link) => (
         <li>
           <a
+            class="text-gray-500 hover:text-inherit"
             href={link.url}
             target="_blank">
             <i class={`fa-brands ${link.icon} fa-lg`} />

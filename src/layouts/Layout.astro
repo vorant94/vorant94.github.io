@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { TITLE } from '../shared/intro-texts';
 
 interface Props {
   title?: string;
@@ -9,7 +10,7 @@ interface Props {
 
 const { title, image } = Astro.props;
 
-const pageTitle = title ? `vorant94 | ${title}` : `vorant94's Blog`;
+const pageTitle = title ? `vorant94 | ${title}` : TITLE;
 
 const ogTitle = title ?? `A personal space of yet another full-stack dev`;
 const ogType = title ? 'article' : 'website';
@@ -51,7 +52,7 @@ const ogImage = new URL(image ?? '/favicon.ico', Astro.site);
     <title>{pageTitle}</title>
   </head>
   <body
-    class="flex flex-col min-h-[calc(100dvh)] mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
+    class="bg-gray-50 flex flex-col min-h-[calc(100dvh)] mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
     <Header />
 
     <main class="flex-1 p-4">

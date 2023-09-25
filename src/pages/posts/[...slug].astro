@@ -2,6 +2,8 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { getImage, Image } from 'astro:assets';
+import { format } from 'date-fns';
+import { DATE_FORMAT } from '../../shared/date-helpers';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -18,12 +20,12 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 
-const { title, coverImage, description } = post.data;
+const { title, coverImage, description, publishedAt, tags } = post.data;
 const coverImageSrc =
   coverImage &&
   (await getImage({ src: coverImage, format: coverImage.format })).src;
 
-const { Content } = await post.render();
+const { Content, remarkPluginFrontmatter } = await post.render();
 ---
 
 <Layout
@@ -31,6 +33,28 @@ const { Content } = await post.render();
   image={coverImageSrc}>
   <article class="prose">
     <h1>{title}</h1>
+
+    <div class="flex gap-2 items-center">
+      <span class="text-sm text-gray-500">
+        {format(publishedAt, DATE_FORMAT)}
+      </span>
+      <span class="text-sm text-gray-500">&#x2022;</span>
+      <span class="text-sm text-gray-500">
+        {remarkPluginFrontmatter.minutesRead}
+      </span>
+
+      <div class="flex-1"></div>
+
+      <ul class="hidden lg:flex list-none m-0 p-0 gap-1">
+        {
+          tags.map((tag) => (
+            <li class="border border-gray-300 rounded-full text-xs font-light text-gray-500 m-0 py-0 px-2">
+              #{tag}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
 
     {
       coverImage && (
@@ -43,7 +67,9 @@ const { Content } = await post.render();
 
     <p><em>{description}</em></p>
 
-    <Content />
+    <div>
+      <Content />
+    </div>
   </article>
 
   <script

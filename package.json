@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "astro": "astro",
-    "lint": "prettier . --write && prettier **/*.astro --write",
+    "format": "prettier . --write && prettier **/*.astro --write",
     "prettier": "prettier"
   },
   "dependencies": {
@@ -24,10 +24,13 @@
     "astro": "^3.1.1",
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.1",
+    "date-fns": "^2.30.0",
+    "mdast-util-to-string": "^4.0.0",
     "postcss": "^8.4.30",
     "postcss-load-config": "^4.0.1",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
+    "reading-time": "^1.5.0",
     "typescript": "^5.2.2"
   }
 }
