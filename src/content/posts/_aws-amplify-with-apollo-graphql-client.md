@@ -1,5 +1,5 @@
 ---
-title: What’s in my Raspberry-Pi?
+title: AWS Amplify with Apollo GraphQL Client
 description: 
 tags: 
 platforms: 

@@ -8,8 +8,8 @@ tags:
 platforms:
   - https://vorant94.medium.com/pitfalls-with-aws-amplify-serverless-containers-ba9e2e87a6f
 publishedAt: 2023-01-31
+coverImage:
 ---
-
 ### Starting point
 
 In order to get to the point of serverless containers let's assume we have an Angular project that is configured with AWS according to [this guide](https://docs.amplify.aws/start/q/integration/angular/). After the project is initialized it needs also to be configured to allow advanced workflows by running `aws configure project`.
