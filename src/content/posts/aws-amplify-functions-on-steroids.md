@@ -10,6 +10,7 @@ platforms:
 publishedAt: 2023-07-05
 coverImage: ../attachments/amplify-functions-on-steroids-cover.png
 ---
+
 ### What we have out of the box
 
 When we add an API to Amplify project it out-of-the-box offers us key-value storage to store all of our data (using DynamoDB) and GraphQL-based CRUD API to access it (using AppSync) with a bunch of directives to customize the schema. The customization means we as a developers are not limited to CRUD only. For example, there are a couple of ways to implement a custom resolvers based on our business logic requirements. One of these ways is to define a Lambda function and link it in schema via `@function` directive. Those lambdas can be written in different languages, but we will focus more on Node.JS since it is nice to have the same language ecosystem both on Front-End and Back-End side. In our case there will be three custom mutation resolvers: one to mark all current todos as completed, second to delete all of the completed todos and third to toggle completion of a todo (instead of setting it to either `true` or `false` manually). The UI should look something like this:

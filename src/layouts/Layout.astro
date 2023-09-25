@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
   title?: string;
-  image?: string;
+  image?: string | null;
 }
 
 const { title, image } = Astro.props;
