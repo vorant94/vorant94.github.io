@@ -12,7 +12,7 @@ const { title, image } = Astro.props;
 
 const pageTitle = title ? `vorant94 | ${title}` : TITLE;
 
-const ogTitle = title ?? `A personal space of yet another full-stack dev`;
+const ogTitle = title ?? TITLE;
 const ogType = title ? 'article' : 'website';
 const ogUrl = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image ?? '/favicon.ico', Astro.site);
