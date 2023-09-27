@@ -1,0 +1,19 @@
+---
+import { type CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+---
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="vorant94/vorant94.github.io"
+  issue-term={post.slug}
+  label="comment"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>

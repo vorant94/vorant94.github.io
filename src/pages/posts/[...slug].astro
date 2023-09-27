@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import { getImage, Image } from 'astro:assets';
 import { format } from 'date-fns';
 import { DATE_FORMAT } from '../../shared/date-helpers';
+import Comments from '../../components/Comments.astro';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -72,13 +73,5 @@ const { Content, remarkPluginFrontmatter } = await post.render();
     </div>
   </article>
 
-  <script
-    src="https://utteranc.es/client.js"
-    repo="vorant94/vorant94.github.io"
-    issue-term="og:title"
-    label="comment"
-    theme="github-light"
-    crossorigin="anonymous"
-    async
-  ></script>
+  <Comments post={post} />
 </Layout>
