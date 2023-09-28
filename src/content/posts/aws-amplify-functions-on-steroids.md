@@ -15,11 +15,12 @@ coverImage: ../attachments/aws-amplify-functions-on-steroids/cover.png
 
 When we add an API to Amplify project it out-of-the-box offers us key-value storage to store all of our data (using DynamoDB) and GraphQL-based CRUD API to access it (using AppSync) with a bunch of directives to customize the schema. The customization means we as a developers are not limited to CRUD only. For example, there are a couple of ways to implement a custom resolvers based on our business logic requirements. One of these ways is to define a Lambda function and link it in schema via `@function` directive. Those lambdas can be written in different languages, but we will focus more on Node.JS since it is nice to have the same language ecosystem both on Front-End and Back-End side. In our case there will be three custom mutation resolvers: one to mark all current todos as completed, second to delete all of the completed todos and third to toggle completion of a todo (instead of setting it to either `true` or `false` manually). The UI should look something like this:
 
-![](../attachments/aws-amplify-functions-on-steroids/1.png)
+![example project ui](../attachments/aws-amplify-functions-on-steroids/example-project-ui.png)
 
 After we add Amplify to the project, lets define our data model and add a functions to our project (see the official documentation [here](https://docs.amplify.aws/cli/function/) and [here](https://docs.amplify.aws/cli/graphql/custom-business-logic/#lambda-function-resolver) for the exact steps). In the end our schema should look somewhat like this:
 
-![](../attachments/aws-amplify-functions-on-steroids/2.png)
+![example project schema](../attachments/aws-amplify-functions-on-steroids/example-project-schema.png)
+
 A couple of side bonuses:
 
 > First thing no note is that Amplify CLI offers to name the function with project name used as a prefix (e.g. `functionsonsteroids1fa063ec`). You would like to follow this pattern (maybe use some shortened version of your project name like in my case it is `fos`) since without in lambdas from different projects with the same name can cause conflicts. When it comes to different environments of the same project Amplify under-the-hood adds suffix of the environment to avoid conflicts, but for some reason it doesn't automatically add project name as prefix, so we need to to it manually.
@@ -28,7 +29,7 @@ A couple of side bonuses:
 
 So as of now we have three separate JavaScript lambda functions with all the necessary logic already implemented. Here are file structure and code of one of our three lambdas just for a reference:
 
-![](../attachments/aws-amplify-functions-on-steroids/3.png)
+![lambdas file structure and javascript code](../attachments/aws-amplify-functions-on-steroids/lambdas-file-structure-and-javascript-code.png)
 
 Our goals are:
 
@@ -37,7 +38,7 @@ Our goals are:
 - Get types for them from Amplify CLI Codegen
 - Have as less trade-offs as possible
 
-![](../attachments/aws-amplify-functions-on-steroids/4.jpg)
+![goals](../attachments/aws-amplify-functions-on-steroids/goals.jpg)
 
 ### TypeScript support
 
@@ -57,7 +58,7 @@ The last point of time that I mentioned earlier is Amplify CI/CD. Since as of no
 
 After all the preparation is done, we can now re-write the actual JS code of the lambda to be TS. Additionally I added `.gitignore` in `src` of lambda, because we don't need to store transpilation result in the source code. Let's just manually copy-paste required AppSync types from generated UI code for now. We will make it way a lot more DRY in the next step. In the meanwhile here are updated file structure and source code of another one of our lambdas for reference (I put all the copy-pasted AppSync types into `app-sync.models.ts` and moved `appSyncRequest` function to `app-sync.helpers.ts`).
 
-![](../attachments/aws-amplify-functions-on-steroids/5.png)
+![lambdas file structure and typescript code](../attachments/aws-amplify-functions-on-steroids/lambdas-file-structure-and-typescript-code.png)
 
 ### Sharing code between lambdas
 
@@ -67,9 +68,9 @@ Both those options are about sharing JavaScript code, but since we migrated to T
 
 - Since there are two `rootDirs` for TS compiler, the actual structure of the resulting JS inside `src` is changed (see the screenshot) and AWS Lambda runner points to actual entry file no more. We can narrow down this issue to purely cosmetic one by manually editing CloudFormation templates of lambdas (and its `package.json#main` property as well) so it will take into account a new file structure e.g.
 
-![](../attachments/aws-amplify-functions-on-steroids/6.png)
+![build output of lambda with multiple root dirs](../attachments/aws-amplify-functions-on-steroids/build-output-of-lambda-with-multiple-root-dirs.png)
 
-![](../attachments/aws-amplify-functions-on-steroids/7.png)
+![lambda handler change in cloud formation template](../attachments/aws-amplify-functions-on-steroids/lambda-handler-change-in-cloud-formation-template.png)
 
 - Amplify CLI cannot detect lambda changes if only a shared code is changed. It doesn't matter for CI/CD since we are ignoring all `.js` files, which means it will build it each time, but locally we might need to build lambda manually from time to time so `amplify push` can catch the stuff up.
 
@@ -83,7 +84,7 @@ Both those options are about sharing JavaScript code, but since we migrated to T
 
 Now that we have a good support for TS it and we placed removed repetitive code, it would be nice just like in UI to benefit from auto-generated types based on our AppSync schema. According to this GitHub [issue](https://github.com/aws-amplify/amplify-codegen/issues/49) there is no support for multiple targets in Amplify Codegen at the moment, but... Since Amplify stores Codegen config as a file in the root of our repo we can update it manually to our needs and Codegen will do what we want him to do without any problem... Just don't tell this secret to anyone😜
 
-![](../attachments/aws-amplify-functions-on-steroids/8.png)
+![multi-target codegen](../attachments/aws-amplify-functions-on-steroids/multi-target-codegen.png)
 
 > For some reason it only works if you agreed to generate all possible operations and types during adding or re-adding Codegen. Otherwise Codegen throws an exception that multiple projects are not supported.
 

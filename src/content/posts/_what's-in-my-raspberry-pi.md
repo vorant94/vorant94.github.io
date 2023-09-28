@@ -41,6 +41,20 @@ RSS protocol is sort of standard contract between tools that blog authors use to
 
 ### Bitwarden / Vaultwarden
 
+![Bitwarden Logo](../attachments/what's-in-my-raspberry-pi/bitwarden-logo.svg)
+
+There are multiple options to store your passwords nowadays. I suppose that the default option for an average modern user is either to have only one password for everything or to store all of the passwords in a browser. The major problem of having only one password is that not all your internet accounts are equally protected, but most likely you use the same email address everywhere. A common way of hacking user email account like Gmail, which has strong protection, is to hack some small less-protected buggy site, find there an account with the targeted email address and try to use this password in Gmail, so it's simply not safe. The built-in browsers password manager for me means vendor-lock since I swap browsers from time to time. Thankfully there are plenty of solutions for it outside of major IT monopolies.
+
+> **Whining minute**: modern browsers IMHO should become way more modular, they should not do all at once, they should allow to integrate all at once.
+
+At first many years ago I migrated to 1Password and it was really nice experience. It is standalone subscription-based password manager that exceptionally well integrates itself into both MacOS and iOS. It is even frequently promoted by Apple when they want to demonstrate the amount of apps of their ecosystem. The main problem for me with it was it's monetization approach. While subscription is not active the user can't create new passwords or autofill existing ones. He/she still can view already created passwords and copy-paste them manually, without those capabilities 1Password would be easy no-go for me, but still... Let's be clear, how many new accounts do you need to create each month? I don't do a much. Payment for autofill is just artificial boundary, so what should I pay for on a monthly basis? For the storing the data on their cloud infrastructure? I doubt it cost what they ask for.
+
+So once I bought Raspberry Pi I found a good alternative for 1Password, it is called Bitwarden. From the functionality that I personally use they are pretty equal, there is no such a thing that I used in 1Password, but is in lack in Bitwarden. From the design perspective 1Password is indeed prettier, but Bitwarden is free when you self-host it. So instead of paying for storing my passwords in the cloud, I'm running my own instance and connecting iOS app and MacOS browser extensions to it. As with all other my Pi apps there is a trade-off of being unable to connect to server outside the home. But thankfully all of the Bitwarden clients I used are offline-first: once they synced their data with server, user can disconnect from it, all the synced data is still accessible within the client app.
+
+Only one additional thing to mention is that deployment of Bitwarden server itself can be a little bit hard thing to do from what I remember, there are several different things you need to configure and so on. But since the server is open-source, there is already a solution to it. One of the good people out there implemented a lightweight alternative called Vaultwarden that is fully compatible with official Bitwarden clients, so this is what I use in practice.
+
+One additional bonus to this solution that is worth mentioning is security. The thing is that regardless of the size of company, regardless of how much money they spend to be as secure as possible, once the thing is in the cloud you cannot be 100% protected from malicious attacks. Even if data protected in such a manner that even leaked dataset actually don't benefit hackers at all, still making attack surface as small as possible is the best security strategy. And what can be more secure than hosting the server inside your local network without any access to the Internet? So I suppose Bitwarden / Vaultwarden setup is not only cheaper that everything I used before, but also more secure by definition.
+
 ### Firefly III
 
 ### Nextcloud
