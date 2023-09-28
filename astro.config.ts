@@ -16,5 +16,8 @@ export default {
   site: 'https://vorant94.io',
   markdown: {
     remarkPlugins: [readingTimePlugin],
+    shikiConfig: {
+      theme: 'github-light',
+    },
   },
 } satisfies AstroUserConfig;
