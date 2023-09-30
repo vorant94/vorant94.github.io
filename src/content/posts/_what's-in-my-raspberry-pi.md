@@ -3,11 +3,12 @@ title: What’s in my Raspberry Pi?
 description: A couple of years ago I bought myself a Raspberry Pi, a small, energy-efficient, fully-functional computer that is often used for studying or hobbies. I am using it as a home server self-hosting some websites locally to have more control and flexibility over data and functionality of them. My Pi setup went through several iterations and is still evolving. I'd like to share with you the current state of it and future plans that I'm having. I think it really interesting in modern Everything-as-a-Service world to realize how many things we can still do by ourselves.
 tags:
   - self-hosted
-platforms:
-publishedAt:
-coverImage:
+  - tech
+  - raspberry-pi
+platforms: 
+publishedAt: 
+coverImage: ../attachments/what's-in-my-raspberry-pi/cover.jpeg
 ---
-
 ### Pi-hole
 
 ![Pi-Hole Logo](../attachments/what's-in-my-raspberry-pi/pi-hole-logo.png)
@@ -35,9 +36,9 @@ So one of the most popular apps that is meant to be used with Raspberry Pi is a 
 
 Back in the old days when there were no social networks if you wanted to have blog, you had to have one, not just to create a profile in some platform, but to maintain a fully-featured website (like the one you are reading right now). From the author perspective entry level for blogging in such environment was a much higher than what we have right now, but he/she had total freedom and ownership of his/her content. From the reader perspective entry point also was a little bit tricky: in order to build nice and convenient post feed with updates from all of your subscriptions you had to come up with something, nobody wanted manually go over a list of sites on a regular basis. So people invented RSS protocol.
 
-RSS protocol is sort of standard contract between tools that blog authors use to build their blog and apps that readers can use to consume content. For example my blog also has RSS feed: you can navigate to [https://vorant94.io/](https://vorant94.io) and see human-friendly list of recent posts, but you also can navigate to [https://vorant94.io/rss.xml](https://vorant94.io/rss.xml) to get the same list of posts that can be easily passed to one of many RSS aggregators. Combine and render together dozens of such robot-friendly blogs in a timeline manner and you'll get RSS feed. App that you would use to read such a feed is a RSS reader. FreshRSS is exactly all of the above, it is RSS aggregator, reader and feed combined in one
+RSS protocol is sort of standard contract between tools that blog authors use to build their blog and apps that readers can use to consume content. For example my blog also has RSS feed: you can navigate to [https://vorant94.io/](https://vorant94.io) and see human-friendly list of recent posts, but you also can navigate to [https://vorant94.io/rss.xml](https://vorant94.io/rss.xml) to get the same list of posts that can be easily passed to one of many RSS aggregators. Combine and render together dozens of such robot-friendly blogs in a timeline manner and you'll get RSS feed. App that you would use to read such a feed is a RSS reader. FreshRSS is exactly all of the above, it is RSS aggregator, reader and feed combined in one.
 
-...
+With all that being said this was one of the first apps that I self-hosted and it went through a lot of iterations on how exactly I'm using it.
 
 ### Bitwarden / Vaultwarden
 
@@ -53,7 +54,7 @@ So once I bought Raspberry Pi I found a good alternative for 1Password, it is ca
 
 Only one additional thing to mention is that deployment of Bitwarden server itself can be a little bit hard thing to do from what I remember, there are several different things you need to configure and so on. But since the server is open-source, there is already a solution to it. One of the good people out there implemented a lightweight alternative called Vaultwarden that is fully compatible with official Bitwarden clients, so this is what I use in practice.
 
-One additional bonus to this solution that is worth mentioning is security. The thing is that regardless of the size of company, regardless of how much money they spend to be as secure as possible, once the thing is in the cloud you cannot be 100% protected from malicious attacks. Even if data protected in such a manner that even leaked dataset actually don't benefit hackers at all, still making attack surface as small as possible is the best security strategy. And what can be more secure than hosting the server inside your local network without any access to the Internet? So I suppose Bitwarden / Vaultwarden setup is not only cheaper that everything I used before, but also more secure by definition.
+One additional bonus to this solution that is worth mentioning is security. The thing is that regardless of the size of company, regardless of how much money they spend to be as secure as possible, once the thing is in the cloud you cannot be 100% protected from malicious attacks. Even if data is so protected that even when it leaks hackers can't benefit at all, still making attack surface as small as possible is the best security strategy. And what can be more secure than hosting the server inside your local network without any access to the Internet? So I suppose Bitwarden / Vaultwarden setup is not only cheaper that everything I used before, but also more secure by definition.
 
 ### Firefly III
 

@@ -7,7 +7,7 @@ platforms:
   - https://vas3k.club/post/1186/
   - https://www.reddit.com/r/Pikabu/comments/gc3vxp/%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83_%D0%BE_%D0%B4%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%BD%D0%BE%D0%B2%D1%8B%D0%B9_%D0%BC%D0%B8%D1%80_%D0%BD%D0%B0_%D1%81%D0%B0%D0%BC%D0%BE%D0%BC_%D0%B4%D0%B5%D0%BB%D0%B5_%D1%83%D1%82%D0%BE%D0%BF%D0%B8%D1%8F/?utm_source=share&utm_medium=web2x&context=3
 publishedAt: 2020-05-02
-coverImage:
+coverImage: ../attachments/why-brave-new-world-is-actually-a-utopia/cover.jpg
 ---
 ### Перед тем как начать
 

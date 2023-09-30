@@ -23,7 +23,7 @@ After we add Amplify to the project, lets define our data model and add a functi
 
 A couple of side bonuses:
 
-> First thing no note is that Amplify CLI offers to name the function with project name used as a prefix (e.g. `functionsonsteroids1fa063ec`). You would like to follow this pattern (maybe use some shortened version of your project name like in my case it is `fos`) since without in lambdas from different projects with the same name can cause conflicts. When it comes to different environments of the same project Amplify under-the-hood adds suffix of the environment to avoid conflicts, but for some reason it doesn't automatically add project name as prefix, so we need to to it manually.
+> First thing to note is that Amplify CLI offers to name the function with project name used as a prefix (e.g. `functionsonsteroids1fa063ec`). You would like to follow this pattern (maybe use some shortened version of your project name like in my case it is `fos`) since without in lambdas from different projects with the same name can cause conflicts. When it comes to different environments of the same project Amplify under-the-hood adds suffix of the environment to avoid conflicts, but for some reason it doesn't automatically add project name as prefix, so we need to to it manually.
 
 > In case you are using WebStorm / IntelliJ in order for IDE not to scream at you about "unknown directives" and so on, you'd like to create `appsync.graphql` with content from this [Gist](https://gist.github.com/cietho/87463cfa77ffa9917d1b1425e01049bd) and mention it as a schema alongside with your actual project schema in `graphql.config.yml` at the root of the repo.
 
