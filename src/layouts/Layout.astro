@@ -17,8 +17,6 @@ const ogTitle = title ?? TITLE;
 const ogType = title ? 'article' : 'website';
 const ogUrl = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image ?? '/favicon.ico', Astro.site);
-
-const isProd = import.meta.env.PROD;
 ---
 
 <!doctype html>
@@ -60,7 +58,7 @@ const isProd = import.meta.env.PROD;
   </head>
   <body
     class="bg-gray-50 flex flex-col min-h-[calc(100dvh)] mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
-    {isProd && <Analytics />}
+    <Analytics />
 
     <Header />
 
