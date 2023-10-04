@@ -53,15 +53,25 @@ RSS protocol is sort of standard contract between tools that blog authors use to
 
 > **Side note**: any podcast you are listening from time to time to is just an RSS-feed wrapped by a pretty app with an interface adapted for consuming audio content. So RSS is not just about text content
 
-With all that being said FreshRSS was one of the first apps that I self-hosted and it went through a lot of iterations on how exactly I'm using it. For a couple of times I tried to centralise there all of the content I consume online since this way I could avoid annoying algorithmic recommendation feeds. I wanted "one feed to rule them all" ©. But not all of the content platforms provide built-in RSS feed. YouTube does, Medium does, but Telegram, Twitter and Facebook don't. So I googled what can be a solution and found [RSSHub](https://docs.rsshub.app/), which basically a self-hosted web scrapper that can generate RSS feed pretty much from everything. So in case a platform supports RSS I could just add it to FreshRSS as is, and it case the platform doesn't support it, I could add it by adding RSSHub, that points to the platform.
+With all that being said FreshRSS was one of the first apps that I self-hosted and it went through a lot of iterations on how exactly I'm using it. For a couple of times I tried to centralise there all of the content I consume online since this way I could avoid annoying algorithmic recommendation feeds. I wanted _one feed to rule them all ©_. But not all of the content platforms provide built-in RSS feed. YouTube does, Medium does, but Telegram, Twitter and Facebook don't. So I googled for a solution and found [RSSHub](https://docs.rsshub.app/), which basically a self-hosted web scrapper that can generate RSS feed pretty much from everything. So in case a platform supports RSS I could just add it to FreshRSS as is, and it case the platform doesn't support it, I could add it by adding RSSHub, that points to the platform.
 
-This setup gave me one unified feed with all of my subscriptions: small personal website blogs, Medium profiles, YouTube channels, Twitter accounts and Telegram channels. I didn't succeeded on generating the feed from Facebook stuff, since its security policies required additional configuration for RSSHub, which I didn't want to dive into. Getting the feed from Facebook user accounts (not just public pages) is impossible at all from what I understood, so I just skipped it.
+This setup gave me one unified feed with all of my subscriptions: small personal website blogs, Medium profiles, YouTube channels, Twitter accounts and Telegram channels. I didn't succeeded on generating the feed from Facebook stuff, since its security policies required additional configuration for RSSHub, which I didn't want to dive into. Getting the feed from Facebook user accounts (compared to feed from FB public pages) is impossible at all from what I understood, so I just skipped it.
 
-FreshRSS by itself provides web interface to read / manage your feed. They even support UI theme customization, but I wanter more native experience. So I found [Reeder 5](https://reederapp.com/), exceptionally well designed RSS feed reader specifically for iOS/MacOS. It supports wide range of RSS aggregators to read feed from there, which also included self-hosted FreshRSS instance
+FreshRSS by itself provides web interface to read / manage your feed. They even support UI theme customization, but I wanted more native experience. So I found [Reeder 5](https://reederapp.com/), exceptionally well designed RSS feed reader specifically for iOS/MacOS. It supports wide range of RSS aggregators to read feeds from there, which also included self-hosted FreshRSS instance
 
 > **Side note**: recently I read a good [article](https://borism.medium.com/the-death-of-three-apps-72f3c0e802ab) about a couple of third-party clients for Twitter, Wikipedia and Reddit. All of them are now dead because of changes in the terms of usage of their respective services. And it is really sad because they showed what the UI can be if it is done separately from the main service. Twitter, Wikipedia or Reddit don't make money directly from their official apps, so their UI is about good enough quality. But paid third-party apps must give something above and beyond compared to official free apps, so they are forced to come up with a better solution. It shows how sometimes segregation of some system components (like service itself and app for it) can lead to overall better outcome for an end user
 
-...
+After a couple of months I regretted the decision to go full RSS. As with any abstraction when you try to use a lot of different stuff in unified form you inevitable cut some corners, e.g. loose some unique features in each of these different things.
+
+For example the way RSSHub built feed item from Telegram channel posts was not perfect: sometimes I couldn't watch a video within reeder, sometimes something else I don't really remember now. But most crucial thing was is that there is no way to comment without leaving Reeder - duh! The same goes for Twitter, since almost always after I read a tweet I wanna jump to the comments and with Reeder itself it is not possible.
+
+Furthermore talking about video content like YouTube: you probably notice that when someone sends you link to a video there and you try to open it from phone, it first opens browser and only then redirects to the app (these kinda links that are in the end resolved by apps are called _deep links_), those redirects were very unstable and I ofter was left in the mobile YouTube site. Not mentioning that use of YouTube via Reeder or its mobile site cut me of wireless integrations with YouTube on my home Android TV. At some point I even found that Medium app, a text-based platform, is laggy when it comes to deep links...
+
+Regarding podcasts: as I said they are RSS feed to begin with, but here I also had troubles. I'm sure nobody listens to podcasts on the platform they are actually published to, somebody uses Spotify, somebody - Apple Podcasts or whatever. But internally podcast feeds do generate links for their specific platforms. So instead of opening a podcast app installed on my phone, I got browser opened with some SoundCloud or yet another site, that I don't event have account for. I could listen to podcasts inside Reeder itself, but this app lacks UI for consuming audio content as it targets text-based content only.
+
+So after all as of now I use RSS feeds only for Medium (mostly from my laptop, so I don't care about broken deeps links) and small personal blogs, forums, that have no other way to distribute their content outside of their UI besides RSS.
+
+> In case you don't have a desire to try self-hosting, but wanna play with RSS, there are plenty of apps / services that provide RSS aggregation, but do not require any sort of backend for it. For example Reeder I was talking about actually can work with RSS feeds stored in your iCloud. For Android a long long time ago I used [Feedly](https://feedly.com/), but I remember that I didn't like it much for some reason. In short there are more than enough options for you to try if you wish.
 
 ### Bitwarden / Vaultwarden
 
@@ -85,13 +95,23 @@ One additional thing to mention is that regardless of the size of company, regar
 
 ### Firefly III
 
+![firefly iii logo](../attachments/what's-in-my-raspberry-pi/firefly-iii-logo.svg)
+
 ### Nextcloud
+
+![nextcloud logo](../attachments/what's-in-my-raspberry-pi/nextcloud-logo.svg)
 
 ### ArchiveBox
 
+![archivebox logo](../attachments/what's-in-my-raspberry-pi/archivebox-logo.png)
+
 ### Jellyfin
 
+![jellyfin logo](../attachments/what's-in-my-raspberry-pi/jellyfin-logo.svg)
+
 ### Heimdall
+
+![heimdall logo](../attachments/what's-in-my-raspberry-pi/heimdall-logo.png)
 
 ### Tech setup
 
