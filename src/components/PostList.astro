@@ -1,10 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
-import { format, compareDesc } from 'date-fns';
-import { DATE_FORMAT } from '../shared/date-helpers';
+import { compareDesc } from 'date-fns';
+import { Post } from '../shared/post';
 
-const posts = (await getCollection('posts')).sort((a, b) =>
-  compareDesc(a.data.publishedAt, b.data.publishedAt),
+const entries = await getCollection('posts');
+
+const posts = await Promise.all(
+  entries
+    .sort((a, b) => compareDesc(a.data.publishedAt, b.data.publishedAt))
+    .map((entry) => Post.fromEntry(entry)),
 );
 ---
 
@@ -14,9 +18,9 @@ const posts = (await getCollection('posts')).sort((a, b) =>
       <li class="flex flex-col">
         <a
           class="hover:text-blue-600 hover:underline flex gap-3 py-3"
-          href={`/posts/${post.slug}`}>
-          <span class="flex-1 truncate">{post.data.title}</span>
-          <span>{format(post.data.publishedAt, DATE_FORMAT)}</span>
+          href={post.fullPath}>
+          <span class="flex-1 truncate">{post.title}</span>
+          <span>{post.publishedAt}</span>
         </a>
       </li>
     ))

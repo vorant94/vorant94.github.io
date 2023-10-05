@@ -2,31 +2,41 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { getImage, Image } from 'astro:assets';
-import { format } from 'date-fns';
-import { DATE_FORMAT } from '../../shared/date-helpers';
 import Comments from '../../components/Comments.astro';
+import { Post } from '../../shared/post';
 
 interface Props {
-  post: CollectionEntry<'posts'>;
+  entry: CollectionEntry<'posts'>;
+  post: Post;
 }
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+  const entries = await getCollection('posts');
 
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+  return await Promise.all(
+    entries.map(async (entry) => {
+      const post = await Post.fromEntry(entry);
+
+      return {
+        params: { slug: post.slug },
+        props: { entry, post },
+      };
+    }),
+  );
 }
 
-const { post } = Astro.props;
+const { entry, post } = Astro.props;
 
-const { title, coverImage, description, publishedAt, tags } = post.data;
-const coverImageSrc =
-  coverImage &&
-  (await getImage({ src: coverImage, format: coverImage.format })).src;
+const { coverImage, tags } = entry.data;
+const { title, description, publishedAt } = post;
 
-const { Content, remarkPluginFrontmatter } = await post.render();
+let coverImageSrc: string | undefined;
+if (coverImage) {
+  const image = await getImage({ src: coverImage, format: coverImage.format });
+  coverImageSrc = image.src;
+}
+
+const { Content, remarkPluginFrontmatter } = await entry.render();
 ---
 
 <Layout
@@ -37,7 +47,7 @@ const { Content, remarkPluginFrontmatter } = await post.render();
 
     <div class="flex gap-2 items-center">
       <span class="text-sm text-gray-500">
-        {format(publishedAt, DATE_FORMAT)}
+        {publishedAt}
       </span>
       <span class="text-sm text-gray-500">&#x2022;</span>
       <span class="text-sm text-gray-500">

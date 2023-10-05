@@ -1,8 +1,8 @@
 ---
-import { type CollectionEntry } from 'astro:content';
+import { Post } from '../shared/post';
 
 interface Props {
-  post: CollectionEntry<'posts'>;
+  post: Post;
 }
 
 const { post } = Astro.props;
