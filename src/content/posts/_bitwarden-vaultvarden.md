@@ -4,11 +4,9 @@ tags:
   - self-hosted
   - tech
   - raspberry-pi
-platforms:
-  -
 publishedAt:
-coverImage: ../attachments/whats-in-my-raspberry-pi/bitwarden-logo.svg
-thread: whats-in-my-raspberry-pi
+coverImage: ../attachments/whats-in-my-pi/bitwarden-logo.svg
+thread: whats-in-my-pi
 ---
 
 There are multiple options to store your passwords nowadays. I suppose that the default option for an average modern user is either to have only one password for everything or to store all of the passwords in a browser since it constantly suggests it. The major problem of having only one password is that not all your internet accounts are equally protected. Most likely you also use the same email address everywhere. A common way of hacking user email account like Gmail, which has strong protection, is to hack some small less-protected buggy site, find there an account with the targeted email address and try to use this password in Gmail. After the hacker has access to your email account it can reset any of your passwords on other sites by using "Forgot password?" functionality. And now all of your internet accounts alongside with credit card information are hacked. The built-in browser password manager is a better choice, but for me it means vendor-lock since I swap browsers from time to time and I want my passwords to be stored independently of currently used browser. Thankfully there are plenty of solutions for it outside of major IT monopolies.

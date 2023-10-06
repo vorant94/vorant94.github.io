@@ -1,5 +1,5 @@
 import { type CollectionEntry, getEntry } from 'astro:content';
-import { format } from 'date-fns';
+import { compareDesc, format } from 'date-fns';
 
 export class Post {
   private static pathPrefix = 'posts';
@@ -16,13 +16,13 @@ export class Post {
     return `${Post.pathPrefix}/${this.slug}`;
   }
 
-  static async fromEntry(post: CollectionEntry<'posts'>): Promise<Post> {
-    let slug: string = post.slug;
-    let { title, description } = post.data;
-    const publishedAt = format(post.data.publishedAt, Post.dateFormat);
+  static async fromEntry(entry: CollectionEntry<'posts'>): Promise<Post> {
+    let slug: string = entry.slug;
+    let { title, description } = entry.data;
+    const publishedAt = format(entry.data.publishedAt, Post.dateFormat);
 
-    if (post.data.thread) {
-      const thread = await getEntry(post.data.thread);
+    if (entry.data.thread) {
+      const thread = await getEntry(entry.data.thread);
 
       slug = `${thread.slug}-${slug}`;
       title = `[${thread.data.title}]: ${title}`;
@@ -31,10 +31,18 @@ export class Post {
 
     if (!description) {
       throw new Error(
-        `No description were generated for post with id ${post.id}`,
+        `No description were generated for post with id ${entry.id}`,
       );
     }
 
     return new Post(slug, title, description, publishedAt);
+  }
+
+  static sortEntries(
+    entries: CollectionEntry<'posts'>[],
+  ): CollectionEntry<'posts'>[] {
+    return entries.sort((a, b) =>
+      compareDesc(a.data.publishedAt, b.data.publishedAt),
+    );
   }
 }

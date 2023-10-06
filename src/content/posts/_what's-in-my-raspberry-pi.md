@@ -8,28 +8,28 @@ tags:
 platforms:
   -
 publishedAt:
-coverImage: ../attachments/whats-in-my-raspberry-pi/cover.jpg
+coverImage: ../attachments/whats-in-my-pi/cover.jpg
 ---
 
 ## Firefly III
 
-![firefly iii logo](../attachments/whats-in-my-raspberry-pi/firefly-iii-logo.svg)
+![firefly iii logo](../attachments/whats-in-my-pi/firefly-iii-logo.svg)
 
 ## Nextcloud
 
-![nextcloud logo](../attachments/whats-in-my-raspberry-pi/nextcloud-logo.svg)
+![nextcloud logo](../attachments/whats-in-my-pi/nextcloud-logo.svg)
 
 ## ArchiveBox
 
-![archivebox logo](../attachments/whats-in-my-raspberry-pi/archivebox-logo.svg)
+![archivebox logo](../attachments/whats-in-my-pi/archivebox-logo.svg)
 
 ## Jellyfin
 
-![jellyfin logo](../attachments/whats-in-my-raspberry-pi/jellyfin-logo.svg)
+![jellyfin logo](../attachments/whats-in-my-pi/jellyfin-logo.svg)
 
 ## Heimdall
 
-![heimdall logo](../attachments/whats-in-my-raspberry-pi/heimdall-logo.svg)
+![heimdall logo](../attachments/whats-in-my-pi/heimdall-logo.svg)
 
 ## Tech setup
 

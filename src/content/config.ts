@@ -8,7 +8,7 @@ const posts = defineCollection({
         title: z.string(),
         description: z.string().optional(),
         tags: z.array(z.string()),
-        platforms: z.array(z.string()),
+        platforms: z.array(z.string()).optional(),
         publishedAt: z.date(),
         coverImage: image().nullable(),
         thread: reference('threads').optional(),

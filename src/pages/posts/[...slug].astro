@@ -1,14 +1,10 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import { getImage, Image } from 'astro:assets';
+import { getImage } from 'astro:assets';
 import Comments from '../../components/Comments.astro';
 import { Post } from '../../shared/post';
-
-interface Props {
-  entry: CollectionEntry<'posts'>;
-  post: Post;
-}
+import PostContent from '../../components/PostContent.astro';
 
 export async function getStaticPaths() {
   const entries = await getCollection('posts');
@@ -25,63 +21,30 @@ export async function getStaticPaths() {
   );
 }
 
+interface Props {
+  entry: CollectionEntry<'posts'>;
+  post: Post;
+}
+
 const { entry, post } = Astro.props;
 
-const { coverImage, tags } = entry.data;
-const { title, description, publishedAt } = post;
+const { coverImage } = entry.data;
+const { title } = post;
 
 let coverImageSrc: string | undefined;
 if (coverImage) {
   const image = await getImage({ src: coverImage, format: coverImage.format });
   coverImageSrc = image.src;
 }
-
-const { Content, remarkPluginFrontmatter } = await entry.render();
 ---
 
 <Layout
   title={title}
   image={coverImageSrc}>
-  <article class="prose">
-    <h1>{title}</h1>
-
-    <div class="flex gap-2 items-center">
-      <span class="text-sm text-gray-500">
-        {publishedAt}
-      </span>
-      <span class="text-sm text-gray-500">&#x2022;</span>
-      <span class="text-sm text-gray-500">
-        {remarkPluginFrontmatter.minutesRead}
-      </span>
-
-      <div class="flex-1"></div>
-
-      <ul class="hidden lg:flex list-none m-0 p-0 gap-1">
-        {
-          tags.map((tag) => (
-            <li class="border border-gray-300 rounded-full text-xs font-light text-gray-500 m-0 py-0 px-2">
-              #{tag}
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-
-    {
-      coverImage && (
-        <Image
-          src={coverImage}
-          alt=""
-        />
-      )
-    }
-
-    <p><em>{description}</em></p>
-
-    <div>
-      <Content />
-    </div>
-  </article>
+  <PostContent
+    entry={entry}
+    post={post}
+  />
 
   <Comments post={post} />
 </Layout>

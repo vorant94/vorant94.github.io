@@ -1,15 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
-import { compareDesc } from 'date-fns';
 import { Post } from '../shared/post';
 
-const entries = await getCollection('posts');
+const entries = Post.sortEntries(await getCollection('posts'));
 
-const posts = await Promise.all(
-  entries
-    .sort((a, b) => compareDesc(a.data.publishedAt, b.data.publishedAt))
-    .map((entry) => Post.fromEntry(entry)),
-);
+const posts = await Promise.all(entries.map((entry) => Post.fromEntry(entry)));
 ---
 
 <ul class="flex flex-col divide-y divide-dashed">
