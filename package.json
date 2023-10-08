@@ -3,44 +3,18 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "check": "astro check",
-    "astro": "astro",
     "format": "prettier . --check && prettier **/*.astro --check",
     "format:fix": "prettier . --write && prettier **/*.astro --write",
     "prettier": "prettier",
     "prepare": "husky install"
   },
-  "dependencies": {
-    "@astrojs/react": "^3.0.2",
-    "@astrojs/rss": "^3.0.0",
-    "@astrojs/sitemap": "^3.0.0",
-    "@astrojs/tailwind": "^5.0.0",
-    "@tailwindcss/typography": "^0.5.10",
-    "@vercel/analytics": "^1.0.2",
-    "date-fns": "^2.30.0",
-    "mdast-util-to-string": "^4.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "reading-time": "^1.5.0",
-    "tailwindcss": "^3.3.3"
-  },
   "devDependencies": {
-    "@astrojs/check": "^0.2.0",
-    "@types/react": "^18.2.24",
-    "@types/react-dom": "^18.2.8",
-    "astro": "^3.1.1",
-    "autoprefixer": "^10.4.16",
-    "cssnano": "^6.0.1",
     "husky": "^8.0.0",
-    "postcss": "^8.4.30",
-    "postcss-load-config": "^4.0.1",
     "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0",
-    "typescript": "^5.2.2"
+    "prettier-plugin-astro": "^0.12.0"
   }
 }
