@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Intro from '../components/Intro.astro';
+import { getCollection } from 'astro:content';
+import Divider from '../components/Divider.astro';
+
+const links = await getCollection('links');
+---
+
+<Layout title="About">
+  <Intro />
+
+  <div class="flex flex-col gap-2">
+    <Divider>
+      <h3 class="text-2xl">How to reach me</h3>
+    </Divider>
+
+    <ul class="grid grid-cols-3 gap-5 mx-auto">
+      {
+        links.map(({ data }) => (
+          <li>
+            <a
+              class="rounded-2xl w-24 h-24 border flex flex-col gap-2 items-center justify-center hover:outline outline-blue-400 hover:text-blue-600 p-2"
+              href={data.url}
+              target="_blank">
+              <i class={`fa-brands ${data.icon} text-xl`} />
+              <span class="truncate max-w-full">{data.label}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Layout>

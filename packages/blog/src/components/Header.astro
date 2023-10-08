@@ -1,26 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import logoHeader from '../images/logo-header.svg';
 
-interface SocialLink {
-  icon: string;
-  url: string;
-}
-
-const socialLinks: SocialLink[] = [
-  {
-    icon: 'fa-github',
-    url: 'https://github.com/vorant94/',
-  },
-  {
-    icon: 'fa-x-twitter',
-    url: 'https://twitter.com/vorant94',
-  },
-  {
-    icon: 'fa-medium',
-    url: 'https://vorant94.medium.com/',
-  },
-];
+const links = (await getCollection('links')).filter(
+  ({ data }) => !data.isHidden,
+);
 ---
 
 <header class="flex gap-1 items-center p-4 border-b">
@@ -38,13 +23,13 @@ const socialLinks: SocialLink[] = [
 
   <ul class="flex gap-3">
     {
-      socialLinks.map((link) => (
+      links.map(({ data }) => (
         <li>
           <a
             class="text-gray-500 hover:text-inherit"
-            href={link.url}
+            href={data.url}
             target="_blank">
-            <i class={`fa-brands ${link.icon} fa-lg`} />
+            <i class={`fa-brands ${data.icon} fa-lg`} />
           </a>
         </li>
       ))

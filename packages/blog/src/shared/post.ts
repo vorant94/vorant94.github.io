@@ -1,5 +1,6 @@
 import { type CollectionEntry, getEntry } from 'astro:content';
 import { compareDesc, format } from 'date-fns';
+import slugify from 'slugify';
 
 export class Post {
   private static pathPrefix = 'posts';
@@ -24,7 +25,10 @@ export class Post {
     if (entry.data.thread) {
       const thread = await getEntry(entry.data.thread);
 
-      slug = `${thread.slug}-${slug}`;
+      slug = slugify(`${thread.data.title}-${slug}`, {
+        lower: true,
+        remove: /['?]/g,
+      });
       title = `[${thread.data.title}]: ${title}`;
       description = thread.data.description;
     }
