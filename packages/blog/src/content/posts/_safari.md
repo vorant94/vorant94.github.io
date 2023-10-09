@@ -1,23 +1,22 @@
 ---
+title: Safari
 tags:
-  - мое-турне-по-браузерам
-published:
+  - tech
+  - software
+platforms:
   - https://vas3k.club/post/18694/
+publishedAt: 2023-03-07
+coverImage:
+thread: browser-tour
 ---
 
-_В этом году я как-то заметил, что давно устаканившийся традиционный набор браузеров (Chrome, Firefox, Safari, Opera) начал разбавляться новым ~~модным стильным молодежным~~ поколением альтернатив. Лично я последние несколько лет время от времени прыгаю с Chrome на Safari и обратно (совсем иногда искося поглядываю на Firefox), но со стороны все сильнее доносятся отголоски всяческих Brave, Vivaldi, Edge, Arc, SigmaOS и так далее. И вот на волне того, что мне как-то поднаскучила визуально MacOS в целом и мой привычный Chrome/Safari браузер, я решил попробовать что-то новенькое и хотел бы этим с вами поделиться._
+I'll start with a Safari, a built-in MacOS and not Google Chrome, which is de-facto go-to browser in the modern world. There is a reason for it: since I myself use almost the entire Apple ecosystem, I got used to the huge amount of features, that are possible at all thanks to deep and mutual integration between all its devices. E.g. my starting point as a user is this experience of unified system, that smoothly flows from a laptop to network, from network to the phone and so on by the direction.
 
-_Изначально планировался один большой пост, в котором были бы описаны все браузеры по очереди, но вышло как-то слишком много текста. Поэтому я решил разделить это полотно на посты о каждом из браузеров по отдельности._
-
----
-
-### Вступление
-
-Начну я, пожалуй, с браузера по умолчанию на MacOS, а не с Chrome (де-факто стандарт отрасли). И тому есть веская причина: так как я сам уже давно пользуюсь чуть ли не всей экосистемой Apple целиком, то привык к огромному количеству плюшек, которые возможны из-за взаимной и плотной интеграции разный яблочных девайсов/сервисов. То есть моя изначальная точка отсчета как пользователя - это именно такой вот опыт пользования единой системой, плавно перетекающей из ноутбука в сеть, из сети в телефон и дальше по направлению. И по-хорошему я считаю, что такова должна быть цель любого современного продукта: недостаточно исправно выполнять свою одну конкретную функцию (или несколько таковых), продукт должен умело интегрироваться в любую экосистему своего пользователя. При этом я понимаю, что отсутствие подобных плавных интеграций может быть проблемой "на той стороне" (разработчик условной программы и рад бы интегрироваться с чем-то, но это "что-то" просто не предоставляет такой возможности). Поэтому я не ставлю перед собой цели найти виновного, я хотел бы просто сформулировать свое видение. А что с этим делать дальше, я пока не придумал
+> **Side note:** this is my expectations from any modern software product. It is not enough to just do it's own single function (or several of those), the product should skillfully integrate itself into each user ecosystem. At the same time I understand that the lack of such integration may be caused by the issue "from the other side" (a developer of a some app is glad to integrate with something, but this "something" doesn't provide such an option). So I don't set the goal of finding the guilty ones, I'd like only to articulate my vision. I haven't come up with what to do with it yet.
 
 ### TouchID
 
-Так вот, о каких интеграциях я говорю? Первое, что приходит на ум, - это TouchID, сканер отпечатка пальцев. Его в Safari можно использовать в целом ряде случаев: будь-то автозаполнение паролей только при условии проверки отпечатка, или оплата покупок через Apple Pay, или аутентификация на сайтах без ввода пароля (где есть функция Login via Apple). Тут все отлично настолько, что у разработчиков расширений для Safari есть доступ к TouchID. То есть такие сторонние программы как 1Password или же Bitwarden (обе программы это довольно популярные third-party менеджеры паролей) действительно могут интегрироваться так, что их пользователь не будет ощущать разницы между использованием их продукта или встроенных программ от Apple.
+So what are the integrations I'm talking about? First thing that comes to mind - is TouchID, fingerprint scanner. It can be used in Safari for the whole number of occasions: either password auto-fill guarded with fingerprint, or to confirm a transaction via Apple Pay, or for passwordless authentication (on sites that support Login via Apple). Everything is so good here so the third-party developers of Safari extensions have access to TouchID. E.g. such third-party apps like 1Password or Bitwarden (both apps are well popular third-party password managers) have a real opportunity to integrate themselves in such a way, so their user will notice no difference between usage of their product or built-in solutions from Apple.
 
 ### Time Limit
 

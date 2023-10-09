@@ -1,5 +1,5 @@
 ---
-title: Bitwarden / Vaultwarden
+title: Bitwarden
 tags:
   - self-hosted
   - tech

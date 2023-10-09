@@ -1,6 +1,6 @@
 ---
-title: Почему “О дивный новый мир” на самом деле утопия
-description: Некоторое время назад я прочитал “О дивный новый мир” Олдоса Хаксли. Книга произвела на меня сильное впечатление не смотря на то (или же потому), что я уже читал “451 градус по Фаренгейту” Рея Бредбери и “1984” Джорджа Оруэлла. Я заметил некую разницу между этой антиутопией и двумя другими, но по какой-то причине не мог ее выразить в словах. Со временем один из моих друзей по моему же совету также прочел эту книгу, после чего у нас состоялся довольно длинный разговор на тему этого произведения. По итогу мы пришли к выводу, что “О дивный новый мир” на самом деле куда более походит на утопию, чем на антиутопию. И вот, собственно, мои мысли по этому поводу
+title: Why "Brave New World" is actually a utopia
+description: Some time ago, I read Aldous Huxley's "Brave New World." The book made a strong impression on me, despite the fact that I had already read Ray Bradbury's "Fahrenheit 451" and George Orwell's "1984." I noticed a certain difference between this dystopian novel and the other two, but for some reason, I couldn't put it into words. Eventually, one of my friends, on my recommendation, also read this book, and we had a fairly long conversation about it. In the end, we came to the conclusion that "Brave New World" is actually more of a utopia than a dystopia. So, here are my thoughts on the matter.
 tags:
   - books
 platforms:
@@ -10,7 +10,7 @@ publishedAt: 2020-05-02
 coverImage: ../attachments/why-brave-new-world-is-actually-a-utopia/cover.jpg
 ---
 
-### Перед тем как начать
+### Before we begin
 
 Я бы хотел заранее упомянуть, что мои соображения базируются на утверждении о субъективности счастья. Что я имею в виду? Я не считаю, что есть какое-то одно универсальное состояние, в котором все мы будем одинаково счастливы и просветлены. Каждый человек опирается на свои собственные ориентиры в поисках счастья и самореализации. И это нормально, так и должно быть, учитывая то, что все мы разные.
 

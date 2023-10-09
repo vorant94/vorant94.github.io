@@ -1,11 +1,18 @@
 ---
-import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import logoHeader from '../images/logo-header.svg';
+import Link from './Link.astro';
 
-const links = (await getCollection('links')).filter(
-  ({ data }) => !data.isHidden,
-);
+const navLinks = [
+  {
+    label: 'About',
+    url: '/about',
+  },
+  {
+    label: 'Posts',
+    url: '/posts',
+  },
+];
 ---
 
 <header class="flex gap-1 items-center p-4 border-b">
@@ -23,14 +30,9 @@ const links = (await getCollection('links')).filter(
 
   <ul class="flex gap-3">
     {
-      links.map(({ data }) => (
-        <li>
-          <a
-            class="text-gray-500 hover:text-inherit"
-            href={data.url}
-            target="_blank">
-            <i class={`fa-brands ${data.icon} fa-lg`} />
-          </a>
+      navLinks.map((link) => (
+        <li class="text-sm text-gray-500">
+          <Link href={link.url}>{link.label}</Link>
         </li>
       ))
     }
