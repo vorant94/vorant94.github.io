@@ -1,10 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
 import { Post } from '../shared/post';
 
-const entries = Post.sortEntries(await getCollection('posts'));
+interface Props {
+  posts: Post[];
+}
 
-const posts = await Promise.all(entries.map((entry) => Post.fromEntry(entry)));
+const { posts } = Astro.props;
 ---
 
 <ul class="flex flex-col divide-y divide-dashed">

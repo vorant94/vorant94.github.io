@@ -1,8 +1,35 @@
 ---
 import PostList from '../../components/PostList.astro';
 import Layout from '../../layouts/Layout.astro';
+import { Post } from '../../shared/post';
+import { getCollection } from 'astro:content';
+import Divider from '../../components/Divider.astro';
+
+const entriesByYear = Post.groupEntriesByYear(
+  Post.sortEntries(await getCollection('posts')),
+);
+
+const years = Object.keys(entriesByYear).reverse();
+const postsByYear: Record<string, Post[]> = {};
+await Promise.all(
+  years.map(async (year) => {
+    const entries = entriesByYear[year];
+    postsByYear[year] = await Promise.all(
+      entries.map((entry) => Post.fromEntry(entry, Post.dateFormatShort)),
+    );
+  }),
+);
 ---
 
 <Layout title="Posts">
-  <PostList />
+  {
+    years.map((year) => (
+      <>
+        <Divider left={false}>
+          <span class="text-xl">{year}</span>
+        </Divider>
+        <PostList posts={postsByYear[year]} />
+      </>
+    ))
+  }
 </Layout>

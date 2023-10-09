@@ -2,9 +2,15 @@
 import PostList from '../components/PostList.astro';
 import Layout from '../layouts/Layout.astro';
 import Intro from '../components/Intro.astro';
+import { Post } from '../shared/post';
+import { getCollection } from 'astro:content';
+
+const entries = Post.sortEntries(await getCollection('posts'));
+
+const posts = await Promise.all(entries.map((entry) => Post.fromEntry(entry)));
 ---
 
 <Layout>
   <Intro />
-  <PostList />
+  <PostList posts={posts} />
 </Layout>
