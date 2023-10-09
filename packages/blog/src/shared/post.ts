@@ -1,7 +1,7 @@
 import { type CollectionEntry, getEntry } from 'astro:content';
 import { compareDesc, format } from 'date-fns';
 import slugify from 'slugify';
-import { groupBy } from 'lodash';
+import _ from 'lodash';
 
 export class Post {
   static dateFormatFull = 'MMM dd, yyyy';
@@ -60,6 +60,6 @@ export class Post {
   static groupEntriesByYear(
     entries: CollectionEntry<'posts'>[],
   ): Record<string, CollectionEntry<'posts'>[]> {
-    return groupBy(entries, ({ data }) => format(data.publishedAt, 'yyyy'));
+    return _.groupBy(entries, ({ data }) => format(data.publishedAt, 'yyyy'));
   }
 }
