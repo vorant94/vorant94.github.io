@@ -1,7 +1,7 @@
-import { type CollectionEntry, getEntry } from 'astro:content';
+import { getEntry, type CollectionEntry } from 'astro:content';
 import { compareDesc, format } from 'date-fns';
-import slugify from 'slugify';
 import _ from 'lodash';
+import slugify from 'slugify';
 
 export class Post {
   static dateFormatFull = 'MMM dd, yyyy';

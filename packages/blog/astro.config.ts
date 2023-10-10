@@ -1,10 +1,10 @@
-import type { AstroUserConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-import readingTime from 'reading-time';
-import { toString } from 'mdast-util-to-string';
-import type { MarkdownContent } from 'astro';
-import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
+import type { MarkdownContent } from 'astro';
+import type { AstroUserConfig } from 'astro/config';
+import { toString } from 'mdast-util-to-string';
+import readingTime from 'reading-time';
 
 function readingTimePlugin() {
   return function (tree: Node, { data }: MarkdownContent) {

@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
+import { getCollection } from 'astro:content';
 import { DESCRIPTION, TITLE } from '../shared/intro-texts.ts';
 import { Post } from '../shared/post.js';
 
