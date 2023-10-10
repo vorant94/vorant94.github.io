@@ -2,7 +2,7 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
 import { DESCRIPTION, TITLE } from '../shared/intro-texts.ts';
-import { Post } from '../shared/post.ts';
+import { Post } from '../shared/post.js';
 
 export async function GET(context: APIContext) {
   const entries = Post.sortEntries(await getCollection('posts'));

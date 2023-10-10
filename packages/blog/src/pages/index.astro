@@ -2,7 +2,7 @@
 import PostList from '../components/PostList.astro';
 import Layout from '../layouts/Layout.astro';
 import Intro from '../components/Intro.astro';
-import { Post } from '../shared/post';
+import { Post } from '../shared/post.js';
 import { getCollection } from 'astro:content';
 
 const entries = Post.sortEntries(await getCollection('posts'));
