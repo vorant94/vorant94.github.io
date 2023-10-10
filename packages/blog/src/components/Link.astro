@@ -5,7 +5,7 @@ interface Props extends HTMLAttributes<'a'> {}
 
 const { href, ...props } = Astro.props;
 
-const currentPath = new URL(Astro.request.url).pathname;
+const currentPath = Astro.url.pathname.slice(0, -1);
 ---
 
 <a
