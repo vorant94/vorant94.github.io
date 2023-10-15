@@ -15,7 +15,7 @@ I'm 28 almost 29 years old Israeli repatriate from Donetsk, Ukraine. The current
 
 The Russian-Ukrainian war raised a lot of questions that people usually don't ask themselves in a peaceful time, but I once again avoided most of them since I wasn't affected by Russia propaganda. I lived in Donetsk, I lived in Kiev, I knew that all of the reasons that Putin declared as a cause for a war (to protect Russian spoken Ukrainians from ethnic cleansing) are bullshit. I helped some refugees remotely from Israel, but since I wasn't there I didn't dive into those topics. Up until now, up until the moment that war almost caught up with me
 
-### Actually there is no "it's complicated, we don't know the whole truth"
+### Sometime it's not that complicated
 
 Since Putin started war in my birth city, I knew who is an aggressor and who is a victim. So nobody from the Russian propaganda could convince me that something here was more complicated than it looked like. Ukraine didn't plan to attack Russia, Ukraine doesn't bomb their own territory nor it bombs civilians. I'm sure of it.
 
