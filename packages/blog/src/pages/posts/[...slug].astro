@@ -5,17 +5,34 @@ import { getImage } from 'astro:assets';
 import Comments from '../../components/Comments.astro';
 import { Post } from '../../shared/post.js';
 import PostContent from '../../components/PostContent.astro';
+import PostList from '../../components/PostList.astro';
+import StandOut from '../../components/StandOut.astro';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('posts');
+  const entries = Post.sortEntries(await getCollection('posts'));
 
   return await Promise.all(
     entries.map(async (entry) => {
       const post = await Post.fromEntry(entry);
 
+      let sameThreadPosts: Post[] = [];
+      if (entry.data.thread) {
+        const sameThreadEntries = entries.filter((e) => {
+          // non-null assertion is a type gymnastic only to pass
+          // astro check since we anyway are inside if block
+          return (
+            e.id !== entry.id && e.data.thread?.id === entry.data.thread!.id
+          );
+        });
+
+        sameThreadPosts = await Promise.all(
+          sameThreadEntries.map((e) => Post.fromEntry(e)),
+        );
+      }
+
       return {
         params: { slug: post.slug },
-        props: { entry, post },
+        props: { entry, post, sameThreadPosts },
       };
     }),
   );
@@ -24,9 +41,10 @@ export async function getStaticPaths() {
 interface Props {
   entry: CollectionEntry<'posts'>;
   post: Post;
+  sameThreadPosts: Post[];
 }
 
-const { entry, post } = Astro.props;
+const { entry, post, sameThreadPosts } = Astro.props;
 
 const { coverImage } = entry.data;
 const { title } = post;
@@ -46,5 +64,35 @@ if (coverImage) {
     post={post}
   />
 
+  {
+    sameThreadPosts.length > 0 && (
+      <StandOut class="flex-col">
+        <details>
+          <summary class="text-lg font-medium hover:cursor-pointer">
+            More from this thread
+          </summary>
+          <PostList posts={sameThreadPosts} />
+        </details>
+      </StandOut>
+    )
+  }
+
   <Comments post={post} />
 </Layout>
+
+<style>
+  details {
+    > summary {
+      list-style-type: none;
+
+      &::before {
+        font-family: 'Font Awesome 6 Free';
+        content: '\f0d7';
+      }
+    }
+
+    &[open] > summary::before {
+      content: '\f0d8';
+    }
+  }
+</style>

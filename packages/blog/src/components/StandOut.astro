@@ -1,0 +1,11 @@
+---
+import { type HTMLAttributes } from 'astro/types';
+
+interface Props extends Pick<HTMLAttributes<'section'>, 'class'> {}
+
+const { class: moreClasses } = Astro.props;
+---
+
+<section class:list={['border rounded-md p-5 m-3 flex gap-3', moreClasses]}>
+  <slot />
+</section>

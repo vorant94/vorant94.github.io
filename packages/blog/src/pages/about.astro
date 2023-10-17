@@ -11,40 +11,38 @@ const links = await getCollection('links');
 <Layout title="About">
   <Intro />
 
-  <div class="flex flex-col gap-2">
-    <Divider>
-      <h3 class="text-2xl">Stay up to date</h3>
-    </Divider>
+  <Divider>
+    <h3 class="text-2xl">Stay up to date</h3>
+  </Divider>
 
-    <p>
-      If you wish to be up to date with new posts you can
-      <Link
-        href="/rss.xml"
-        target="_blank">
-        <span class="text-gray-500"> subscribe with RSS</span>
-      </Link>
-    </p>
+  <p>
+    If you wish to be up to date with new posts you can
+    <Link
+      href="/rss.xml"
+      target="_blank">
+      <span class="text-gray-500"> subscribe with RSS</span>
+    </Link>
+  </p>
 
-    <p>There will also be an email newsletter somewhere in the future</p>
+  <p>There will also be an email newsletter somewhere in the future</p>
 
-    <Divider>
-      <h3 class="text-2xl">How to reach me</h3>
-    </Divider>
+  <Divider>
+    <h3 class="text-2xl">How to reach me</h3>
+  </Divider>
 
-    <ul class="grid grid-cols-3 gap-5 mx-auto">
-      {
-        links.map(({ data }) => (
-          <li>
-            <a
-              class="rounded-2xl w-24 h-24 border flex flex-col gap-2 items-center justify-center hover:outline outline-blue-500 hover:text-blue-500 p-2"
-              href={data.url}
-              target="_blank">
-              <i class={`fa-brands ${data.icon} text-xl`} />
-              <span class="truncate max-w-full">{data.label}</span>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+  <ul class="grid grid-cols-3 gap-5 mx-auto">
+    {
+      links.map(({ data }) => (
+        <li>
+          <a
+            class="rounded-2xl w-24 h-24 border flex flex-col gap-2 items-center justify-center hover:outline outline-blue-500 hover:text-blue-500 p-2"
+            href={data.url}
+            target="_blank">
+            <i class={`fa-brands ${data.icon} text-xl`} />
+            <span class="truncate max-w-full">{data.label}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </Layout>
