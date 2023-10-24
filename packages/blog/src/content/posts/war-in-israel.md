@@ -7,6 +7,7 @@ tags:
   - self-reflection
 publishedAt: 2023-10-14
 coverImage: ../attachments/war-in-israel/cover.webp
+isPinned: true
 ---
 
 ### Intro

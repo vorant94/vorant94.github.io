@@ -4,7 +4,7 @@ tags:
   - self-hosted
   - tech
   - raspberry-pi
-publishedAt: 2023-10-08
+publishedAt: 2023-10-24
 coverImage: ../attachments/whats-in-my-pi/freshrss-logo.svg
 thread: whats-in-my-pi
 ---

@@ -12,6 +12,7 @@ const posts = defineCollection({
         publishedAt: z.date(),
         coverImage: image().nullable(),
         thread: reference('threads').optional(),
+        isPinned: z.boolean().optional().default(false),
       })
       .superRefine(({ thread, description }, context) => {
         if (!thread && !description) {
