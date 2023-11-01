@@ -20,7 +20,7 @@ So what are the integrations I'm talking about? First thing that comes to mind -
 
 ### Time Limit
 
-Следующая интеграция, которой я не так часто на самом деле пользуюсь, но все же стоит упомянуть - это Time Limit. Я как пользователь могу мониторить и/или ограничивать количество проведенного мною времени в тех или иных приложениях. При этом учитывается общее время со всех устройств, то есть полчаса чтения новостей в Telegram-каналах на телефоне и того же самого с ноутбука суммируются в целый час лоботрясничества. На этом все могло бы и закончиться, если бы не одно но. Время залипания в самом Safari не учитывается, в Time Limit уходит статистика, разделенная по сайтам. То есть если у меня есть лимит на YouTube час в день, то, просидев час в видосах с телефона, я не смогу просто так зайти на **сайт** YouTube через Safari, что как по мне just makes sense ©️.
+The next integration, that honestly I don't use as much, but is still worth to mention is Time Limit. I can as a user monitor or/and limit the amount of time spent in the apps. Interesting that combined time from all of your device is counted, e.g. after a half an hour reading Telegram channels from the phone and another half an hour doing the same from a laptop sum up to an hour of screen time in total. It could end up here, if not for one "but". Time using the Safari itself isn't counted, instead a separate by website statistics are sent to Time Limit. So if I have a limit of one hour per day for YouTube, after I spent this hour watching videos from my phone, I won't be able to go YouTube **website** so easily, which IMHO just makes sense ©️.
 
 ### Third-party приложения
 
