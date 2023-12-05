@@ -61,4 +61,4 @@ One additional thing to mention is that regardless of the size of company, regar
 
 ### P.S.
 
-There is also very interesting [password game](https://neal.fun/password-game/), that I think you should give a shot to😜
+There is also very interesting [password game](https://neal.fun/password-game/), that I think you should give a shot to😎
