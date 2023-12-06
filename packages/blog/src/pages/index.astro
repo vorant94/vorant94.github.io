@@ -5,10 +5,9 @@ import { Post } from '../shared/post.js';
 import { getCollection } from 'astro:content';
 import _ from 'lodash';
 import Layout from '../shared/components/templates/Layout.astro';
-import StandOut from '../shared/components/molecules/StandOut.astro';
-import Link from '../shared/components/atoms/Link.astro';
 import Intro from '../shared/components/organisms/Intro.astro';
 import PostList from '../shared/components/organisms/PostList.astro';
+import PinnedPosts from '../shared/components/organisms/PinnedPosts.astro';
 
 const allEntries = Post.sortEntries(await getCollection('posts'));
 const [pinnedEntries, nonPinnedEntries] = _.partition(
@@ -25,23 +24,7 @@ const nonPinnedPosts = await Promise.all(
 ---
 
 <Layout>
-  {
-    pinnedPosts.map((post) => (
-      <StandOut class="flex-col">
-        <span class="flex gap-3 items-center">
-          <i class="fa-solid fa-thumbtack" />
-          <Link
-            href={post.fullPath}
-            class="flex-1">
-            <span class="flex gap-3">
-              <span class="flex-1 truncate">{post.title}</span>
-              <span>{post.publishedAt}</span>
-            </span>
-          </Link>
-        </span>
-      </StandOut>
-    ))
-  }
+  <PinnedPosts posts={pinnedPosts} />
 
   <Intro />
 

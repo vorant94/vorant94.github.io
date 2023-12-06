@@ -1,16 +1,18 @@
 ---
 import { type HTMLAttributes } from 'astro/types';
+import { removeTrailingSlash } from '../../utils/remove-trailing-slash';
 
 interface Props extends HTMLAttributes<'a'> {}
 
 const { href, class: moreClasses, ...props } = Astro.props;
 
-const currentPath = Astro.url.pathname.slice(0, -1);
+const currentPath = removeTrailingSlash(Astro.url.pathname);
 ---
 
 <a
   class:list={[
     'hover:text-blue-500 hover:underline',
+    { 'text-gray-500': href !== currentPath },
     { 'text-black underline': href === currentPath },
     moreClasses,
   ]}

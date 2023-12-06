@@ -1,6 +1,7 @@
 ---
 import { Post } from '../../post';
-import Link from '../atoms/Link.astro';
+import PostListItem from '../molecules/PostListItem.astro';
+
 interface Props {
   posts: Post[];
 }
@@ -12,12 +13,7 @@ const { posts } = Astro.props;
   {
     posts.map((post) => (
       <li class="flex flex-col py-3 text-medium">
-        <Link href={post.fullPath}>
-          <span class="flex gap-3">
-            <span class="flex-1 truncate">{post.title}</span>
-            <span>{post.publishedAt}</span>
-          </span>
-        </Link>
+        <PostListItem post={post} />
       </li>
     ))
   }

@@ -24,7 +24,7 @@ export async function GET(context: APIContext) {
         pubDate: entry.data.publishedAt,
         link: post.fullPath,
         categories: entry.data.tags,
-        author: 'vorant94@gmail.com',
+        author: DATA.email,
       };
     }),
   });

@@ -1,0 +1,19 @@
+---
+import { Post } from '../../post';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends Pick<HTMLAttributes<'a'>, 'class'> {
+  post: Post;
+}
+
+const { post, class: moreClasses } = Astro.props;
+---
+
+<a
+  href={post.fullPath}
+  class:list={['text-black hover:text-blue-500 hover:underline', moreClasses]}>
+  <span class="flex gap-3">
+    <span class="flex-1 truncate">{post.title}</span>
+    <span>{post.publishedAt}</span>
+  </span>
+</a>

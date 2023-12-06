@@ -1,0 +1,25 @@
+---
+import StandOut from '../molecules/StandOut.astro';
+import { Post } from '../../post';
+import PostListItem from '../molecules/PostListItem.astro';
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+{
+  posts.map((post) => (
+    <StandOut class="flex-col">
+      <span class="flex gap-3 items-center">
+        <i class="fa-solid fa-thumbtack" />
+        <PostListItem
+          post={post}
+          class="flex-1"
+        />
+      </span>
+    </StandOut>
+  ))
+}
