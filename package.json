@@ -1,21 +1,23 @@
 {
   "name": "digital-garden",
-  "type": "module",
   "version": "0.0.1",
+  "description": "",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "type": "module",
+  "packageManager": "yarn@4.0.2",
   "scripts": {
     "format": "prettier . --check && prettier **/*.astro --check",
     "format:fix": "prettier . --write && prettier **/*.astro --write",
     "prettier": "prettier",
     "prepare": "husky install"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
-    "husky": "^8.0.0",
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0",
-    "prettier-plugin-organize-imports": "^3.2.3"
+    "husky": "^8.0.3",
+    "prettier": "^3.1.0",
+    "prettier-plugin-astro": "^0.12.2",
+    "prettier-plugin-organize-imports": "^3.2.4"
   }
 }
