@@ -1,7 +1,7 @@
 ---
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/solid.css';
-import { Post } from '../shared/post.ts';
+import { PostsService } from '../shared/postsService.ts';
 import { getCollection } from 'astro:content';
 import _ from 'lodash';
 import Layout from '../shared/components/templates/Layout.astro';
@@ -9,17 +9,10 @@ import Intro from '../shared/components/organisms/Intro.astro';
 import PostList from '../shared/components/organisms/PostList.astro';
 import PinnedPosts from '../shared/components/organisms/PinnedPosts.astro';
 
-const allEntries = Post.sortEntries(await getCollection('posts'));
-const [pinnedEntries, nonPinnedEntries] = _.partition(
-  allEntries,
+const allPosts = PostsService.sortEntries(await getCollection('posts'));
+const [pinnedPosts, nonPinnedPosts] = _.partition(
+  allPosts,
   (entry) => entry.data.isPinned,
-);
-
-const pinnedPosts = await Promise.all(
-  pinnedEntries.map((entry) => Post.fromEntry(entry)),
-);
-const nonPinnedPosts = await Promise.all(
-  nonPinnedEntries.map((entry) => Post.fromEntry(entry)),
 );
 ---
 

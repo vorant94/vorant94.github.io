@@ -1,10 +1,10 @@
 ---
 import StandOut from '../molecules/StandOut.astro';
-import { Post } from '../../post';
 import PostListItem from '../molecules/PostListItem.astro';
+import { type CollectionEntry } from 'astro:content';
 
 interface Props {
-  posts: Post[];
+  posts: CollectionEntry<'posts'>[];
 }
 
 const { posts } = Astro.props;

@@ -5,10 +5,10 @@ tags:
   - amplify
   - serverless
   - lambda
-platforms:
-  - https://vorant94.medium.com/aws-amplify-functions-on-steroids-bffbfc09960c
 publishedAt: 2023-07-05
 coverImage: ../attachments/aws-amplify-functions-on-steroids/cover.png
+related:
+  - pitfalls-of-aws-amplify-serverless-containers
 ---
 
 ### What we have out of the box

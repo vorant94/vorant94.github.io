@@ -1,7 +1,7 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, type CollectionEntry, getEntries } from 'astro:content';
 import { getImage } from 'astro:assets';
-import { Post } from '../../shared/post.ts';
+import { PostsService } from '../../shared/postsService.ts';
 import Layout from '../../shared/components/templates/Layout.astro';
 import PostContent from '../../shared/components/organisms/PostContent.astro';
 import StandOut from '../../shared/components/molecules/StandOut.astro';
@@ -9,49 +9,36 @@ import PostList from '../../shared/components/organisms/PostList.astro';
 import Comments from '../../shared/components/organisms/Comments.astro';
 
 export async function getStaticPaths() {
-  const entries = Post.sortEntries(await getCollection('posts'));
+  const entries = PostsService.sortEntries(await getCollection('posts'));
 
   return await Promise.all(
-    entries.map(async (entry) => {
-      const post = await Post.fromEntry(entry);
-
-      let sameThreadPosts: Post[] = [];
-      if (entry.data.thread) {
-        const sameThreadEntries = entries.filter((e) => {
-          // non-null assertion is a type gymnastic only to pass
-          // astro check since we anyway are inside if block
-          return (
-            e.id !== entry.id && e.data.thread?.id === entry.data.thread!.id
-          );
-        });
-
-        sameThreadPosts = await Promise.all(
-          sameThreadEntries.map((e) => Post.fromEntry(e)),
-        );
-      }
+    entries.map(async (post) => {
+      const related = post.data.related
+        ? PostsService.sortEntries(await getEntries(post.data.related))
+        : [];
 
       return {
         params: { slug: post.slug },
-        props: { entry, post, sameThreadPosts },
+        props: { post, related },
       };
     }),
   );
 }
 
 interface Props {
-  entry: CollectionEntry<'posts'>;
-  post: Post;
-  sameThreadPosts: Post[];
+  post: CollectionEntry<'posts'>;
+  related: CollectionEntry<'posts'>[];
 }
 
-const { entry, post, sameThreadPosts } = Astro.props;
-
-const { coverImage } = entry.data;
-const { title } = post;
+const { post, related } = Astro.props;
+const { coverImage, title } = post.data;
 
 let coverImageSrc: string | undefined;
 if (coverImage) {
-  const image = await getImage({ src: coverImage, format: coverImage.format });
+  const image = await getImage({
+    src: coverImage,
+    format: coverImage.format,
+  });
   coverImageSrc = image.src;
 }
 ---
@@ -59,19 +46,16 @@ if (coverImage) {
 <Layout
   title={title}
   image={coverImageSrc}>
-  <PostContent
-    entry={entry}
-    post={post}
-  />
+  <PostContent post={post} />
 
   {
-    sameThreadPosts.length > 0 && (
+    related.length > 0 && (
       <StandOut class="flex-col">
         <details>
           <summary class="text-lg font-medium hover:cursor-pointer">
-            More from this thread
+            Related posts
           </summary>
-          <PostList posts={sameThreadPosts} />
+          <PostList posts={related} />
         </details>
       </StandOut>
     )

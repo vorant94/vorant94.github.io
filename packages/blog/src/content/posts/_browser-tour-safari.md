@@ -1,13 +1,13 @@
 ---
-title: Safari
+title: '[Browser tour]: Safari'
+description: This year I noticed that long-established traditional set of browsers (Chrome, Firefox, Safari, Opera) started to supplemented by a new generation of alternatives. Personally, for the last few years I've been switching back and forth between Chrome and Safari (peeking at Firefox from a long distance), but the drums of Brave, Vivaldi, Edge, Arc and SigmaOS are getting stronger and stronger. So to add some variety to the day-to-day routine I decided to try something new and share it with you.
 tags:
   - tech
   - software
-platforms:
-  - https://vas3k.club/post/18694/
 publishedAt: 2023-03-07
 coverImage:
-thread: browser-tour
+related:
+  - browser-tour-google-chrome
 ---
 
 I'll start with a Safari, a built-in MacOS and not Google Chrome, which is de-facto go-to browser in the modern world. There is a reason for it: since I myself use almost the entire Apple ecosystem, I got used to the huge amount of features, that are possible at all thanks to deep and mutual integration between all its devices. E.g. my starting point as a user is this experience of unified system, that smoothly flows from a laptop to network, from network to the phone and so on by the direction.

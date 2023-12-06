@@ -1,12 +1,15 @@
 ---
-title: Bitwarden
+title: '[What’s in my Pi?]: Bitwarden'
+description: A couple of years ago I bought myself a Raspberry Pi and using it as a home server hosting there a bunch of different apps. The whole setup went through several iterations and is still evolving. I'd like to share with you what I have there and how it is helping me in my day-to-day life. There will be several posts in order to make it more readable, so keep in touch
 tags:
   - self-hosted
   - tech
   - raspberry-pi
 publishedAt: 2023-12-05
 coverImage: ../attachments/whats-in-my-pi/bitwarden-logo.svg
-thread: whats-in-my-pi
+related:
+  - whats-in-my-pi-pi-hole
+  - whats-in-my-pi-freshrss
 ---
 
 There are multiple options to store your passwords nowadays. I suppose that the default option for an average modern user is either to have only one password for everything or to store all of the passwords in a browser since it constantly suggests to autofill them:
@@ -38,7 +41,9 @@ For a time being I used Bitwarder without web-interface. I don't really remember
 
 The solution of this problem for me was to hide all of the apps I use behind a reverse proxy server and set-up HTTPS at this proxy level. There is a web-server called [Nginx](https://www.nginx.com), that I'm familiar with from work, so I went with it.
 
-> A reverse proxy is a server, app, or cloud service that sits in front of one or more other web servers to intercept and inspect incoming client requests before forwarding them to the web server and subsequently returning the server's response to the client.
+> A reverse proxy is a server, app, or cloud service that sits in front of one or more other web servers to intercept
+> and inspect incoming client requests before forwarding them to the web server and subsequently returning the server's
+> response to the client.
 
 The last thing that I needed to accomplish for HTTPS connection is a SSL certificate. The thing is HTTPS connection actually consists of two features:
 
@@ -47,7 +52,8 @@ The last thing that I needed to accomplish for HTTPS connection is a SSL certifi
 
 The encryption is the only thing that I need and while there are a couple of SSL certificate authorities that provide certificates without verification I didn't succeed to generate SSL certificate for the local network address `https://pi.lan/`
 
-> All addresses ending with `.lan` are considered local network addresses, hence you cannot publish the site to Internet that ends with `.lan` domain, hence you cannot generate a certificate for it...
+> All addresses ending with `.lan` are considered local network addresses, hence you cannot publish the site to Internet
+> that ends with `.lan` domain, hence you cannot generate a certificate for it...
 
 I ended up finding a way to create my own "authority" and generate certificate with it. Since it was not a real authority I needed to manually add it to trust-list at all my devices. In conjunction with Nginx it was good enough for browsers to enable crypto stuff and Bitwarden web client started to work as expected.
 

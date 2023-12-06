@@ -3,36 +3,16 @@ import { defineCollection, reference, z } from 'astro:content';
 const posts = defineCollection({
   type: 'content',
   schema: ({ image }) => {
-    return z
-      .object({
-        title: z.string(),
-        description: z.string().optional(),
-        tags: z.array(z.string()),
-        platforms: z.array(z.string()).optional(),
-        publishedAt: z.date(),
-        coverImage: image().nullable(),
-        thread: reference('threads').optional(),
-        isPinned: z.boolean().optional().default(false),
-      })
-      .superRefine(({ thread, description }, context) => {
-        if (!thread && !description) {
-          return context.addIssue({
-            code: z.ZodIssueCode.custom,
-            message: 'either "thread" or "description" should be defined',
-          });
-        }
-      });
-  },
-});
-
-const threads = defineCollection({
-  type: 'data',
-  schema: () => {
     return z.object({
       title: z.string(),
       description: z.string(),
+      tags: z.array(z.string()),
+      publishedAt: z.date(),
+      coverImage: image().nullable(),
+      related: z.array(reference('posts')).optional(),
+      isPinned: z.boolean().optional().default(false),
     });
   },
 });
 
-export const collections = { posts, threads };
+export const collections = { posts };
