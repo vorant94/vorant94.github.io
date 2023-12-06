@@ -3,7 +3,7 @@ import '@fontsource/open-sans';
 import Header from '../organisms/Header.astro';
 import Footer from '../organisms/Footer.astro';
 import Analytics from '../organisms/Analytics.astro';
-import { DATA } from '../../data';
+import { PROFILE } from '../../profile';
 
 interface Props {
   title?: string;
@@ -12,7 +12,7 @@ interface Props {
 
 const { title, image } = Astro.props;
 
-const ogTitle = title ? `vorant94 | ${title}` : DATA.title;
+const ogTitle = title ? `vorant94 | ${title}` : PROFILE.title;
 const ogType = title ? 'article' : 'website';
 const ogUrl = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image ?? '/favicon.ico', Astro.site);

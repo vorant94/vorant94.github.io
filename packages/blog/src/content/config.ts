@@ -35,16 +35,4 @@ const threads = defineCollection({
   },
 });
 
-const links = defineCollection({
-  type: 'data',
-  schema: () => {
-    return z.object({
-      url: z.string(),
-      label: z.string(),
-      icon: z.string(),
-      isHidden: z.boolean().optional(),
-    });
-  },
-});
-
-export const collections = { posts, threads, links };
+export const collections = { posts, threads };

@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import logoIntro from '../../images/logo-intro.png';
 import StandOut from '../molecules/StandOut.astro';
-import { DATA } from '../../data';
+import { PROFILE } from '../../profile';
 ---
 
 <StandOut class="items-center">
@@ -17,7 +17,7 @@ import { DATA } from '../../data';
   <div class="flex flex-col gap-2">
     <span class="font-semibold">Hi, there, I'm Mordechai! 👋</span>
     <span class="font-light text-sm">
-      {DATA.description}
+      {PROFILE.description}
     </span>
     <span class="font-light text-sm">
       Make yourself at home, take a sit and grab something to
