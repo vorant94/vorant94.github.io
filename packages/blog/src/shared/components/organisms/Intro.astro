@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import logoIntro from '../../images/logo-intro.png';
+import StandOut from '../molecules/StandOut.astro';
+import { PROFILE } from '../../profile';
+---
+
+<StandOut class="items-center">
+  <div class="hidden lg:block shrink-0">
+    <Image
+      src={logoIntro}
+      alt="Logo"
+      height="80"
+    />
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <span class="font-semibold">Hi, there, I'm Mordechai! 👋</span>
+    <span class="font-light text-sm">
+      {PROFILE.description}
+    </span>
+    <span class="font-light text-sm">
+      Make yourself at home, take a sit and grab something to
+      <span class="line-through">drink</span>
+       read
+    </span>
+  </div>
+</StandOut>

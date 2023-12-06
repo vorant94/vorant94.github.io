@@ -1,24 +1,15 @@
 ---
-import PostList from '../../components/PostList.astro';
-import Layout from '../../layouts/Layout.astro';
-import { Post } from '../../shared/post.js';
+import { PostsService } from '../../shared/postsService.ts';
 import { getCollection } from 'astro:content';
-import Divider from '../../components/Divider.astro';
+import Layout from '../../shared/components/templates/Layout.astro';
+import Divider from '../../shared/components/atoms/Divider.astro';
+import PostList from '../../shared/components/organisms/PostList.astro';
 
-const entriesByYear = Post.groupEntriesByYear(
-  Post.sortEntries(await getCollection('posts')),
+const postsByYear = PostsService.groupEntriesByYear(
+  PostsService.sortEntries(await getCollection('posts')),
 );
 
-const years = Object.keys(entriesByYear).reverse();
-const postsByYear: Record<string, Post[]> = {};
-await Promise.all(
-  years.map(async (year) => {
-    const entries = entriesByYear[year];
-    postsByYear[year] = await Promise.all(
-      entries.map((entry) => Post.fromEntry(entry, Post.dateFormatShort)),
-    );
-  }),
-);
+const years = Object.keys(postsByYear).reverse();
 ---
 
 <Layout title="Posts">
@@ -28,7 +19,10 @@ await Promise.all(
         <Divider left={false}>
           <span class="text-xl">{year}</span>
         </Divider>
-        <PostList posts={postsByYear[year]} />
+        <PostList
+          posts={postsByYear[year]}
+          publishedAtFormat={PostsService.dateFormatShort}
+        />
       </>
     ))
   }

@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Intro from '../components/Intro.astro';
-import { getCollection } from 'astro:content';
-import Divider from '../components/Divider.astro';
-import Link from '../components/Link.astro';
-
-const links = await getCollection('links');
+import '@fortawesome/fontawesome-free/css/fontawesome.css';
+import '@fortawesome/fontawesome-free/css/brands.css';
+import Layout from '../shared/components/templates/Layout.astro';
+import Intro from '../shared/components/organisms/Intro.astro';
+import Divider from '../shared/components/atoms/Divider.astro';
+import Link from '../shared/components/atoms/Link.astro';
+import { PROFILE } from '../shared/profile.ts';
 ---
 
 <Layout title="About">
@@ -20,7 +20,7 @@ const links = await getCollection('links');
     <Link
       href="/rss.xml"
       target="_blank">
-      <span class="text-gray-500"> subscribe with RSS</span>
+      subscribe with RSS
     </Link>
   </p>
 
@@ -32,14 +32,14 @@ const links = await getCollection('links');
 
   <ul class="grid grid-cols-3 gap-5 mx-auto">
     {
-      links.map(({ data }) => (
+      PROFILE.socialLinks.map((link) => (
         <li>
           <a
             class="rounded-2xl w-24 h-24 border flex flex-col gap-2 items-center justify-center hover:outline outline-blue-500 hover:text-blue-500 p-2"
-            href={data.url}
+            href={link.url}
             target="_blank">
-            <i class={`fa-brands ${data.icon} text-xl`} />
-            <span class="truncate max-w-full">{data.label}</span>
+            <i class={`fa-brands ${link.icon} text-xl`} />
+            <span class="truncate max-w-full">{link.label}</span>
           </a>
         </li>
       ))

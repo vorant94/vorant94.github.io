@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { type CollectionEntry } from 'astro:content';
+import { PostsService } from '../../postsService';
+
+interface Props extends Pick<HTMLAttributes<'a'>, 'class'> {
+  post: CollectionEntry<'posts'>;
+  publishedAtFormat?: string;
+}
+
+const { post, publishedAtFormat, class: moreClasses } = Astro.props;
+---
+
+<a
+  href={PostsService.getFullPath(post)}
+  class:list={['text-black hover:text-blue-500 hover:underline', moreClasses]}>
+  <span class="flex gap-3">
+    <span class="flex-1 truncate">{post.data.title}</span>
+    <span>{PostsService.formatPublishedAt(post, publishedAtFormat)}</span>
+  </span>
+</a>

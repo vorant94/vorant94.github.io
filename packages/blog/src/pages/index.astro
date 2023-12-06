@@ -1,45 +1,23 @@
 ---
-import PostList from '../components/PostList.astro';
-import Layout from '../layouts/Layout.astro';
-import Intro from '../components/Intro.astro';
-import { Post } from '../shared/post.js';
+import '@fortawesome/fontawesome-free/css/fontawesome.css';
+import '@fortawesome/fontawesome-free/css/solid.css';
+import { PostsService } from '../shared/postsService.ts';
 import { getCollection } from 'astro:content';
 import _ from 'lodash';
-import StandOut from '../components/StandOut.astro';
-import Link from '../components/Link.astro';
+import Layout from '../shared/components/templates/Layout.astro';
+import Intro from '../shared/components/organisms/Intro.astro';
+import PostList from '../shared/components/organisms/PostList.astro';
+import PinnedPosts from '../shared/components/organisms/PinnedPosts.astro';
 
-const allEntries = Post.sortEntries(await getCollection('posts'));
-const [pinnedEntries, nonPinnedEntries] = _.partition(
-  allEntries,
+const allPosts = PostsService.sortEntries(await getCollection('posts'));
+const [pinnedPosts, nonPinnedPosts] = _.partition(
+  allPosts,
   (entry) => entry.data.isPinned,
-);
-
-const pinnedPosts = await Promise.all(
-  pinnedEntries.map((entry) => Post.fromEntry(entry)),
-);
-const nonPinnedPosts = await Promise.all(
-  nonPinnedEntries.map((entry) => Post.fromEntry(entry)),
 );
 ---
 
 <Layout>
-  {
-    pinnedPosts.map((post) => (
-      <StandOut class="flex-col">
-        <span class="flex gap-3 items-center">
-          <i class="fa-solid fa-thumbtack" />
-          <Link
-            href={post.fullPath}
-            class="flex-1">
-            <span class="flex gap-3">
-              <span class="flex-1 truncate">{post.title}</span>
-              <span>{post.publishedAt}</span>
-            </span>
-          </Link>
-        </span>
-      </StandOut>
-    ))
-  }
+  <PinnedPosts posts={pinnedPosts} />
 
   <Intro />
 
