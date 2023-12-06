@@ -18,7 +18,7 @@ export default {
   markdown: {
     remarkPlugins: [readingTimePlugin],
     shikiConfig: {
-      theme: 'github-light',
+      theme: 'nord',
     },
   },
 } satisfies AstroUserConfig;

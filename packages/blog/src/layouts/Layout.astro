@@ -1,8 +1,10 @@
 ---
+import '@fontsource/open-sans';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { TITLE } from '../shared/intro-texts.js';
 import Analytics from '../components/Analytics.astro';
+import Background from '../components/Background.astro';
 
 interface Props {
   title?: string;
@@ -55,15 +57,21 @@ const ogImage = new URL(image ?? '/favicon.ico', Astro.site);
     <title>{ogTitle}</title>
   </head>
   <body
-    class="bg-gray-50 flex flex-col min-h-[calc(100dvh)] mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
+    class="mx-auto flex min-h-screen max-w-[872px] flex-col gap-9 bg-neutral-950 px-10 py-8 text-sm text-neutral-400 md:gap-20 md:py-16">
     <Analytics />
+
+    <Background />
 
     <Header />
 
-    <main class="flex-1 p-4 flex flex-col gap-2">
-      <slot />
-    </main>
+    <slot />
 
     <Footer />
+
+    <style is:global>
+      html {
+        font-family: 'Open Sans';
+      }
+    </style>
   </body>
 </html>
