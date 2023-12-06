@@ -1,8 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import logoHeader from '../../images/logo-header.svg';
-import Link from '../atoms/Link.astro';
+import { Link } from '../atoms/Link';
 import { PROFILE } from '../../profile';
+import { removeTrailingSlash } from '../../utils/remove-trailing-slash';
+
+const currentPath = removeTrailingSlash(Astro.url.pathname);
 ---
 
 <header class="flex gap-1 items-center p-4 border-b">
@@ -22,7 +25,11 @@ import { PROFILE } from '../../profile';
     {
       PROFILE.navLinks.map((link) => (
         <li class="text-sm">
-          <Link href={link.url}>{link.label}</Link>
+          <Link
+            href={link.url}
+            isActive={currentPath === link.url}>
+            {link.label}
+          </Link>
         </li>
       ))
     }

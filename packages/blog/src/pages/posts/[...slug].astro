@@ -4,7 +4,7 @@ import { getImage } from 'astro:assets';
 import { PostsService } from '../../shared/postsService.ts';
 import Layout from '../../shared/components/templates/Layout.astro';
 import PostContent from '../../shared/components/organisms/PostContent.astro';
-import StandOut from '../../shared/components/molecules/StandOut.astro';
+import { StandOut } from '../../shared/components/molecules/StandOut';
 import PostList from '../../shared/components/organisms/PostList.astro';
 import Comments from '../../shared/components/organisms/Comments.astro';
 
@@ -50,7 +50,7 @@ if (coverImage) {
 
   {
     related.length > 0 && (
-      <StandOut class="flex-col">
+      <StandOut className="flex-col">
         <details>
           <summary class="text-lg font-medium hover:cursor-pointer">
             Related posts

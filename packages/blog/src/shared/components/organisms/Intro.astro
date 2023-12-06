@@ -1,11 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import logoIntro from '../../images/logo-intro.png';
-import StandOut from '../molecules/StandOut.astro';
+import { StandOut } from '../molecules/StandOut';
 import { PROFILE } from '../../profile';
 ---
 
-<StandOut class="items-center">
+<StandOut className="items-center">
   <div class="hidden lg:block shrink-0">
     <Image
       src={logoIntro}

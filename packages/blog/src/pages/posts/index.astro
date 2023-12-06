@@ -2,7 +2,7 @@
 import { PostsService } from '../../shared/postsService.ts';
 import { getCollection } from 'astro:content';
 import Layout from '../../shared/components/templates/Layout.astro';
-import Divider from '../../shared/components/atoms/Divider.astro';
+import { Divider } from '../../shared/components/atoms/Divider';
 import PostList from '../../shared/components/organisms/PostList.astro';
 
 const postsByYear = PostsService.groupEntriesByYear(
@@ -16,7 +16,7 @@ const years = Object.keys(postsByYear).reverse();
   {
     years.map((year) => (
       <>
-        <Divider left={false}>
+        <Divider isLeft={false}>
           <span class="text-xl">{year}</span>
         </Divider>
         <PostList

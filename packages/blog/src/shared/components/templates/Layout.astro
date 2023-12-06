@@ -4,6 +4,7 @@ import Header from '../organisms/Header.astro';
 import Footer from '../organisms/Footer.astro';
 import Analytics from '../organisms/Analytics.astro';
 import { PROFILE } from '../../profile';
+import { Background } from '../molecules/Background';
 
 interface Props {
   title?: string;
@@ -58,6 +59,8 @@ const ogImage = new URL(image ?? '/favicon.ico', Astro.site);
   <body
     class="bg-gray-50 flex flex-col min-h-[calc(100dvh)] mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
     <Analytics />
+
+    <Background />
 
     <Header />
 

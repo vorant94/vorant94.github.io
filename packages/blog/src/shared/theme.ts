@@ -73,4 +73,4 @@ export type ThemeColor =
   | 'pink'
   | 'rose';
 
-export const THEME = new Theme('orange', 'violet');
+export const THEME = new Theme('cyan', 'lime');
