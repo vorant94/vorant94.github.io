@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
-import { DESCRIPTION, TITLE } from '../shared/intro-texts.ts';
+import { DATA } from '../shared/data.ts';
 import { Post } from '../shared/post.js';
 
 export async function GET(context: APIContext) {
@@ -12,8 +12,8 @@ export async function GET(context: APIContext) {
   );
 
   return rss({
-    title: TITLE,
-    description: DESCRIPTION,
+    title: DATA.title,
+    description: DATA.description,
     site: context.site!,
     items: posts.map((post, index) => {
       const entry = entries[index];

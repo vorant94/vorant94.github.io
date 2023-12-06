@@ -1,14 +1,14 @@
 ---
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/solid.css';
-import PostList from '../components/PostList.astro';
-import Layout from '../layouts/Layout.astro';
-import Intro from '../components/Intro.astro';
 import { Post } from '../shared/post.js';
 import { getCollection } from 'astro:content';
 import _ from 'lodash';
-import StandOut from '../components/StandOut.astro';
-import Link from '../components/Link.astro';
+import Layout from '../shared/components/templates/Layout.astro';
+import StandOut from '../shared/components/molecules/StandOut.astro';
+import Link from '../shared/components/atoms/Link.astro';
+import Intro from '../shared/components/organisms/Intro.astro';
+import PostList from '../shared/components/organisms/PostList.astro';
 
 const allEntries = Post.sortEntries(await getCollection('posts'));
 const [pinnedEntries, nonPinnedEntries] = _.partition(

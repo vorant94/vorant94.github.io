@@ -1,11 +1,11 @@
 ---
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/brands.css';
-import Layout from '../layouts/Layout.astro';
-import Intro from '../components/Intro.astro';
 import { getCollection } from 'astro:content';
-import Divider from '../components/Divider.astro';
-import Link from '../components/Link.astro';
+import Layout from '../shared/components/templates/Layout.astro';
+import Intro from '../shared/components/organisms/Intro.astro';
+import Divider from '../shared/components/atoms/Divider.astro';
+import Link from '../shared/components/atoms/Link.astro';
 
 const links = await getCollection('links');
 ---

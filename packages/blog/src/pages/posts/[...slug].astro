@@ -1,12 +1,12 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
 import { getImage } from 'astro:assets';
-import Comments from '../../components/Comments.astro';
 import { Post } from '../../shared/post.js';
-import PostContent from '../../components/PostContent.astro';
-import PostList from '../../components/PostList.astro';
-import StandOut from '../../components/StandOut.astro';
+import Layout from '../../shared/components/templates/Layout.astro';
+import PostContent from '../../shared/components/organisms/PostContent.astro';
+import StandOut from '../../shared/components/molecules/StandOut.astro';
+import PostList from '../../shared/components/organisms/PostList.astro';
+import Comments from '../../shared/components/organisms/Comments.astro';
 
 export async function getStaticPaths() {
   const entries = Post.sortEntries(await getCollection('posts'));

@@ -1,9 +1,9 @@
 ---
-import PostList from '../../components/PostList.astro';
-import Layout from '../../layouts/Layout.astro';
 import { Post } from '../../shared/post.js';
 import { getCollection } from 'astro:content';
-import Divider from '../../components/Divider.astro';
+import Layout from '../../shared/components/templates/Layout.astro';
+import Divider from '../../shared/components/atoms/Divider.astro';
+import PostList from '../../shared/components/organisms/PostList.astro';
 
 const entriesByYear = Post.groupEntriesByYear(
   Post.sortEntries(await getCollection('posts')),
