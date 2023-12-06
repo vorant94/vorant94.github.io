@@ -20,8 +20,5 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-.idea
-.vscode
-
-# yarn v2
-.yarn/
+src/content/.obsidian
+src/content/templates

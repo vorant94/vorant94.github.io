@@ -6,18 +6,14 @@
   "type": "module",
   "packageManager": "yarn@4.0.2",
   "scripts": {
-    "format": "prettier . --check && prettier **/*.astro --check",
-    "format:fix": "prettier . --write && prettier **/*.astro --write",
-    "prettier": "prettier",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "yarn workspaces foreach --all -vp -j unlimited run format",
+    "check": "yarn workspaces foreach --all -vp -j unlimited run check"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "husky": "^8.0.3",
-    "prettier": "^3.1.0",
-    "prettier-plugin-astro": "^0.12.2",
-    "prettier-plugin-organize-imports": "^3.2.4"
+    "husky": "^8.0.3"
   }
 }
