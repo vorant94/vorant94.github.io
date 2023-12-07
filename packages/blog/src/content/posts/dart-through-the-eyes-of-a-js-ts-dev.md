@@ -7,6 +7,8 @@ tags:
   - typescript
 publishedAt: 2023-11-27
 coverImage: ../attachments/dart-through-the-eyes-of-a-js-ts-dev/cover.jpg
+related:
+isPinned:
 ---
 
 ### Intro

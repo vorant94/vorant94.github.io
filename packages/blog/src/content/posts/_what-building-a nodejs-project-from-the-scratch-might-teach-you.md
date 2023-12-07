@@ -4,7 +4,6 @@ description: As of now I've been coding some pet-project for a couple of months.
 tags:
   - node
   - programming
-platforms:
 publishedAt:
 coverImage:
 ---

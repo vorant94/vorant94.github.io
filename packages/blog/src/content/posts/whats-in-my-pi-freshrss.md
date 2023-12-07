@@ -10,6 +10,7 @@ coverImage: ../attachments/whats-in-my-pi/freshrss-logo.svg
 related:
   - whats-in-my-pi-freshrss
   - whats-in-my-pi-bitwarden
+isPinned:
 ---
 
 Back in the old days when there were no social networks if you wanted to have blog, you had to have one, not just to create a profile in some platform, but to maintain a fully-featured website (like the one you are reading right now). From the author perspective an entry level for blogging in such environment was a much higher, but he/she had total freedom and more important ownership of his/her content. From the reader perspective entry point also was a little bit tricky: in order to build nice and convenient post feed with updates from all of your subscriptions you had to come up with something, nobody wanted to manually go over a list of sites on a regular basis. So people invented [RSS protocol](https://en.wikipedia.org/wiki/RSS).

@@ -9,6 +9,7 @@ publishedAt: 2023-07-05
 coverImage: ../attachments/aws-amplify-functions-on-steroids/cover.png
 related:
   - pitfalls-of-aws-amplify-serverless-containers
+isPinned:
 ---
 
 ### What we have out of the box

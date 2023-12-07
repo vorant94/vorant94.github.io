@@ -10,6 +10,7 @@ coverImage: ../attachments/whats-in-my-pi/bitwarden-logo.svg
 related:
   - whats-in-my-pi-pi-hole
   - whats-in-my-pi-freshrss
+isPinned:
 ---
 
 There are multiple options to store your passwords nowadays. I suppose that the default option for an average modern user is either to have only one password for everything or to store all of the passwords in a browser since it constantly suggests to autofill them:

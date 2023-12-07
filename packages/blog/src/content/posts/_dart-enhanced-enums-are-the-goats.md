@@ -4,7 +4,6 @@ description:
 tags:
   - dart
   - programming
-platforms:
 publishedAt:
 coverImage:
 ---

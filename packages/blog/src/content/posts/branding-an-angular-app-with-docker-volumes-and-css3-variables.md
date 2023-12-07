@@ -5,10 +5,10 @@ tags:
   - programming
   - docker
   - angular
-platforms:
-  - https://vorant94.medium.com/skin-replacement-in-angular-after-image-build-bfeb7d2be3f6
 publishedAt: 2021-01-26
 coverImage:
+related:
+isPinned:
 ---
 
 ### The problem

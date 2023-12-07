@@ -9,6 +9,7 @@ publishedAt: 2023-01-31
 coverImage:
 related:
   - aws-amplify-functions-on-steroids
+isPinned:
 ---
 
 ### Starting point
