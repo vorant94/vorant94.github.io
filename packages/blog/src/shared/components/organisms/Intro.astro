@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import logoIntro from '../../images/logo-intro.png';
 import { StandOut } from '../molecules/StandOut';
 import { PROFILE } from '../../profile';
+import { Body } from '../atoms/Body';
 ---
 
 <StandOut className="items-center">
@@ -16,13 +17,13 @@ import { PROFILE } from '../../profile';
 
   <div class="flex flex-col gap-2">
     <span class="font-semibold">Hi, there, I'm Mordechai! 👋</span>
-    <span class="font-light text-sm">
+    <Body>
       {PROFILE.description}
-    </span>
-    <span class="font-light text-sm">
+    </Body>
+    <Body>
       Make yourself at home, take a sit and grab something to
       <span class="line-through">drink</span>
        read
-    </span>
+    </Body>
   </div>
 </StandOut>
