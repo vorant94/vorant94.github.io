@@ -1,17 +1,19 @@
 ---
-import { Image } from 'astro:assets';
 import logoIntro from '../../images/logo-intro.png';
+import logoIntroDark from '../../images/logo-intro-dark.png';
 import { StandOut } from '../molecules/StandOut';
 import { PROFILE } from '../../profile';
 import { Body } from '../atoms/Body';
+import { ThemedImage } from '../atoms/ThemedImage';
 ---
 
 <StandOut className="items-center">
   <div class="hidden lg:block shrink-0">
-    <Image
-      src={logoIntro}
+    <ThemedImage
+      src={logoIntro.src}
+      srcDark={logoIntroDark.src}
       alt="Logo"
-      height="80"
+      width="80"
     />
   </div>
 
