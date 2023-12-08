@@ -1,7 +1,7 @@
 import type { CollectionEntry } from 'astro:content';
 import classNames from 'classnames';
 import type { HTMLAttributes, ReactElement } from 'react';
-import { PostsService } from '../../postsService.ts';
+import { PostsService } from '../../posts.service.ts';
 
 export interface PostListItemProps
   extends Pick<HTMLAttributes<HTMLElement>, 'className'> {
