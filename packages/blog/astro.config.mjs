@@ -1,24 +1,24 @@
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import type { MarkdownContent } from 'astro';
-import type { AstroUserConfig } from 'astro/config';
-import { toString } from 'mdast-util-to-string';
+import * as mdast from 'mdast-util-to-string';
 import readingTime from 'reading-time';
+import { PROFILE } from './src/shared/profile.ts';
 
 function readingTimePlugin() {
-  return function (tree: Node, { data }: MarkdownContent) {
-    data.astro.frontmatter.minutesRead = readingTime(toString(tree)).text;
+  return function (tree, { data }) {
+    data.astro.frontmatter.minutesRead = readingTime(mdast.toString(tree)).text;
   };
 }
 
+/** @type {import("astro/config").AstroUserConfig} */
 export default {
   integrations: [tailwind(), sitemap(), react()],
-  site: 'https://vorant94.io',
+  site: PROFILE.baseUrl,
   markdown: {
     remarkPlugins: [readingTimePlugin],
     shikiConfig: {
       theme: 'github-light',
     },
   },
-} satisfies AstroUserConfig;
+};
