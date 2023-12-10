@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 import _ from 'lodash';
 import Layout from '../shared/components/templates/Layout.astro';
 import Intro from '../shared/components/organisms/Intro.astro';
-import PostList from '../shared/components/organisms/PostList.astro';
+import { PostList } from '../shared/components/organisms/PostList';
 import PinnedPosts from '../shared/components/organisms/PinnedPosts.astro';
 
 const allPosts = PostsService.sortEntries(await getCollection('posts'));
