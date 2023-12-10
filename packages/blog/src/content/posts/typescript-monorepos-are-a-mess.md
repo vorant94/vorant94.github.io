@@ -56,7 +56,14 @@ watch?
 ### TypeScript tooling ecosystem
 
 ts-node (tsc) esm problem, ts-node (tsc) references problem
+
+https://github.com/TypeStrong/ts-node/issues/897
+
 tsx (esbuild) references problem, tsx (esbuild) decorators problem
+
+https://github.com/privatenumber/tsx/issues/96
+https://github.com/smacker/esbuild-plugin-ts-references
+
 tsx for unit tests
 nodemon (with tsc as 2nd process) problem
 
