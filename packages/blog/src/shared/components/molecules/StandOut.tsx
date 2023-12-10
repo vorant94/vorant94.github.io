@@ -1,18 +1,13 @@
 import classNames from 'classnames';
-import type { HTMLAttributes, PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import { type ReactElement } from 'react';
+import { Card, type CardProps } from '../atoms/Card';
 
-export interface StandOutProps
-  extends Pick<HTMLAttributes<HTMLElement>, 'className'> {}
+export interface StandOutProps extends Pick<CardProps, 'className'> {}
 
 export function StandOut({
   className,
   children,
 }: PropsWithChildren<StandOutProps>): ReactElement {
-  return (
-    <section
-      className={classNames('border rounded-md p-5 m-3 flex gap-3', className)}>
-      {children}
-    </section>
-  );
+  return <Card className={classNames('m-3', className)}>{children}</Card>;
 }
