@@ -1,10 +1,10 @@
 ---
 import { getCollection, type CollectionEntry, getEntries } from 'astro:content';
 import { getImage } from 'astro:assets';
-import { PostsService } from '../../shared/posts.service.ts';
+import { PostsService } from '../../shared/PostsService';
 import Layout from '../../shared/components/templates/Layout.astro';
 import PostContent from '../../shared/components/organisms/PostContent.astro';
-import Comments from '../../shared/components/organisms/Comments.astro';
+import { Comments } from '../../shared/components/organisms/Comments';
 import { RelatedPosts } from '../../shared/components/organisms/RelatedPosts';
 
 export async function getStaticPaths() {

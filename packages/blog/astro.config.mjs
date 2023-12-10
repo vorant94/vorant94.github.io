@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 import * as mdast from 'mdast-util-to-string';
 import readingTime from 'reading-time';
-import { PROFILE } from './src/shared/profile.ts';
+import { PROFILE } from './src/shared/Profile';
 
 function readingTimePlugin() {
   return function (tree, { data }) {

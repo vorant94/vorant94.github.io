@@ -4,4 +4,4 @@ import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 const isProd = import.meta.env.PROD;
 ---
 
-{isProd && <VercelAnalytics client:only />}
+{isProd && <VercelAnalytics client:only="react" />}

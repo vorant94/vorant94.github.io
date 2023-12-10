@@ -1,10 +1,11 @@
 ---
 import '@fontsource/open-sans';
-import Header from '../organisms/Header.astro';
-import Footer from '../organisms/Footer.astro';
+import { Header } from '../organisms/Header';
+import { Footer } from '../organisms/Footer';
 import Analytics from '../organisms/Analytics.astro';
-import { PROFILE } from '../../profile';
+import { PROFILE } from '../../Profile';
 import { Background } from '../molecules/Background';
+import { removeTrailingSlash } from '../../utils/RemoveTrailingSlash';
 
 interface Props {
   title?: string;
@@ -17,6 +18,8 @@ const ogTitle = title ? `vorant94 | ${title}` : PROFILE.title;
 const ogType = title ? 'article' : 'website';
 const ogUrl = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image ?? '/favicon.ico', Astro.site);
+
+const currentPath = removeTrailingSlash(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -62,7 +65,7 @@ const ogImage = new URL(image ?? '/favicon.ico', Astro.site);
 
     <Background />
 
-    <Header />
+    <Header currentPath={currentPath} />
 
     <main class="flex-1 p-4 flex flex-col gap-2">
       <slot />
