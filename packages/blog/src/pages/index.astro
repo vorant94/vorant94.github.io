@@ -1,13 +1,13 @@
 ---
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/solid.css';
-import { PostsService } from '../shared/postsService.ts';
+import { PostsService } from '../shared/PostsService';
 import { getCollection } from 'astro:content';
 import _ from 'lodash';
 import Layout from '../shared/components/templates/Layout.astro';
-import Intro from '../shared/components/organisms/Intro.astro';
-import PostList from '../shared/components/organisms/PostList.astro';
-import PinnedPosts from '../shared/components/organisms/PinnedPosts.astro';
+import { Intro } from '../shared/components/organisms/Intro';
+import { PostList } from '../shared/components/organisms/PostList';
+import { PinnedPosts } from '../shared/components/organisms/PinnedPosts';
 
 const allPosts = PostsService.sortEntries(await getCollection('posts'));
 const [pinnedPosts, nonPinnedPosts] = _.partition(

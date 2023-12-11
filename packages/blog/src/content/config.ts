@@ -8,9 +8,9 @@ const posts = defineCollection({
       description: z.string(),
       tags: z.array(z.string()),
       publishedAt: z.date(),
-      coverImage: image().nullable(),
-      related: z.array(reference('posts')).nullable(),
-      isPinned: z.boolean().nullable().default(false),
+      coverImage: image().optional().nullable(),
+      related: z.array(reference('posts')).optional().nullable(),
+      isPinned: z.boolean().optional().nullable().default(false),
     });
   },
 });

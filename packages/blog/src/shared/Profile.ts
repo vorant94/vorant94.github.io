@@ -1,5 +1,6 @@
 export class Profile {
   constructor(
+    public readonly baseUrl: string,
     public readonly title: string,
     public readonly description: string,
     public readonly email: string,
@@ -25,6 +26,7 @@ export class SocialLink {
 }
 
 export const PROFILE = new Profile(
+  'https://vorant94.io',
   `vorant94's Digital Garden`,
   `Welcome to my digital garden, here I write about all sorts of things (mostly about technologies, a little bit on gaming, traveling and self-reflecting)`,
   'vorant94@gmail.com',

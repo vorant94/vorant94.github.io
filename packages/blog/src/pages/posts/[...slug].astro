@@ -1,12 +1,11 @@
 ---
 import { getCollection, type CollectionEntry, getEntries } from 'astro:content';
 import { getImage } from 'astro:assets';
-import { PostsService } from '../../shared/postsService.ts';
+import { PostsService } from '../../shared/PostsService';
 import Layout from '../../shared/components/templates/Layout.astro';
-import PostContent from '../../shared/components/organisms/PostContent.astro';
-import { StandOut } from '../../shared/components/molecules/StandOut';
-import PostList from '../../shared/components/organisms/PostList.astro';
-import Comments from '../../shared/components/organisms/Comments.astro';
+import { PostFrontmatter } from '../../shared/components/organisms/PostFrontmatter';
+import { Comments } from '../../shared/components/organisms/Comments';
+import { RelatedPosts } from '../../shared/components/organisms/RelatedPosts';
 
 export async function getStaticPaths() {
   const entries = PostsService.sortEntries(await getCollection('posts'));
@@ -41,42 +40,23 @@ if (coverImage) {
   });
   coverImageSrc = image.src;
 }
+
+const { Content, remarkPluginFrontmatter } = await post.render();
 ---
 
 <Layout
   title={title}
   image={coverImageSrc}>
-  <PostContent post={post} />
+  <article class="prose prose-img:mx-auto">
+    <PostFrontmatter
+      post={post}
+      minutesRead={remarkPluginFrontmatter.minutesRead}
+    />
 
-  {
-    related.length > 0 && (
-      <StandOut className="flex-col">
-        <details>
-          <summary class="text-lg font-medium hover:cursor-pointer">
-            Related posts
-          </summary>
-          <PostList posts={related} />
-        </details>
-      </StandOut>
-    )
-  }
+    <Content />
+  </article>
+
+  {related.length > 0 && <RelatedPosts posts={related} />}
 
   <Comments post={post} />
 </Layout>
-
-<style>
-  details {
-    > summary {
-      list-style-type: none;
-
-      &::before {
-        font-family: 'Font Awesome 6 Free';
-        content: '\f0d7';
-      }
-    }
-
-    &[open] > summary::before {
-      content: '\f0d8';
-    }
-  }
-</style>

@@ -1,9 +1,9 @@
 ---
-import { PostsService } from '../../shared/postsService.ts';
+import { PostsService } from '../../shared/PostsService';
 import { getCollection } from 'astro:content';
 import Layout from '../../shared/components/templates/Layout.astro';
 import { Divider } from '../../shared/components/atoms/Divider';
-import PostList from '../../shared/components/organisms/PostList.astro';
+import { PostList } from '../../shared/components/organisms/PostList';
 
 const postsByYear = PostsService.groupEntriesByYear(
   PostsService.sortEntries(await getCollection('posts')),
