@@ -14,7 +14,7 @@ const { coverImage, tags, title, description } = post.data;
 const { Content, remarkPluginFrontmatter } = await post.render();
 ---
 
-<article class="prose flex flex-col">
+<article class="flex flex-col prose">
   <h1>{title}</h1>
 
   <div class="flex gap-2 items-center">
