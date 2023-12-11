@@ -14,8 +14,7 @@ const { coverImage, tags, title, description } = post.data;
 const { Content, remarkPluginFrontmatter } = await post.render();
 ---
 
-<article
-  class="flex flex-col prose prose-headings:relative prose-headings:before:absolute prose-headings:before:-left-5 hover:prose-headings:cursor-pointer hover:prose-headings:underline hover:prose-headings:before:content-['#']">
+<article class="flex flex-col prose">
   <h1>{title}</h1>
 
   <div class="flex gap-2 items-center">
