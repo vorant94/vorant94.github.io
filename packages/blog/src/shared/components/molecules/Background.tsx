@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { type ReactElement } from 'react';
-import { THEME } from '../../theme.ts';
+import { THEME } from '../../Theme';
 
 export function Background(): ReactElement {
   const common =
