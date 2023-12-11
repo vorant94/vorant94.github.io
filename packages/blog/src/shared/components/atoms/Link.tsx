@@ -17,7 +17,9 @@ export function Link({
     <a
       className={classNames(
         'hover:text-blue-500 hover:underline',
-        isActive ? 'text-black underline' : 'text-gray-500',
+        isActive
+          ? 'text-slate-800 dark:text-slate-50 underline'
+          : 'text-slate-500',
         className,
       )}
       href={href}

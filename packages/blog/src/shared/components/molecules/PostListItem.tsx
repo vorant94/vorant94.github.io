@@ -18,12 +18,14 @@ export function PostListItem({
     <a
       href={PostsService.getFullPath(post)}
       className={classNames(
-        'text-black hover:text-blue-500 hover:underline',
+        'text-slate-800 dark:text-slate-50 hover:text-blue-500 hover:underline',
         className,
       )}>
-      <span className="flex gap-3">
+      <span className="flex gap-3 items-center">
         <span className="flex-1 truncate">{post.data.title}</span>
-        <span>{PostsService.formatPublishedAt(post, publishedAtFormat)}</span>
+        <span className="whitespace-nowrap text-xs hover:text-blue-500">
+          {PostsService.formatPublishedAt(post, publishedAtFormat)}
+        </span>
       </span>
     </a>
   );

@@ -9,7 +9,11 @@ export function Card({
   className,
 }: PropsWithChildren<CardProps>): ReactElement {
   return (
-    <div className={classNames('border rounded-md p-5 flex gap-3', className)}>
+    <div
+      className={classNames(
+        'border border-slate-300 dark:border-slate-600 rounded-md p-5 flex gap-3',
+        className,
+      )}>
       {children}
     </div>
   );

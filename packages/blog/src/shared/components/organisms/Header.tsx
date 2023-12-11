@@ -1,7 +1,9 @@
 import type { ReactElement } from 'react';
 import { PROFILE } from '../../Profile';
 import { Link } from '../atoms/Link';
-import headerLogo from './HeaderLogo.svg?url';
+import { ThemedImage } from '../atoms/ThemedImage.tsx';
+import HeaderLogo from './HeaderLogo.webp?url';
+import HeaderLogoDark from './HeaderLogoDark.webp?url';
 
 export interface HeaderProps {
   currentPath: string;
@@ -9,11 +11,12 @@ export interface HeaderProps {
 
 export function Header({ currentPath }: HeaderProps): ReactElement {
   return (
-    <header className="flex gap-1 items-center p-4 border-b">
+    <header className="flex gap-1 items-center p-4 border-b border-slate-300 dark:border-slate-600">
       <nav>
         <a href="/">
-          <img
-            src={headerLogo}
+          <ThemedImage
+            src={HeaderLogo}
+            srcDark={HeaderLogoDark}
             alt="Logo"
             width="120"
           />

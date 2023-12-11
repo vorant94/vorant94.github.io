@@ -8,7 +8,8 @@ export function Body({
   className,
 }: PropsWithChildren<BodyProps>): ReactElement {
   return (
-    <span className={classNames('font-light text-sm', className)}>
+    <span
+      className={classNames('text-slate-800 dark:text-slate-50', className)}>
       {children}
     </span>
   );
