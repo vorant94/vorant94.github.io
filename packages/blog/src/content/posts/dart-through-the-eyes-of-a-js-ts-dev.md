@@ -6,7 +6,7 @@ tags:
   - dart
   - typescript
 publishedAt: 2023-11-27
-coverImage: ../attachments/dart-through-the-eyes-of-a-js-ts-dev/cover.webp
+coverImage: ../attachments/dart-through-the-eyes-of-a-js-ts-dev/cover.png
 related:
 isPinned:
 ---

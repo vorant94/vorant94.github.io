@@ -6,7 +6,7 @@ tags:
   - tech
   - raspberry-pi
 publishedAt: 2023-12-05
-coverImage: ../attachments/whats-in-my-pi-bitwarden/cover.webp
+coverImage: ../attachments/whats-in-my-pi-bitwarden/cover.png
 related:
   - whats-in-my-pi-pi-hole
   - whats-in-my-pi-freshrss
