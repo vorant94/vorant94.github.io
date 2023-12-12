@@ -6,7 +6,7 @@ tags:
   - war
   - self-reflection
 publishedAt: 2023-10-14
-coverImage: ../attachments/war-in-israel/cover.png
+coverImage: ../attachments/war-in-israel/cover.webp
 related:
 isPinned: true
 ---
