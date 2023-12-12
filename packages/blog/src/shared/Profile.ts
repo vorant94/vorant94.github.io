@@ -1,3 +1,5 @@
+import type { IconGlyph } from './components/atoms/Icon.tsx';
+
 export class Profile {
   constructor(
     public readonly baseUrl: string,
@@ -19,7 +21,7 @@ export class NavLink {
 
 export class SocialLink {
   constructor(
-    public readonly icon: string,
+    public readonly glyph: IconGlyph,
     public readonly label: string,
     public readonly url: URL,
   ) {}
@@ -31,39 +33,23 @@ export const PROFILE = new Profile(
   `Welcome to my digital garden, here I write about all sorts of things (mostly about technologies, a little bit on gaming, traveling and self-reflecting)`,
   'vorant94@gmail.com',
   'Mordechai Dror © 2021-present',
-  [
-    new NavLink('Home', '/'),
-    new NavLink('About', '/about'),
-    new NavLink('Posts', '/posts'),
-  ],
+  [new NavLink('👨‍💻 About', '/about'), new NavLink('📒 Posts', '/posts')],
   [
     new SocialLink(
-      'fa-linkedin-in',
+      'linked-in',
       'LinkedIn',
       new URL('https://www.linkedin.com/in/vorant94/'),
     ),
+    new SocialLink('github', 'Github', new URL('https://github.com/vorant94/')),
+    new SocialLink('medium', 'Medium', new URL('https://vorant94.medium.com/')),
     new SocialLink(
-      'fa-github',
-      'Github',
-      new URL('https://github.com/vorant94/'),
-    ),
-    new SocialLink(
-      'fa-medium',
-      'Medium',
-      new URL('https://vorant94.medium.com/'),
-    ),
-    new SocialLink(
-      'fa-stack-overflow',
+      'stack-overflow',
       'Stack Overflow',
       new URL('https://stackoverflow.com/users/4995200/vorant94'),
     ),
+    new SocialLink('telegram', 'Telegram', new URL('https://t.me/vorant94/')),
     new SocialLink(
-      'fa-telegram',
-      'Telegram',
-      new URL('https://t.me/vorant94/'),
-    ),
-    new SocialLink(
-      'fa-x-twitter',
+      'twitter',
       'Twitter / X',
       new URL('https://twitter.com/vorant94'),
     ),

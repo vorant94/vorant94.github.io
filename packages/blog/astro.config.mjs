@@ -37,11 +37,12 @@ export default defineConfig({
         rehypeAutolinkHeadings,
         {
           behavior: 'append',
-          content: () =>
-            h(
-              'span.fa-solid.fa-link.fa-sm.ml-2.invisible.group-hover:visible',
-              { ariaHidden: 'true' },
-            ),
+          content: () => {
+            return h('span.ml-2.invisible.text-sm.group-hover:visible', '🔗');
+          },
+          properties: {
+            className: 'no-underline',
+          },
         },
       ],
       [

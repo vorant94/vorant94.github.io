@@ -1,6 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
 import type { ReactElement } from 'react';
-import { Icon } from '../atoms/Icon';
 import { PostListItem } from '../molecules/PostListItem';
 import { StandOut } from '../molecules/StandOut';
 
@@ -16,7 +15,7 @@ export function PinnedPosts({ posts }: PinnedPostsProps): ReactElement {
           className="flex-col"
           key={post.id}>
           <span className="flex gap-3 items-center">
-            <Icon className="fa-solid fa-thumbtack rotate-[-30deg]" />
+            <span className="-scale-x-100">📌</span>
             <PostListItem
               post={post}
               className="flex-1"

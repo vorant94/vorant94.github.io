@@ -1,6 +1,7 @@
 import type { CollectionEntry } from 'astro:content';
 import type { ReactElement } from 'react';
 import { PostsService } from '../../PostsService.ts';
+import { Caption } from '../atoms/Caption.tsx';
 
 export interface PostFrontmatterProps {
   post: CollectionEntry<'posts'>;
@@ -18,11 +19,9 @@ export function PostFrontmatter({
       <h1>{title}</h1>
 
       <div className="flex gap-2 items-center">
-        <span className="text-sm text-gray-500">
-          {PostsService.formatPublishedAt(post)}
-        </span>
-        <span className="text-sm text-gray-500">&#x2022;</span>
-        <span className="text-sm text-gray-500">{minutesRead}</span>
+        <Caption>{PostsService.formatPublishedAt(post)}</Caption>
+        <Caption>&#x2022;</Caption>
+        <Caption>{minutesRead}</Caption>
 
         <div className="flex-1"></div>
 

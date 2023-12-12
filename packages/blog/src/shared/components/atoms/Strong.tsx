@@ -1,19 +1,15 @@
 import classNames from 'classnames';
-import type { HTMLAttributes, PropsWithChildren, ReactElement } from 'react';
-
-export interface StrongProps extends HTMLAttributes<HTMLSpanElement> {}
+import type { PropsWithChildren, ReactElement } from 'react';
+import { THEME } from '../../Theme.ts';
 
 export function Strong({
   children,
-  className,
 }: PropsWithChildren<StrongProps>): ReactElement {
   return (
-    <strong
-      className={classNames(
-        'text-slate-800 dark:text-slate-50 font-extrabold',
-        className,
-      )}>
+    <strong className={classNames(THEME.text, 'font-semibold')}>
       {children}
     </strong>
   );
 }
+
+export interface StrongProps {}

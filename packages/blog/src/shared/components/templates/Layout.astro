@@ -1,11 +1,11 @@
 ---
-import '@fontsource/open-sans';
 import { Header } from '../organisms/Header';
 import { Footer } from '../organisms/Footer';
 import { PROFILE } from '../../Profile';
 import { Background } from '../molecules/Background';
 import { removeTrailingSlash } from '../../utils/RemoveTrailingSlash';
 import { Analytics } from '@vercel/analytics/react';
+import { THEME } from '../../Theme';
 
 interface Props {
   title?: string;
@@ -69,7 +69,10 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
     <title>{ogTitle}</title>
   </head>
   <body
-    class="bg-slate-50 dark:bg-slate-800 flex flex-col min-h-[calc(100dvh)] mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
+    class:list={[
+      THEME.background,
+      'flex flex-col min-h-[calc(100dvh)] mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl',
+    ]}>
     {isProd && <Analytics client:only="react" />}
 
     <Background />

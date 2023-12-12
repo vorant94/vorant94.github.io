@@ -12,7 +12,7 @@ export function PostList({
   publishedAtFormat,
 }: PostListProps): ReactElement {
   return (
-    <ul className="flex flex-col divide-y divide-dashed">
+    <ul className="flex flex-col divide-y divide-dashed divide-slate-300 dark:divide-slate-600">
       {posts.map((post) => (
         <li
           className="flex flex-col py-3 text-medium"

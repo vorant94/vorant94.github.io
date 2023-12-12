@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { type ReactElement } from 'react';
-import { THEME } from '../../Theme';
 
 export function Background(): ReactElement {
   const common =
@@ -8,18 +7,8 @@ export function Background(): ReactElement {
 
   return (
     <>
-      <div
-        className={classNames(
-          common,
-          THEME.backgroundTop,
-          'left-0 top-0',
-        )}></div>
-      <div
-        className={classNames(
-          common,
-          THEME.backgroundBottom,
-          'right-0 bottom-0',
-        )}></div>
+      <div className={classNames(common, 'bg-cyan-500 left-0 top-0')}></div>
+      <div className={classNames(common, 'bg-lime-500 right-0 bottom-0')}></div>
     </>
   );
 }

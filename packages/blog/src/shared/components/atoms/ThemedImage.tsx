@@ -1,10 +1,5 @@
 import type { ImgHTMLAttributes, ReactElement } from 'react';
 
-export interface ThemedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
-  src: string;
-  srcDark: string;
-}
-
 // in some cases you must set both height and width or  prefer width over height because of this tailwindcss default
 // https://github.com/tailwindlabs/tailwindcss/issues/506
 export function ThemedImage({
@@ -24,4 +19,9 @@ export function ThemedImage({
       />
     </picture>
   );
+}
+
+export interface ThemedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+  src: string;
+  srcDark: string;
 }
