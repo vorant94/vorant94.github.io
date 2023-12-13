@@ -1,6 +1,7 @@
 import type { CollectionEntry } from 'astro:content';
 import type { ReactElement } from 'react';
 import { PostsService } from '../../PostsService.ts';
+import { Badge } from '../atoms/Badge.tsx';
 import { Caption } from '../atoms/Caption.tsx';
 
 export interface PostFrontmatterProps {
@@ -18,19 +19,17 @@ export function PostFrontmatter({
     <>
       <h1>{title}</h1>
 
-      <div className="flex gap-2 items-center">
-        <Caption>{PostsService.formatPublishedAt(post)}</Caption>
-        <Caption>&#x2022;</Caption>
-        <Caption>{minutesRead}</Caption>
+      <div className="flex flex-col lg:flex-row gap-2 lg:items-center justify-between">
+        <div className="flex gap-2 items-center">
+          <Caption>{PostsService.formatPublishedAt(post)}</Caption>
+          <Caption>&#x2022;</Caption>
+          <Caption>{minutesRead}</Caption>
+        </div>
 
-        <div className="flex-1"></div>
-
-        <ul className="hidden lg:flex list-none m-0 p-0 gap-1">
+        <ul className="flex list-none m-0 p-0 gap-1">
           {tags.map((tag) => (
-            <li
-              className="border border-gray-300 rounded-full text-xs font-light text-gray-500 m-0 py-0 px-2"
-              key={tag}>
-              #{tag}
+            <li key={tag}>
+              <Badge hashValue={tag}>#{tag}</Badge>
             </li>
           ))}
         </ul>

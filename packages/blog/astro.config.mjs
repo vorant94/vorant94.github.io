@@ -53,7 +53,10 @@ export default defineConfig({
       ],
     ],
     shikiConfig: {
-      theme: 'github-light',
+      experimentalThemes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
     },
   },
 });

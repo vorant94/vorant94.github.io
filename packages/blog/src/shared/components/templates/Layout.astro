@@ -1,32 +1,21 @@
 ---
 import { Header } from '../organisms/Header';
 import { Footer } from '../organisms/Footer';
-import { PROFILE } from '../../Profile';
 import { Background } from '../molecules/Background';
 import { removeTrailingSlash } from '../../utils/RemoveTrailingSlash';
 import { Analytics } from '@vercel/analytics/react';
 import { THEME } from '../../Theme';
+import { Seo } from '../organisms/Seo';
+import { Meta } from '../organisms/Meta';
 
 interface Props {
   title?: string;
   image?: string;
   description?: string;
-  type?: 'website' | 'article';
+  type?: string;
 }
 
-const {
-  title = PROFILE.title,
-  image = '/favicon.ico',
-  description = PROFILE.description,
-  type = 'website',
-} = Astro.props;
-
-const ogTitle = title === PROFILE.title ? title : `vorant94 | ${title}`;
-const ogUrl = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL(image, Astro.site);
-
-const ogDomain = PROFILE.baseUrl.split('/').at(-1);
-
+const { title, image, description, type } = Astro.props;
 const isProd = import.meta.env.PROD;
 const currentPath = removeTrailingSlash(Astro.url.pathname);
 ---
@@ -36,78 +25,15 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
   lang="en"
   prefix="og: https://ogp.me/ns#">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    />
+    <Meta title={title} />
 
-    <!-- FACEBOOK -->
-    <meta
-      property="og:title"
-      content={ogTitle}
+    <Seo
+      currentPath={currentPath}
+      title={title}
+      image={image}
+      description={description}
+      type={type}
     />
-    <meta
-      property="og:description"
-      content={description}
-    />
-    <meta
-      property="og:url"
-      content={ogUrl}
-    />
-    <meta
-      property="og:image"
-      content={ogImage}
-    />
-    <meta
-      property="og:type"
-      content={type}
-    />
-
-    <!-- TWITTER -->
-    <meta
-      name="twitter:title"
-      content={ogTitle}
-    />
-    <meta
-      name="twitter:description"
-      content={description}
-    />
-    <meta
-      property="twitter:url"
-      content={ogUrl}
-    />
-    <meta
-      name="twitter:image"
-      content={ogImage}
-    />
-    <meta
-      name="twitter:card"
-      content="summary_large_image"
-    />
-    <meta
-      property="twitter:domain"
-      content={ogDomain}
-    />
-
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/favicon-dark.ico"
-      media="(prefers-color-scheme: dark)"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/favicon.ico"
-      media="(prefers-color-scheme: light)"
-    />
-    <link
-      rel="sitemap"
-      href="/sitemap-index.xml"
-    />
-
-    <title>{ogTitle}</title>
   </head>
   <body
     class:list={[
