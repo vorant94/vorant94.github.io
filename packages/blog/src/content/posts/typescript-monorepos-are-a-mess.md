@@ -13,6 +13,8 @@ isPinned:
 
 ### Why TypeScript?
 
+![TypeScript meme](../attachments/typescript-monorepos-are-a-mess/typescript-meme.jpg)
+
 So first things first: why TypeScript? A year ago the answer for me would be obvious. Like how else would you build something bigger than a calculator? Imagine having a function you wrote 3 months ago that accepts 5 arguments aaand... thats all you see right from the function signature. You don't know what are the arguments structures, you don't know what the return value structure, you know nothing, John Snow ©️. You have either to document it with JSDoc or pray the God you'll never forget the signature, which is more likely to happen than not. Another issue is refactoring: try to change the field on some data object throughout the whole project and be sure nothing is broken, I'll see you the next day.
 
 But with all that said there was a real [TypeScript drama](https://www.youtube.com/watch?v=Bv3YhGku92w) in Twitter recently, a couple of huge NodeJS ecosystem projects dropped TypeScript because of trade-offs it comes with. The trade-offs can be summarized in the following two points:
@@ -32,6 +34,8 @@ And once again while the first point is not really a problem for me since I woul
 In conclusion I think the pain of build boilerplate pays off by avoiding pain of running though code manually, so the TypeScript it is.
 
 ### Why Monorepo?
+
+![TypeScript meme](../attachments/typescript-monorepos-are-a-mess/monorepo-meme.jpg)
 
 ### Monorepo options
 
