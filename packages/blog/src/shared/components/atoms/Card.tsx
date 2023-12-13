@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import type { HTMLAttributes, PropsWithChildren, ReactElement } from 'react';
+import { THEME } from '../../Theme.ts';
 
 export interface CardProps
   extends Pick<HTMLAttributes<HTMLDivElement>, 'className'> {}
@@ -9,7 +10,13 @@ export function Card({
   className,
 }: PropsWithChildren<CardProps>): ReactElement {
   return (
-    <div className={classNames('border rounded-md p-5 flex gap-3', className)}>
+    <div
+      className={classNames(
+        THEME.border,
+        THEME.background,
+        'border rounded-md p-5 flex gap-3',
+        className,
+      )}>
       {children}
     </div>
   );

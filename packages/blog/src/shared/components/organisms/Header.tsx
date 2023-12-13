@@ -1,19 +1,24 @@
+import classNames from 'classnames';
 import type { ReactElement } from 'react';
 import { PROFILE } from '../../Profile';
-import { Link } from '../atoms/Link';
-import headerLogo from './HeaderLogo.svg?url';
-
-export interface HeaderProps {
-  currentPath: string;
-}
+import { THEME } from '../../Theme.ts';
+import { NavLink } from '../atoms/NavLink.tsx';
+import { ThemedImage } from '../atoms/ThemedImage.tsx';
+import HeaderLogo from './HeaderLogo.webp?url';
+import HeaderLogoDark from './HeaderLogoDark.webp?url';
 
 export function Header({ currentPath }: HeaderProps): ReactElement {
   return (
-    <header className="flex gap-1 items-center p-4 border-b">
+    <header
+      className={classNames(
+        'flex gap-1 items-center p-4 border-b',
+        THEME.border,
+      )}>
       <nav>
         <a href="/">
-          <img
-            src={headerLogo}
+          <ThemedImage
+            src={HeaderLogo}
+            srcDark={HeaderLogoDark}
             alt="Logo"
             width="120"
           />
@@ -22,19 +27,23 @@ export function Header({ currentPath }: HeaderProps): ReactElement {
 
       <span className="flex-1"></span>
 
-      <ul className="flex gap-3">
+      <ul className="flex gap-3 md:gap-4 lg:gap-6">
         {PROFILE.navLinks.map((link) => (
           <li
             className="text-sm"
             key={link.url}>
-            <Link
+            <NavLink
               href={link.url}
               isActive={currentPath === link.url}>
               {link.label}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>
     </header>
   );
+}
+
+export interface HeaderProps {
+  currentPath: string;
 }

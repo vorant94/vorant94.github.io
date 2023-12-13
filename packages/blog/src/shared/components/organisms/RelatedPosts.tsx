@@ -1,5 +1,7 @@
 import type { CollectionEntry } from 'astro:content';
 import type { ReactElement } from 'react';
+import { THEME } from '../../Theme.ts';
+import { Title } from '../atoms/Title.tsx';
 import { StandOut } from '../molecules/StandOut';
 import { PostList } from './PostList';
 import './RelatedPosts.module.css';
@@ -11,9 +13,11 @@ export interface RelatedPostsProps {
 export function RelatedPosts({ posts }: RelatedPostsProps): ReactElement {
   return (
     <StandOut className="flex-col">
-      <details>
-        <summary className="text-lg font-medium hover:cursor-pointer">
-          <span className="pl-1">Related posts</span>
+      <details className={THEME.text}>
+        <summary className="hover:cursor-pointer">
+          <Title inline={true}>
+            <span className="pl-2">Related posts</span>
+          </Title>
         </summary>
         <PostList posts={posts} />
       </details>
