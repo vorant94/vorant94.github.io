@@ -9,18 +9,25 @@ import { THEME } from '../../Theme';
 
 interface Props {
   title?: string;
-  image?: string | null;
+  image?: string;
+  description?: string;
+  type?: 'website' | 'article';
 }
 
-const { title, image } = Astro.props;
+const {
+  title = PROFILE.title,
+  image = '/favicon.ico',
+  description = PROFILE.description,
+  type = 'website',
+} = Astro.props;
 
-const ogTitle = title ? `vorant94 | ${title}` : PROFILE.title;
-const ogType = title ? 'article' : 'website';
+const ogTitle = title === PROFILE.title ? title : `vorant94 | ${title}`;
 const ogUrl = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL(image ?? '/favicon.ico', Astro.site);
+const ogImage = new URL(image, Astro.site);
+
+const ogDomain = PROFILE.baseUrl.split('/').at(-1);
 
 const isProd = import.meta.env.PROD;
-
 const currentPath = removeTrailingSlash(Astro.url.pathname);
 ---
 
@@ -34,13 +41,15 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
       name="viewport"
       content="width=device-width, initial-scale=1"
     />
+
+    <!-- FACEBOOK -->
     <meta
       property="og:title"
       content={ogTitle}
     />
     <meta
-      property="og:type"
-      content={ogType}
+      property="og:description"
+      content={description}
     />
     <meta
       property="og:url"
@@ -50,6 +59,37 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
       property="og:image"
       content={ogImage}
     />
+    <meta
+      property="og:type"
+      content={type}
+    />
+
+    <!-- TWITTER -->
+    <meta
+      name="twitter:title"
+      content={ogTitle}
+    />
+    <meta
+      name="twitter:description"
+      content={description}
+    />
+    <meta
+      property="twitter:url"
+      content={ogUrl}
+    />
+    <meta
+      name="twitter:image"
+      content={ogImage}
+    />
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+    <meta
+      property="twitter:domain"
+      content={ogDomain}
+    />
+
     <link
       rel="icon"
       type="image/svg+xml"
@@ -66,6 +106,7 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
       rel="sitemap"
       href="/sitemap-index.xml"
     />
+
     <title>{ogTitle}</title>
   </head>
   <body

@@ -30,7 +30,7 @@ interface Props {
 }
 
 const { post, related } = Astro.props;
-const { coverImage, title } = post.data;
+const { coverImage, title, description } = post.data;
 
 let coverImageSrc: string | undefined;
 if (coverImage) {
@@ -46,7 +46,9 @@ const { Content, remarkPluginFrontmatter } = await post.render();
 
 <Layout
   title={title}
-  image={coverImageSrc}>
+  image={coverImageSrc}
+  description={description}
+  type="article">
   <article class="prose dark:prose-invert prose-img:mx-auto">
     <PostFrontmatter
       post={post}
