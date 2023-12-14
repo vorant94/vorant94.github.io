@@ -11,7 +11,7 @@ import rehypeAddClasses from 'rehype-add-classes';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeSlug from 'rehype-slug';
-import { PROFILE } from './src/shared/Profile';
+import { PROFILE } from './src/shared/profile';
 
 function readingTimePlugin() {
   return function (tree, { data }) {

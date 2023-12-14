@@ -1,8 +1,8 @@
 import type { CollectionEntry } from 'astro:content';
 import type { ReactElement } from 'react';
-import { PostsService } from '../../PostsService.ts';
-import { Badge } from '../atoms/Badge.tsx';
-import { Caption } from '../atoms/Caption.tsx';
+import { PostsService } from '../../shared/posts.service';
+import { Badge } from '../atoms/Badge';
+import { Caption } from '../atoms/Caption';
 
 export interface PostFrontmatterProps {
   post: CollectionEntry<'posts'>;

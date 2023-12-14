@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 import { type ReactElement } from 'react';
-import { THEME } from '../../Theme.ts';
+import { THEME } from '../../shared/theme';
 
 export function Divider({
   isRight = true,
@@ -11,7 +11,7 @@ export function Divider({
   return (
     <div className="relative flex py-5 items-center">
       {isLeft && (
-        <div className={classNames(THEME.border, 'flex-grow border-t')} />
+        <div className={classNames(...THEME.border, 'flex-grow border-t')} />
       )}
       <div
         className={classNames('flex-shrink', {
@@ -21,7 +21,7 @@ export function Divider({
         {children}
       </div>
       {isRight && (
-        <div className={classNames(THEME.border, 'flex-grow border-t')} />
+        <div className={classNames(...THEME.border, 'flex-grow border-t')} />
       )}
     </div>
   );

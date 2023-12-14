@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import { PROFILE } from '../../Profile.ts';
+import { PROFILE } from '../../shared/profile';
 
 export function Meta({ title = PROFILE.title }: MetaProps): ReactElement {
   const fullTitle = title === PROFILE.title ? title : `vorant94 | ${title}`;

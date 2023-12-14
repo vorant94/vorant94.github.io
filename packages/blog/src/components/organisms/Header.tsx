@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import type { ReactElement } from 'react';
-import { PROFILE } from '../../Profile';
-import { THEME } from '../../Theme.ts';
-import { NavLink } from '../atoms/NavLink.tsx';
-import { ThemedImage } from '../atoms/ThemedImage.tsx';
+import { PROFILE } from '../../shared/profile';
+import { THEME } from '../../shared/theme';
+import { NavLink } from '../atoms/NavLink';
+import { ThemedImage } from '../atoms/ThemedImage';
 import HeaderLogo from './HeaderLogo.webp?url';
 import HeaderLogoDark from './HeaderLogoDark.webp?url';
 
@@ -12,7 +12,7 @@ export function Header({ currentPath }: HeaderProps): ReactElement {
     <header
       className={classNames(
         'flex gap-1 items-center p-4 border-b',
-        THEME.border,
+        ...THEME.border,
       )}>
       <nav>
         <a href="/">

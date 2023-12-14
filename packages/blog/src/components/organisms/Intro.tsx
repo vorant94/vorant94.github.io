@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
-import { PROFILE } from '../../Profile';
+import { PROFILE } from '../../shared/profile';
 import { Body } from '../atoms/Body';
-import { Strong } from '../atoms/Strong.tsx';
+import { Strong } from '../atoms/Strong';
 import { ThemedImage } from '../atoms/ThemedImage';
 import { StandOut } from '../molecules/StandOut';
 import IntroLogo from './IntroLogo.webp?url';

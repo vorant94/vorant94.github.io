@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { PropsWithChildren, ReactElement } from 'react';
-import { THEME } from '../../Theme.ts';
+import { THEME, type ThemedColor } from '../../shared/theme';
 
 export function Badge({
   hashValue = '',
@@ -10,7 +10,7 @@ export function Badge({
   return (
     <span
       className={classNames(
-        THEME.text,
+        ...THEME.primaryText,
         'inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold',
         ...colors,
       )}>
@@ -32,7 +32,7 @@ function hashToColor(value: string): readonly [string, string] {
   return COLORS[hash % COLORS.length];
 }
 
-const COLORS = [
+const COLORS: ThemedColor<string>[] = [
   ['bg-slate-100', 'dark:bg-slate-800'],
   ['bg-gray-100', 'dark:bg-gray-800'],
   ['bg-zinc-100', 'dark:bg-zinc-800'],
@@ -55,4 +55,4 @@ const COLORS = [
   ['bg-fuchsia-100', 'dark:bg-fuchsia-800'],
   ['bg-pink-100', 'dark:bg-pink-800'],
   ['bg-rose-100', 'dark:bg-rose-800'],
-] as const;
+];

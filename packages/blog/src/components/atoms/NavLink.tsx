@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import type { AnchorHTMLAttributes, PropsWithChildren } from 'react';
 import { type ReactElement } from 'react';
-import { THEME } from '../../Theme.ts';
-import { Link } from './Link.tsx';
+import { THEME } from '../../shared/theme.ts';
+import { Link } from './Link';
 
 export interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   isActive?: boolean;

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { PropsWithChildren, ReactElement } from 'react';
-import { THEME } from '../../Theme.ts';
+import { THEME } from '../../shared/theme';
 
 export function Body({
   children,
@@ -8,7 +8,7 @@ export function Body({
 }: PropsWithChildren<BodyProps>): ReactElement {
   return (
     <span
-      className={classNames(THEME.text, {
+      className={classNames(...THEME.primaryText, {
         'text-sm font-light': level === 'sm',
       })}>
       {children}

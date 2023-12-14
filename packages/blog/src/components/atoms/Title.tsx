@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { PropsWithChildren, ReactElement } from 'react';
-import { THEME } from '../../Theme.ts';
+import { THEME } from '../../shared/theme';
 
 export function Title({
   children,
@@ -8,7 +8,7 @@ export function Title({
 }: PropsWithChildren<TitleProps>): ReactElement {
   return (
     <h6
-      className={classNames(THEME.text, 'text-lg font-medium', {
+      className={classNames(...THEME.primaryText, 'text-lg font-medium', {
         'inline-block': inline,
         'mb-0': inline,
       })}>

@@ -1,11 +1,11 @@
 ---
 import { getCollection, type CollectionEntry, getEntries } from 'astro:content';
 import { getImage } from 'astro:assets';
-import { PostsService } from '../../shared/PostsService';
-import Layout from '../../shared/components/templates/Layout.astro';
-import { PostFrontmatter } from '../../shared/components/organisms/PostFrontmatter';
-import { Comments } from '../../shared/components/organisms/Comments';
-import { RelatedPosts } from '../../shared/components/organisms/RelatedPosts';
+import { PostsService } from '../../shared/posts.service';
+import Layout from '../../components/templates/Layout.astro';
+import { PostFrontmatter } from '../../components/organisms/PostFrontmatter';
+import { Comments } from '../../components/organisms/Comments';
+import { RelatedPosts } from '../../components/organisms/RelatedPosts';
 
 export async function getStaticPaths() {
   const entries = PostsService.sortEntries(await getCollection('posts'));

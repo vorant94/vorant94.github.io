@@ -1,11 +1,11 @@
 ---
-import { PostsService } from '../shared/PostsService';
+import { PostsService } from '../shared/posts.service';
 import { getCollection } from 'astro:content';
 import _ from 'lodash';
-import Layout from '../shared/components/templates/Layout.astro';
-import { Intro } from '../shared/components/organisms/Intro';
-import { PostList } from '../shared/components/organisms/PostList';
-import { PinnedPosts } from '../shared/components/organisms/PinnedPosts';
+import Layout from '../components/templates/Layout.astro';
+import { Intro } from '../components/organisms/Intro';
+import { PostList } from '../components/organisms/PostList';
+import { PinnedPosts } from '../components/organisms/PinnedPosts';
 
 const allPosts = PostsService.sortEntries(await getCollection('posts'));
 const [pinnedPosts, nonPinnedPosts] = _.partition(

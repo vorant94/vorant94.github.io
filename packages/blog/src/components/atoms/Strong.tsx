@@ -1,12 +1,12 @@
 import classNames from 'classnames';
 import type { PropsWithChildren, ReactElement } from 'react';
-import { THEME } from '../../Theme.ts';
+import { THEME } from '../../shared/theme';
 
 export function Strong({
   children,
 }: PropsWithChildren<StrongProps>): ReactElement {
   return (
-    <strong className={classNames(THEME.text, 'font-semibold')}>
+    <strong className={classNames(...THEME.primaryText, 'font-semibold')}>
       {children}
     </strong>
   );

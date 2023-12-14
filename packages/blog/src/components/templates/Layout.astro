@@ -2,9 +2,9 @@
 import { Header } from '../organisms/Header';
 import { Footer } from '../organisms/Footer';
 import { Background } from '../molecules/Background';
-import { removeTrailingSlash } from '../../utils/RemoveTrailingSlash';
+import { removeTrailingSlash } from '../../shared/remove-trailing-slash';
 import { Analytics } from '@vercel/analytics/react';
-import { THEME } from '../../Theme';
+import { THEME } from '../../shared/theme';
 import { Seo } from '../organisms/Seo';
 import { Meta } from '../organisms/Meta';
 
@@ -37,7 +37,7 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
   </head>
   <body
     class:list={[
-      THEME.background,
+      ...THEME.background,
       'flex flex-col min-h-[calc(100dvh)] mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl',
     ]}>
     {isProd && <Analytics client:only="react" />}

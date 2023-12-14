@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { AnchorHTMLAttributes, PropsWithChildren } from 'react';
 import { type ReactElement } from 'react';
-import { THEME } from '../../Theme.ts';
+import { THEME } from '../../shared/theme';
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {}
 

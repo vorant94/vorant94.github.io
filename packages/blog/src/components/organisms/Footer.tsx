@@ -1,15 +1,16 @@
 import classNames from 'classnames';
 import type { ReactElement } from 'react';
-import { PROFILE } from '../../Profile';
-import { THEME } from '../../Theme.ts';
+import { PROFILE } from '../../shared/profile';
+import { THEME } from '../../shared/theme';
 import { Icon } from '../atoms/Icon';
 
 export function Footer(): ReactElement {
   return (
     <footer
       className={classNames(
-        'flex gap-1 items-center p-4 border-t text-slate-500',
-        THEME.border,
+        'flex gap-1 items-center p-4 border-t',
+        ...THEME.border,
+        THEME.secondaryText,
       )}>
       <span className="text-sm">{PROFILE.copyright}</span>
 

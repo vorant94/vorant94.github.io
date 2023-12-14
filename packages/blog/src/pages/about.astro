@@ -1,13 +1,13 @@
 ---
-import Layout from '../shared/components/templates/Layout.astro';
-import { Intro } from '../shared/components/organisms/Intro';
-import { Link } from '../shared/components/atoms/Link';
-import { PROFILE } from '../shared/Profile';
-import { Divider } from '../shared/components/atoms/Divider';
-import { Icon } from '../shared/components/atoms/Icon';
-import { Headline } from '../shared/components/atoms/Headline';
-import { Body } from '../shared/components/atoms/Body';
-import { THEME } from '../shared/Theme';
+import Layout from '../components/templates/Layout.astro';
+import { Intro } from '../components/organisms/Intro';
+import { Link } from '../components/atoms/Link';
+import { PROFILE } from '../shared/profile';
+import { Divider } from '../components/atoms/Divider';
+import { Icon } from '../components/atoms/Icon';
+import { Headline } from '../components/atoms/Headline';
+import { Body } from '../components/atoms/Body';
+import { THEME } from '../shared/theme';
 ---
 
 <Layout title="About">
@@ -42,7 +42,7 @@ import { THEME } from '../shared/Theme';
               'flex flex-col gap-2 items-center justify-center',
               'border rounded-2xl',
               'hover:outline outline-cyan-500 hover:text-cyan-500 hover:border-cyan-500',
-              THEME.text,
+              ...THEME.primaryText,
             ]}
             href={link.url}
             target="_blank">

@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import { PROFILE } from '../../Profile.ts';
+import { PROFILE } from '../../shared/profile';
 
 export function Seo({
   currentPath,
