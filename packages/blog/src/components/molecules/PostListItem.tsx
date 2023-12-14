@@ -18,7 +18,7 @@ export function PostListItem({
         'flex gap-3 items-center hover:text-cyan-500',
         className,
       )}>
-      <span className="flexyarn -1 truncate">{post.data.title}</span>
+      <span className="flex-1 truncate">{post.data.title}</span>
       <span className="whitespace-nowrap text-xs">
         {PostsService.formatPublishedAt(post, publishedAtFormat)}
       </span>
