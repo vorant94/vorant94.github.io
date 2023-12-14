@@ -41,7 +41,7 @@ export function Comments({ post }: CommentsProps): ReactElement {
     scriptElem.crossOrigin = 'anonymous';
 
     ref.current.appendChild(scriptElem);
-  }, []);
+  }, [ref, isDark]);
 
   return <section ref={ref}></section>;
 }
