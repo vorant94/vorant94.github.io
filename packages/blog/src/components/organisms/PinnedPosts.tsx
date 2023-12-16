@@ -1,5 +1,3 @@
-import '@fortawesome/fontawesome-free/css/fontawesome.css';
-import '@fortawesome/fontawesome-free/css/solid.css';
 import type { CollectionEntry } from 'astro:content';
 import type { ReactElement } from 'react';
 import { PostListItem } from '../molecules/PostListItem';
@@ -17,7 +15,7 @@ export function PinnedPosts({ posts }: PinnedPostsProps): ReactElement {
           className="flex-col"
           key={post.id}>
           <span className="flex gap-3 items-center">
-            <i className="fa-solid fa-thumbtack" />
+            <span className="-scale-x-100">📌</span>
             <PostListItem
               post={post}
               className="flex-1"

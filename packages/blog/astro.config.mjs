@@ -11,7 +11,7 @@ import rehypeAddClasses from 'rehype-add-classes';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeSlug from 'rehype-slug';
-import { PROFILE } from './src/shared/Profile';
+import { PROFILE } from './src/shared/profile';
 
 function readingTimePlugin() {
   return function (tree, { data }) {
@@ -37,11 +37,12 @@ export default defineConfig({
         rehypeAutolinkHeadings,
         {
           behavior: 'append',
-          content: () =>
-            h(
-              'span.fa-solid.fa-link.fa-sm.ml-2.invisible.group-hover:visible',
-              { ariaHidden: 'true' },
-            ),
+          content: () => {
+            return h('span.ml-2.invisible.text-sm.group-hover:visible', '🔗');
+          },
+          properties: {
+            className: 'no-underline',
+          },
         },
       ],
       [
@@ -52,7 +53,10 @@ export default defineConfig({
       ],
     ],
     shikiConfig: {
-      theme: 'github-light',
+      experimentalThemes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
     },
   },
 });

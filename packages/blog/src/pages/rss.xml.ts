@@ -1,8 +1,8 @@
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
-import { PostsService } from '../shared/PostsService';
-import { PROFILE } from '../shared/Profile';
+import { PostsService } from '../shared/posts.service';
+import { PROFILE } from '../shared/profile';
 
 export async function GET(context: APIContext) {
   const posts = PostsService.sortEntries(await getCollection('posts'));
