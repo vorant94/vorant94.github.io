@@ -2,10 +2,10 @@
 title: TypeScript Monorepos are a mess
 description: 'You know how they they "once you go black, you never go back"? I went through it with two things: TypeScript and Monopepos, but to set up them both simultaneously was... interesting to say the least. As a result in the end I now have a strong foundation for a projects of any size and scale, that I''d like to share with you the stuff I learned'
 tags:
-  - programming
   - typescript
   - node
-publishedAt: 2023-12-09
+  - infra
+publishedAt: 2023-12-16
 coverImage:
 related:
 isPinned:
@@ -36,6 +36,27 @@ In conclusion I think the pain of build boilerplate pays off by avoiding pain of
 ### Why Monorepo?
 
 ![TypeScript meme](../attachments/typescript-monorepos-are-a-mess/monorepo-meme.jpg)
+
+A little bit of terminology to have a common ground:
+
+- **code-base** - all the different code that ends up being a single complete application / website / game / product
+- **project** - is a distinct piece of code with a particular purpose, that on its own doesn't have a value, but is mean to be combined together with a couple of other projects to sum up to code-base
+
+I won't dive into all sorts of monorepo options (like [Git Submodules](https://www.git-scm.com/book/en/v2/Git-Tools-Submodules) or [Nx System](https://nx.dev)), because I didn't code those either enough or at all to write anything coherent about them. Instead I will focus on a package manager based monorepo solution.
+
+Now about monorepos. Any library or framework's "Quick Start" guide by default suggests that you code-base is only one project. From the documentation perspective it is a correct approach to avoid diving into all the possible code-base structures a user can have. But from the reality point of view it is rarely the case.
+
+You code back-end? In case you do monolith your code-base is probably split into at least three projects: API, Business Logic and Data Access Layer. In case you do micro-services each of them is a project on its own to begin with. You code front-end? Your code-base probably consists of at least two projects: a set of presentational/dumb components and a set of container/smart components[^3]. And I'm not even talking about working with several related code-bases simultaneously, when you 100% write a lot of shared utility code.
+
+In all the examples above there are several ways to organize the code:
+
+- Monolith: keeping a code-base as a single project within a single repo
+- Polyrepo: splitting a code base into several different repos, each being a single project, and reference them as dependencies
+- Monorepo: keeping code physically together in one repo, but keeping separation on a project level
+
+While monolith approach has the least amount of boilerplate job to do it results is a least scalable product and have a highest risk to mix up things that should be separate: you can't load balance separate endpoints individually and you can unintentionally put some business logic related code to data access layer function, which makes it less reusable. On the other hand polyrepo prevents misuse of code by putting physical boundaries between projects, gives a clear separation of modules, so they can be load balanced the way you need, but comes up with its own set pf trade-offs: a single feature is likely would end up as a several pull request to multiple repos, which need to be merged in a right order, and shared private libraries needs to be hosted somewhere in a third place (e.g. either add NPM private packages to your monthly outcome, or invest into some devops position to set-up GitHub packages or self-hosted registry). A monorepo is some sort of golden mean: since projects are stored physically together in one repo, there is no multiple pull requests per feature nor need for a private registry, but since they are still separated logically the risk of mixing things up is low and they still can be managed separately for the purpose of load balancing for example.
+
+At this point I do really believe that any code-base that is meant to live longer than 2 years will inevitably end up in a situation where monorepo would be a better solution afterwards. On top of it since a monorepo with a single project basically equal to a monolith (in terms of boilerplate amount) I prefer to use monorepo even with only one project code-base. So the monorepo it is.
 
 ### Monorepo options
 
@@ -82,3 +103,5 @@ client-side mess (webpack, rollup, esbuild)
 ### P.S.
 
 yarn pnp problem with tsc
+
+[^3]: Container-Presentational Component architecture is defined by splitting all your components into two baskets: presentational components doesn't know where to get data from or what to do upon user interaction, but are responsible for correct rendering, animations and so on; container components do know where to get data and what do upon user clicks, but delegate rendering logic to presentational components. This approach is a direct descend of single responsibility principle. that benefits to a lot of things including greater code reusability, maintainability etc.
