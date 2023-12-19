@@ -58,47 +58,105 @@ And while monorepos are widely used for authoring libraries at this point I do r
 
 ### Monorepo options
 
-There are plenty of different ways to spin-up a monorepo. I'm aware of at least three levels where it can be implemented: via Git itself with the usage of [Git Submodules](https://www.git-scm.com/book/en/v2/Git-Tools-Submodules), via package manager with usage of NPM/Yarn/PNPM or via a dedicated system like [Nx](https://nx.dev). I won't dive to Git submodules because I didn't practice it at all. Neither I go with Nx, because from my experience it has the same problem as all of modern meta-frameworks[^2] that I try to avoid as much as possible. Also since I'm not familiar with PNPM I have nothing to say about it.
+There are plenty of different ways to spin-up a monorepo. I'm aware of at least three levels where it can be implemented: via Git itself with the usage of [Git Submodules](https://www.git-scm.com/book/en/v2/Git-Tools-Submodules), via package manager with usage of NPM/Yarn/PNPM or via a dedicated system like [Nx](https://nx.dev). I won't dive into Git submodules because I didn't practice it at all. Neither I go with Nx, because from my experience it has the same problem as all of modern meta-frameworks[^2] that I try to avoid as much as possible. Also since I'm not familiar with PNPM I have nothing to say about it.
 
-We left with NPM and Yarn which both have a good support for monorepos, and from this duo I prefer Yarn. Tt in general has more features even outside of monorepo stuff:
+We left with NPM and Yarn which both have support for monorepos, and from this duo I prefer Yarn. It in general has more features even outside of monorepo stuff:
 
 - interactive CLI command for upgrading dependencies, see [yarn upgrade-interactive](https://yarnpkg.com/cli/upgrade-interactive)
 - built-in plugin to install `@types/` package alongside with package itself, see [@yarnpkg/plugin-typescript](https://yarnpkg.com/api/plugin-typescript)
 - monorepo command to install only dependencies of one particular package, which reduces the build size by a lot, see [yarn workspaces focus](https://yarnpkg.com/cli/workspaces/focus)
 - concurrent execution of the commands across all of monorepo packages, see [yarn workspaces foreach](https://yarnpkg.com/cli/workspaces/foreach)
-- support for referencing monorepo package dependency not by version, but by the version of workspace itself, see [Cross-references](https://yarnpkg.com/features/workspaces#cross-references)
+- support for referencing monorepo package dependency not by version, but by the version of workspace itself, see [Cross-references](https://yarnpkg.com/features/workspaces#cross-references) and [Workspace Protocol](https://yarnpkg.com/protocol/workspace)
 
 And at last I do like syntax of Yarn for running commands within a package (`yarn workspace <package-name> <command-name>`) more than what NPM offers (`npm run <command-name> --workspace=<package-name>`), but it is only a matter of taste.
 
-### Usual Polyrepo with TypeScript
+### Our goals
 
-- prod with node
-- build with tsc
-- watch with nodemon & ts-node
+The default modern Node workflow consists of the three following parts:
 
-### Monorepo with TypeScript
+- running a compiled JS-code in prod
+- compiling TS to JS as part of CI/CD
+- spinning-up a dev server with live-reload support locally
 
-workspace deps in package.json -> +prod
-workspace reference in tsconfig.json -> +build  
-watch?
+###### Running compiled JS-code
 
-### TypeScript tooling ecosystem
+Since we have a support for monorepo on package manager level it won't be a problem to resolve all the local workspace dependencies after everything is compiled to JS, we just need to reference them correctly in appropriate `package.json` files:
+
+```json5
+// app package.json
+{
+  name: 'app',
+  packageManager: 'yarn@4.0.2',
+  // ...
+  dependencies: {
+    // ...
+    lib: 'workspace:^',
+  },
+  // ...
+}
+```
+
+```json5
+// lib package.json
+{
+  name: 'lib',
+  packageManager: 'yarn@4.0.2',
+  main: 'src/index.js',
+  // ...
+}
+```
+
+A couple of notes here:
+
+- `"lib": "workspace:^"` - is the syntax for Yarn Workspace Protocol mentioned above
+- `"main": "src/index.js"` - entry point for our lib, that is resolved during imports
+
+###### Compiling TS to JS
+
+Compiling a monorepo is also relatively easy task: `tsc`, built-in compiler of TypeScript, has support for monorepo as well, it is called project references there. We need to duplicate out `package.json` workspace dependencies as `tsconfig.json` references, then modify a little bit `tsconfig.json` of library packages and we are good to go. `tsc` will traverse the dependency tree and will rebuild all the dependencies that are out-of-sync since the last build. Although it already introduces a little bit of config duplication, it is still not a big deal
+
+```json5
+// app package.json
+```
+
+```json5
+// app tsconfig.json
+```
+
+```json5
+// lib package.json
+```
+
+```json5
+// lib tsconfig.json
+```
+
+A couple of notes here:
+
+-
+
+###### Live-reload dev server
+
+So we are left with most interesting part, dev server with live reload. Here we have a couple of different tools in the NodeJS ecosystem, let's discuss them separately
+
+### nodemon + ts-node (tsc)
 
 ts-node (tsc) esm problem, ts-node (tsc) references problem
-
 https://github.com/TypeStrong/ts-node/issues/897
 
-tsx (esbuild) references problem, tsx (esbuild) decorators problem
+### tsx (esbuild)
 
+tsx (esbuild) references problem, tsx (esbuild) decorators problem
 https://github.com/privatenumber/tsx/issues/96
 https://github.com/smacker/esbuild-plugin-ts-references
 
 tsx for unit tests
-nodemon (with tsc as 2nd process) problem
 
-### Keep it simple, stupid
+### Node watch mode + tsc (final solution)
 
 built-in watch mode (with tsc as 2nd process) sulution
+
+nodemon (with tsc as 2nd process) problem
 
 ### What's next
 
@@ -108,5 +166,7 @@ client-side mess (webpack, rollup, esbuild)
 
 yarn pnp problem with tsc
 
+---
+
 [^1]: Container-Presentational Component architecture is defined by splitting all your components into two baskets: presentational components doesn't know where to get data from or what to do upon user interaction, but are responsible for correct rendering, animations and so on; container components do know where to get data and what do upon user clicks, but delegate rendering logic to presentational components. This approach is a direct descend of single responsibility principle. that benefits to a lot of things including greater code reusability, maintainability etc.
-[^1]: Nx basically wraps and abstracts out all the management of different apps and libraries within one repo. If I recall correctly it was created before any of modern package manager introduced support for monorepos and invested a lot into monorepo architecture popularization. So at some point of time it was the only possible Node-based monorepo solution and did it's job well. I worked with this kinda workspaces twice: Angular Workspace implements the same approach and NestJS that is inspired by Angular also has one. And although I'm very satisfied with what Angular provides, Nest abstraction is built on top of other NodeJS libraries and it introduces a lot of problems. Angular under the hood is not built on top of React, but NestJS is built on top of Express, Fastify, TypeORM and many other standalone libraries, which results in lack of flexibility and control. The same way Nx tries to abstract out frameworks that are not internal part of Nx itself. This is why I prefer package manager based monorepo to Nx one, since without abstraction like Nx I have more flexibility and control over packages that I code.
+[^2]: Nx basically wraps and abstracts out all the management of different apps and libraries within one repo. If I recall correctly it was created before any of modern package manager introduced support for monorepos and invested a lot into monorepo architecture popularization. So at some point of time it was the only possible Node-based monorepo solution and did it's job well. I worked with this kinda workspaces twice: Angular Workspace implements the same approach and NestJS that is inspired by Angular also has one. And although I'm very satisfied with what Angular provides, Nest abstraction is built on top of other NodeJS libraries and it introduces a lot of problems. Angular under the hood is not built on top of React, but NestJS is built on top of Express, Fastify, TypeORM and many other standalone libraries, which results in lack of flexibility and control. The same way Nx tries to abstract out frameworks that are not internal part of Nx itself. This is why I prefer package manager based monorepo to Nx one, since without abstraction like Nx I have more flexibility and control over packages that I code.
