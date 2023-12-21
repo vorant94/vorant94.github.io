@@ -1,8 +1,8 @@
 import type { CollectionEntry } from 'astro:content';
 import type { ReactElement } from 'react';
 import { PostsService } from '../../shared/posts.service';
-import { Badge } from '../atoms/Badge';
 import { Caption } from '../atoms/Caption';
+import { Tag } from '../molecules/Tag.tsx';
 
 export interface PostFrontmatterProps {
   post: CollectionEntry<'posts'>;
@@ -29,7 +29,7 @@ export function PostFrontmatter({
         <ul className="flex list-none m-0 p-0 gap-1">
           {tags.map((tag) => (
             <li key={tag}>
-              <Badge hashValue={tag}>#{tag}</Badge>
+              <Tag>{tag}</Tag>
             </li>
           ))}
         </ul>
