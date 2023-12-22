@@ -1,14 +1,15 @@
 ---
 title: TypeScript Monorepos are a mess
-description: 'You know how they they "once you go black, you never go back"? I went through it with two things: TypeScript and Monopepos, but to set up them both simultaneously was... interesting to say the least. As a result in the end I now have a strong foundation for a projects of any size and scale, that I''d like to share with you the stuff I learned'
+description: 'You know how they they "once you go black, you never go back"? I went through it with two things: TypeScript and Monopepos, but to set up them both simultaneously was... interesting to say the least. As a result I learned a lot about JS ecosystem and I''d like to share it with you'
 tags:
   - typescript
   - node
   - infra
-publishedAt: 2023-12-17
+publishedAt: 2023-12-22
 coverImage:
 related:
 isPinned:
+code: https://github.com/vorant94/typescript-monorepo
 ---
 
 ### Why TypeScript?
@@ -22,7 +23,7 @@ But with all that said there was a real [TypeScript drama](https://www.youtube.c
 - redundant type gymnastics
 - compilation step boilerplate
 
-And while for me personally the type gymnastics is not an issue since I didn't worked in serious library projects only in apps, the compilation step does feel strange: we write interpolated scripts although the code still needs to be compiled for some reason... In reality we can benefit from TypeScript without writing any of it at all. TypeScript language service can understand JSDoc annotations, so the IDE can highlight code that would throw error during build if it is annotated properly.
+And while for me personally the type gymnastics is not an issue since I didn't work in serious library projects only in apps, the compilation step does feel strange: we write interpolated scripts although the code still needs to be compiled for some reason... In reality we can benefit from TypeScript without writing any of it at all. TypeScript language service can understand JSDoc annotations, so the IDE can highlight code that would throw error during build if it is annotated properly.
 
 In reality this is how [Astro](https://astro.build), that this blog is written with, works: it doesn't compile TypeScript, it just drops off all of it during build. As a result it even decreases build time (build is still needed to bundle all sorts of assets and so on). But this approach has two drawbacks:
 
@@ -40,7 +41,7 @@ In conclusion I think the pain of build boilerplate pays off by avoiding pain of
 A little bit of terminology to have a common ground:
 
 - **code-base** - all the different code that ends up being a single complete application / website / game / product
-- **project** - a distinct part of a code-base, that on its own doesn't have a value, but is mean to be combined together with a couple of other projects to sum up to code-base
+- **project** - a distinct part of a code-base, that on its own doesn't have a value, but is meant to be combined together with a couple of other projects to sum up to a complete code-base
 
 Now about monorepos. Any library or framework's "Quick Start" guide by default suggests that you code-base is only one project. From the documentation perspective it is a correct approach to avoid diving into all the possible code-base structures a user can have. But from the reality point of view it is rarely the case.
 
@@ -52,13 +53,17 @@ In all the examples above there are several ways to organize the code:
 - Polyrepo: splitting a code base into several different repos, each being a single project, and reference them as dependencies
 - Monorepo: keeping code physically together in one repo, but keeping separation on a project level
 
-While monolith approach has the least amount of boilerplate job to do it results is a least scalable product and have a highest risk to mix up things that should be separate: you can't load balance separate endpoints individually and you can unintentionally put some business logic related code to data access layer function, which makes it less reusable. On the other hand polyrepo prevents misuse of code by putting physical boundaries between projects, gives a clear separation of modules, so they can be load balanced the way you need, but comes up with its own set pf trade-offs: a single feature is likely would end up as a several pull request to multiple repos, which need to be merged in a right order, and shared private libraries needs to be hosted somewhere in a third place (e.g. either add NPM private packages to your monthly outcome, or invest into some devops position to set-up GitHub packages or self-hosted registry). A monorepo is some sort of golden mean: since projects are stored physically together in one repo, there is no multiple pull requests per feature nor need for a private registry, but since they are still separated logically the risk of mixing things up is low and they still can be managed separately for the purpose of load balancing for example.
+While monolith approach has the least amount of boilerplate job to do it results is a least scalable product and have a highest risk to mix up things that should be separate: you can't load balance separate endpoints individually and you can unintentionally put some business logic related code to data access layer function, which makes it less reusable.
 
-And while monorepos are widely used for authoring libraries at this point I do really believe that any code-base whether it is a set of libraries or an end-user facing app that is meant to live longer than 2 years will inevitably end up in a situation where monorepo would be a better solution afterwards. On top of it since a monorepo with a single project basically equal to a monolith (in terms of boilerplate amount) I prefer to use monorepo even with only one project code-base. So the monorepo it is.
+On the other hand polyrepo prevents misuse of code by putting physical boundaries between projects, gives a clear separation of modules, so they can be load balanced the way you need, but comes up with its own set pf trade-offs: a single feature is likely would end up as a several pull request to multiple repos, which need to be merged in a right order, and shared private libraries needs to be hosted somewhere in a third place (e.g. either add NPM private packages to your monthly outcome, or invest into some devops position to set-up GitHub packages or self-hosted registry).
+
+A monorepo is some sort of golden mean: since projects are stored physically together in one repo, there is no multiple pull requests per feature nor need for a private registry, but since they are still separated logically the risk of mixing things up is low and they still can be managed separately for the purpose of load balancing for example.
+
+And while monorepos are widely used for authoring libraries at this point I do really believe that any code-base (whether it is a set of libraries or an end-user facing app) that is meant to live longer than 2 years will inevitably end up in a situation where monorepo would be a better solution afterwards. On top of it since a monorepo with a single project basically equal to a monolith (in terms of boilerplate amount) I prefer to use monorepo even with only one project code-base. So the monorepo it is.
 
 ### Monorepo options
 
-There are plenty of different ways to spin-up a monorepo. I'm aware of at least three levels where it can be implemented: via Git itself with the usage of [Git Submodules](https://www.git-scm.com/book/en/v2/Git-Tools-Submodules), via package manager with usage of NPM/Yarn/PNPM or via a dedicated system like [Nx](https://nx.dev). I won't dive into Git submodules because I didn't practice it at all. Neither I go with Nx, because from my experience it has the same problem as all of modern meta-frameworks[^2] that I try to avoid as much as possible. Also since I'm not familiar with PNPM I have nothing to say about it.
+There are plenty of different ways to spin-up a monorepo. I'm aware of at least three levels where it can be implemented: via Git itself with the usage of [Git Submodules](https://www.git-scm.com/book/en/v2/Git-Tools-Submodules), via package manager (all NPM, Yarn, PNPM supports it) or via a dedicated system like [Nx](https://nx.dev). I won't dive into Git submodules because I didn't practice it at all. Neither I go with Nx, because from my experience it has the same problem as all of modern meta-frameworks[^2] that I try to avoid as much as possible. Also since I'm not familiar with PNPM I have nothing to say about it.
 
 We left with NPM and Yarn which both have support for monorepos, and from this duo I prefer Yarn. It in general has more features even outside of monorepo stuff:
 
@@ -72,7 +77,7 @@ And at last I do like syntax of Yarn for running commands within a package (`yar
 
 ### Our goals
 
-The default modern Node workflow consists of the three following parts:
+The default modern NodeJS workflow consists of the three following parts:
 
 - running a compiled JS-code in prod
 - compiling TS to JS as part of CI/CD
@@ -137,41 +142,79 @@ A couple of notes here:
 
 ###### Live-reload dev server
 
-So we are left with most interesting part, dev server with live reload. Here we have a couple of different tools in the NodeJS ecosystem, let's discuss them separately
+So we are left with most interesting part, dev server with live-reload. Here we have a couple of different tools in the NodeJS ecosystem, let's discuss them separately
 
 ### nodemon + ts-node (tsc)
 
-Some time ago a combination of [nodemon](https://www.npmjs.com/package/nodemon) with [ts-node](https://www.npmjs.com/package/ts-node) was the go-to way to achieve live-reload on Node server. `nodemon` watched for file changes and ran `ts-node`, that compiled TypeScript code on the fly and executed it with Node. Even the fact that to use ts-node in ESM-based project the dev needed to use another executable (`ts-node-esm` instead of just `ts-node`) wasn't so much of the problem.
+Some time ago a combination of [nodemon](https://www.npmjs.com/package/nodemon) with [ts-node](https://www.npmjs.com/package/ts-node) was the go-to way to achieve live-reload on Node server. `nodemon` watched for file changes and restarted `ts-node`, that compiled TypeScript code on the fly and executed it with NodeJS. Even the fact that to use `ts-node` in ESM-based project the dev needed to use another executable (`ts-node-esm` instead of just `ts-node`) wasn't so much of a problem.
 
-The first issue I had with `ts-node` is that despite the fact that in order to compile the code under the hood it uses the same `tsc` that supports project references [it doesn't run `tsc` with all the necessary flags](https://github.com/TypeStrong/ts-node/issues/897) in order to work in monorepo. So the only part of your monorepo that can be live-reloaded is the app itself, all its libraries need to be built separately and in advance. This issue was originally created in 2019 and is still open so I don't have any expectations for this to be fixed in the near future.
+The first issue I had with `ts-node` is that despite the fact that in order to compile the code under the hood it uses the same `tsc` that supports project references it doesn't run `tsc` with all the necessary flags in order to work in monorepo. So the only part of your monorepo that can be live-reloaded is the app itself, all its libraries need to be built separately and in advance. This [issue](https://github.com/TypeStrong/ts-node/issues/897) was originally created in 2019 and is still open so I don't have any expectations for this to be fixed in the near future.
 
-Futhermore since some recent Node version (Node 18-ish) trying to run ts-node with ESM [results in exception](https://github.com/TypeStrong/ts-node/issues/199) even with running a dedicated executable for it. As more and more libraries slowly moving towards more standardized ES module syntax I really don't see the reason to keep working with the CommonJS (some of them like `node-fetch` or `p-queue` arte already ESM-only in their latest stable versions). Neither I think that dev-only library like `ts-node` should be the reason to keep the whole project in CommonJS format.
+Futhermore since some recent NodeJS version (Node 18-ish) trying to run `ts-node` with ESM [results in exception](https://github.com/TypeStrong/ts-node/issues/199) even with running a dedicated executable for it. As more and more libraries slowly moving towards ES module standard syntax I really don't see the reason to keep working with the CommonJS (some of libs like `node-fetch` or `p-queue` are already ESM-only in their latest stable versions). Neither I think that dev-only library like `ts-node` should be the reason to keep the whole project in CommonJS format.
 
 Likely alternative solutions are already emerged in the ecosystem.
 
 ### tsx (esbuild)
 
-tsx (esbuild) references problem, tsx (esbuild) decorators problem
-https://github.com/privatenumber/tsx/issues/96
-https://github.com/smacker/esbuild-plugin-ts-references
+The next tool I came across is `tsx`. It is a direct alternative to `ts-node`, but claims to be way faster, has out-of-the-box support for ESM and built-in live-reload, which sounded very promising.
 
-tsx for unit tests
+The thing is that `tsx` achieves the faster builds (on the fly of course) by using `esbuild` under the hood instead of `tsc` that is used by `ts-node`. The way `esbuild` achieves the faster builds is that it doesn't actually builds TypeScript to JavaScript, it just ignores all the non-JS syntax. And this difference is very important because if you are not building TS you are not resolving its project references, e.g. you have the same problem as with `ts-node`.
+
+There is a good comment in [the issue on GitHub](https://github.com/privatenumber/tsx/issues/96) explaining that there are actually two available `esbuild` API: Transform API and Plugin API. Plugin API can be extended with plugins (duh...) in order to actually build TS and there is already a [plugin](https://github.com/smacker/esbuild-plugin-ts-references) to take into account project references. But unfortunately `tsx` uses ESbuild Transform API, so as of now it doesn't fit into monorepo project structure[^3].
 
 ### Node watch mode + tsc (final solution)
 
-built-in watch mode (with tsc as 2nd process) sulution
+The final solution that I found working for me is actually avoiding all 3-party tooling. You see `tsc` itself has built-in watch mode, the only last part there is to restart the server on each re-build. And recently NodeJS introduced its own watch mode (it's still experimental, but I'm OK to use experimental stuff for dev-only purposes). As simple as that: run `tsc` in watch mode, it will rebuild code on changes resolving project references, run `node` in watch mode, it will restart process on changes resolving changes in monorepo dependencies as well.
 
-nodemon (with tsc as 2nd process) problem
+```json
+// app package.json
+{
+  "name": "app",
+  "packageManager": "yarn@4.0.2",
+  // ...
+  "scripts": {
+    // ..
+    "start:watch": "node --watch dist/main.js",
+    "build:watch": "tsc --build --watch"
+    // ...
+  }
+  // ...
+}
+```
+
+It does mean running two processes instead of one like we are used in polyrepo projects, but as long as it is constant amount of processes per any amount of monorepo projects its fine by me.
+
+Also as a small semantic sugar: we can run both those processes with a single command by using `concurrently`
+
+```json
+// root package.json
+{
+  "name": "typescript-monorepo",
+  "packageManager": "yarn@4.0.2",
+  // ...
+  "scripts": {
+    "dev": "concurrently \"yarn workspace app build:watch\" \"yarn workspace app start:watch\""
+  },
+  "workspaces": ["packages/*"],
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+```
+
+As an additional bonus if you wish to have your exception traces direct you to TS source files instead of actual JS files, you can use [source-map-support](https://www.npmjs.com/package/source-map-support)
 
 ### What's next
 
-client-side mess (webpack, rollup, esbuild)
+As you may notice all the stuff above was about back-end TypeScript and the solution was to avoid using any third-party stuff, only first-party TypeScript and NodeJS features. Do you know where you cannot build your project with `tsc` only, but you need to bundle it? Do you know where you should be able to resolve imports not only from a `.ts` files, but also from `.css` and even `.jpg`/`.png`?
 
-### P.S.
+Front-end
 
-yarn pnp problem with tsc
+I already feel a taste of Webpack/Rollup/ESbuild in my mouth, stay tuned😜
 
 ---
 
 [^1]: Container-Presentational Component architecture is defined by splitting all your components into two baskets: presentational components doesn't know where to get data from or what to do upon user interaction, but are responsible for correct rendering, animations and so on; container components do know where to get data and what do upon user clicks, but delegate rendering logic to presentational components. This approach is a direct descend of single responsibility principle. that benefits to a lot of things including greater code reusability, maintainability etc.
-[^2]: Nx basically wraps and abstracts out all the management of different apps and libraries within one repo. If I recall correctly it was created before any of modern package manager introduced support for monorepos and invested a lot into monorepo architecture popularization. So at some point of time it was the only possible Node-based monorepo solution and did it's job well. I worked with this kinda workspaces twice: Angular Workspace implements the same approach and NestJS that is inspired by Angular also has one. And although I'm very satisfied with what Angular provides, Nest abstraction is built on top of other NodeJS libraries and it introduces a lot of problems. Angular under the hood is not built on top of React, but NestJS is built on top of Express, Fastify, TypeORM and many other standalone libraries, which results in lack of flexibility and control. The same way Nx tries to abstract out frameworks that are not internal part of Nx itself. This is why I prefer package manager based monorepo to Nx one, since without abstraction like Nx I have more flexibility and control over packages that I code.
+[^2]:
+    Nx basically wraps and abstracts out all the management of different apps and libraries within one repo. If I recall correctly it was created before any of modern package manager introduced support for monorepos and invested a lot into monorepo architecture popularization. So at some point of time it was the only possible Node-based monorepo solution and did it's job well. I worked with this kinda workspaces twice: Angular Workspace implements the same approach and NestJS that is inspired by Angular also has one. And although I'm very satisfied with what Angular provides, Nest abstraction is built on top of other NodeJS libraries and it introduces a lot of problems. Angular under the hood is not built on top of React, but NestJS is built on top of Express, Fastify, TypeORM and many other standalone libraries, which results in lack of flexibility and control. The same way Nx tries to abstract out frameworks that are not internal part of Nx itself. This is why I prefer package manager based monorepo to Nx one, since without abstraction like Nx I have more flexibility and control over packages that I code.
+    [^3]: Another thing about `tsx` I'd like to add is that limits of ESbuild Transform API also means that `tsx` cannot be used with TypeScript decorators (the same issue that I mentioned earlier with Astro, that is using [Vite](https://vitejs.dev) under the hood). There is a stage 3 [proposal](https://github.com/tc39/proposal-decorators) for built-in EcmaScript decorators, but currently used decorators in all major frameworks like Angular and NestJS are TypeScript ones, so `tsx` also cannot be used there as well...

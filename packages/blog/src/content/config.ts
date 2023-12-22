@@ -11,6 +11,7 @@ const posts = defineCollection({
       coverImage: image().optional().nullable(),
       related: z.array(reference('posts')).optional().nullable(),
       isPinned: z.boolean().optional().nullable().default(false),
+      code: z.string().url().optional().nullable(),
     });
   },
 });
