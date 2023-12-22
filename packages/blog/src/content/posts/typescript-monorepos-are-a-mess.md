@@ -141,8 +141,13 @@ So we are left with most interesting part, dev server with live reload. Here we 
 
 ### nodemon + ts-node (tsc)
 
-ts-node (tsc) esm problem, ts-node (tsc) references problem
-https://github.com/TypeStrong/ts-node/issues/897
+Some time ago a combination of [nodemon](https://www.npmjs.com/package/nodemon) with [ts-node](https://www.npmjs.com/package/ts-node) was the go-to way to achieve live-reload on Node server. `nodemon` watched for file changes and ran `ts-node`, that compiled TypeScript code on the fly and executed it with Node. Even the fact that to use ts-node in ESM-based project the dev needed to use another executable (`ts-node-esm` instead of just `ts-node`) wasn't so much of the problem.
+
+The first issue I had with `ts-node` is that despite the fact that in order to compile the code under the hood it uses the same `tsc` that supports project references [it doesn't run `tsc` with all the necessary flags](https://github.com/TypeStrong/ts-node/issues/897) in order to work in monorepo. So the only part of your monorepo that can be live-reloaded is the app itself, all its libraries need to be built separately and in advance. This issue was originally created in 2019 and is still open so I don't have any expectations for this to be fixed in the near future.
+
+Futhermore since some recent Node version (Node 18-ish) trying to run ts-node with ESM [results in exception](https://github.com/TypeStrong/ts-node/issues/199) even with running a dedicated executable for it. As more and more libraries slowly moving towards more standardized ES module syntax I really don't see the reason to keep working with the CommonJS (some of them like `node-fetch` or `p-queue` arte already ESM-only in their latest stable versions). Neither I think that dev-only library like `ts-node` should be the reason to keep the whole project in CommonJS format.
+
+Likely alternative solutions are already emerged in the ecosystem.
 
 ### tsx (esbuild)
 
