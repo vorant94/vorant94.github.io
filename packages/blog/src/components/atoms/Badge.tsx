@@ -1,18 +1,22 @@
 import classNames from 'classnames';
 import type { PropsWithChildren, ReactElement } from 'react';
-import { THEME, type ThemedColor } from '../../shared/theme';
+import {
+  THEME,
+  type BackgroundColor,
+  type Color,
+  type ThemedStyle,
+} from '../../shared/theme';
 
 export function Badge({
-  hashValue = '',
+  color,
   children,
 }: PropsWithChildren<BadgeProps>): ReactElement {
-  const colors = hashToColor(hashValue);
   return (
     <span
       className={classNames(
         ...THEME.primaryText,
         'inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold',
-        ...colors,
+        ...COLOR_TO_BG[color],
       )}>
       {children}
     </span>
@@ -20,39 +24,30 @@ export function Badge({
 }
 
 export interface BadgeProps {
-  hashValue?: string;
+  color: Color;
 }
 
-function hashToColor(value: string): readonly [string, string] {
-  const hash = value
-    .split('')
-    .map((char) => char.charCodeAt(0))
-    .reduce((prev, curr) => prev + curr, 0);
-
-  return COLORS[hash % COLORS.length];
-}
-
-const COLORS: ThemedColor<string>[] = [
-  ['bg-slate-100', 'dark:bg-slate-800'],
-  ['bg-gray-100', 'dark:bg-gray-800'],
-  ['bg-zinc-100', 'dark:bg-zinc-800'],
-  ['bg-neutral-100', 'dark:bg-neutral-800'],
-  ['bg-stone-100', 'dark:bg-stone-800'],
-  ['bg-red-100', 'dark:bg-red-800'],
-  ['bg-orange-100', 'dark:bg-orange-800'],
-  ['bg-amber-100', 'dark:bg-amber-800'],
-  ['bg-yellow-100', 'dark:bg-yellow-800'],
-  ['bg-lime-100', 'dark:bg-lime-800'],
-  ['bg-green-100', 'dark:bg-green-800'],
-  ['bg-emerald-100', 'dark:bg-emerald-800'],
-  ['bg-teal-100', 'dark:bg-teal-800'],
-  ['bg-cyan-100', 'dark:bg-cyan-800'],
-  ['bg-sky-100', 'dark:bg-sky-800'],
-  ['bg-blue-100', 'dark:bg-blue-800'],
-  ['bg-indigo-100', 'dark:bg-indigo-800'],
-  ['bg-violet-100', 'dark:bg-violet-800'],
-  ['bg-purple-100', 'dark:bg-purple-800'],
-  ['bg-fuchsia-100', 'dark:bg-fuchsia-800'],
-  ['bg-pink-100', 'dark:bg-pink-800'],
-  ['bg-rose-100', 'dark:bg-rose-800'],
-];
+const COLOR_TO_BG: Record<Color, ThemedStyle<BackgroundColor>> = {
+  slate: ['bg-slate-100', 'dark:bg-slate-800'],
+  gray: ['bg-gray-100', 'dark:bg-gray-800'],
+  zinc: ['bg-zinc-100', 'dark:bg-zinc-800'],
+  neutral: ['bg-neutral-100', 'dark:bg-neutral-800'],
+  stone: ['bg-stone-100', 'dark:bg-stone-800'],
+  red: ['bg-red-100', 'dark:bg-red-800'],
+  orange: ['bg-orange-100', 'dark:bg-orange-800'],
+  amber: ['bg-amber-100', 'dark:bg-amber-800'],
+  yellow: ['bg-yellow-100', 'dark:bg-yellow-800'],
+  lime: ['bg-lime-100', 'dark:bg-lime-800'],
+  green: ['bg-green-100', 'dark:bg-green-800'],
+  emerald: ['bg-emerald-100', 'dark:bg-emerald-800'],
+  teal: ['bg-teal-100', 'dark:bg-teal-800'],
+  cyan: ['bg-cyan-100', 'dark:bg-cyan-800'],
+  sky: ['bg-sky-100', 'dark:bg-sky-800'],
+  blue: ['bg-blue-100', 'dark:bg-blue-800'],
+  indigo: ['bg-indigo-100', 'dark:bg-indigo-800'],
+  violet: ['bg-violet-100', 'dark:bg-violet-800'],
+  purple: ['bg-purple-100', 'dark:bg-purple-800'],
+  fuchsia: ['bg-fuchsia-100', 'dark:bg-fuchsia-800'],
+  pink: ['bg-pink-100', 'dark:bg-pink-800'],
+  rose: ['bg-rose-100', 'dark:bg-rose-800'],
+};

@@ -9,17 +9,43 @@ export const THEME: Theme = {
 };
 
 export interface Theme {
-  readonly background: ThemedColor<BackgroundColor>;
-  readonly primaryText: ThemedColor<TextColor>;
-  readonly border: ThemedColor<BorderColor>;
+  readonly background: ThemedStyle<BackgroundColor>;
+  readonly primaryText: ThemedStyle<TextColor>;
+  readonly border: ThemedStyle<BorderColor>;
 
   readonly link: string;
   readonly linkDecoration: string;
   readonly secondaryText: string;
 }
 
-export type ThemedColor<T extends string> = readonly [T, `dark:${T}`];
+export type ThemedStyle<T extends string> = readonly [T, `dark:${T}`];
 
-export type BackgroundColor = `bg-${string}-${string}`;
-export type TextColor = `text-${string}-${string}`;
-export type BorderColor = `border-${string}-${string}`;
+export type BackgroundColor = `bg-${Color}-${string}`;
+export type TextColor = `text-${Color}-${string}`;
+export type BorderColor = `border-${Color}-${string}`;
+
+export const COLORS = [
+  'slate',
+  'gray',
+  'zinc',
+  'neutral',
+  'stone',
+  'red',
+  'orange',
+  'amber',
+  'yellow',
+  'lime',
+  'green',
+  'emerald',
+  'teal',
+  'cyan',
+  'sky',
+  'blue',
+  'indigo',
+  'violet',
+  'purple',
+  'fuchsia',
+  'pink',
+  'rose',
+] as const;
+export type Color = (typeof COLORS)[number];

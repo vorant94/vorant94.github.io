@@ -1,6 +1,6 @@
 import { type CollectionEntry } from 'astro:content';
-import dateFns from 'date-fns';
-import _ from 'lodash';
+import { compareDesc, format } from 'date-fns';
+import { groupBy } from 'lodash-es';
 
 export class PostsService {
   static dateFormatFull = 'MMM dd, yyyy';
@@ -12,24 +12,22 @@ export class PostsService {
 
   static formatPublishedAt(
     entry: CollectionEntry<'posts'>,
-    format = PostsService.dateFormatFull,
+    formatStr = PostsService.dateFormatFull,
   ): string {
-    return dateFns.format(entry.data.publishedAt, format);
+    return format(entry.data.publishedAt, formatStr);
   }
 
   static sortEntries(
     entries: CollectionEntry<'posts'>[],
   ): CollectionEntry<'posts'>[] {
     return entries.sort((a, b) =>
-      dateFns.compareDesc(a.data.publishedAt, b.data.publishedAt),
+      compareDesc(a.data.publishedAt, b.data.publishedAt),
     );
   }
 
   static groupEntriesByYear(
     entries: CollectionEntry<'posts'>[],
   ): Record<string, CollectionEntry<'posts'>[]> {
-    return _.groupBy(entries, ({ data }) =>
-      dateFns.format(data.publishedAt, 'yyyy'),
-    );
+    return groupBy(entries, ({ data }) => format(data.publishedAt, 'yyyy'));
   }
 }
