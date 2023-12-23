@@ -5,7 +5,7 @@ tags:
   - typescript
   - node
   - infra
-publishedAt: 2023-12-22
+publishedAt: 2023-12-23
 coverImage:
 related:
 isPinned:
@@ -91,11 +91,12 @@ Since we have a support for monorepo on package manager level it won't be a prob
 // app package.json
 {
   name: 'app',
-  packageManager: 'yarn@4.0.2',
-  // ...
+  scripts: {
+    start: 'node src/main.js',
+  },
   dependencies: {
-    // ...
     lib: 'workspace:^',
+    // ...
   },
   // ...
 }
@@ -105,7 +106,6 @@ Since we have a support for monorepo on package manager level it won't be a prob
 // lib package.json
 {
   name: 'lib',
-  packageManager: 'yarn@4.0.2',
   main: 'src/index.js',
   // ...
 }
@@ -122,23 +122,74 @@ Compiling a monorepo is also relatively easy task: `tsc`, built-in compiler of T
 
 ```json5
 // app package.json
+{
+  name: 'app',
+  scripts: {
+    start: 'node dist/main.js',
+    clean: 'shx rm -rf dist',
+    build: 'yarn clean && tsc --build',
+  },
+  dependencies: {
+    lib: 'workspace:^',
+    // ...
+  },
+  devDependencies: {
+    shx: '^0.3.4',
+    typescript: '^5.3.3',
+    // ...
+  },
+  // ...
+}
 ```
 
 ```json5
 // app tsconfig.json
+{
+  compilerOptions: {
+    // ...
+  },
+  references: [{ path: '../lib' }],
+  // ...
+}
 ```
 
 ```json5
 // lib package.json
+{
+  name: 'lib',
+  main: 'dist/index.js',
+  types: 'dist/index.d.ts',
+  scripts: {
+    clean: 'shx rm -rf dist && shx rm -f tsconfig.tsbuildinfo',
+    build: 'yarn clean && tsc --build',
+  },
+  devDependencies: {
+    shx: '^0.3.4',
+    typescript: '^5.3.3',
+  },
+  // ...
+}
 ```
 
 ```json5
 // lib tsconfig.json
+{
+  compilerOptions: {
+    declaration: true,
+    composite: true,
+    // ...
+  },
+  // ...
+}
 ```
 
 A couple of notes here:
 
--
+- `shx rm -rf dist` - is a quick way to clean stuff from previous build since `tsc` in some cases doesn't do it by itself
+- `tsc --build` - is a flag that tells `tsc` to traverse the dependency tree and build them as well if needed
+- `references: [{ path: '../lib' }]` - list of all dependencies that needs to be handled by `tsc`, e.g. all the packages linked by `workspace:^` protocol need to be duplicated in this list
+- `composite: true` - `tsc` flag that tell it to not only generate the JS output, but `tsconfig.tsbuildinfo` file as well, that is used to determine whether lib JS code is in sync with latest TS code
+- `shx rm -rf dist && shx rm -f tsconfig.tsbuildinfo` - since `tsconfig.tsbuildinfo` is essentially a part of build it also needs to be cleaned upon re-builds
 
 ###### Live-reload dev server
 
@@ -166,19 +217,28 @@ There is a good comment in [the issue on GitHub](https://github.com/privatenumbe
 
 The final solution that I found working for me is actually avoiding all 3-party tooling. You see `tsc` itself has built-in watch mode, the only last part there is to restart the server on each re-build. And recently NodeJS introduced its own watch mode (it's still experimental, but I'm OK to use experimental stuff for dev-only purposes). As simple as that: run `tsc` in watch mode, it will rebuild code on changes resolving project references, run `node` in watch mode, it will restart process on changes resolving changes in monorepo dependencies as well.
 
-```json
+```json5
 // app package.json
 {
-  "name": "app",
-  "packageManager": "yarn@4.0.2",
+  name: 'app',
+  packageManager: 'yarn@4.0.2',
   // ...
-  "scripts": {
-    // ..
-    "start:watch": "node --watch dist/main.js",
-    "build:watch": "tsc --build --watch"
+  scripts: {
+    start: 'node dist/main.js',
+    'start:watch': 'node --watch dist/main.js',
+    clean: 'shx rm -rf dist',
+    build: 'yarn clean && tsc --build',
+    'build:watch': 'tsc --build --watch',
+  },
+  dependencies: {
+    lib: 'workspace:^',
     // ...
-  }
-  // ...
+  },
+  devDependencies: {
+    shx: '^0.3.4',
+    typescript: '^5.3.3',
+    // ...
+  },
 }
 ```
 
@@ -186,7 +246,7 @@ It does mean running two processes instead of one like we are used in polyrepo p
 
 Also as a small semantic sugar: we can run both those processes with a single command by using `concurrently`
 
-```json
+```json5§§
 // root package.json
 {
   "name": "typescript-monorepo",

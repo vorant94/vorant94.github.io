@@ -13,7 +13,7 @@ export function PostFrontmatter({
   post,
   minutesRead,
 }: PostFrontmatterProps): ReactElement {
-  const { title, tags, coverImage, description } = post.data;
+  const { title, tags, coverImage, description, code } = post.data;
 
   return (
     <>
@@ -47,6 +47,17 @@ export function PostFrontmatter({
       <p>
         <em>{description}</em>
       </p>
+
+      {code && (
+        <p>
+          All the code mentioned in the post can be found in my{' '}
+          <a
+            href={code}
+            target="_blank">
+            GitHub
+          </a>
+        </p>
+      )}
     </>
   );
 }
