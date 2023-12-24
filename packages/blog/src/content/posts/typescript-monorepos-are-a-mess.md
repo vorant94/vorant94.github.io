@@ -6,7 +6,8 @@ tags:
   - node
   - infra
 publishedAt: 2023-12-23
-coverImage:
+coverImage: ../attachments/typescript-monorepos-are-a-mess/cover.webp
+coverImageDark: ../attachments/typescript-monorepos-are-a-mess/cover-dark.webp
 related:
 isPinned:
 code: https://github.com/vorant94/typescript-monorepo

@@ -2,6 +2,7 @@ import type { CollectionEntry } from 'astro:content';
 import type { ReactElement } from 'react';
 import { PostsService } from '../../shared/posts.service';
 import { Caption } from '../atoms/Caption';
+import { ThemedImage } from '../atoms/ThemedImage.tsx';
 import { Tag } from '../molecules/Tag.tsx';
 
 export interface PostFrontmatterProps {
@@ -13,10 +14,21 @@ export function PostFrontmatter({
   post,
   minutesRead,
 }: PostFrontmatterProps): ReactElement {
-  const { title, tags, coverImage, description, code } = post.data;
+  const { title, tags, coverImage, coverImageDark, description, code } =
+    post.data;
 
   return (
     <>
+      {coverImage && (
+        <div className="self-center">
+          <ThemedImage
+            src={coverImage.src}
+            srcDark={coverImageDark?.src}
+            alt="cover image"
+          />
+        </div>
+      )}
+
       <h1>{title}</h1>
 
       <div className="flex flex-col lg:flex-row gap-2 lg:items-center justify-between">
@@ -34,15 +46,6 @@ export function PostFrontmatter({
           ))}
         </ul>
       </div>
-
-      {coverImage && (
-        <div className="self-center">
-          <img
-            src={coverImage.src}
-            alt="cover image"
-          />
-        </div>
-      )}
 
       <p>
         <em>{description}</em>

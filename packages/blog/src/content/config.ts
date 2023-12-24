@@ -9,6 +9,7 @@ const posts = defineCollection({
       tags: z.array(z.string()),
       publishedAt: z.date(),
       coverImage: image().optional().nullable(),
+      coverImageDark: image().optional().nullable(),
       related: z.array(reference('posts')).optional().nullable(),
       isPinned: z.boolean().optional().nullable().default(false),
       code: z.string().url().optional().nullable(),
