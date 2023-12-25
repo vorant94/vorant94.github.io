@@ -1,4 +1,5 @@
 export const THEME: Theme = {
+  // TODO put this tuple to shared lib since they are used in canvas as well
   background: ['bg-slate-50', 'dark:bg-slate-900'],
   primaryText: ['text-slate-800', 'dark:text-slate-100'],
   border: ['border-slate-300', 'dark:border-slate-600'],
