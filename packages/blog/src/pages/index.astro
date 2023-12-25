@@ -7,7 +7,7 @@ import { Intro } from '../components/organisms/Intro';
 import { PostList } from '../components/organisms/PostList';
 import { PinnedPosts } from '../components/organisms/PinnedPosts';
 
-const allPosts = PostsService.sortEntries(await getCollection('posts'));
+const allPosts = PostsService.sortByPublishedAt(await getCollection('posts'));
 const [pinnedPosts, nonPinnedPosts] = partition(
   allPosts,
   (entry) => entry.data.isPinned,

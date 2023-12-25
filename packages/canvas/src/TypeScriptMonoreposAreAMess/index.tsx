@@ -1,3 +1,4 @@
+import { Layout } from '../components/Layout.tsx';
 import gitLogoDark from './git-logo-dark.svg';
 import gitLogo from './git-logo.svg';
 import tsLogoDark from './ts-logo-dark.svg';
@@ -5,13 +6,9 @@ import tsLogo from './ts-logo.svg';
 import yarnLogoDark from './yarn-logo-dark.svg';
 import yarnLogo from './yarn-logo.svg';
 
-// bg-zinc-100 -> #f4f4f5
-// bg-zinc-900 -> #18181b
-// size 1064 x 808
-
-export function TypescriptMonoreposAreAMess() {
+export function TypeScriptMonoreposAreAMess() {
   return (
-    <main className="min-w-dvw min-h-dvh flex items-center justify-center bg-slate-50 dark:bg-slate-900">
+    <Layout>
       <div className="grid grid-cols-6 grid-rows-4 gap-6 p-40 bg-zinc-100 dark:bg-zinc-900">
         <div className="p-12 border-4 border-slate-900 dark:border-slate-100"></div>
         <div className="p-12 border-4 border-slate-900 dark:border-slate-100"></div>
@@ -39,6 +36,10 @@ export function TypescriptMonoreposAreAMess() {
         <div className="p-12 border-4 border-slate-900 dark:border-slate-100"></div>
         <div className="p-12 border-4 border-slate-900 dark:border-slate-100"></div>
       </div>
-    </main>
+    </Layout>
   );
 }
+
+// bg-zinc-100 -> #f4f4f5
+// bg-zinc-900 -> #18181b
+// size 1064 x 808

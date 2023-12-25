@@ -1,9 +1,9 @@
-import type { CollectionEntry } from 'astro:content';
 import type { ReactElement } from 'react';
+import type { Post } from '../../shared/posts.service.ts';
 import { PostListItem } from '../molecules/PostListItem';
 
 export interface PostListProps {
-  posts: CollectionEntry<'posts'>[];
+  posts: Post[];
   publishedAtFormat?: string;
 }
 

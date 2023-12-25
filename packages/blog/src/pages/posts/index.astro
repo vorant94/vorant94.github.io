@@ -6,8 +6,8 @@ import { Divider } from '../../components/atoms/Divider';
 import { PostList } from '../../components/organisms/PostList';
 import { Headline } from '../../components/atoms/Headline';
 
-const postsByYear = PostsService.groupEntriesByYear(
-  PostsService.sortEntries(await getCollection('posts')),
+const postsByYear = PostsService.groupByPublishedAtYear(
+  PostsService.sortByPublishedAt(await getCollection('posts')),
 );
 
 const years = Object.keys(postsByYear).reverse();
@@ -22,7 +22,7 @@ const years = Object.keys(postsByYear).reverse();
         </Divider>
         <PostList
           posts={postsByYear[year]}
-          publishedAtFormat={PostsService.dateFormatShort}
+          publishedAtFormat={PostsService.publishedAtFormatShort}
         />
       </>
     ))

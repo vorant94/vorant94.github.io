@@ -1,12 +1,11 @@
-import type { CollectionEntry } from 'astro:content';
 import type { ReactElement } from 'react';
-import { PostsService } from '../../shared/posts.service';
+import { PostsService, type Post } from '../../shared/posts.service';
 import { Caption } from '../atoms/Caption';
 import { ThemedImage } from '../atoms/ThemedImage.tsx';
 import { Tag } from '../molecules/Tag.tsx';
 
 export interface PostFrontmatterProps {
-  post: CollectionEntry<'posts'>;
+  post: Post;
   minutesRead: string;
 }
 

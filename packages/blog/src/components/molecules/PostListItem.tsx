@@ -1,7 +1,6 @@
-import type { CollectionEntry } from 'astro:content';
 import classNames from 'classnames';
 import type { HTMLAttributes, ReactElement } from 'react';
-import { PostsService } from '../../shared/posts.service';
+import { PostsService, type Post } from '../../shared/posts.service';
 import { THEME } from '../../shared/theme';
 
 export function PostListItem({
@@ -28,6 +27,6 @@ export function PostListItem({
 
 export interface PostListItemProps
   extends Pick<HTMLAttributes<HTMLElement>, 'className'> {
-  post: CollectionEntry<'posts'>;
+  post: Post;
   publishedAtFormat?: string;
 }

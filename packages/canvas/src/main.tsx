@@ -1,17 +1,17 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import { TypescriptMonoreposAreAMess } from './typescript-monorepos-are-a-mess';
+import { TypeScriptMonoreposAreAMess } from './TypeScriptMonoreposAreAMess';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <TypescriptMonoreposAreAMess />,
+    element: <TypeScriptMonoreposAreAMess />,
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>,

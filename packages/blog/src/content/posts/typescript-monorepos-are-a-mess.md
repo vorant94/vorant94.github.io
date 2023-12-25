@@ -247,19 +247,19 @@ It does mean running two processes instead of one like we are used in polyrepo p
 
 Also as a small semantic sugar: we can run both those processes with a single command by using `concurrently`
 
-```json5§§
+```json5
 // root package.json
 {
-  "name": "typescript-monorepo",
-  "packageManager": "yarn@4.0.2",
+  name: 'typescript-monorepo',
+  packageManager: 'yarn@4.0.2',
   // ...
-  "scripts": {
-    "dev": "concurrently \"yarn workspace app build:watch\" \"yarn workspace app start:watch\""
+  scripts: {
+    dev: 'concurrently "yarn workspace app build:watch" "yarn workspace app start:watch"',
   },
-  "workspaces": ["packages/*"],
-  "devDependencies": {
-    "concurrently": "^8.2.2"
-  }
+  workspaces: ['packages/*'],
+  devDependencies: {
+    concurrently: '^8.2.2',
+  },
 }
 ```
 

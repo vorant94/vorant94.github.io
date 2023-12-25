@@ -1,19 +1,19 @@
 ---
-import { getCollection, type CollectionEntry, getEntries } from 'astro:content';
+import { getCollection, getEntries } from 'astro:content';
 import { getImage } from 'astro:assets';
-import { PostsService } from '../../shared/posts.service';
+import { type Post, PostsService } from '../../shared/posts.service';
 import Layout from '../../components/templates/Layout.astro';
 import { PostFrontmatter } from '../../components/organisms/PostFrontmatter';
 import { Comments } from '../../components/organisms/Comments';
 import { RelatedPosts } from '../../components/organisms/RelatedPosts';
 
 export async function getStaticPaths() {
-  const entries = PostsService.sortEntries(await getCollection('posts'));
+  const entries = PostsService.sortByPublishedAt(await getCollection('posts'));
 
   return await Promise.all(
     entries.map(async (post) => {
       const related = post.data.related
-        ? PostsService.sortEntries(await getEntries(post.data.related))
+        ? PostsService.sortByPublishedAt(await getEntries(post.data.related))
         : [];
 
       return {
@@ -25,8 +25,8 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  post: CollectionEntry<'posts'>;
-  related: CollectionEntry<'posts'>[];
+  post: Post;
+  related: Post[];
 }
 
 const { post, related } = Astro.props;

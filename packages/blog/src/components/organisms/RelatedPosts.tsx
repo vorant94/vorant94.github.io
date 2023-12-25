@@ -1,6 +1,6 @@
-import type { CollectionEntry } from 'astro:content';
 import classNames from 'classnames';
 import type { ReactElement } from 'react';
+import type { Post } from '../../shared/posts.service.ts';
 import { THEME } from '../../shared/theme';
 import { Title } from '../atoms/Title';
 import { StandOut } from '../molecules/StandOut';
@@ -8,7 +8,7 @@ import { PostList } from './PostList';
 import './RelatedPosts.module.css';
 
 export interface RelatedPostsProps {
-  posts: CollectionEntry<'posts'>[];
+  posts: Post[];
 }
 
 export function RelatedPosts({ posts }: RelatedPostsProps): ReactElement {

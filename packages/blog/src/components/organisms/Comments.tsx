@@ -1,9 +1,9 @@
-import { type CollectionEntry } from 'astro:content';
 import { useEffect, useRef, type ReactElement } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import type { Post } from '../../shared/posts.service.ts';
 
 interface CommentsProps {
-  post: CollectionEntry<'posts'>;
+  post: Post;
 }
 
 export function Comments({ post }: CommentsProps): ReactElement {
