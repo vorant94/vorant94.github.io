@@ -4,8 +4,8 @@ export const PROFILE: Profile = {
   baseUrl: 'https://www.vorant94.io',
   title: `vorant94's Digital Garden`,
   description: `Welcome to my digital garden, here I write about all sorts of things (mostly about technologies, a little bit on gaming, traveling and self-reflecting)`,
-  email: 'vorant94@gmail.com',
-  copyright: 'Mordechai Dror © 2021-present',
+  email: 'vorant94@pm.me',
+  copyright: 'Mordechai Dror © 2023-present',
   navLinks: [
     { label: '👨‍💻 About', url: '/about' },
     { label: '📒 Posts', url: '/posts' },
