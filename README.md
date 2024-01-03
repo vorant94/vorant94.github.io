@@ -15,10 +15,11 @@ Welcome to my digital garden, here I write about all sorts of things (mostly abo
 ### publish checklist
 
 - GitHub profile repo
+- GitHub post repo (if applicable)
 - LinkedIn profile post
-- Facebook stories (via https://m.facebook.com/sharer.php?u=<paste-your-link-here>)
+- Facebook post
 - Twitter post
-- Telegram stories
+- Telegram story
 
 ### png to webp example
 
