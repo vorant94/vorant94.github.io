@@ -9,10 +9,12 @@ export function ThemedImage({
 }: ThemedImageProps): ReactElement {
   return (
     <picture>
-      <source
-        srcSet={srcDark}
-        media="(prefers-color-scheme:dark)"
-      />
+      {srcDark && (
+        <source
+          srcSet={srcDark}
+          media="(prefers-color-scheme:dark)"
+        />
+      )}
       <img
         src={src}
         {...props}
@@ -23,5 +25,5 @@ export function ThemedImage({
 
 export interface ThemedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   src: string;
-  srcDark: string;
+  srcDark?: string;
 }

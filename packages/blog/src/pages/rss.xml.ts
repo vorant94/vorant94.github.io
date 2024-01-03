@@ -5,7 +5,7 @@ import { PostsService } from '../shared/posts.service';
 import { PROFILE } from '../shared/profile';
 
 export async function GET(context: APIContext) {
-  const posts = PostsService.sortEntries(await getCollection('posts'));
+  const posts = PostsService.sortByPublishedAt(await getCollection('posts'));
 
   return rss({
     title: PROFILE.title,

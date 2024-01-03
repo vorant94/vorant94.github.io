@@ -22,11 +22,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/check@npm:^0.3.2":
-  version: 0.3.2
-  resolution: "@astrojs/check@npm:0.3.2"
+"@astrojs/check@npm:^0.3.4":
+  version: 0.3.4
+  resolution: "@astrojs/check@npm:0.3.4"
   dependencies:
-    "@astrojs/language-server": "npm:^2.5.3"
+    "@astrojs/language-server": "npm:^2.5.5"
     chokidar: "npm:^3.5.3"
     fast-glob: "npm:^3.3.1"
     kleur: "npm:^4.1.5"
@@ -35,7 +35,7 @@ __metadata:
     typescript: ^5.0.0
   bin:
     astro-check: dist/bin.js
-  checksum: 2855a4165f833c9f4a162cede6fb0f2e966eaddaf19801f7603fb5e95f32e61799e7a6407d39d6676573adffc919faa6bc907fcab59f162f250b036339cf0026
+  checksum: 1aa7ee24b5f05938a63f909612a99afcabd845ba6fd44aa5ebbac8eb5765dd9afb1ebeb70d1215185e327c340edc5635e65883def75f0f5b6ae4ced1dcd3b7f9
   languageName: node
   linkType: hard
 
@@ -78,9 +78,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/language-server@npm:^2.5.3":
-  version: 2.5.3
-  resolution: "@astrojs/language-server@npm:2.5.3"
+"@astrojs/language-server@npm:^2.5.5":
+  version: 2.5.5
+  resolution: "@astrojs/language-server@npm:2.5.5"
   dependencies:
     "@astrojs/compiler": "npm:^2.2.2"
     "@jridgewell/sourcemap-codec": "npm:^1.4.15"
@@ -110,7 +110,7 @@ __metadata:
       optional: true
   bin:
     astro-ls: bin/nodeServer.js
-  checksum: a7c12e423af44f66fbeae296c30a30022a762c8d16001eabf5f93c0c058434487677f6a76ed8f6a9b3e1f93622002a52f25742cc881b6af34f0e805832dfeff1
+  checksum: 8daad59f5e5236d994c3908da5bc472257961a0b2f334aeb9470290b69f2c579238630d82a7a7748ca43d571aa1573fe1887e3b137b4cec8ff1deab9fbb2b00f
   languageName: node
   linkType: hard
 
@@ -819,6 +819,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@remix-run/router@npm:1.14.1":
+  version: 1.14.1
+  resolution: "@remix-run/router@npm:1.14.1"
+  checksum: aa179e96fa7da5bdb86e6887219613cbe47b67d6595564b4f8fe7e80f8980f9c76e120524f0864aa8af46ac0f1a06bcdb4d20058d770c9199e5af599f772c0a9
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-android-arm-eabi@npm:4.6.1":
   version: 4.6.1
   resolution: "@rollup/rollup-android-arm-eabi@npm:4.6.1"
@@ -1131,7 +1138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react@npm:^4.2.0":
+"@vitejs/plugin-react@npm:^4.2.0, @vitejs/plugin-react@npm:^4.2.1":
   version: 4.2.1
   resolution: "@vitejs/plugin-react@npm:4.2.1"
   dependencies:
@@ -1539,7 +1546,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "blog@workspace:packages/blog"
   dependencies:
-    "@astrojs/check": "npm:^0.3.2"
+    "@astrojs/check": "npm:^0.3.4"
     "@astrojs/react": "npm:^3.0.8"
     "@astrojs/rss": "npm:4.0.1"
     "@astrojs/sitemap": "npm:^3.0.3"
@@ -1555,7 +1562,7 @@ __metadata:
     autoprefixer: "npm:^10.4.16"
     classnames: "npm:^2.3.2"
     cssnano: "npm:^6.0.2"
-    date-fns: "npm:^3.0.5"
+    date-fns: "npm:^3.0.6"
     hastscript: "npm:^8.0.0"
     lodash-es: "npm:^4.17.21"
     mdast-util-to-string: "npm:^4.0.0"
@@ -1723,6 +1730,27 @@ __metadata:
   checksum: cd163075b1a9feaf9c9f657c3551279fcdac471471d67ee57ab2286c7b5480168e6336e359741b469fa40e94716f0f95ec185d87bd57d58894d66d8c21d7db04
   languageName: node
   linkType: hard
+
+"canvas@workspace:packages/canvas":
+  version: 0.0.0-use.local
+  resolution: "canvas@workspace:packages/canvas"
+  dependencies:
+    "@types/react": "npm:^18.2.45"
+    "@types/react-dom": "npm:^18.2.18"
+    "@vitejs/plugin-react": "npm:^4.2.1"
+    postcss: "npm:^8.4.32"
+    postcss-load-config: "npm:^5.0.2"
+    prettier: "npm:^3.1.1"
+    prettier-plugin-organize-imports: "npm:^3.2.4"
+    prettier-plugin-tailwindcss: "npm:^0.5.9"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    react-router-dom: "npm:^6.21.1"
+    tailwindcss: "npm:^3.4.0"
+    typescript: "npm:^5.3.3"
+    vite: "npm:^5.0.10"
+  languageName: unknown
+  linkType: soft
 
 "ccount@npm:^2.0.0":
   version: 2.0.1
@@ -2185,10 +2213,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:^3.0.5":
-  version: 3.0.5
-  resolution: "date-fns@npm:3.0.5"
-  checksum: 25667a6810f8e5d31aef59952809ac3be40c7da518752864cca179854d804b9a0d9334f85cce9bf71fe0e43cfda3378db2ed1dd7571f908e6eaeba4237b03466
+"date-fns@npm:^3.0.6":
+  version: 3.0.6
+  resolution: "date-fns@npm:3.0.6"
+  checksum: ca6ac81aca623fd6d12a43da59cc216e13a75a2eecf7fac692654524fca625e073f5cd36951ef0deac9621ead564eb06b4c3723f77b34e86f21ca3c0c3b32ff7
   languageName: node
   linkType: hard
 
@@ -5545,6 +5573,30 @@ __metadata:
   peerDependencies:
     react: ">=16.8.0"
   checksum: c58b30d8b8ff993edbc73f7de59a2d86d8abd6380b06a9b41667c3bdd5401e5e710fa1d0fdac21368759ab9b958e8b479a111329a06e9b0241ee08f500b37a20
+  languageName: node
+  linkType: hard
+
+"react-router-dom@npm:^6.21.1":
+  version: 6.21.1
+  resolution: "react-router-dom@npm:6.21.1"
+  dependencies:
+    "@remix-run/router": "npm:1.14.1"
+    react-router: "npm:6.21.1"
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: 2c2b653de8cc90397e5b057c0d32dd780fe894c4bd36397005da169a7422b31988ebc14ef0da3ac3f2b7286b244f97a141974acaa86c731715816e64c8cd2912
+  languageName: node
+  linkType: hard
+
+"react-router@npm:6.21.1":
+  version: 6.21.1
+  resolution: "react-router@npm:6.21.1"
+  dependencies:
+    "@remix-run/router": "npm:1.14.1"
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 81278cf25a999d7c93a31d540102e3b74b696eb4349779e22bba77b633e4e5f8f91b8c6f7946c9572a1e92f64363724150216f5643a6f9817f8bc1643cb8bdbc
   languageName: node
   linkType: hard
 

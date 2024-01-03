@@ -8,7 +8,9 @@
   "scripts": {
     "formatAndCheck": "concurrently \"yarn format\" \"yarn check\"",
     "prepare": "husky install",
+    "build": "yarn workspaces foreach --all -vp -j unlimited run build",
     "format": "yarn workspaces foreach --all -vp -j unlimited run format",
+    "format:fix": "yarn workspaces foreach --all -vp -j unlimited run format:fix",
     "check": "yarn workspaces foreach --all -vp -j unlimited run check"
   },
   "workspaces": [
