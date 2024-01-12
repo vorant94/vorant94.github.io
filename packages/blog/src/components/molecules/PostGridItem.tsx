@@ -1,31 +1,36 @@
 import type { ReactElement } from 'react';
 import { PostsService, type Post } from '../../shared/posts.service';
-import { Card } from '../atoms/Card';
-
-export interface PostListItemProps {
-  post: Post;
-  publishedAtFormat?: string;
-}
+import { Caption } from '../atoms/Caption.tsx';
+import { ThemedImage } from '../atoms/ThemedImage.tsx';
+import { Title } from '../atoms/Title.tsx';
 
 export function PostGridItem({
   post,
   publishedAtFormat,
-}: PostListItemProps): ReactElement {
+}: PostGridItemProps): ReactElement {
   return (
     <a
       href={PostsService.getFullPath(post)}
-      style={{
-        '--cover-image-url': `url('${post.data.coverImage?.src ?? ''}')`,
-      }}
-      className="text-black hover:text-white bg-center bg-no-repeat bg-[image:var(--cover-image-url)] rounded-md group grayscale-[50%]">
-      <Card className="flex gap-2 backdrop-blur justify-between">
-        <span className="py-1 px-2 bg-white group-hover:bg-slate-800 rounded-md truncate">
-          {post.data.title}
-        </span>
-        <span className="py-1 px-2 bg-white group-hover:bg-slate-800 rounded-md whitespace-nowrap">
+      className="flex items-center">
+      <div className="flex-1 overflow-hidden">
+        <Title className="truncate">{post.data.title}</Title>
+        <Caption>
           {PostsService.formatPublishedAt(post, publishedAtFormat)}
-        </span>
-      </Card>
+        </Caption>
+      </div>
+      {post.data.coverImage && (
+        <ThemedImage
+          className="h-20 w-20 object-scale-down"
+          src={post.data.coverImage.src}
+          srcDark={post.data.coverImageDark?.src}
+          alt="post cover image"
+        />
+      )}
     </a>
   );
+}
+
+export interface PostGridItemProps {
+  post: Post;
+  publishedAtFormat?: string;
 }
