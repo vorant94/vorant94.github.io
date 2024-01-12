@@ -4,14 +4,17 @@ import { getCollection } from 'astro:content';
 import { partition } from 'lodash-es';
 import Layout from '../components/templates/Layout.astro';
 import { Intro } from '../components/organisms/Intro';
-import { PostList } from '../components/organisms/PostList';
+import { PostGrid } from '../components/organisms/PostGrid';
 import { PinnedPosts } from '../components/organisms/PinnedPosts';
+import { Link } from '../components/atoms/Link';
 
 const allPosts = PostsService.sortByPublishedAt(await getCollection('posts'));
-const [pinnedPosts, nonPinnedPosts] = partition(
+const [pinnedPosts, allNonPinnedPosts] = partition(
   allPosts,
   (entry) => entry.data.isPinned,
 );
+
+const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
 ---
 
 <Layout>
@@ -19,5 +22,11 @@ const [pinnedPosts, nonPinnedPosts] = partition(
 
   <Intro />
 
-  <PostList posts={nonPinnedPosts} />
+  <PostGrid posts={recentNonPunnedPosts} />
+
+  <Link
+    className="self-center"
+    href="posts">
+    See all posts
+  </Link>
 </Layout>

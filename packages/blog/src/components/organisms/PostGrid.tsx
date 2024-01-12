@@ -2,17 +2,17 @@ import classNames from 'classnames';
 import type { ReactElement } from 'react';
 import type { Post } from '../../shared/posts.service.ts';
 import { THEME } from '../../shared/theme.ts';
-import { PostListItem } from '../molecules/PostListItem';
+import { PostGridItem } from '../molecules/PostGridItem.tsx';
 
-export interface PostListProps {
+export interface PostGridProps {
   posts: Post[];
   publishedAtFormat?: string;
 }
 
-export function PostList({
+export function PostGrid({
   posts,
   publishedAtFormat,
-}: PostListProps): ReactElement {
+}: PostGridProps): ReactElement {
   return (
     <ul
       className={classNames(
@@ -23,7 +23,7 @@ export function PostList({
         <li
           className="flex flex-col py-3 text-medium"
           key={post.id}>
-          <PostListItem
+          <PostGridItem
             post={post}
             publishedAtFormat={publishedAtFormat}
           />
