@@ -1,35 +1,34 @@
 import { type CollectionEntry } from 'astro:content';
-import dateFns from 'date-fns';
-import _ from 'lodash';
+import { compareDesc, format } from 'date-fns';
+import { groupBy } from 'lodash-es';
+
+export type Post = CollectionEntry<'posts'>;
 
 export class PostsService {
-  static dateFormatFull = 'MMM dd, yyyy';
-  static dateFormatShort = 'MMM dd';
+  static publishedAtFormatFull = 'MMM dd, yyyy';
+  static publishedAtFormatShort = 'MMM dd';
+  static publishedAtFormatYear = 'yyyy';
 
-  static getFullPath(entry: CollectionEntry<'posts'>): string {
-    return `posts/${entry.slug}`;
+  static getFullPath({ slug }: Post): string {
+    return `posts/${slug}`;
   }
 
   static formatPublishedAt(
-    entry: CollectionEntry<'posts'>,
-    format = PostsService.dateFormatFull,
+    { data }: Post,
+    formatStr = PostsService.publishedAtFormatFull,
   ): string {
-    return dateFns.format(entry.data.publishedAt, format);
+    return format(data.publishedAt, formatStr);
   }
 
-  static sortEntries(
-    entries: CollectionEntry<'posts'>[],
-  ): CollectionEntry<'posts'>[] {
-    return entries.sort((a, b) =>
-      dateFns.compareDesc(a.data.publishedAt, b.data.publishedAt),
+  static sortByPublishedAt(posts: Post[]): Post[] {
+    return posts.sort((a, b) =>
+      compareDesc(a.data.publishedAt, b.data.publishedAt),
     );
   }
 
-  static groupEntriesByYear(
-    entries: CollectionEntry<'posts'>[],
-  ): Record<string, CollectionEntry<'posts'>[]> {
-    return _.groupBy(entries, ({ data }) =>
-      dateFns.format(data.publishedAt, 'yyyy'),
+  static groupByPublishedAtYear(posts: Post[]): Record<string, Post[]> {
+    return groupBy(posts, ({ data }) =>
+      format(data.publishedAt, PostsService.publishedAtFormatYear),
     );
   }
 }

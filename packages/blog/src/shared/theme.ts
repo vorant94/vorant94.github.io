@@ -1,76 +1,55 @@
-export class Theme {
-  private static readonly colorToBackground: Record<ThemeColor, string> = {
-    orange: 'bg-orange-500',
-    violet: 'bg-violet-500',
-    red: 'bg-red-500',
-    amber: 'bg-amber-500',
-    yellow: 'bg-yellow-500',
-    lime: 'bg-lime-500',
-    green: 'bg-green-500',
-    emerald: 'bg-emerald-500',
-    teal: 'bg-violet-500',
-    cyan: 'bg-cyan-500',
-    blue: 'bg-blue-500',
-    indigo: 'bg-indigo-500',
-    purple: 'bg-purple-500',
-    fushia: 'bg-fushia-500',
-    pink: 'bg-pink-500',
-    rose: 'bg-rose-500',
-  };
+export const THEME: Theme = {
+  // TODO put this tuple to shared lib since they are used in canvas as well
+  background: ['bg-slate-50', 'dark:bg-slate-900'],
+  primaryText: ['text-slate-800', 'dark:text-slate-100'],
+  border: ['border-slate-300', 'dark:border-slate-600'],
+  divide: ['divide-slate-300', 'dark:divide-slate-600'],
+  link: 'text-slate-500 hover:text-cyan-500',
+  linkDecoration:
+    'hover:underline underline-offset-4 decoration-4 decoration-dotted decoration-cyan-500',
+  secondaryText: 'text-slate-500',
+};
 
-  private static readonly colorToText: Record<ThemeColor, string> = {
-    orange: 'text-orange-500',
-    violet: 'text-violet-500',
-    red: 'text-red-500',
-    amber: 'text-amber-500',
-    yellow: 'text-yellow-500',
-    lime: 'text-lime-500',
-    green: 'text-green-500',
-    emerald: 'text-emerald-500',
-    teal: 'text-violet-500',
-    cyan: 'text-cyan-500',
-    blue: 'text-blue-500',
-    indigo: 'text-indigo-500',
-    purple: 'text-purple-500',
-    fushia: 'text-fushia-500',
-    pink: 'text-pink-500',
-    rose: 'text-rose-500',
-  };
+export interface Theme {
+  readonly background: ThemedStyle<BackgroundColor>;
+  readonly primaryText: ThemedStyle<TextColor>;
+  readonly border: ThemedStyle<BorderColor>;
+  readonly divide: ThemedStyle<DivideColor>;
 
-  constructor(
-    public readonly primary: ThemeColor,
-    public readonly secondary: ThemeColor,
-  ) {}
-
-  get backgroundTop(): string {
-    return Theme.colorToBackground[this.primary];
-  }
-
-  get backgroundBottom(): string {
-    return Theme.colorToBackground[this.secondary];
-  }
-
-  get text(): string {
-    return Theme.colorToText[this.primary];
-  }
+  readonly link: string;
+  readonly linkDecoration: string;
+  readonly secondaryText: string;
 }
 
-export type ThemeColor =
-  | 'orange'
-  | 'violet'
-  | 'red'
-  | 'amber'
-  | 'yellow'
-  | 'lime'
-  | 'green'
-  | 'emerald'
-  | 'teal'
-  | 'cyan'
-  | 'blue'
-  | 'indigo'
-  | 'purple'
-  | 'fushia'
-  | 'pink'
-  | 'rose';
+export type ThemedStyle<T extends string> = readonly [T, `dark:${T}`];
 
-export const THEME = new Theme('cyan', 'lime');
+export type BackgroundColor = `bg-${Color}-${string}`;
+export type TextColor = `text-${Color}-${string}`;
+export type BorderColor = `border-${Color}-${string}`;
+export type DivideColor = `divide-${Color}-${string}`;
+
+export const COLORS = [
+  'slate',
+  'gray',
+  'zinc',
+  'neutral',
+  'stone',
+  'red',
+  'orange',
+  'amber',
+  'yellow',
+  'lime',
+  'green',
+  'emerald',
+  'teal',
+  'cyan',
+  'sky',
+  'blue',
+  'indigo',
+  'violet',
+  'purple',
+  'fuchsia',
+  'pink',
+  'rose',
+] as const;
+export type Color = (typeof COLORS)[number];

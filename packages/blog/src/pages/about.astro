@@ -1,33 +1,35 @@
 ---
-import '@fortawesome/fontawesome-free/css/fontawesome.css';
-import '@fortawesome/fontawesome-free/css/brands.css';
-import Layout from '../shared/components/templates/Layout.astro';
-import Intro from '../shared/components/organisms/Intro.astro';
-import { Link } from '../shared/components/atoms/Link';
-import { PROFILE } from '../shared/profile.ts';
-import { Divider } from '../shared/components/atoms/Divider';
+import Layout from '../components/templates/Layout.astro';
+import { Intro } from '../components/organisms/Intro';
+import { Link } from '../components/atoms/Link';
+import { PROFILE } from '../shared/profile';
+import { Divider } from '../components/atoms/Divider';
+import { Icon } from '../components/atoms/Icon';
+import { Headline } from '../components/atoms/Headline';
+import { Body } from '../components/atoms/Body';
+import { THEME } from '../shared/theme';
 ---
 
 <Layout title="About">
   <Intro />
 
   <Divider>
-    <h3 class="text-2xl">Stay up to date</h3>
+    <Headline>Stay up to date</Headline>
   </Divider>
 
-  <p>
+  <Body>
     If you wish to be up to date with new posts you can
     <Link
       href="/rss.xml"
       target="_blank">
       subscribe with RSS
     </Link>
-  </p>
+  </Body>
 
-  <p>There will also be an email newsletter somewhere in the future</p>
+  <Body>There will also be an email newsletter somewhere in the future</Body>
 
   <Divider>
-    <h3 class="text-2xl">How to reach me</h3>
+    <Headline>How to reach me</Headline>
   </Divider>
 
   <ul class="grid grid-cols-3 gap-5 mx-auto">
@@ -35,10 +37,18 @@ import { Divider } from '../shared/components/atoms/Divider';
       PROFILE.socialLinks.map((link) => (
         <li>
           <a
-            class="rounded-2xl w-24 h-24 border flex flex-col gap-2 items-center justify-center hover:outline outline-blue-500 hover:text-blue-500 p-2"
+            class:list={[
+              'w-24 h-24 p-2',
+              'flex flex-col gap-2 items-center justify-center',
+              'border rounded-2xl',
+              'hover:outline outline-cyan-500 hover:text-cyan-500 hover:border-cyan-500',
+              ...THEME.primaryText,
+            ]}
             href={link.url}
             target="_blank">
-            <i class={`fa-brands ${link.icon} text-xl`} />
+            <span class="text-xl">
+              <Icon glyph={link.glyph} />
+            </span>
             <span class="truncate max-w-full">{link.label}</span>
           </a>
         </li>

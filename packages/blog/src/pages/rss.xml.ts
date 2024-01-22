@@ -1,11 +1,11 @@
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
-import { PostsService } from '../shared/posts.service.ts';
-import { PROFILE } from '../shared/profile.ts';
+import { PostsService } from '../shared/posts.service';
+import { PROFILE } from '../shared/profile';
 
 export async function GET(context: APIContext) {
-  const posts = PostsService.sortEntries(await getCollection('posts'));
+  const posts = PostsService.sortByPublishedAt(await getCollection('posts'));
 
   return rss({
     title: PROFILE.title,

@@ -1,19 +1,20 @@
 ---
-import '@fortawesome/fontawesome-free/css/fontawesome.css';
-import '@fortawesome/fontawesome-free/css/solid.css';
-import { PostsService } from '../shared/posts.service.ts';
+import { PostsService } from '../shared/posts.service';
 import { getCollection } from 'astro:content';
-import _ from 'lodash';
-import Layout from '../shared/components/templates/Layout.astro';
-import Intro from '../shared/components/organisms/Intro.astro';
-import PostList from '../shared/components/organisms/PostList.astro';
-import PinnedPosts from '../shared/components/organisms/PinnedPosts.astro';
+import { partition } from 'lodash-es';
+import Layout from '../components/templates/Layout.astro';
+import { Intro } from '../components/organisms/Intro';
+import { PostGrid } from '../components/organisms/PostGrid';
+import { PinnedPosts } from '../components/organisms/PinnedPosts';
+import { Link } from '../components/atoms/Link';
 
-const allPosts = PostsService.sortEntries(await getCollection('posts'));
-const [pinnedPosts, nonPinnedPosts] = _.partition(
+const allPosts = PostsService.sortByPublishedAt(await getCollection('posts'));
+const [pinnedPosts, allNonPinnedPosts] = partition(
   allPosts,
   (entry) => entry.data.isPinned,
 );
+
+const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
 ---
 
 <Layout>
@@ -21,5 +22,11 @@ const [pinnedPosts, nonPinnedPosts] = _.partition(
 
   <Intro />
 
-  <PostList posts={nonPinnedPosts} />
+  <PostGrid posts={recentNonPunnedPosts} />
+
+  <Link
+    className="self-center"
+    href="posts">
+    See all posts
+  </Link>
 </Layout>

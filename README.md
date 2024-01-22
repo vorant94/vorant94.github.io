@@ -1,7 +1,6 @@
 ### vorant94's Digital Garden
 
-Welcome to my digital garden, here I write about all sorts of things (mostly about technologies, a little bit on gaming,
-traveling and self-reflecting)
+Welcome to my digital garden, here I write about all sorts of things (mostly about technologies, a little bit on gaming, traveling and self-reflecting)
 
 ### reference
 
@@ -16,7 +15,14 @@ traveling and self-reflecting)
 ### publish checklist
 
 - GitHub profile repo
+- GitHub post repo (if applicable)
 - LinkedIn profile post
-- Facebook stories (via https://m.facebook.com/sharer.php?u=<paste-your-link-here>)
+- Facebook post
 - Twitter post
-- Telegram stories
+- Telegram story
+
+### png to webp example
+
+```bash
+cwebp -q 100 cereal.png -o cereal.webp
+```

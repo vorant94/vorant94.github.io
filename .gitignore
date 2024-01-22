@@ -18,3 +18,5 @@ packages/blog/src/content/templates
 # Documentation here: https://yarnpkg.com/features/zero-installs
 !.yarn/cache
 #.pnp.*
+
+**/.DS_Store

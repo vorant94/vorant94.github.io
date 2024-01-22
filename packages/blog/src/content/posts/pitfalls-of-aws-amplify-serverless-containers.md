@@ -10,6 +10,7 @@ coverImage:
 related:
   - aws-amplify-functions-on-steroids
 isPinned:
+code: https://github.com/vorant94/amplify-serverless-containers
 ---
 
 ### Starting point
@@ -125,5 +126,3 @@ But at what cost? (c)
 ### Conclusion
 
 After all it was a little hard experience since the guide itself references official Docker documentation, but the basic knowledge of it actually leads the user to errors with unclear error messages. Overall the feeling is that if you code exactly the way that Amplify templates say everything kinda works, but one step left or one step right and you are lost. I don't think that i'll use in production AWS Amplify Serverless Containers at least for now, but I'll keep an eye on it.
-
-All the code mentioned here you can find in my [GitHub](https://github.com/vorant94/amplify-serverless-containers)
