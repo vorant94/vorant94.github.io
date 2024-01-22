@@ -1,15 +1,16 @@
 {
-  "name": "canvas",
+  "name": "@digital-garden/canvas",
   "type": "module",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "yarn@4.0.2",
   "scripts": {
     "dev": "vite",
     "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "vite": "vite",
-    "format": "prettier . --check",
+    "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
     "prettier": "prettier"
   },
