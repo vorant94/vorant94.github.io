@@ -521,6 +521,71 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@digital-garden/blog@workspace:packages/blog":
+  version: 0.0.0-use.local
+  resolution: "@digital-garden/blog@workspace:packages/blog"
+  dependencies:
+    "@astrojs/check": "npm:^0.4.1"
+    "@astrojs/react": "npm:^3.0.9"
+    "@astrojs/rss": "npm:4.0.2"
+    "@astrojs/sitemap": "npm:^3.0.4"
+    "@astrojs/tailwind": "npm:^5.1.0"
+    "@astrojs/upgrade": "npm:^0.2.2"
+    "@fortawesome/fontawesome-free": "npm:^6.5.1"
+    "@tailwindcss/typography": "npm:^0.5.10"
+    "@types/lodash-es": "npm:^4.17.12"
+    "@types/react": "npm:^18.2.47"
+    "@types/react-dom": "npm:^18.2.18"
+    "@vercel/analytics": "npm:^1.1.1"
+    astro: "npm:4.1.2"
+    autoprefixer: "npm:^10.4.16"
+    classnames: "npm:^2.5.1"
+    cssnano: "npm:^6.0.3"
+    date-fns: "npm:^3.2.0"
+    hastscript: "npm:^8.0.0"
+    lodash-es: "npm:^4.17.21"
+    mdast-util-to-string: "npm:^4.0.0"
+    postcss: "npm:^8.4.33"
+    postcss-load-config: "npm:^5.0.2"
+    postcss-nested: "npm:^6.0.1"
+    prettier: "npm:^3.1.1"
+    prettier-plugin-astro: "npm:^0.12.3"
+    prettier-plugin-organize-imports: "npm:^3.2.4"
+    prettier-plugin-tailwindcss: "npm:^0.5.11"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    react-responsive: "npm:^9.0.2"
+    reading-time: "npm:^1.5.0"
+    rehype-add-classes: "npm:^1.0.0"
+    rehype-autolink-headings: "npm:^7.1.0"
+    rehype-external-links: "npm:^3.0.0"
+    rehype-slug: "npm:^6.0.0"
+    tailwindcss: "npm:^3.4.1"
+    typescript: "npm:^5.3.3"
+  languageName: unknown
+  linkType: soft
+
+"@digital-garden/canvas@workspace:packages/canvas":
+  version: 0.0.0-use.local
+  resolution: "@digital-garden/canvas@workspace:packages/canvas"
+  dependencies:
+    "@types/react": "npm:^18.2.47"
+    "@types/react-dom": "npm:^18.2.18"
+    "@vitejs/plugin-react": "npm:^4.2.1"
+    postcss: "npm:^8.4.33"
+    postcss-load-config: "npm:^5.0.2"
+    prettier: "npm:^3.1.1"
+    prettier-plugin-organize-imports: "npm:^3.2.4"
+    prettier-plugin-tailwindcss: "npm:^0.5.11"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    react-router-dom: "npm:^6.21.2"
+    tailwindcss: "npm:^3.4.1"
+    typescript: "npm:^5.3.3"
+    vite: "npm:^5.0.12"
+  languageName: unknown
+  linkType: soft
+
 "@emmetio/abbreviation@npm:^2.3.3":
   version: 2.3.3
   resolution: "@emmetio/abbreviation@npm:2.3.3"
@@ -1562,50 +1627,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"blog@workspace:packages/blog":
-  version: 0.0.0-use.local
-  resolution: "blog@workspace:packages/blog"
-  dependencies:
-    "@astrojs/check": "npm:^0.4.1"
-    "@astrojs/react": "npm:^3.0.9"
-    "@astrojs/rss": "npm:4.0.2"
-    "@astrojs/sitemap": "npm:^3.0.4"
-    "@astrojs/tailwind": "npm:^5.1.0"
-    "@astrojs/upgrade": "npm:^0.2.2"
-    "@fortawesome/fontawesome-free": "npm:^6.5.1"
-    "@tailwindcss/typography": "npm:^0.5.10"
-    "@types/lodash-es": "npm:^4.17.12"
-    "@types/react": "npm:^18.2.47"
-    "@types/react-dom": "npm:^18.2.18"
-    "@vercel/analytics": "npm:^1.1.1"
-    astro: "npm:4.1.2"
-    autoprefixer: "npm:^10.4.16"
-    classnames: "npm:^2.5.1"
-    cssnano: "npm:^6.0.3"
-    date-fns: "npm:^3.2.0"
-    hastscript: "npm:^8.0.0"
-    lodash-es: "npm:^4.17.21"
-    mdast-util-to-string: "npm:^4.0.0"
-    postcss: "npm:^8.4.33"
-    postcss-load-config: "npm:^5.0.2"
-    postcss-nested: "npm:^6.0.1"
-    prettier: "npm:^3.1.1"
-    prettier-plugin-astro: "npm:^0.12.3"
-    prettier-plugin-organize-imports: "npm:^3.2.4"
-    prettier-plugin-tailwindcss: "npm:^0.5.11"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    react-responsive: "npm:^9.0.2"
-    reading-time: "npm:^1.5.0"
-    rehype-add-classes: "npm:^1.0.0"
-    rehype-autolink-headings: "npm:^7.1.0"
-    rehype-external-links: "npm:^3.0.0"
-    rehype-slug: "npm:^6.0.0"
-    tailwindcss: "npm:^3.4.1"
-    typescript: "npm:^5.3.3"
-  languageName: unknown
-  linkType: soft
-
 "boolbase@npm:^1.0.0, boolbase@npm:~1.0.0":
   version: 1.0.0
   resolution: "boolbase@npm:1.0.0"
@@ -1750,27 +1771,6 @@ __metadata:
   checksum: cd163075b1a9feaf9c9f657c3551279fcdac471471d67ee57ab2286c7b5480168e6336e359741b469fa40e94716f0f95ec185d87bd57d58894d66d8c21d7db04
   languageName: node
   linkType: hard
-
-"canvas@workspace:packages/canvas":
-  version: 0.0.0-use.local
-  resolution: "canvas@workspace:packages/canvas"
-  dependencies:
-    "@types/react": "npm:^18.2.47"
-    "@types/react-dom": "npm:^18.2.18"
-    "@vitejs/plugin-react": "npm:^4.2.1"
-    postcss: "npm:^8.4.33"
-    postcss-load-config: "npm:^5.0.2"
-    prettier: "npm:^3.1.1"
-    prettier-plugin-organize-imports: "npm:^3.2.4"
-    prettier-plugin-tailwindcss: "npm:^0.5.11"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    react-router-dom: "npm:^6.21.2"
-    tailwindcss: "npm:^3.4.1"
-    typescript: "npm:^5.3.3"
-    vite: "npm:^5.0.12"
-  languageName: unknown
-  linkType: soft
 
 "ccount@npm:^2.0.0":
   version: 2.0.1

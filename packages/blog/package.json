@@ -1,16 +1,16 @@
 {
-  "name": "blog",
+  "name": "@digital-garden/blog",
   "type": "module",
   "private": true,
   "version": "1.0.0",
+  "packageManager": "yarn@4.0.2",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check & astro build",
     "preview": "astro preview",
-    "check": "astro check",
     "astro": "astro",
-    "format": "prettier . --check",
+    "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
     "prettier": "prettier"
   },

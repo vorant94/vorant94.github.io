@@ -1,21 +1,18 @@
 {
   "name": "digital-garden",
-  "version": "0.0.1",
-  "description": "",
-  "private": true,
   "type": "module",
+  "private": true,
+  "version": "0.0.1",
   "packageManager": "yarn@4.0.2",
-  "scripts": {
-    "formatAndCheck": "concurrently \"yarn format\" \"yarn check\"",
-    "prepare": "husky install",
-    "build": "yarn workspaces foreach --all -vp -j unlimited run build",
-    "format": "yarn workspaces foreach --all -vp -j unlimited run format",
-    "format:fix": "yarn workspaces foreach --all -vp -j unlimited run format:fix",
-    "check": "yarn workspaces foreach --all -vp -j unlimited run check"
-  },
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "prepare": "husky install",
+    "build": "yarn workspaces foreach --all -vp -j unlimited run build",
+    "format:check": "yarn workspaces foreach --all -vp -j unlimited run format:check",
+    "format:fix": "yarn workspaces foreach --all -vp -j unlimited run format:fix"
+  },
   "devDependencies": {
     "concurrently": "^8.2.2",
     "husky": "^8.0.3"
