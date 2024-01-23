@@ -7,19 +7,22 @@ export const PinnedPosts: FunctionComponent<PinnedPostsProps> = function ({
 }) {
   return (
     <>
-      {posts.map((post) => (
-        <StandOut
-          className="flex-col"
-          key={post.id}>
-          <span className="flex gap-3 items-center">
-            <span className="-scale-x-100">📌</span>
-            <PostListItem
-              post={post}
-              className="flex-1"
-            />
-          </span>
-        </StandOut>
-      ))}
+      <ul>
+        {posts.map((post) => (
+          <StandOut
+            className="flex-col"
+            key={post.id}>
+            <span className="flex gap-3 items-center">
+              <span className="-scale-x-100">📌</span>
+
+              <PostListItem
+                post={post}
+                className="flex-1 !py-0"
+              />
+            </span>
+          </StandOut>
+        ))}
+      </ul>
     </>
   );
 };

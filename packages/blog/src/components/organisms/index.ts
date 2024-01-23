@@ -5,7 +5,7 @@ export * from './Intro.tsx';
 export * from './Meta.tsx';
 export * from './PinnedPosts.tsx';
 export * from './PostFrontmatter.tsx';
-export * from './PostGrid.tsx';
 export * from './PostList.tsx';
+export * from './PostTiledList.tsx';
 export * from './RelatedPosts.tsx';
 export * from './Seo.tsx';

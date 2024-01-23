@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import type { AnchorHTMLAttributes, FunctionComponent } from 'react';
+import type { FunctionComponent, LiHTMLAttributes } from 'react';
 import {
   PublishedAtFormat,
   formatPostPublishedAt,
@@ -14,24 +14,25 @@ export const PostListItem: FunctionComponent<PostListItemProps> = function ({
   publishedAtFormat,
 }) {
   return (
-    <a
-      href={getPostFullPath(post)}
-      className={classNames(
-        ...THEME.primaryText,
-        THEME.linkDecoration,
-        'flex gap-3 items-center hover:text-cyan-500',
-        className,
-      )}>
-      <span className="flex-1 truncate">{post.data.title}</span>
-      <span className="whitespace-nowrap text-xs">
-        {formatPostPublishedAt(post, publishedAtFormat)}
-      </span>
-    </a>
+    <li className={classNames('flex flex-col py-3 text-medium', className)}>
+      <a
+        href={getPostFullPath(post)}
+        className={classNames(
+          ...THEME.primaryText,
+          THEME.linkDecoration,
+          'flex gap-3 items-center hover:text-cyan-500',
+        )}>
+        <span className="flex-1 truncate">{post.data.title}</span>
+        <span className="whitespace-nowrap text-xs">
+          {formatPostPublishedAt(post, publishedAtFormat)}
+        </span>
+      </a>
+    </li>
   );
 };
 
 export interface PostListItemProps
-  extends Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'className'> {
+  extends Pick<LiHTMLAttributes<HTMLLIElement>, 'className'> {
   post: Post;
   publishedAtFormat?: PublishedAtFormat;
 }
