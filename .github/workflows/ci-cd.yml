@@ -19,6 +19,8 @@ jobs:
           node-version: 20
           cache: 'yarn'
 
+      - run: corepack enable
+
       - run: yarn workspaces focus @digital-garden/blog
 
       - run: cd packages/blog
