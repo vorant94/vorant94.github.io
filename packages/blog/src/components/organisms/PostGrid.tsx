@@ -1,18 +1,13 @@
 import classNames from 'classnames';
-import type { ReactElement } from 'react';
+import type { FunctionComponent } from 'react';
 import type { Post } from '../../shared/posts.service.ts';
 import { THEME } from '../../shared/theme.ts';
 import { PostGridItem } from '../molecules/PostGridItem.tsx';
 
-export interface PostGridProps {
-  posts: Post[];
-  publishedAtFormat?: string;
-}
-
-export function PostGrid({
+export const PostGrid: FunctionComponent<PostGridProps> = function ({
   posts,
   publishedAtFormat,
-}: PostGridProps): ReactElement {
+}) {
   return (
     <ul
       className={classNames(
@@ -31,4 +26,9 @@ export function PostGrid({
       ))}
     </ul>
   );
+};
+
+export interface PostGridProps {
+  posts: Post[];
+  publishedAtFormat?: string;
 }

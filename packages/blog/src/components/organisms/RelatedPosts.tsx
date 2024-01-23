@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import type { ReactElement } from 'react';
+import type { FunctionComponent } from 'react';
 import type { Post } from '../../shared/posts.service.ts';
 import { THEME } from '../../shared/theme';
 import { Title } from '../atoms/Title';
@@ -7,11 +7,9 @@ import { StandOut } from '../molecules/StandOut';
 import { PostList } from './PostList';
 import './RelatedPosts.module.css';
 
-export interface RelatedPostsProps {
-  posts: Post[];
-}
-
-export function RelatedPosts({ posts }: RelatedPostsProps): ReactElement {
+export const RelatedPosts: FunctionComponent<RelatedPostsProps> = function ({
+  posts,
+}) {
   return (
     <StandOut className="flex-col">
       <details className={classNames(...THEME.primaryText)}>
@@ -24,4 +22,8 @@ export function RelatedPosts({ posts }: RelatedPostsProps): ReactElement {
       </details>
     </StandOut>
   );
+};
+
+export interface RelatedPostsProps {
+  posts: Post[];
 }

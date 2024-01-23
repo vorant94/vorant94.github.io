@@ -1,13 +1,13 @@
 import classNames from 'classnames';
-import type { HTMLAttributes, ReactElement } from 'react';
+import type { AnchorHTMLAttributes, FunctionComponent } from 'react';
 import { PostsService, type Post } from '../../shared/posts.service';
 import { THEME } from '../../shared/theme';
 
-export function PostListItem({
+export const PostListItem: FunctionComponent<PostListItemProps> = function ({
   className,
   post,
   publishedAtFormat,
-}: PostListItemProps): ReactElement {
+}) {
   return (
     <a
       href={PostsService.getFullPath(post)}
@@ -23,10 +23,10 @@ export function PostListItem({
       </span>
     </a>
   );
-}
+};
 
 export interface PostListItemProps
-  extends Pick<HTMLAttributes<HTMLElement>, 'className'> {
+  extends Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'className'> {
   post: Post;
   publishedAtFormat?: string;
 }

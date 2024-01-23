@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import type { PropsWithChildren, ReactElement } from 'react';
+import type { FunctionComponent, PropsWithChildren } from 'react';
 import {
   THEME,
   type BackgroundColor,
@@ -7,21 +7,19 @@ import {
   type ThemedStyle,
 } from '../../shared/theme';
 
-export function Badge({
-  color,
-  children,
-}: PropsWithChildren<BadgeProps>): ReactElement {
-  return (
-    <span
-      className={classNames(
-        ...THEME.primaryText,
-        'inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold',
-        ...COLOR_TO_BG[color],
-      )}>
-      {children}
-    </span>
-  );
-}
+export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
+  function ({ color, children }) {
+    return (
+      <span
+        className={classNames(
+          ...THEME.primaryText,
+          'inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold',
+          ...COLOR_TO_BG[color],
+        )}>
+        {children}
+      </span>
+    );
+  };
 
 export interface BadgeProps {
   color: Color;

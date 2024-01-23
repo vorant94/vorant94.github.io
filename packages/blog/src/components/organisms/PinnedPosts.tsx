@@ -1,13 +1,11 @@
-import type { ReactElement } from 'react';
+import type { FunctionComponent } from 'react';
 import type { Post } from '../../shared/posts.service.ts';
 import { PostListItem } from '../molecules/PostListItem';
 import { StandOut } from '../molecules/StandOut';
 
-export interface PinnedPostsProps {
-  posts: Post[];
-}
-
-export function PinnedPosts({ posts }: PinnedPostsProps): ReactElement {
+export const PinnedPosts: FunctionComponent<PinnedPostsProps> = function ({
+  posts,
+}) {
   return (
     <>
       {posts.map((post) => (
@@ -25,4 +23,8 @@ export function PinnedPosts({ posts }: PinnedPostsProps): ReactElement {
       ))}
     </>
   );
+};
+
+export interface PinnedPostsProps {
+  posts: Post[];
 }

@@ -1,12 +1,8 @@
-import { useEffect, useRef, type ReactElement } from 'react';
+import { useEffect, useRef, type FunctionComponent } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import type { Post } from '../../shared/posts.service.ts';
 
-interface CommentsProps {
-  post: Post;
-}
-
-export function Comments({ post }: CommentsProps): ReactElement {
+export const Comments: FunctionComponent<CommentsProps> = function ({ post }) {
   const ref = useRef<HTMLElement>(null);
 
   const isDark = useMediaQuery(
@@ -44,4 +40,8 @@ export function Comments({ post }: CommentsProps): ReactElement {
   }, [ref, isDark]);
 
   return <section ref={ref}></section>;
+};
+
+export interface CommentsProps {
+  post: Post;
 }

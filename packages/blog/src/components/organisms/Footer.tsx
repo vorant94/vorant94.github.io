@@ -1,10 +1,10 @@
 import classNames from 'classnames';
-import type { ReactElement } from 'react';
+import type { FunctionComponent } from 'react';
 import { PROFILE } from '../../shared/profile';
 import { THEME } from '../../shared/theme';
 import { Icon } from '../atoms/Icon';
 
-export function Footer(): ReactElement {
+export const Footer: FunctionComponent = function () {
   return (
     <footer
       className={classNames(
@@ -23,4 +23,4 @@ export function Footer(): ReactElement {
       </a>
     </footer>
   );
-}
+};

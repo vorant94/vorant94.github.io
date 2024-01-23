@@ -1,13 +1,13 @@
-import type { ReactElement } from 'react';
+import type { FunctionComponent } from 'react';
 import { PROFILE } from '../../shared/profile';
 
-export function Seo({
+export const Seo: FunctionComponent<SeoProps> = function ({
   currentPath,
   title = PROFILE.title,
   image = '/favicon.ico',
   description = PROFILE.description,
   type = 'website',
-}: SeoProps): ReactElement {
+}) {
   const fullTitle = title === PROFILE.title ? title : `vorant94 | ${title}`;
   const domain = PROFILE.baseUrl.split('/').at(-1);
   const fullUrl = new URL(currentPath, PROFILE.baseUrl).toString();
@@ -64,7 +64,7 @@ export function Seo({
       />
     </>
   );
-}
+};
 
 export interface SeoProps {
   currentPath: string;
