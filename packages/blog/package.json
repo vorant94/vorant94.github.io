@@ -11,7 +11,8 @@
     "astro": "astro",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
-    "prettier": "prettier"
+    "prettier": "prettier",
+    "vercel": "vercel"
   },
   "dependencies": {
     "@astrojs/react": "^3.0.9",
@@ -52,6 +53,7 @@
     "prettier-plugin-astro": "^0.12.3",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vercel": "^33.2.0"
   }
 }
