@@ -1,14 +1,11 @@
 ---
-import { PostsService } from '../shared/posts.service';
+import { sortPostsByPublishedAt } from '../shared';
 import { getCollection } from 'astro:content';
 import { partition } from 'lodash-es';
 import Layout from '../components/templates/Layout.astro';
-import { Intro } from '../components/organisms/Intro';
-import { PostGrid } from '../components/organisms/PostGrid';
-import { PinnedPosts } from '../components/organisms/PinnedPosts';
-import { Link } from '../components/atoms/Link';
+import { Intro, PostGrid, PinnedPosts, Link } from '../components';
 
-const allPosts = PostsService.sortByPublishedAt(await getCollection('posts'));
+const allPosts = sortPostsByPublishedAt(await getCollection('posts'));
 const [pinnedPosts, allNonPinnedPosts] = partition(
   allPosts,
   (entry) => entry.data.isPinned,

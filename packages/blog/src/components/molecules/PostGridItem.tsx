@@ -1,8 +1,11 @@
 import type { FunctionComponent } from 'react';
-import { PostsService, type Post } from '../../shared/posts.service';
-import { Caption } from '../atoms/Caption.tsx';
-import { ThemedImage } from '../atoms/ThemedImage.tsx';
-import { Title } from '../atoms/Title.tsx';
+import {
+  PublishedAtFormat,
+  formatPostPublishedAt,
+  getPostFullPath,
+  type Post,
+} from '../../shared';
+import { Caption, ThemedImage, Title } from '../atoms';
 
 export const PostGridItem: FunctionComponent<PostGridItemProps> = function ({
   post,
@@ -10,13 +13,11 @@ export const PostGridItem: FunctionComponent<PostGridItemProps> = function ({
 }) {
   return (
     <a
-      href={PostsService.getFullPath(post)}
+      href={getPostFullPath(post)}
       className="flex items-center">
       <div className="flex-1 overflow-hidden">
         <Title className="truncate">{post.data.title}</Title>
-        <Caption>
-          {PostsService.formatPublishedAt(post, publishedAtFormat)}
-        </Caption>
+        <Caption>{formatPostPublishedAt(post, publishedAtFormat)}</Caption>
       </div>
       {post.data.coverImage && (
         <ThemedImage
@@ -32,5 +33,5 @@ export const PostGridItem: FunctionComponent<PostGridItemProps> = function ({
 
 export interface PostGridItemProps {
   post: Post;
-  publishedAtFormat?: string;
+  publishedAtFormat?: PublishedAtFormat;
 }

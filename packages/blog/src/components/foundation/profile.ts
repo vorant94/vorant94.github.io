@@ -1,4 +1,4 @@
-import type { IconGlyph } from '../components/atoms/Icon';
+import type { IconGlyph } from '../atoms';
 
 export const PROFILE: Profile = {
   baseUrl: 'https://www.vorant94.io',
@@ -45,22 +45,22 @@ export const PROFILE: Profile = {
 };
 
 export interface Profile {
-  readonly baseUrl: string;
-  readonly title: string;
-  readonly description: string;
-  readonly email: string;
-  readonly copyright: string;
-  readonly navLinks: NavLink[];
-  readonly socialLinks: SocialLink[];
+  baseUrl: string;
+  title: string;
+  description: string;
+  email: string;
+  copyright: string;
+  navLinks: ProfileNavLink[];
+  socialLinks: ProfileSocialLink[];
 }
 
-export interface NavLink {
-  readonly label: string;
-  readonly url: string;
+export interface ProfileNavLink {
+  label: string;
+  url: string;
 }
 
-export interface SocialLink {
-  readonly glyph: IconGlyph;
-  readonly label: string;
-  readonly url: URL;
+export interface ProfileSocialLink {
+  glyph: IconGlyph;
+  label: string;
+  url: URL;
 }

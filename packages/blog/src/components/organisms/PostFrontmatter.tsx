@@ -1,8 +1,7 @@
 import type { FunctionComponent } from 'react';
-import { PostsService, type Post } from '../../shared/posts.service';
-import { Caption } from '../atoms/Caption';
-import { ThemedImage } from '../atoms/ThemedImage.tsx';
-import { Tag } from '../molecules/Tag.tsx';
+import { formatPostPublishedAt, type Post } from '../../shared';
+import { Caption, ThemedImage } from '../atoms';
+import { Tag } from '../molecules';
 
 export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
   function ({ post, minutesRead }) {
@@ -25,7 +24,7 @@ export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
 
         <div className="flex flex-col lg:flex-row gap-2 lg:items-center justify-between">
           <div className="flex gap-2 items-center">
-            <Caption>{PostsService.formatPublishedAt(post)}</Caption>
+            <Caption>{formatPostPublishedAt(post)}</Caption>
             <Caption>&#x2022;</Caption>
             <Caption>{minutesRead}</Caption>
           </div>
