@@ -1,16 +1,17 @@
 import classNames from 'classnames';
-import type { AnchorHTMLAttributes, PropsWithChildren } from 'react';
-import { type ReactElement } from 'react';
+import {
+  type AnchorHTMLAttributes,
+  type FunctionComponent,
+  type PropsWithChildren,
+} from 'react';
 import { THEME } from '../../shared/theme';
 
-export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {}
-
-export function Link({
+export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = function ({
   href,
   className,
   children,
   ...props
-}: PropsWithChildren<LinkProps>): ReactElement {
+}) {
   return (
     <a
       className={classNames(THEME.link, THEME.linkDecoration, className)}
@@ -19,4 +20,8 @@ export function Link({
       {children}
     </a>
   );
-}
+};
+
+// not ElementRef<'a'> because of TS complains about
+// "Type string is not assignable to type HTMLAttributeReferrerPolicy | undefined"
+export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {}

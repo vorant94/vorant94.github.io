@@ -2,9 +2,9 @@ import '@fortawesome/fontawesome-free/css/brands.css';
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/solid.css';
 import classNames from 'classnames';
-import type { ReactElement } from 'react';
+import type { FunctionComponent } from 'react';
 
-export function Icon({ glyph }: IconPros): ReactElement {
+export const Icon: FunctionComponent<IconPros> = function ({ glyph }) {
   return (
     <i
       className={classNames(
@@ -12,10 +12,10 @@ export function Icon({ glyph }: IconPros): ReactElement {
           'fa-brands': ICON_BRAND_GLYPHS.includes(glyph as IconBrandGlyph),
           'fa-solid': ICON_SOLID_GLYPHS.includes(glyph as IconSolidGlyph),
         },
-        iconGlyphToFaIcon[glyph],
+        ICON_GLYPH_TO_FA_ICON[glyph],
       )}></i>
   );
-}
+};
 
 export interface IconPros {
   glyph: IconGlyph;
@@ -36,7 +36,7 @@ export type IconSolidGlyph = (typeof ICON_SOLID_GLYPHS)[number];
 
 export type IconGlyph = IconBrandGlyph | IconSolidGlyph;
 
-const iconGlyphToFaIcon: Record<IconGlyph, string> = {
+const ICON_GLYPH_TO_FA_ICON: Record<IconGlyph, string> = {
   'linked-in': 'fa-linkedin-in',
   github: 'fa-github',
   medium: 'fa-medium',

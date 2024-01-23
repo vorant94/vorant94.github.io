@@ -2,8 +2,6 @@
   "name": "@digital-garden/canvas",
   "type": "module",
   "private": true,
-  "version": "0.0.0",
-  "packageManager": "yarn@4.0.2",
   "scripts": {
     "dev": "vite",
     "start": "vite",

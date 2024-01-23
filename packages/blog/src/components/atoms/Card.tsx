@@ -1,14 +1,15 @@
 import classNames from 'classnames';
-import type { HTMLAttributes, PropsWithChildren, ReactElement } from 'react';
+import type {
+  FunctionComponent,
+  HTMLAttributes,
+  PropsWithChildren,
+} from 'react';
 import { THEME } from '../../shared/theme';
 
-export interface CardProps
-  extends Pick<HTMLAttributes<HTMLDivElement>, 'className'> {}
-
-export function Card({
+export const Card: FunctionComponent<PropsWithChildren<CardProps>> = function ({
   children,
   className,
-}: PropsWithChildren<CardProps>): ReactElement {
+}) {
   return (
     <div
       className={classNames(
@@ -20,4 +21,6 @@ export function Card({
       {children}
     </div>
   );
-}
+};
+export interface CardProps
+  extends Pick<HTMLAttributes<HTMLDivElement>, 'className'> {}

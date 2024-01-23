@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import type { ReactElement } from 'react';
+import type { FunctionComponent } from 'react';
 import { PROFILE } from '../../shared/profile';
 import { THEME } from '../../shared/theme';
 import { NavLink } from '../atoms/NavLink';
@@ -7,7 +7,9 @@ import { ThemedImage } from '../atoms/ThemedImage';
 import HeaderLogo from './HeaderLogo.webp?url';
 import HeaderLogoDark from './HeaderLogoDark.webp?url';
 
-export function Header({ currentPath }: HeaderProps): ReactElement {
+export const Header: FunctionComponent<HeaderProps> = function ({
+  currentPath,
+}) {
   return (
     <header
       className={classNames(
@@ -42,7 +44,7 @@ export function Header({ currentPath }: HeaderProps): ReactElement {
       </ul>
     </header>
   );
-}
+};
 
 export interface HeaderProps {
   currentPath: string;

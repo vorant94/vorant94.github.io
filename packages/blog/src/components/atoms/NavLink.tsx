@@ -1,32 +1,26 @@
 import classNames from 'classnames';
-import type { AnchorHTMLAttributes, PropsWithChildren } from 'react';
-import { type ReactElement } from 'react';
+import type { FunctionComponent, PropsWithChildren } from 'react';
 import { THEME } from '../../shared/theme.ts';
-import { Link } from './Link';
+import { Link, type LinkProps } from './Link';
 
-export interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export const NavLink: FunctionComponent<PropsWithChildren<NavLinkProps>> =
+  function ({ href, className, isActive, children, ...props }) {
+    return (
+      <Link
+        className={classNames(
+          'hover:underline font-semibold',
+          THEME.link,
+          THEME.linkDecoration,
+          { 'underline !text-cyan-500': isActive },
+          className,
+        )}
+        href={href}
+        {...props}>
+        {children}
+      </Link>
+    );
+  };
+
+export interface NavLinkProps extends LinkProps {
   isActive?: boolean;
-}
-
-export function NavLink({
-  href,
-  className,
-  isActive,
-  children,
-  ...props
-}: PropsWithChildren<NavLinkProps>): ReactElement {
-  return (
-    <Link
-      className={classNames(
-        'hover:underline font-semibold',
-        THEME.link,
-        THEME.linkDecoration,
-        { 'underline !text-cyan-500': isActive },
-        className,
-      )}
-      href={href}
-      {...props}>
-      {children}
-    </Link>
-  );
 }

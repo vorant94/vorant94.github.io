@@ -1,7 +1,9 @@
-import type { ReactElement } from 'react';
+import type { FunctionComponent } from 'react';
 import { PROFILE } from '../../shared/profile';
 
-export function Meta({ title = PROFILE.title }: MetaProps): ReactElement {
+export const Meta: FunctionComponent<MetaProps> = function ({
+  title = PROFILE.title,
+}) {
   const fullTitle = title === PROFILE.title ? title : `vorant94 | ${title}`;
 
   return (
@@ -32,7 +34,7 @@ export function Meta({ title = PROFILE.title }: MetaProps): ReactElement {
       <title>{fullTitle}</title>
     </>
   );
-}
+};
 
 export interface MetaProps {
   title?: string;

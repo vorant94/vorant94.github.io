@@ -2,10 +2,10 @@ import classNames from 'classnames';
 import type { PropsWithChildren, ReactElement } from 'react';
 import { THEME } from '../../shared/theme';
 
-export function Body({
+export function Text({
   children,
   level = 'md',
-}: PropsWithChildren<BodyProps>): ReactElement {
+}: PropsWithChildren<TextProps>): ReactElement {
   return (
     <span
       className={classNames(...THEME.primaryText, {
@@ -16,9 +16,9 @@ export function Body({
   );
 }
 
-export interface BodyProps {
-  level?: BodyLevel;
+export interface TextProps {
+  level?: TextLevel;
 }
 
 export const BODY_LEVELS = ['md', 'sm'] as const;
-export type BodyLevel = (typeof BODY_LEVELS)[number];
+export type TextLevel = (typeof BODY_LEVELS)[number];

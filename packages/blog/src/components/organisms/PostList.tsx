@@ -1,18 +1,13 @@
 import classNames from 'classnames';
-import type { ReactElement } from 'react';
+import type { FunctionComponent } from 'react';
 import type { Post } from '../../shared/posts.service.ts';
 import { THEME } from '../../shared/theme.ts';
 import { PostListItem } from '../molecules/PostListItem';
 
-export interface PostListProps {
-  posts: Post[];
-  publishedAtFormat?: string;
-}
-
-export function PostList({
+export const PostList: FunctionComponent<PostListProps> = function ({
   posts,
   publishedAtFormat,
-}: PostListProps): ReactElement {
+}) {
   return (
     <ul
       className={classNames(
@@ -31,4 +26,9 @@ export function PostList({
       ))}
     </ul>
   );
+};
+
+export interface PostListProps {
+  posts: Post[];
+  publishedAtFormat?: string;
 }

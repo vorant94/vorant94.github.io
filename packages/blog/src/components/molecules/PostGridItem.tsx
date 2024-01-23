@@ -1,13 +1,13 @@
-import type { ReactElement } from 'react';
+import type { FunctionComponent } from 'react';
 import { PostsService, type Post } from '../../shared/posts.service';
 import { Caption } from '../atoms/Caption.tsx';
 import { ThemedImage } from '../atoms/ThemedImage.tsx';
 import { Title } from '../atoms/Title.tsx';
 
-export function PostGridItem({
+export const PostGridItem: FunctionComponent<PostGridItemProps> = function ({
   post,
   publishedAtFormat,
-}: PostGridItemProps): ReactElement {
+}) {
   return (
     <a
       href={PostsService.getFullPath(post)}
@@ -28,7 +28,7 @@ export function PostGridItem({
       )}
     </a>
   );
-}
+};
 
 export interface PostGridItemProps {
   post: Post;
