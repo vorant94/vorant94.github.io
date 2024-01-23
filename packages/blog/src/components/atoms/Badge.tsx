@@ -5,7 +5,7 @@ import {
   type BackgroundColor,
   type Color,
   type ThemedStyle,
-} from '../../shared/theme';
+} from '../foundation';
 
 export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
   function ({ color, children }) {

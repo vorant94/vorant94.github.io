@@ -1,7 +1,12 @@
 import classNames from 'classnames';
 import type { AnchorHTMLAttributes, FunctionComponent } from 'react';
-import { PostsService, type Post } from '../../shared/posts.service';
-import { THEME } from '../../shared/theme';
+import {
+  PublishedAtFormat,
+  formatPostPublishedAt,
+  getPostFullPath,
+  type Post,
+} from '../../shared';
+import { THEME } from '../foundation';
 
 export const PostListItem: FunctionComponent<PostListItemProps> = function ({
   className,
@@ -10,7 +15,7 @@ export const PostListItem: FunctionComponent<PostListItemProps> = function ({
 }) {
   return (
     <a
-      href={PostsService.getFullPath(post)}
+      href={getPostFullPath(post)}
       className={classNames(
         ...THEME.primaryText,
         THEME.linkDecoration,
@@ -19,7 +24,7 @@ export const PostListItem: FunctionComponent<PostListItemProps> = function ({
       )}>
       <span className="flex-1 truncate">{post.data.title}</span>
       <span className="whitespace-nowrap text-xs">
-        {PostsService.formatPublishedAt(post, publishedAtFormat)}
+        {formatPostPublishedAt(post, publishedAtFormat)}
       </span>
     </a>
   );
@@ -28,5 +33,5 @@ export const PostListItem: FunctionComponent<PostListItemProps> = function ({
 export interface PostListItemProps
   extends Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'className'> {
   post: Post;
-  publishedAtFormat?: string;
+  publishedAtFormat?: PublishedAtFormat;
 }

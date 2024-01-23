@@ -1,7 +1,6 @@
 import type { FunctionComponent } from 'react';
-import type { Post } from '../../shared/posts.service.ts';
-import { PostListItem } from '../molecules/PostListItem';
-import { StandOut } from '../molecules/StandOut';
+import type { Post } from '../../shared';
+import { PostListItem, StandOut } from '../molecules';
 
 export const PinnedPosts: FunctionComponent<PinnedPostsProps> = function ({
   posts,

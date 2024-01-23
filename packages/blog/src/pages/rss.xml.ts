@@ -1,11 +1,11 @@
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
-import { PostsService } from '../shared/posts.service';
-import { PROFILE } from '../shared/profile';
+import { PROFILE } from '../components';
+import { getPostFullPath, sortPostsByPublishedAt } from '../shared';
 
 export async function GET(context: APIContext) {
-  const posts = PostsService.sortByPublishedAt(await getCollection('posts'));
+  const posts = sortPostsByPublishedAt(await getCollection('posts'));
 
   return rss({
     title: PROFILE.title,
@@ -18,7 +18,7 @@ export async function GET(context: APIContext) {
         title: title,
         description: description,
         pubDate: publishedAt,
-        link: PostsService.getFullPath(post),
+        link: getPostFullPath(post),
         categories: tags,
         author: PROFILE.email,
       };

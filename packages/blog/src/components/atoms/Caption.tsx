@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { THEME } from '../../shared/theme';
+import { THEME } from '../foundation';
 
 export const Caption: FunctionComponent<PropsWithChildren<CaptionPros>> =
   function ({ children }) {

@@ -1,9 +1,7 @@
 import type { FunctionComponent } from 'react';
-import { PROFILE } from '../../shared/profile';
-import { Strong } from '../atoms/Strong';
-import { Text } from '../atoms/Text.tsx';
-import { ThemedImage } from '../atoms/ThemedImage';
-import { StandOut } from '../molecules/StandOut';
+import { Strong, Text, ThemedImage } from '../atoms';
+import { PROFILE } from '../foundation';
+import { StandOut } from '../molecules';
 import IntroLogo from './IntroLogo.webp?url';
 import IntroLogoDark from './IntroLogoDark.webp?url';
 

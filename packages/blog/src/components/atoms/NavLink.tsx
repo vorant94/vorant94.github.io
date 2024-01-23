@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { THEME } from '../../shared/theme.ts';
+import { THEME } from '../foundation';
 import { Link, type LinkProps } from './Link';
 
 export const NavLink: FunctionComponent<PropsWithChildren<NavLinkProps>> =

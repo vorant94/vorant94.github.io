@@ -1,13 +1,15 @@
 ---
-import { PostsService } from '../../shared/posts.service';
+import {
+  groupPostsByPublishedAtYear,
+  PublishedAtFormat,
+  sortPostsByPublishedAt,
+} from '../../shared';
 import { getCollection } from 'astro:content';
 import Layout from '../../components/templates/Layout.astro';
-import { Divider } from '../../components/atoms/Divider';
-import { PostList } from '../../components/organisms/PostList';
-import { Headline } from '../../components/atoms/Headline';
+import { Divider, PostList, Headline } from '../../components';
 
-const postsByYear = PostsService.groupByPublishedAtYear(
-  PostsService.sortByPublishedAt(await getCollection('posts')),
+const postsByYear = groupPostsByPublishedAtYear(
+  sortPostsByPublishedAt(await getCollection('posts')),
 );
 
 const years = Object.keys(postsByYear).reverse();
@@ -22,7 +24,7 @@ const years = Object.keys(postsByYear).reverse();
         </Divider>
         <PostList
           posts={postsByYear[year]}
-          publishedAtFormat={PostsService.publishedAtFormatShort}
+          publishedAtFormat={PublishedAtFormat.SHORT}
         />
       </>
     ))

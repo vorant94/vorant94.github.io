@@ -1,9 +1,7 @@
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import { PROFILE } from '../../shared/profile';
-import { THEME } from '../../shared/theme';
-import { NavLink } from '../atoms/NavLink';
-import { ThemedImage } from '../atoms/ThemedImage';
+import { NavLink, ThemedImage } from '../atoms';
+import { PROFILE, THEME } from '../foundation';
 import HeaderLogo from './HeaderLogo.webp?url';
 import HeaderLogoDark from './HeaderLogoDark.webp?url';
 

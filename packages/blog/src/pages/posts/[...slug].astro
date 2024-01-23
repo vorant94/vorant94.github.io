@@ -1,19 +1,17 @@
 ---
 import { getCollection, getEntries } from 'astro:content';
 import { getImage } from 'astro:assets';
-import { type Post, PostsService } from '../../shared/posts.service';
+import { type Post, sortPostsByPublishedAt } from '../../shared';
 import Layout from '../../components/templates/Layout.astro';
-import { PostFrontmatter } from '../../components/organisms/PostFrontmatter';
-import { Comments } from '../../components/organisms/Comments';
-import { RelatedPosts } from '../../components/organisms/RelatedPosts';
+import { PostFrontmatter, Comments, RelatedPosts } from '../../components';
 
 export async function getStaticPaths() {
-  const entries = PostsService.sortByPublishedAt(await getCollection('posts'));
+  const entries = sortPostsByPublishedAt(await getCollection('posts'));
 
   return await Promise.all(
     entries.map(async (post) => {
       const related = post.data.related
-        ? PostsService.sortByPublishedAt(await getEntries(post.data.related))
+        ? sortPostsByPublishedAt(await getEntries(post.data.related))
         : [];
 
       return {

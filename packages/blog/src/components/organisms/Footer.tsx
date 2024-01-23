@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import { PROFILE } from '../../shared/profile';
-import { THEME } from '../../shared/theme';
-import { Icon } from '../atoms/Icon';
+import { Icon } from '../atoms';
+import { PROFILE, THEME } from '../foundation';
 
 export const Footer: FunctionComponent = function () {
   return (

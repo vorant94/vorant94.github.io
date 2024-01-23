@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import type { Post } from '../../shared/posts.service.ts';
-import { THEME } from '../../shared/theme.ts';
-import { PostListItem } from '../molecules/PostListItem';
+import { type Post } from '../../shared';
+import { THEME } from '../foundation';
+import { PostListItem, type PostListItemProps } from '../molecules';
 
 export const PostList: FunctionComponent<PostListProps> = function ({
   posts,
@@ -28,7 +28,7 @@ export const PostList: FunctionComponent<PostListProps> = function ({
   );
 };
 
-export interface PostListProps {
+export interface PostListProps
+  extends Pick<PostListItemProps, 'publishedAtFormat'> {
   posts: Post[];
-  publishedAtFormat?: string;
 }

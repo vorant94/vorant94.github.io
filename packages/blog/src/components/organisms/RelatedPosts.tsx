@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import type { Post } from '../../shared/posts.service.ts';
-import { THEME } from '../../shared/theme';
-import { Title } from '../atoms/Title';
-import { StandOut } from '../molecules/StandOut';
+import type { Post } from '../../shared';
+import { Title } from '../atoms';
+import { THEME } from '../foundation';
+import { StandOut } from '../molecules';
 import { PostList } from './PostList';
 import './RelatedPosts.module.css';
 

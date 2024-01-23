@@ -4,7 +4,7 @@ import type {
   HTMLAttributes,
   PropsWithChildren,
 } from 'react';
-import { THEME } from '../../shared/theme';
+import { THEME } from '../foundation';
 
 export const Card: FunctionComponent<PropsWithChildren<CardProps>> = function ({
   children,

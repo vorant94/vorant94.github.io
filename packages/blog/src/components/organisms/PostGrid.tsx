@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import type { Post } from '../../shared/posts.service.ts';
-import { THEME } from '../../shared/theme.ts';
-import { PostGridItem } from '../molecules/PostGridItem.tsx';
+import { type Post } from '../../shared';
+import { THEME } from '../foundation';
+import { PostGridItem, type PostGridItemProps } from '../molecules';
 
 export const PostGrid: FunctionComponent<PostGridProps> = function ({
   posts,
@@ -28,7 +28,7 @@ export const PostGrid: FunctionComponent<PostGridProps> = function ({
   );
 };
 
-export interface PostGridProps {
+export interface PostGridProps
+  extends Pick<PostGridItemProps, 'publishedAtFormat'> {
   posts: Post[];
-  publishedAtFormat?: string;
 }
