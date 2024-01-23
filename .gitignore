@@ -2,6 +2,7 @@
 **/node_modules
 **/dist
 **/.astro
+**/.vercel
 
 packages/blog/src/content/.obsidian
 packages/blog/src/content/templates
