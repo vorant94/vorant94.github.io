@@ -21,7 +21,7 @@ jobs:
           node-version: 20
           cache: 'yarn'
 
-      - run: yarn workspaces focus @digital-garden/blog
+      - run: yarn
 
       - run: cd packages/blog
 
