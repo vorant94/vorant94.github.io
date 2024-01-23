@@ -3,7 +3,7 @@ import { sortPostsByPublishedAt } from '../shared';
 import { getCollection } from 'astro:content';
 import { partition } from 'lodash-es';
 import Layout from '../components/templates/Layout.astro';
-import { Intro, PostGrid, PinnedPosts, Link } from '../components';
+import { Intro, PostTiledList, PinnedPosts, Link } from '../components';
 
 const allPosts = sortPostsByPublishedAt(await getCollection('posts'));
 const [pinnedPosts, allNonPinnedPosts] = partition(
@@ -19,7 +19,7 @@ const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
 
   <Intro />
 
-  <PostGrid posts={recentNonPunnedPosts} />
+  <PostTiledList posts={recentNonPunnedPosts} />
 
   <Link
     className="self-center"

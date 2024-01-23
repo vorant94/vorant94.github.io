@@ -15,14 +15,11 @@ export const PostList: FunctionComponent<PostListProps> = function ({
         ...THEME.divide,
       )}>
       {posts.map((post) => (
-        <li
-          className="flex flex-col py-3 text-medium"
-          key={post.id}>
-          <PostListItem
-            post={post}
-            publishedAtFormat={publishedAtFormat}
-          />
-        </li>
+        <PostListItem
+          post={post}
+          publishedAtFormat={publishedAtFormat}
+          key={post.id}
+        />
       ))}
     </ul>
   );
