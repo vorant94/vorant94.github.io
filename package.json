@@ -9,6 +9,7 @@
   "scripts": {
     "prepare": "husky install",
     "build": "yarn workspaces foreach --all -vp -j unlimited run build",
+    "test": "yarn workspaces foreach --all -vp -j unlimited run test",
     "format:check": "yarn workspaces foreach --all -vp -j unlimited run format:check",
     "format:fix": "yarn workspaces foreach --all -vp -j unlimited run format:fix"
   },

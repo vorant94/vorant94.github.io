@@ -10,7 +10,8 @@
     "vite": "vite",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
-    "prettier": "prettier"
+    "prettier": "prettier",
+    "tsc": "tsc"
   },
   "dependencies": {
     "react": "^18.2.0",
