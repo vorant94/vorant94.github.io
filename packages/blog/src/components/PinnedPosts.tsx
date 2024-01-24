@@ -1,6 +1,7 @@
 import type { FunctionComponent } from 'react';
-import type { Post } from '../../shared';
-import { PostListItem, StandOut } from '../molecules';
+import type { Post } from '../shared';
+import { PostList } from './PostList.tsx';
+import { StandOut } from './StandOut.tsx';
 
 export const PinnedPosts: FunctionComponent<PinnedPostsProps> = function ({
   posts,
@@ -15,7 +16,7 @@ export const PinnedPosts: FunctionComponent<PinnedPostsProps> = function ({
             <span className="flex gap-3 items-center">
               <span className="-scale-x-100">📌</span>
 
-              <PostListItem
+              <PostList.Item
                 post={post}
                 className="flex-1 !py-0"
               />

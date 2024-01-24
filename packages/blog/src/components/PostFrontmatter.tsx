@@ -1,7 +1,8 @@
 import type { FunctionComponent } from 'react';
-import { formatPostPublishedAt, type Post } from '../../shared';
-import { Caption, ThemedImage } from '../atoms';
-import { Tag } from '../molecules';
+import { formatPostPublishedAt, type Post } from '../shared';
+import { Caption } from './Caption.tsx';
+import { Tag } from './Tag.tsx';
+import { ThemedImage } from './ThemedImage.tsx';
 
 export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
   function ({ post, minutesRead }) {

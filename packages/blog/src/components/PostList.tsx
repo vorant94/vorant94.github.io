@@ -1,14 +1,30 @@
 import classNames from 'classnames';
-import type { FunctionComponent, LiHTMLAttributes } from 'react';
+import type {
+  FunctionComponent,
+  LiHTMLAttributes,
+  PropsWithChildren,
+} from 'react';
 import {
   PublishedAtFormat,
+  THEME,
   formatPostPublishedAt,
   getPostFullPath,
   type Post,
-} from '../../shared';
-import { THEME } from '../foundation';
+} from '../shared';
 
-export const PostListItem: FunctionComponent<PostListItemProps> = function ({
+const PostList: PostListComponent = function ({ children }) {
+  return (
+    <ul
+      className={classNames(
+        'flex flex-col divide-y divide-dashed',
+        ...THEME.divide,
+      )}>
+      {children}
+    </ul>
+  );
+};
+
+const PostListItem: PostListItemComponent = function ({
   className,
   post,
   publishedAtFormat,
@@ -30,6 +46,19 @@ export const PostListItem: FunctionComponent<PostListItemProps> = function ({
     </li>
   );
 };
+
+PostList.Item = PostListItem;
+
+export { PostList };
+
+export interface PostListComponent
+  extends FunctionComponent<PropsWithChildren<PostListProps>> {
+  Item: PostListItemComponent;
+}
+
+export interface PostListProps {}
+
+export type PostListItemComponent = FunctionComponent<PostListItemProps>;
 
 export interface PostListItemProps
   extends Pick<LiHTMLAttributes<HTMLLIElement>, 'className'> {

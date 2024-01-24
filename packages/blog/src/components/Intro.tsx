@@ -1,9 +1,11 @@
 import type { FunctionComponent } from 'react';
-import { Strong, Text, ThemedImage } from '../atoms';
-import { PROFILE } from '../foundation';
-import { StandOut } from '../molecules';
+import { PROFILE } from '../shared';
 import IntroLogo from './IntroLogo.webp?url';
 import IntroLogoDark from './IntroLogoDark.webp?url';
+import { StandOut } from './StandOut.tsx';
+import { Strong } from './Strong.tsx';
+import { Text } from './Text.tsx';
+import { ThemedImage } from './ThemedImage.tsx';
 
 export const Intro: FunctionComponent = function () {
   return (

@@ -1,11 +1,10 @@
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import type { Post } from '../../shared';
-import { Title } from '../atoms';
-import { THEME } from '../foundation';
-import { StandOut } from '../molecules';
-import { PostList } from './PostList';
+import { THEME, type Post } from '../shared';
+import { PostList } from './PostList.tsx';
 import './RelatedPosts.module.css';
+import { StandOut } from './StandOut.tsx';
+import { Title } from './Title.tsx';
 
 export const RelatedPosts: FunctionComponent<RelatedPostsProps> = function ({
   posts,
@@ -18,7 +17,14 @@ export const RelatedPosts: FunctionComponent<RelatedPostsProps> = function ({
             <span className="pl-2">Related posts</span>
           </Title>
         </summary>
-        <PostList posts={posts} />
+        <PostList>
+          {posts.map((post) => (
+            <PostList.Item
+              post={post}
+              key={post.id}
+            />
+          ))}
+        </PostList>
       </details>
     </StandOut>
   );

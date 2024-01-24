@@ -1,5 +1,5 @@
 import type { FunctionComponent } from 'react';
-import { PROFILE } from '../foundation';
+import { PROFILE } from '../../shared';
 
 export const Seo: FunctionComponent<SeoProps> = function ({
   currentPath,

@@ -1,9 +1,11 @@
 ---
-import { Header, Footer, Seo, Meta } from '../organisms';
-import { Background } from '../molecules';
-import { removeTrailingSlash } from '../../shared';
 import { Analytics } from '@vercel/analytics/react';
-import { THEME } from '../foundation';
+import { removeTrailingSlash, THEME } from '../../shared';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import { Meta } from './Meta';
+import { Seo } from './Seo';
+import { Background } from '../../components';
 
 interface Props {
   title?: string;

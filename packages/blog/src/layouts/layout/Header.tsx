@@ -1,9 +1,10 @@
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import { NavLink, ThemedImage } from '../atoms';
-import { PROFILE, THEME } from '../foundation';
+import { ThemedImage } from '../../components';
+import { PROFILE, THEME } from '../../shared';
 import HeaderLogo from './HeaderLogo.webp?url';
 import HeaderLogoDark from './HeaderLogoDark.webp?url';
+import { NavLink } from './NavLink.tsx';
 
 export const Header: FunctionComponent<HeaderProps> = function ({
   currentPath,

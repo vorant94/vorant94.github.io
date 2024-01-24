@@ -4,7 +4,7 @@ import {
   type FunctionComponent,
   type PropsWithChildren,
 } from 'react';
-import { THEME } from '../foundation';
+import { THEME } from '../shared';
 
 export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = function ({
   href,

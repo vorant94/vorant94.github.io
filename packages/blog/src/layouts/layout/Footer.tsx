@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import { Icon } from '../atoms';
-import { PROFILE, THEME } from '../foundation';
+import { Icon } from '../../components';
+import { PROFILE, THEME } from '../../shared';
 
-export const Footer: FunctionComponent = function () {
+export const Footer: FunctionComponent<FooterProps> = function () {
   return (
     <footer
       className={classNames(
@@ -23,3 +23,5 @@ export const Footer: FunctionComponent = function () {
     </footer>
   );
 };
+
+export interface FooterProps {}

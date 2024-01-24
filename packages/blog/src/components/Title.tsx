@@ -4,7 +4,7 @@ import type {
   HTMLAttributes,
   PropsWithChildren,
 } from 'react';
-import { THEME } from '../foundation';
+import { THEME } from '../shared';
 
 export const Title: FunctionComponent<PropsWithChildren<TitleProps>> =
   function ({ children, inline, className }) {

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { PropsWithChildren, ReactElement } from 'react';
-import { THEME } from '../foundation';
+import { THEME } from '../shared';
 
 export function Text({
   children,

@@ -1,7 +1,6 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { extractStringFromReactNode } from '../../shared';
-import { Badge } from '../atoms';
-import { COLORS, type Color } from '../foundation';
+import { COLORS, extractStringFromReactNode, type Color } from '../shared';
+import { Badge } from './Badge.tsx';
 
 export const Tag: FunctionComponent<PropsWithChildren<TagProps>> = function ({
   children,
