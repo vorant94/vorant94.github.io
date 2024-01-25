@@ -1,0 +1,56 @@
+---
+import { Analytics } from '@vercel/analytics/react';
+import { removeTrailingSlash, THEME } from '../../shared';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import { Meta } from './Meta';
+import { Seo } from './Seo';
+import { Background } from '../../components';
+import '../../styles/reset.css';
+
+interface Props {
+  title?: string;
+  image?: string;
+  description?: string;
+  type?: string;
+}
+
+const { title, image, description, type } = Astro.props;
+const isProd = import.meta.env.PROD;
+const currentPath = removeTrailingSlash(Astro.url.pathname);
+---
+
+<!doctype html>
+<html
+  class="dark:[color-scheme:dark]"
+  lang="en"
+  prefix="og: https://ogp.me/ns#">
+  <head>
+    <Meta title={title} />
+
+    <Seo
+      currentPath={currentPath}
+      title={title}
+      image={image}
+      description={description}
+      type={type}
+    />
+  </head>
+  <body
+    class:list={[
+      ...THEME.background,
+      'flex flex-col min-h-dvh mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl',
+    ]}>
+    {isProd && <Analytics client:only="react" />}
+
+    <Background />
+
+    <Header currentPath={currentPath} />
+
+    <main class="flex-1 p-4 flex flex-col gap-2">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

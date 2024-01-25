@@ -2,7 +2,7 @@
 import { getCollection, getEntries } from 'astro:content';
 import { getImage } from 'astro:assets';
 import { type Post, sortPostsByPublishedAt } from '../../shared';
-import Layout from '../../components/templates/Layout.astro';
+import Layout from '../../layouts/layout/Layout.astro';
 import { PostFrontmatter, Comments, RelatedPosts } from '../../components';
 
 export async function getStaticPaths() {

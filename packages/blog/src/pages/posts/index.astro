@@ -5,7 +5,7 @@ import {
   sortPostsByPublishedAt,
 } from '../../shared';
 import { getCollection } from 'astro:content';
-import Layout from '../../components/templates/Layout.astro';
+import Layout from '../../layouts/layout/Layout.astro';
 import { Divider, PostList, Headline } from '../../components';
 
 const postsByYear = groupPostsByPublishedAtYear(
@@ -22,10 +22,14 @@ const years = Object.keys(postsByYear).reverse();
         <Divider isLeft={false}>
           <Headline>{year}</Headline>
         </Divider>
-        <PostList
-          posts={postsByYear[year]}
-          publishedAtFormat={PublishedAtFormat.SHORT}
-        />
+        <PostList>
+          {postsByYear[year].map((post) => (
+            <PostList.Item
+              post={post}
+              publishedAtFormat={PublishedAtFormat.SHORT}
+            />
+          ))}
+        </PostList>
       </>
     ))
   }

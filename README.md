@@ -26,5 +26,3 @@ Welcome to my digital garden, here I write about all sorts of things (mostly abo
 ```bash
 cwebp -q 100 cereal.png -o cereal.webp
 ```
-
-test
