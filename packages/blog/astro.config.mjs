@@ -21,6 +21,7 @@ function readingTimePlugin() {
 export default defineConfig({
   integrations: [tailwind(), sitemap(), react()],
   site: PROFILE.baseUrl,
+  trailingSlash: 'never',
   markdown: {
     remarkPlugins: [readingTimePlugin],
     rehypePlugins: [
