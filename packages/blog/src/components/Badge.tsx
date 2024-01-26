@@ -1,11 +1,11 @@
-import classNames from 'classnames';
-import type { FunctionComponent, PropsWithChildren } from 'react';
 import {
   THEME,
   type BackgroundColor,
   type Color,
   type ThemedStyle,
-} from '../shared';
+} from '@/shared';
+import classNames from 'classnames';
+import type { FunctionComponent, PropsWithChildren } from 'react';
 
 export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
   function ({ color, children }) {

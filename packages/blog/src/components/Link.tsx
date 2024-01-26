@@ -1,10 +1,10 @@
+import { THEME } from '@/shared';
 import classNames from 'classnames';
 import {
   type AnchorHTMLAttributes,
   type FunctionComponent,
   type PropsWithChildren,
 } from 'react';
-import { THEME } from '../shared';
 
 export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = function ({
   href,

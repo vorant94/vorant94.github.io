@@ -1,7 +1,7 @@
+import { Icon } from '@/components';
+import { PROFILE, THEME } from '@/shared';
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import { Icon } from '../../components';
-import { PROFILE, THEME } from '../../shared';
 
 export const Footer: FunctionComponent<FooterProps> = function () {
   return (

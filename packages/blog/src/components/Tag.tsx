@@ -1,5 +1,5 @@
+import { COLORS, extractStringFromReactNode, type Color } from '@/shared';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { COLORS, extractStringFromReactNode, type Color } from '../shared';
 import { Badge } from './Badge.tsx';
 
 export const Tag: FunctionComponent<PropsWithChildren<TagProps>> = function ({

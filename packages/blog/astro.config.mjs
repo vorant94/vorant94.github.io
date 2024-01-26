@@ -4,6 +4,8 @@ import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 import { h } from 'hastscript';
 import * as mdast from 'mdast-util-to-string';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import readingTime from 'reading-time';
 import rehypeAddClasses from 'rehype-add-classes';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -17,11 +19,22 @@ function readingTimePlugin() {
   };
 }
 
+function currentDir() {
+  return dirname(fileURLToPath(import.meta.url));
+}
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), sitemap(), react()],
   site: PROFILE.baseUrl,
   trailingSlash: 'never',
+  vite: {
+    resolve: {
+      alias: {
+        '@': resolve(currentDir(), 'src'),
+      },
+    },
+  },
   markdown: {
     remarkPlugins: [readingTimePlugin],
     rehypePlugins: [

@@ -1,6 +1,6 @@
+import type { Post } from '@/shared';
 import { useEffect, useRef, type FunctionComponent } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import type { Post } from '../shared';
 
 export const Comments: FunctionComponent<CommentsProps> = function ({ post }) {
   const ref = useRef<HTMLElement>(null);

@@ -1,12 +1,12 @@
-import classNames from 'classnames';
-import type { FunctionComponent, PropsWithChildren } from 'react';
 import {
   PublishedAtFormat,
   THEME,
   formatPostPublishedAt,
   getPostFullPath,
   type Post,
-} from '../shared';
+} from '@/shared';
+import classNames from 'classnames';
+import type { FunctionComponent, PropsWithChildren } from 'react';
 import { Caption } from './Caption.tsx';
 import { ThemedImage } from './ThemedImage.tsx';
 import { Title } from './Title.tsx';

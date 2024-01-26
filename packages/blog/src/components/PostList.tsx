@@ -1,16 +1,16 @@
-import classNames from 'classnames';
-import type {
-  FunctionComponent,
-  LiHTMLAttributes,
-  PropsWithChildren,
-} from 'react';
 import {
   PublishedAtFormat,
   THEME,
   formatPostPublishedAt,
   getPostFullPath,
   type Post,
-} from '../shared';
+} from '@/shared';
+import classNames from 'classnames';
+import type {
+  FunctionComponent,
+  LiHTMLAttributes,
+  PropsWithChildren,
+} from 'react';
 
 const PostList: PostListComponent = function ({ children }) {
   return (

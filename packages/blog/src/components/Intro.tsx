@@ -1,5 +1,5 @@
+import { PROFILE } from '@/shared';
 import type { FunctionComponent } from 'react';
-import { PROFILE } from '../shared';
 import IntroLogo from './IntroLogo.webp?url';
 import IntroLogoDark from './IntroLogoDark.webp?url';
 import { StandOut } from './StandOut.tsx';

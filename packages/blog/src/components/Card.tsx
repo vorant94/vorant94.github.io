@@ -1,10 +1,10 @@
+import { THEME } from '@/shared';
 import classNames from 'classnames';
 import type {
   FunctionComponent,
   HTMLAttributes,
   PropsWithChildren,
 } from 'react';
-import { THEME } from '../shared';
 
 export const Card: FunctionComponent<PropsWithChildren<CardProps>> = function ({
   children,

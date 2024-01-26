@@ -1,4 +1,4 @@
-import type { IconGlyph } from '../components';
+import type { IconGlyph } from '@/components';
 
 export const PROFILE: Profile = {
   baseUrl: 'https://www.vorant94.io',

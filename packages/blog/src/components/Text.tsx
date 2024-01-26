@@ -1,6 +1,6 @@
+import { THEME } from '@/shared';
 import classNames from 'classnames';
 import type { PropsWithChildren, ReactElement } from 'react';
-import { THEME } from '../shared';
 
 export function Text({
   children,

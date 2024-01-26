@@ -1,6 +1,6 @@
+import { THEME } from '@/shared';
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { THEME } from '../shared';
 
 export const Divider: FunctionComponent<PropsWithChildren<DividerProps>> =
   function ({ isRight = true, isLeft = true, children }) {

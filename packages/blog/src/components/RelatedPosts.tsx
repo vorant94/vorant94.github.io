@@ -1,6 +1,6 @@
+import { THEME, type Post } from '@/shared';
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import { THEME, type Post } from '../shared';
 import { PostList } from './PostList.tsx';
 import './RelatedPosts.module.css';
 import { StandOut } from './StandOut.tsx';

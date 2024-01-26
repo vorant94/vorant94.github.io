@@ -1,7 +1,7 @@
+import { ThemedImage } from '@/components';
+import { PROFILE, THEME } from '@/shared';
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import { ThemedImage } from '../../components';
-import { PROFILE, THEME } from '../../shared';
 import HeaderLogo from './HeaderLogo.webp?url';
 import HeaderLogoDark from './HeaderLogoDark.webp?url';
 import { NavLink } from './NavLink.tsx';

@@ -1,5 +1,5 @@
+import { PROFILE } from '@/shared';
 import type { FunctionComponent } from 'react';
-import { PROFILE } from '../../shared';
 
 export const Meta: FunctionComponent<MetaProps> = function ({
   title = PROFILE.title,

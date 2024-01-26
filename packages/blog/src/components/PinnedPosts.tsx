@@ -1,5 +1,5 @@
+import type { Post } from '@/shared';
 import type { FunctionComponent } from 'react';
-import type { Post } from '../shared';
 import { PostList } from './PostList.tsx';
 import { StandOut } from './StandOut.tsx';
 
