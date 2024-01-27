@@ -29,9 +29,15 @@ const PostTiledListItem: PostTiledListItemComponent = function ({
       key={post.id}>
       <a
         href={getPostFullPath(post)}
-        className="flex items-center">
+        className="flex items-center group">
         <div className="flex-1 overflow-hidden">
-          <Title className="truncate">{post.data.title}</Title>
+          <Title
+            className={classNames(
+              'truncate group-hover:text-cyan-500 group-hover:underline',
+              THEME.linkDecoration,
+            )}>
+            {post.data.title}
+          </Title>
           <Caption>{formatPostPublishedAt(post, publishedAtFormat)}</Caption>
         </div>
         {post.data.coverImage && (
