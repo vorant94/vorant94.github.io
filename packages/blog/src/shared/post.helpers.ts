@@ -11,7 +11,11 @@ export enum PublishedAtFormat {
 }
 
 export function getPostFullPath({ slug }: Post): string {
-  return `posts/${slug}`;
+  return `/posts/${slug}`;
+}
+
+export function getPostTagFullPath(tag: string): string {
+  return `/tags/${tag}`;
 }
 
 export function formatPostPublishedAt(
@@ -33,4 +37,12 @@ export function groupPostsByPublishedAtYear(
   return groupBy(posts, ({ data }) =>
     format(data.publishedAt, PublishedAtFormat.YEAR),
   );
+}
+
+export function getUniqPostTags(posts: Post[]): string[] {
+  const raw = posts
+    .map(({ data }) => data.tags)
+    .reduce((acc, curr) => [...acc, ...curr], []);
+
+  return [...new Set(raw)].toSorted();
 }
