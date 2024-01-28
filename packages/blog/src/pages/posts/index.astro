@@ -5,7 +5,7 @@ import {
   sortPostsByPublishedAt,
 } from '@/shared';
 import { getCollection } from 'astro:content';
-import Layout from '@/layouts/layout/Layout.astro';
+import { Layout } from '@/layouts';
 import { Divider, PostList, Headline } from '@/components';
 
 const postsByYear = groupPostsByPublishedAtYear(

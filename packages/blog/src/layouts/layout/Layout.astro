@@ -1,10 +1,11 @@
 ---
 import { Analytics } from '@vercel/analytics/react';
-import { removeTrailingSlash, THEME } from '@/shared';
+import { PROFILE, removeTrailingSlash, THEME } from '@/shared';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { Meta } from './Meta';
 import { Seo } from './Seo';
+import { Nav } from './Nav';
 import { Background } from '@/components';
 import '@/styles/reset.css';
 
@@ -45,7 +46,19 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
 
     <Background />
 
-    <Header currentPath={currentPath} />
+    <Header>
+      <Nav>
+        {
+          PROFILE.navLinks.map((link) => (
+            <Nav.Link
+              href={link.url}
+              isActive={currentPath === link.url}>
+              {link.label}
+            </Nav.Link>
+          ))
+        }
+      </Nav>
+    </Header>
 
     <main class="flex-1 p-4 flex flex-col gap-2">
       <slot />
