@@ -48,5 +48,8 @@ export type NavLinkComponent = FunctionComponent<
 >;
 
 export interface NavLinkProps extends LinkProps {
+  // since we are in SSG mode, the component itself has no option to compare its href to the current path
+  // (the component is ran during build only), hence we need to define whether current link should be active or not
+  // from outside all the way up to Astro-based layout, that does have access to the current path during the build
   isActive?: boolean;
 }

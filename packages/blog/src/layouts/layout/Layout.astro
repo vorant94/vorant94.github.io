@@ -47,6 +47,11 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
     <Background />
 
     <Header>
+      <!--
+        I'd like to use here React.Children.map and React.cloneElement in order to define isActive inside Nav,
+        but Astro currently doesn't allow it since it renders Nav.Link into static HTML before passing to Nav
+        as a child, see here https://github.com/withastro/roadmap/discussions/465
+      -->
       <Nav>
         {
           PROFILE.navLinks.map((link) => (
