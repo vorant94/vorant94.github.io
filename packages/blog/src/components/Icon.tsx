@@ -31,7 +31,7 @@ export const ICON_BRAND_GLYPHS = [
 ] as const;
 export type IconBrandGlyph = (typeof ICON_BRAND_GLYPHS)[number];
 
-export const ICON_SOLID_GLYPHS = ['rss'] as const;
+export const ICON_SOLID_GLYPHS = ['rss', 'menu', 'close'] as const;
 export type IconSolidGlyph = (typeof ICON_SOLID_GLYPHS)[number];
 
 export type IconGlyph = IconBrandGlyph | IconSolidGlyph;
@@ -44,4 +44,6 @@ const ICON_GLYPH_TO_FA_ICON: Record<IconGlyph, string> = {
   telegram: 'fa-telegram',
   twitter: 'fa-x-twitter',
   rss: 'fa-rss',
+  menu: 'fa-bars',
+  close: 'fa-xmark',
 };
