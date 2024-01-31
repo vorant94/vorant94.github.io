@@ -7,7 +7,7 @@ import {
   type SetStateAction,
 } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Modal, useIsModalOpen } from '../Modal.tsx';
+import { Modal, useIsModalOpen } from '../Modal';
 import { NavLink, type NavLinkComponent } from './NavLink.tsx';
 
 const Nav: NavComponent = function ({ children }) {
@@ -29,7 +29,7 @@ const Nav: NavComponent = function ({ children }) {
         isOpen={isMobileNavOpen}
         onCloseClick={() => setIsMobileNavOpen(false)}>
         <nav className="flex-1 flex flex-col justify-center">
-          <ul className="flex flex-col">{children}</ul>
+          <ul className="flex flex-col gap-3">{children}</ul>
         </nav>
       </Modal>
     </>

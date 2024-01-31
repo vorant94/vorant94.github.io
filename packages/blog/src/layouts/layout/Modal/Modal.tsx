@@ -9,7 +9,7 @@ import {
   type PropsWithChildren,
   type SetStateAction,
 } from 'react';
-import { Header } from './Header';
+import { Header } from '../Header';
 import styles from './Modal.module.css';
 
 export const Modal: FunctionComponent<PropsWithChildren<ModalProps>> =
