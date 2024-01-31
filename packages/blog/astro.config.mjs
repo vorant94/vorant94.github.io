@@ -3,24 +3,21 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 import { h } from 'hastscript';
-import * as mdast from 'mdast-util-to-string';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { toString } from 'mdast-util-to-string';
+import { resolve } from 'node:path';
+import { cwd } from 'node:process';
 import readingTime from 'reading-time';
 import rehypeAddClasses from 'rehype-add-classes';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeSlug from 'rehype-slug';
+// this import cannot use path aliases, since the whole config needs to be compiled before vite resolves them
 import { PROFILE } from './src/shared';
 
 function readingTimePlugin() {
   return function (tree, { data }) {
-    data.astro.frontmatter.minutesRead = readingTime(mdast.toString(tree)).text;
+    data.astro.frontmatter.minutesRead = readingTime(toString(tree)).text;
   };
-}
-
-function currentDir() {
-  return dirname(fileURLToPath(import.meta.url));
 }
 
 // https://astro.build/config
@@ -31,7 +28,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '@': resolve(currentDir(), 'src'),
+        '@': resolve(cwd(), 'src'),
       },
     },
   },

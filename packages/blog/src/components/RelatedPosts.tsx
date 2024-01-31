@@ -2,7 +2,7 @@ import { THEME, type Post } from '@/shared';
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
 import { PostList } from './PostList.tsx';
-import './RelatedPosts.module.css';
+import styles from './RelatedPosts.module.css';
 import { StandOut } from './StandOut.tsx';
 import { Title } from './Title.tsx';
 
@@ -11,7 +11,7 @@ export const RelatedPosts: FunctionComponent<RelatedPostsProps> = function ({
 }) {
   return (
     <StandOut className="flex-col">
-      <details className={classNames(...THEME.primaryText)}>
+      <details className={classNames(...THEME.primaryText, styles.details)}>
         <summary className="hover:cursor-pointer">
           <Title inline={true}>
             <span className="pl-2">Related posts</span>

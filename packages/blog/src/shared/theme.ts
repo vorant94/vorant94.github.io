@@ -8,6 +8,7 @@ export const THEME: Theme = {
   linkDecoration:
     'hover:underline underline-offset-4 decoration-4 decoration-dotted decoration-cyan-500',
   secondaryText: 'text-slate-500',
+  fullWidth: 'mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl',
 };
 
 export interface Theme {
@@ -19,6 +20,7 @@ export interface Theme {
   readonly link: string;
   readonly linkDecoration: string;
   readonly secondaryText: string;
+  readonly fullWidth: string;
 }
 
 export type ThemedStyle<T extends string> = readonly [T, `dark:${T}`];

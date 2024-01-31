@@ -1,5 +1,6 @@
 export * from './Background.tsx';
 export * from './Badge.tsx';
+export * from './Button.tsx';
 export * from './Caption.tsx';
 export * from './Card.tsx';
 export * from './Comments.tsx';

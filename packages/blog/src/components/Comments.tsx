@@ -21,9 +21,6 @@ function useThemedUtterances(issueTerm: string): RefObject<HTMLElement> {
   const elRef = useRef<HTMLElement>(null);
 
   const isDark = useMediaQuery({ query: '(prefers-color-scheme: dark)' });
-
-  // since we are in the MPA-mode as a result of Astro, there is no need to clean up attached script
-  // on component disconnect, because disconnect happens only upon navigating out from current page
   useEffect(() => {
     const iframe =
       document.querySelector<HTMLIFrameElement>('.utterances-frame');
@@ -55,6 +52,9 @@ function useThemedUtterances(issueTerm: string): RefObject<HTMLElement> {
 
       elRef.current.appendChild(scriptElem);
     }
+
+    // since we are in the MPA-mode as a result of Astro, there is no need to clean up attached script
+    // on component disconnect, because disconnect happens only upon navigating out from current page
   }, [isDark]);
 
   return elRef;
