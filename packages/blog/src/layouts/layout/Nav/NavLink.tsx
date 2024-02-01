@@ -21,10 +21,10 @@ export const NavLink: NavLinkComponent = function ({
       <Link
         className={classNames(
           'hover:underline font-semibold block text-center',
-          'text-2xl p-3 md:p-4 mx-6 rounded-full border-2',
+          'text-2xl p-3 md:p-4 rounded-full border-2',
           THEME.background,
           THEME.border,
-          'lg:text-sm lg:p-0 lg:bg-none dark:lg:bg-none lg:mx-0 lg:rounded-none lg:border-none',
+          'lg:text-sm lg:p-0 lg:bg-none dark:lg:bg-none lg:rounded-none lg:border-none',
           THEME.link,
           THEME.linkDecoration,
           { 'underline !text-cyan-500': isLinkActive },

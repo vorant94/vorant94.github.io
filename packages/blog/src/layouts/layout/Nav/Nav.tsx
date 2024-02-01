@@ -29,7 +29,7 @@ const Nav: NavComponent = function ({ children }) {
         isOpen={isMobileNavOpen}
         onCloseClick={() => setIsMobileNavOpen(false)}>
         <nav className="flex-1 flex flex-col justify-center">
-          <ul className="flex flex-col gap-3">{children}</ul>
+          <ul className="flex flex-col gap-3 px-6">{children}</ul>
         </nav>
       </Modal>
     </>
