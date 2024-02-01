@@ -4,8 +4,6 @@ import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 import { h } from 'hastscript';
 import { toString } from 'mdast-util-to-string';
-import { resolve } from 'node:path';
-import { cwd } from 'node:process';
 import readingTime from 'reading-time';
 import rehypeAddClasses from 'rehype-add-classes';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -31,7 +29,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '@': resolve(cwd(), 'src'),
+        '@/': new URL('./src/', import.meta.url).pathname,
       },
     },
   },
