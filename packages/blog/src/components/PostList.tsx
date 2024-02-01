@@ -33,6 +33,7 @@ const PostListItem: PostListItemComponent = function ({
     <li className={classNames('flex flex-col py-3 text-medium', className)}>
       <a
         href={getPostFullPath(post)}
+        data-astro-prefetch="hover"
         className={classNames(
           ...THEME.primaryText,
           THEME.linkDecoration,

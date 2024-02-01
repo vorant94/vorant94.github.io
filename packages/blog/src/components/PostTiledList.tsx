@@ -29,6 +29,7 @@ const PostTiledListItem: PostTiledListItemComponent = function ({
       key={post.id}>
       <a
         href={getPostFullPath(post)}
+        data-astro-prefetch="hover"
         className="flex items-center group">
         <div className="flex-1 overflow-hidden">
           <Title

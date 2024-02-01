@@ -31,6 +31,7 @@ export const NavLink: NavLinkComponent = function ({
           className,
         )}
         href={href}
+        prefetch="hover"
         {...props}>
         {children}
       </Link>

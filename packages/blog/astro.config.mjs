@@ -25,6 +25,8 @@ export default defineConfig({
   integrations: [tailwind(), sitemap(), react()],
   site: PROFILE.baseUrl,
   trailingSlash: 'never',
+  // TODO define where the Astro prefetch script comes from and adjust dependencies / devDependencies
+  prefetch: true,
   vite: {
     resolve: {
       alias: {
