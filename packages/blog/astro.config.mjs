@@ -25,7 +25,8 @@ export default defineConfig({
   integrations: [tailwind(), sitemap(), react()],
   site: PROFILE.baseUrl,
   trailingSlash: 'never',
-  // TODO define where the Astro prefetch script comes from and adjust dependencies / devDependencies
+  // this adds to bundle an Astro script to manipulate head element to enable prefetch dynamically,
+  // hence despite being in SSG mode astro should be moved from devDependencies to dependencies
   prefetch: true,
   vite: {
     resolve: {
