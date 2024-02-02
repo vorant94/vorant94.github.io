@@ -1,12 +1,14 @@
 import { defineConfig, devices } from '@playwright/test';
 import { config } from 'dotenv';
+import process from 'node:process';
 import { z } from 'zod';
 
-const env = z
-  .object({
-    CI: z.boolean().optional().default(false),
-  })
-  .parse(config().parsed);
+config();
+
+const schema = z.object({
+  CI: z.boolean().optional().default(false),
+});
+const env = schema.parse(process.env);
 
 export default defineConfig({
   testDir: './e2e',
