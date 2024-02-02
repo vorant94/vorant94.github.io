@@ -6,6 +6,7 @@ import {
   type Post,
 } from '@/shared';
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { Caption } from './Caption.tsx';
 import { ThemedImage } from './ThemedImage.tsx';
@@ -20,12 +21,13 @@ const PostTiledListItem: PostTiledListItemComponent = function ({
   publishedAtFormat,
 }) {
   return (
-    <li
+    <motion.li
       className={classNames(
-        'flex flex-col p-3 text-medium rounded-md duration-100',
-        'hover:border hover:shadow-md hover:scale-105',
+        'flex flex-col p-3 text-medium rounded-md hover:border hover:shadow-md',
         ...THEME.border,
       )}
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 100 }}
       key={post.id}>
       <a
         href={getPostFullPath(post)}
@@ -50,7 +52,7 @@ const PostTiledListItem: PostTiledListItemComponent = function ({
           />
         )}
       </a>
-    </li>
+    </motion.li>
   );
 };
 

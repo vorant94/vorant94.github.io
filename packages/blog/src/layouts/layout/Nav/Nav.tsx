@@ -7,7 +7,7 @@ import {
   type SetStateAction,
 } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Modal, useIsModalOpen } from '../Modal';
+import { Modal, useIsModalOpen } from '../Modal.tsx';
 import { NavLink, type NavLinkComponent } from './NavLink.tsx';
 
 const Nav: NavComponent = function ({ children }) {
