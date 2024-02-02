@@ -1,21 +1,25 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import { Button } from './Button.tsx';
 
 describe('Button', () => {
-  it('should render the button', () => {
-    render(<Button>button</Button>);
+  it('should render the button and its children', () => {
+    const screen = render(<Button>button</Button>);
 
-    expect(screen.getByText('button')).toBeInTheDocument();
+    const button = screen.getByTestId('button');
+
+    expect(button).toBeInTheDocument();
+    expect(button.innerHTML).toBe('button');
   });
 
-  it('should trigger onClick', async () => {
+  it('should propagate onClick event of the button', async () => {
     const spy = vi.fn();
+    const screen = render(<Button onClick={spy}>button</Button>);
+    const button = screen.getByTestId('button');
+    expect(spy).not.toBeCalled();
 
-    render(<Button onClick={spy}>button</Button>);
-
-    await userEvent.click(screen.getByText('button'));
+    await userEvent.click(button);
 
     expect(spy).toBeCalled();
   });

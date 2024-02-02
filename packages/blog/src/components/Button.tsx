@@ -10,6 +10,7 @@ export const Button: FunctionComponent<PropsWithChildren<ButtonProps>> =
     return (
       <button
         className={classNames(className)}
+        data-testid="button"
         {...props}>
         {children}
       </button>
