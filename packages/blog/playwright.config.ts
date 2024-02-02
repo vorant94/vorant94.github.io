@@ -6,7 +6,7 @@ import { z } from 'zod';
 config();
 
 const schema = z.object({
-  CI: z.boolean().optional().default(false),
+  CI: z.coerce.boolean().optional().default(false),
 });
 const env = schema.parse(process.env);
 
