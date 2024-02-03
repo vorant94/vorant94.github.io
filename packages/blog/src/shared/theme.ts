@@ -8,7 +8,7 @@ export const THEME: Theme = {
   linkDecoration:
     'hover:underline underline-offset-4 decoration-4 decoration-dotted decoration-cyan-500',
   secondaryText: 'text-slate-500',
-  fullWidth: 'mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl',
+  fullWidth: 'mx-auto sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl',
 };
 
 export interface Theme {
