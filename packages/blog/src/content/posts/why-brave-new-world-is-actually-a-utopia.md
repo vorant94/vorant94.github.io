@@ -5,6 +5,7 @@ tags:
   - books
 publishedAt: 2020-05-02
 coverImage: ../attachments/why-brave-new-world-is-actually-a-utopia/cover.jpg
+coverImageAlt: Brave New World book cover
 ---
 
 ### Before we begin

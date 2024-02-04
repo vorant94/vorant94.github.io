@@ -6,8 +6,15 @@ import { ThemedImage } from './ThemedImage.tsx';
 
 export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
   function ({ post, minutesRead }) {
-    const { title, tags, coverImage, coverImageDark, description, code } =
-      post.data;
+    const {
+      title,
+      tags,
+      coverImage,
+      coverImageAlt,
+      coverImageDark,
+      description,
+      code,
+    } = post.data;
 
     return (
       <>
@@ -16,7 +23,7 @@ export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
             <ThemedImage
               src={coverImage.src}
               srcDark={coverImageDark?.src}
-              alt="cover image"
+              alt={coverImageAlt!}
             />
           </div>
         )}

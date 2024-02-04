@@ -47,11 +47,15 @@ export default defineConfig({
         rehypeAutolinkHeadings,
         {
           behavior: 'append',
-          content: () => {
+          content() {
             return h('span.ml-2.invisible.text-sm.group-hover:visible', '🔗');
           },
-          properties: {
-            className: 'no-underline',
+          properties({ children }) {
+            const text = children.find((child) => child.type === 'text');
+            return {
+              className: 'no-underline',
+              ariaLabel: text.value,
+            };
           },
         },
       ],
@@ -67,6 +71,14 @@ export default defineConfig({
         light: 'github-light',
         dark: 'github-dark',
       },
+      transformers: [
+        {
+          pre({ properties, ...other }) {
+            const { tabindex: _, ...updatedProperties } = properties;
+            return { properties: updatedProperties, ...other };
+          },
+        },
+      ],
     },
   },
 });

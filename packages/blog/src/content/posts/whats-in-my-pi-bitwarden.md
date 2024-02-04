@@ -7,6 +7,7 @@ tags:
   - raspberry-pi
 publishedAt: 2023-12-05
 coverImage: ../attachments/whats-in-my-pi-bitwarden/cover.webp
+coverImageAlt: Bitwarden logo
 related:
   - whats-in-my-pi-pi-hole
   - whats-in-my-pi-freshrss

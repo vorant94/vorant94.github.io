@@ -17,6 +17,7 @@ export const Footer: FunctionComponent<FooterProps> = function () {
 
       <a
         href="/rss.xml"
+        aria-label="RSS feed"
         target="_blank">
         <Icon glyph="rss" />
       </a>

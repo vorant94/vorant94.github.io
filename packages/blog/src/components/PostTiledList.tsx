@@ -46,7 +46,7 @@ const PostTiledListItem: PostTiledListItemComponent = function ({
             className="h-20 w-20 object-scale-down"
             src={post.data.coverImage.src}
             srcDark={post.data.coverImageDark?.src}
-            alt="post cover image"
+            alt={post.data.coverImageAlt!}
           />
         )}
       </a>

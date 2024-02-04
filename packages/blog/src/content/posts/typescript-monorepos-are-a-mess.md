@@ -7,6 +7,7 @@ tags:
   - infra
 publishedAt: 2024-01-03
 coverImage: ../attachments/typescript-monorepos-are-a-mess/cover.webp
+coverImageAlt: Logos of Yarn, Git and TypeScript arranged like a bento box
 coverImageDark: ../attachments/typescript-monorepos-are-a-mess/cover-dark.webp
 related:
 isPinned:
