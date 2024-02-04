@@ -38,7 +38,8 @@ const PostListItem: PostListItemComponent = function ({
           ...THEME.primaryText,
           THEME.linkDecoration,
           'flex gap-3 items-center hover:text-cyan-500',
-        )}>
+        )}
+        aria-label={post.data.title}>
         <span className="flex-1 truncate">{post.data.title}</span>
         <span className="whitespace-nowrap text-xs">
           {formatPostPublishedAt(post, publishedAtFormat)}
