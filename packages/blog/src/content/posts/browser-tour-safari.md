@@ -1,6 +1,6 @@
 ---
 title: '[Browser tour]: Safari'
-description: This year I noticed that long-established traditional set of browsers (Chrome, Firefox, Safari, Opera) started to supplemented by a new generation of alternatives. Personally, for the last few years I've been switching back and forth between Chrome and Safari (peeking at Firefox from a long distance), but the drums of Brave, Vivaldi, Edge, Arc and SigmaOS are getting stronger and stronger. So to add some variety to the day-to-day routine I decided to try something new and share it with you.
+description: This year I noticed that a long-established traditional set of browsers (Chrome, Firefox, Safari, Opera) started to be supplemented by a new generation of alternatives. Personally, for the last few years, I've been switching back and forth between Chrome and Safari (peeking at Firefox from a long distance), but the drums of Brave, Vivaldi, Edge, Arc, and SigmaOS are getting stronger and stronger. So to add some variety to the day-to-day routine I decided to try something new and share it with you.
 tags:
   - tech
   - software
@@ -22,66 +22,66 @@ So what are the integrations I'm talking about? First thing that comes to mind -
 
 The next integration, that honestly I don't use as much, but is still worth to mention is Time Limit. I can as a user monitor or/and limit the amount of time spent in the apps. Interesting that combined time from all of your device is counted, e.g. after a half an hour reading Telegram channels from the phone and another half an hour doing the same from a laptop sum up to an hour of screen time in total. It could end up here, if not for one "but". Time using the Safari itself isn't counted, instead a separate by website statistics are sent to Time Limit. So if I have a limit of one hour per day for YouTube, after I spent this hour watching videos from my phone, I won't be able to go YouTube **website** so easily, which IMHO just makes sense ©️.
 
-### Third-party приложения
+### Third-party apps
 
-Возвращаясь к теме third-party приложений MacOS. Есть целый пласт программ, которые или изначально пишутся исключительно под эту систему, или имеют смысл только в ее рамках. Я сейчас говорю о трех программах, которыми лично пользуюсь на ежедневной основе. Это Reeder 5 (RSS-читалка и агрегатор + Read Latter сервис), Alfred 5 (продвинутая альтернатива встроенному в MacOS Spotlight) и Things 3 (to-do трекер). Все эти программы отлично интегрируются с Safari: Reeder имеет расширение для добавления новых фидов прямо из браузера, а так же для использования его вместо Read Latter сервиса от Safari; Alfred сканирует закладки Safari и позволяет их открывать без лишних телодвижений; Things при добавлении новой записи через всплывающее окно понимает контекст и, если он вызван из окна браузера, вставляет в запись адрес и заголовок открытой вкладки.
+Now coming back to the topic of third-party apps on MacOS. There is a whole layer of programs that are either originally developed exclusively for this OS or only make sense within its boundaries. I am talking right now about three programs that I personally use on a daily basis. These are Reeder 5 (RSS reader and aggregator + Read Later service), Alfred 5 (an advanced alternative to the built-in MacOS Spotlight), and Things 3 (a to-do tracker). All these apps integrate seamlessly with Safari: Reeder has an extension for adding new feeds directly from the browser, as well as for using it instead of Safari's Read Later service; Alfred scans Safari bookmarks and allows you to open them without unnecessary clicks; Things, when adding a new entry through a pop-up window, understands the context and, if it's opened from within the browser window, inserts the address and title of the opened tab into the entry.
 
 ### AirPlay/ChromeCast
 
-Но ровно настолько, насколько Apple хороши в интеграции своих продуктов между собой, настолько они плохи в интеграции с продуктами вне яблочной экосистемы. Допустим, у вас есть smart-TV и вы хотите посмотреть там фильм с какого-нибудь сайта (нерелевантно, если вы пользуетесь одним из стриминговых сервисов по типу Netflix, у которых всегда есть свои приложения для smart-TV). Набирать поисковый запрос на пульте от тв - боль, подключать комп по проводу - тоже. На помощь приходит AirPlay - технология позволяющая транслировать музыку/видео с одного устройства на другое. Но есть один нюанс, AirPlay - это технология Apple, а значит "с одного устройства на другое" означает на самом деле "с одного устройства **Apple** на другое устройство **Apple** и никак иначе". А теперь вопрос: видели ли вы smart-TV от Apple? Ответ - нет. Есть консоль Apple TV, которая подключается к настоящему телевизору и делает его умным и яблочным одновременно. Но лично я не понимаю, зачем покупать консоль отдельно от телевизора, когда современные телевизоры уже выпускают со встроенным Android TV и при этом у них есть поддержка альтернативы AirPlay - ChromeCast (а эта технология куда универсальнее AirPlay в принципе). По итогу получается такая картина: при наличии сайта, который поддерживает ChromeCast, при наличии тв, который поддерживает ChromeCast, при наличии **ноутбука**, который поддерживает ChromeCast (MacOS сама по себе таки поддерживает эту технологию) пользователь все равно не может транслировать медиа из сети сразу на тв, потому что Safari...
+But just as good as Apple is at integrating its products with each other, they are just as bad at integrating with products outside the Apple ecosystem. Let's say you have a smart TV and you want to watch a movie there from some site (irrelevant if you use one of the streaming services like Netflix, which always have their own applications for smart TV). Typing a search query on the TV remote is a pain, connecting a computer via a wire is also a pain. AirPlay comes to the rescue - a technology that allows you to stream music/video from one device to another. But there is one caveat: AirPlay is an Apple technology, which means that "from one device to another" actually stands for "from one **Apple** device to another **Apple** device and nothing else". Now the question is: have you seen smart TV from Apple? The answer is no. There is an Apple TV console that connects to a real TV and makes it both smart and Apple-like at the same time. But personally, I don’t understand why buy a console separately from the TV, when modern TVs are already bundled with Android TV and at the same time they have support for an alternative to AirPlay - ChromeCast (and this technology is much more universal than AirPlay to begin with). As a result, we get the following picture: even if there is a website that supports ChromeCast, if there is a TV that supports ChromeCast, if there is a **laptop** that supports ChromeCast (MacOS itself after all supports this technology), the user still cannot stream media from the web directly to TV, because of Safari...
 
 ### Hide My Email
 
-Касательно яблочных сервисов проблемы не заканчиваются на попытках интеграции устройств Apple с внешним миром. В подписку iCloud+ с недавнего времени входит возможность автоматической генерации виртуальных email-адресов для регистрации на различных сайтах. Это отлично работает как инструмент превентивной борьбы со спамом. Типичный сценарий такой: пользователь во время регистрации на каком-то непонятном сайте указывает сгенерированную почту, Apple заботится о доставке писем с этой виртуальной почты на реальную, а в случае, если этот непонятный сайт взломают или он сам продаст базу своих пользователей какой-то спам-рассылке, у пользователя будет возможность отключить виртуальный адрес и не захламлять почту реального спамом. Вот только одно "но"... Судя по моему Bitwarden у меня уже есть 100+ всяческих аккаунтов на просторах Интернета, а значит мой реальный адрес уже утек куда только можно было утечь. То есть на данном этапе реальной пользы от этого сервиса ноль, а вот вред очень даже имеется. Если я начну им пользоваться и в будущем передумаю платить на iCloud+, что будет со всеми моими аккаунтами, которые были зарегестрированы на виртуальные почтовые адреса?
+Regarding Apple services, the problems do not end with attempts to integrate Apple devices with the outside world. iCloud+ subscription has recently included the ability to automatically generate virtual email addresses for registration on various sites. This works great as a proactive anti-spam tool. A typical scenario is this: a user, when registering on some random site, specifies the generated email, Apple takes care of delivering letters from this virtual mail to user real mail, and if this random site is hacked or it sells its user base to some kind of spam-mailing people, the user will have the opportunity to disable the virtual address and not clutter up the real mail with spam. There’s just one “but”... Judging by my Bitwarden, I already have 100+ different accounts on the Internet, which means my real address has already leaked to wherever it was possible to leak. That is, at this stage there is zero real benefit from this service, but there is very much harm. If I start using it and in the future change my mind about paying for iCloud+, what will happen to all my accounts that were registered with virtual email addresses?
 
-Можно было бы сказать "Ну ок, не надо - не пользуйся, в чем проблема?". Но это же Apple, а значит **они** решают за пользователя, что тому нужно, а что нет. До введения этого сервиса при регистрации на сайтах Safari предлагала заполнить поле email адресом, на который зарегистрирован мой Apple ID, и это было удобно даже с учетом того, что пароли я генерирую через Bitwarden. А вот после введения этого сервиса, Safari предлагает ввести **только** новый виртуальный адрес и все, нет возможности вернуть как было. Это называется агрессивный маркетинг и отключение привычного функционала с целью того, чтобы склонить пользователя к выгодному самой фирме решению.
+One could say, “Okay, don’t need it - don’t use it, what’s the problem?” But this is Apple, which means **they** decide for the user what he/she needs and what he/she doesn’t. Before the introduction of this service, when registering on websites, Safari offered to auto-fill in the email field with the address to which my Apple ID was registered, and this was convenient even taking into account the fact that I generate passwords through Bitwarden. But after the introduction of this service, Safari offers to enter **only** a new virtual address and that’s it, there is no way to return it to how it was. This is called aggressive marketing and disabling the usual functionality in order to persuade the user to a solution that is beneficial to the company itself.
 
-### Расширения браузера
+### Browser extensions
 
-Дальше - больше. Так как Safari - браузер сам по себе, а не базируется на Chrome (как многие современные решения), то разработчики должны отдельно писать под него версии своих расширений, что означает, что далеко не все этим будут заниматься. Я не пользуюсь таким большим количеством расширений как некоторые, поэтому в моем случае это не так больно. Единственным расширением, которого лично мне не хватает в Safari, но которое есть в Chrome, - это крипто-кошелек Metamask. Но так я до сих пор так и не вкатился нормально в крипту, то даже это не критично.
+Further more. Since Safari is a browser in itself, and isn't based on Chrome (like many modern solutions), developers must separately write versions of their extensions for it, which means that not everyone will do this. I don't use as many extensions as some folks, so in my case it's not as painful. The only extension that I personally miss in Safari, but that Chrome has, is the Metamask crypto wallet. But since I still haven’t gotten into crypto properly, even this is not critical.
 
-### Поддержка сайтами
+### Sites support
 
-В продолжение того, что Safari не основывается на Chrome, стоит упомянуть, что это влияет не только на разработчиков расширений, но и на разработчиков сайтов. Из-за популярности Chrome все сайты в первую очередь проверяют на работоспособность именно в нем, а вот проверять сайт в Safari могут и забыть. В это трудно поверить, но даже всего лишь год назад, я реально сталкивался с тем, как сайты или глючат или просто не работают вне Chrome. И это не был сайт какого-то Васи Пупкина, это был онлайн магазин PlayStation Network...
+Continuing with the fact that Safari is not based on Chrome, it is worth mentioning that it affects not only extension developers, but also website developers. Due to the popularity of Chrome, all sites are first checked for functionality in it, but they may forget to check the site in Safari. It's hard to believe, but only a year ago, I actually encountered sites either glitching or simply not working outside of Chrome. And this was not the site of some Vasya Pupkin, it was the PlayStation Network online store...
 
-### Распознавание URL-адресов
+### Recognition of URL-addresses
 
-Это относительно мелочь, но так сложилось, что эта мелочь мне часто и очень сильно мозолит глаза. Суть в том, что в любом современном браузере адресная строка занимает помимо своей обычной роли (переадресовывать пользователя по введенному им адресу) еще и функцию поисковой строки. То есть если введенные данные не удалось распознать распознать как URL-адрес она отправляет пользователя в поисковик, а введенные данные теперь служат поисковым запросом. Так вот, у меня дома стоит Raspberry Pi с парой-тройкой локальных сервисов и настроенным локальным DNS, чтобы можно было достучаться до малинки не только по ее IP, но и по адресу `pi.lan`. И вот если в Chrome при вводе `pi.lan` браузер понимает, что я подразумевал адрес сайта, то Safari отправляет меня гуглить, что же такое это ваше `pi.lan`... Только в случае, если я напишу `pi.lan/` (со слэшем в конце), тогда Safari все распознает правильно и переадресовывает меня на малинку. Я искренне не понимаю эту особенность, потому что обычные адреса по типу `fb.com` Safari распознает и без слэша в конце, что приводит к постоянной путанице, когда в 99% случаев пользователь пишет как обычно, но в 1% случаев он обязан добавлять слэш в конце...
+This is a relatively small thing, but it so happens that this little thing is often and very much an bothers me. The thing is that in any modern browser, the address bar, in addition to its usual role (redirecting the user to the address he/she entered), also functions as a search bar. That is, if the entered input could not be recognized as a URL, it sends the user to the search engine, and the entered input now serves as a search query. So, I have a Raspberry Pi at home with a couple of local apps and a configured local DNS so that I can reach the raspberry not only by its IP, but also by the nice and short `pi.lan` address. And if in Chrome, when I enter `pi.lan`, the browser understands that I meant the site address, then Safari sends me to google for what is the `pi.lan` that I just typed... Only if I write `pi. lan/` (with a slash in the end), then Safari recognizes everything correctly and redirects me to the Raspberry. I sincerely do not understand this feature, because Safari recognizes regular addresses like `fb.com` without a slash at the end, which leads to constant confusion when in 99% of cases the user writes as usual, but in 1% of cases he is obliged to add slash at the end...
 
-### Инструменты разработчика
+### Developer tools
 
-И последнее, о чем хотелось упомянуть, хотя это скорее уже мой личный каприз, так это инструменты разработчика. Суть в том, что в виду моей профессии браузер для меня это одновременно и просто программа для серфинга сети и инструмент заработка. Если Chrome - это стандарт отрасти программ для серфинга сети, то Chrome dev-tools - это стандарт инструментов для разработки сайтов. Допустим мне нравится Safari как программа для серфинга, но это не означает, что я и работать в нем хочу. Иметь на ноутбуке сразу два браузера и разделять между ними функции - вполне себе решение, но мне кажется мы упускаем суть. С одной стороны понятно и очевидно, почему в Safari нет Chrome dev-tools (опять же по причине того, что Safari не базируется на Chrome), с другой - мне как пользователю неинтересны эти технические перипетии. Я был бы рад, если бы мои "программа для серфинга" и "инструмент заработка" были хорошо интегрированными, но разными программами. Было бы круто использовать Chrome dev-tools в Safari или же Safari dev-tools в Chrome (Боже упаси, но все же)
+And the last thing I wanted to mention, although this is rather my personal thing, is the developer tools. The point is that, given my profession, a browser for me is both a program for surfing the web and a tool for making money. If Chrome is the industry standard for web surfing programs, then Chrome dev-tools is the industry standard for website development tools. Let's say I like Safari as a surfing program, but this does not mean that I want to work in it. Having two browsers on a laptop and using each of them for its own purpose is quite a solution, but I think we are missing the point. On the one hand, it is clear and obvious why Safari does not have Chrome dev-tools (again, due to the fact that Safari is not based on Chrome), on the other hand, as a user I am not interested in these technical details. I would be happy if my "surfing program" and "tool for making money" were well integrated but different programs. It would be cool to use Chrome dev-tools in Safari or Safari dev-tools in Chrome (God forbid, but still)
 
-### Итог
+### Summary
 
-**Плюсы:**
+**Advantages:**
 
-- идеальная интеграция с технологиями MacOS
+- perfect integration with MacOS technologies
   - TouchID
   - AirPlay
-- идеальная интеграция с сервисами Apple
+- perfect integration with Apple services
   - Apple Pay
   - Time Limit
   - Hide My Email
-- хорошая интеграция со сторонними программами
-  - Reeder 5 (в виде расширения)
+- good integration with third-party services
+  - Reeder 5 (as an extension)
   - Alfred 5
   - Things 3
-  - 1Password (в виде расширения)
-  - Bitwarden (в виде расширения)
+  - 1Password (as an extension)
+  - Bitwarden (as an extension)
 
-**Минусы:**
+**Disadvantages:**
 
-- отсутствие интеграций с технологиями вне Apple
+- no integration with technologies outside Apple
   - ChromeCast
-- слишком агрессивный маркетинг сервисов Apple в случае, когда пользователь не хочет пользоваться некоторыми из них
+- too aggressive marketing of Apple services when the user doesn't want to use some of them
   - Hide My Email
-- куда более бедный выбор расширений для браузера
+- much poorer selection of browser extensions
   - MetaMask
-- нет возможности избирательно использовать встроенные возможности браузера или же полностью их заменять на сторонние решения
-  - инструменты разработчика Chrome вместо встроенных от Safari
-  - менеджер паролей не в виде расширения, а как "нативная" замена встроенному Autofill
-  - то же самое, что и выше, но с read latter программами
-- не все сайты могут корректно работать в Safari
+- there is no way to selectively use the browser’s built-in capabilities or completely replace them with third-party solutions
+  - Chrome dev-tools instead of Safari built-in ones
+  - password manager not as an extension, but rather as "native" replacement for built-in Autofill
+  - the same as above, but with read latter apps
+- some of sites can work unstably in Safari
   - PlayStation Network
-- странная избирательность при распознавании строки ввода как URL-адреса
+- strange behavior when recognizing the input string as a URL-address
