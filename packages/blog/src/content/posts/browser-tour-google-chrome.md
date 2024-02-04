@@ -18,62 +18,62 @@ Now let's dive into the most popular browser currently available, Google Chrome.
 
 ### Chrome extensions and apps
 
-Одна из характерных особенностей современных крупных программ - это возможность устанавливать всевозможные расширения, и Chrome не исключение. Задача такой системы плагинов в первую очередь ликвидировать проблему "на той стороне", то есть дать возможность сторонним разработчикам дополнять функционал браузера и/или интегрировать его со своими сервисами. Так как Chrome является самым популярным браузером, то разработчики тех самых расширений в большинстве случаев будут разрабатывать их именно под этот браузер.
+One of the typical features of a modern large apps is the ability to install all kinds of extensions, and Chrome is no exception. The task of such a system of plugins is primarily to get rid of “the other side” the problem, that is, to enable third-party developers to extend the functionality of the browser and/or integrate it with their services. Since Chrome is the most popular browser, the developers of those extensions in most cases will develop them specifically for this browser.
 
-Помимо просто расширений, Chrome позволяет "устанавливать" сайты в виде приложений и опционально запускать их в отдельном окне прямо как обычную десктопную программу. Лично мне этот функционал не зашел по нескольким причинам. Во-первых, в плане менеджмента процессов эти приложения-сайты по-прежнему привязаны к Chrome (хотя и работают в отдельном окне), то есть если полностью закрыть сам Chrome, закроются и приложения; если зависнет сам Chrome, зависнут и приложения. Во-вторых, такие приложения не распознают deep links (Deep link это когда вместо адреса сайта, ссылка ведет на определенный экран внутри приложения. Например, ссылка на митинг в Zoom отрывает не просто приложение Zoom, а диалог входа в конкретный созвон). То есть при открытии ссылки на определенное видео на YouTube через **приложение** YouTube откроется просто главная страница, но при открытии этой же ссылки через **сайт** YouTube все сработает как и ожидалось, и мы посмотрим любимых котиков.
+Besides just extensions, Chrome allows you to “install” sites as applications and optionally run them in a separate window just like a regular desktop app. Personally, this functionality didn't work for me for several reasons. First in terms of process management, these website applications are still tied to Chrome (although they work in a separate window), that is, if you completely close Chrome itself, the applications will also get closed; If Chrome itself freezes, so will your applications. Secondly, such applications do not recognize deep links (deep link is when, instead of a website, a link directs to a specific screen inside the application. For example, a link to a meeting in Zoom opens not just the Zoom application, but the login dialog for a specific call). E.g. when you open a link to a certain video on YouTube through the YouTube **application**, it will just open the home page, but when you open the same link through the YouTube **website**, everything will work as expected, and you will watch your favorite cats.
 
-Однако, приложения Chrome можно в том числе открывать в виде обычной вкладки, без создания отдельного окна. В таком случае Deep links не ломаются, а всё "приложение" выполняет всего лишь роль ярлыка-закладки. Например, если вы пользуетесь каким-либо поиском установленных приложений по названию, то на ряду с приложениями вы можете так же искать и закладки, что немного интегрирует внешний Интернет с вашим личных ноутбуком.
+However, Chrome applications can also be opened as a regular tab, without creating a separate window. In this case, deep links are not broken, and the entire “application” serves only as a bookmark shortcut. For example, if you use some application launcher like Alfred, then along with applications you can also search for bookmarks, which slightly integrates the external Internet into your personal laptop.
 
 ### Integration with Apple/Google services
 
-Возвращаясь к теме интеграций с технологиями операционной системы - Chrome никак не интегрирован с TouchID. Это бьет по пользовательскому опыту не только самого браузера, но и его расширений. К примеру, расширение Bitwarden для Safari можно разблокировать по отпечатку пальца без каких-либо дополнительных требований, но то же самое в версии расширения для Chrome можно сделать только при условии запущенного десктопного клиента Bitwarden...
+Coming back to the topic of integrations with OS technologies, Chrome is not integrated with TouchID in any way. This affects the user experience not only of the browser itself, but also of its extensions. For example, the Bitwarden extension for Safari can be unlocked using a fingerprint without any additional requirements, but the same in the Chrome version of the extension can only be done if the Bitwarden desktop client is running in the background...
 
-Разделения проведенного в браузере времени на отдельные сайты через Time Limit тут тоже нет: час в YouTube - это час в приложении YouTube, а сайт - не в счет. Можно ограничить время залипания в самом Chrome, но как по мне это просто не имеет смысла. В самом браузере же никто не сидит, все сидят на определенных сайтах, а браузер - всего лишь посредник.
+There is also no separation of time spent in the browser by sites through Time Limit: an hour on YouTube is an hour in the YouTube application, and the site does not count. You can limit the time waste in Chrome itself, but in my opinion it just doesn’t make sense. Nobody sits in the browser itself, everyone sits on certain sites, and the browser is just an intermediary.
 
-Можно было бы ожидать, что Chrome взамен отсутствия интеграции с экосистемой пользователя (в моем случае с яблочной экосистемой) дает более плавную интеграцию с сервисами Google, но я бы так не сказал. Так же как закладки, история и пароли хранятся в Safari через iCloud, в Chrome все это хранится через Google Account. Я не заметил какого-то уникального сервиса, который можно было бы назвать конкурентным преимуществом или эксклюзивной фичей Chrome.
+You would expect that Chrome, in exchange for the lack of integration with the user's ecosystem (in my case, the Apple ecosystem), would provide smoother integration with Google services, but I wouldn't say so. Just as Safari stores bookmarks, history, and passwords through iCloud, Chrome stores it all through Google Account. I didn't notice any unique service that could be called a competitive advantage or an exclusive feature of Chrome.
 
 ### Third-party apps
 
-Вот тут все куда более неоднозначно. С одной стороны из-за популярности Chrome некоторые разработчики приложений специально под MacOS делают интеграцию как с Safari так и с Chrome, но некоторые так не поступают. В моем случае картина такова: Alfred 5 и Things 3 фишки, о которых я говорил в предыдущем посте, работают ровно так же как и с Safari, а вот Reeder 5 решил не предоставлять интеграции с Chrome.
+Here everything is much more ambiguous. On the one hand, due to the popularity of Chrome, some developers of application specifically for MacOS integrate with both Safari and Chrome, but some don't do this. In my case, the case is: Alfred 5 and Things 3 features, which I talked about in the previous post, work exactly the same as with Safari, but Reeder 5 decided not to provide integration with Chrome.
 
 ### Sites support
 
-Тут все довольно ожидаемо: так как браузер самый популярный, то сайты в первую очередь разрабатываются и тестируются на адекватность работы именно в нем. Что приводит к тому, что пользователь Chrome будет с наименьшей вероятностью натыкаться на баги и тому подобное от самих сайтов по сравнению с пользователями других браузеров. (Хотя стоит заметить, что в комментах к предыдущему посту привели пример, где сайт стабильнее работал в Safari чем в Chrome)
+Here everything is just as should be expected: since the browser is the most popular one, sites are first of all developed and tested for the correct functioning in it. Which leads to the fact that a Chrome user will be least likely to encounter bugs or something like that coming from the sites compared to users of other browsers.
 
 ### Developer tools
 
-Так как по работе или просто для программирования я пользуюсь Chrome, то в данном случае не ощущается той проблемы двух программ, о которой я писал в предыдущей части (одна для серфинга сети, другая - для разработки). Но это не отменят того факта, что разделить эти два элемента по-прежнему невозможно.
+Since I use Chrome for work and for programming outside of work, in this case I don’t feel the problem of two apps that I wrote about in the previous part (one for surfing the network, the other for development). But it won't change the fact that it is still impossible to separate these two elements.
 
 ### Summary
 
-На самом деле общее впечатление от Chrome можно свести к понятию "чистого листа" с добавлением сервисов Google - о нем как будто нечего рассказывать. Весь его в свое время прогрессивный функционал стал базовым набором фич любого нормального браузера. Что недалеко от истины, потому что Chrome по определению и есть Chromium + Google. От того и объем подобного пользовательского обора заметно меньше сравнительно того же поста про Safari. Заполнять же образовавшееся пустое место техническими деталями про скорость работы, потребление батареи и тому подобным мне не хочется, потому что на личном опыте я не ощутил разницы по этим пунктам при переходе от одного браузера к другому
+In fact, the overall impression of Chrome can be boiled down to the concept of a "blank slate" with the addition of Google services - it seems like there is nothing to talk about. All of its once progressive functionality has become the basic set of features of any normal browser. Which is not far from the truth, because Chrome by definition is Chromium + Google. That’s why the size of such review is noticeably smaller than the same about Safari. I don’t want to fill the resulting empty space with technical details about operating speed, battery consumption and so on, because from personal experience I didn't feel a difference on these points when moving from one browser to another.
 
-**Плюсы:**
+**Advantages:**
 
-- хорошая интеграция с технологиями вне Apple
+- good integration with technologies outside Apple
   - ChromeCast
-- хорошая интеграция со сторонними программами
+- good integration with third-party services
   - Alfred 5
   - Things 3
-  - 1Password (в виде расширения)
-  - Bitwarden (в виде расширения)
-- огромный выбор всевозможных расширений для браузера
-- идеальные инструменты разработчика
-- отличная поддержка сайтами
-- закладки можно хранить в виде установленных приложений (если открывать их не в отдельном окне)
+  - 1Password (as an extension)
+  - Bitwarden (as an extension)
+- a huge choice of any kind of browser extension
+- perfect dev-tools
+- excellent site support
+- bookmarks can be stored as standalone apps (if you open them as tabs)
 
-**Минусы:**
+**Disadvantages:**
 
-- не все third-party приложения MacOS интегрированы с Chrome
+- not all third-party MacOS app are integrated with Chrome
   - Reeder 5
-- отсутствие интеграции c технологиями самой MacOS
-  - TouchID (достичь интеграции через расширения возможно при дополнительных условиях)
+- there is no integration with MacOS itself
+  - TouchID (the integration is achievable with additional effort)
   - AirPlay
-- отсутствие интеграции с сервисами Apple
+- no integration with Apple services
   - Apple Pay
   - Time Limit
-- отсутствие какой-то более плотной интеграции с сервисами Google
-- нет возможности избирательно использовать встроенные возможности браузера или же полностью их заменять на сторонние решения
-  - менеджер паролей
-  - read latter сервисы
-- установленные приложения не распознают deep links (если отрывать их в отдельном окне)
+- no unique competitive integration with Google services
+- there is no way to selectively use the browser’s built-in capabilities or completely replace them with third-party solutions
+  - password manager
+  - read latter services
+- installed Chrome apps don't support deep links (if apps are opened in their own window)
