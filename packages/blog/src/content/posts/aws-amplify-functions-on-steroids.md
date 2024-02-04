@@ -6,10 +6,12 @@ tags:
   - serverless
   - lambda
 publishedAt: 2023-07-05
-coverImage: ../attachments/aws-amplify-functions-on-steroids/cover.png
+coverImage: ../attachments/aws-amplify-functions-on-steroids/cover.webp
+coverImageAlt: Amplify and TypeScript logos on the blue background
 related:
   - pitfalls-of-aws-amplify-serverless-containers
 isPinned:
+code: https://github.com/vorant94/amplify-functions-on-steroids
 ---
 
 ### What we have out of the box
@@ -100,5 +102,3 @@ To sum up we achieved everything we wanted and are now ready to boost the produc
 - need to add all the dependencies of shared code to each of lambda `package.json` even if a particular lambda doesn't use all of shared functionality
 - need to manually document what permissions / env variables lambda must have in order to use shared code
 - need to push changes twice in case lambda changes are dependent on schema API changes
-
-All the code mentioned here you can find in my [GitHub](https://github.com/vorant94/amplify-functions-on-steroids)

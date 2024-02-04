@@ -6,7 +6,8 @@ tags:
   - dart
   - typescript
 publishedAt: 2023-11-27
-coverImage: ../attachments/dart-through-the-eyes-of-a-js-ts-dev/cover.jpg
+coverImage: ../attachments/dart-through-the-eyes-of-a-js-ts-dev/cover.webp
+coverImageAlt: Dart logo on blue background with some small icons
 related:
 isPinned:
 ---

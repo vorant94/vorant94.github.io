@@ -1,11 +1,10 @@
+import { getPostFullPath, PROFILE, sortPostsByPublishedAt } from '@/shared';
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
-import { PostsService } from '../shared/posts.service.ts';
-import { PROFILE } from '../shared/profile.ts';
 
 export async function GET(context: APIContext) {
-  const posts = PostsService.sortEntries(await getCollection('posts'));
+  const posts = sortPostsByPublishedAt(await getCollection('posts'));
 
   return rss({
     title: PROFILE.title,
@@ -18,7 +17,7 @@ export async function GET(context: APIContext) {
         title: title,
         description: description,
         pubDate: publishedAt,
-        link: PostsService.getFullPath(post),
+        link: getPostFullPath(post),
         categories: tags,
         author: PROFILE.email,
       };

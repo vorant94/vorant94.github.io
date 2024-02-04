@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import {
+  type Post,
+  sortPostsByPublishedAt,
+  getUniqPostTags,
+  PublishedAtFormat,
+} from '@/shared';
+import { Layout } from '@/layouts';
+import { Divider, Headline, PostList } from '@/components';
+
+export async function getStaticPaths() {
+  const entries = sortPostsByPublishedAt(await getCollection('posts'));
+  const tags = getUniqPostTags(entries);
+
+  return await Promise.all(
+    tags.map(async (tag) => {
+      const posts = entries.filter(({ data }) => data.tags.includes(tag));
+
+      return {
+        params: { tag },
+        props: { posts, tag },
+      };
+    }),
+  );
+}
+
+interface Props {
+  tag: string;
+  posts: Post[];
+}
+
+const { posts, tag } = Astro.props;
+---
+
+<Layout title={`${tag} posts`}>
+  <Divider isLeft={false}>
+    <Headline>#{tag}</Headline>
+  </Divider>
+  <PostList>
+    {
+      posts.map((post) => (
+        <PostList.Item
+          post={post}
+          publishedAtFormat={PublishedAtFormat.SHORT}
+        />
+      ))
+    }
+  </PostList>
+</Layout>

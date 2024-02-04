@@ -6,7 +6,8 @@ tags:
   - tech
   - raspberry-pi
 publishedAt: 2023-10-06
-coverImage: ../attachments/whats-in-my-pi/pi-hole-logo.svg
+coverImage: ../attachments/whats-in-my-pi-pi-hole/cover.webp
+coverImageAlt: Pi-hole logo
 related:
   - whats-in-my-pi-pi-hole
   - whats-in-my-pi-bitwarden
@@ -15,7 +16,7 @@ isPinned:
 
 If you have ever searched anything on the Internet, you probably are pissed of by the amount of ads modern websites have. It literally can be just a simple cooking recipe page, where after each step there is reserved placeholder for a targeting ad.
 
-![ad meme](../attachments/whats-in-my-pi/ad-meme.jpg)
+![ad meme](../attachments/whats-in-my-pi-pi-hole/ad-meme.webp)
 
 Free mobile apps and games also have this decease, after all they need somehow to monetize themselves. If you are getting some service but aren't paying for it with money, you most likely pay with your time or still with money but later. Marketing people do know their stuff well, so these ads are in motion and blinking all the time to attract your attention at any cost.
 
@@ -45,4 +46,4 @@ The trade-off of having it enabled only at home is actually can be somewhat avoi
 
 There is a nice branded Pi-hole case for Raspberry Pi, but [the official store](https://thepihut.com/products/pi-hole-edition-raspberry-pi-4-flirc-case) doesn't deliver to Israel. In case you know where to get one, please ping me😅
 
-![pi hole case](../attachments/whats-in-my-pi/pi-hole-case.jpg)
+![pi hole case](../attachments/whats-in-my-pi-pi-hole/pi-hole-case.webp)

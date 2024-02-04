@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
@@ -14,7 +15,10 @@
     "allowJs": true,
     "strict": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "paths": {
+      "@/*": ["src/*"],
+    },
   },
-  "exclude": ["dist"]
+  "exclude": ["dist"],
 }
