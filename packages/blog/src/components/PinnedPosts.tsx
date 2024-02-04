@@ -1,6 +1,6 @@
 import type { Post } from '@/shared';
 import type { FunctionComponent } from 'react';
-import { PostList } from './PostList.tsx';
+import { PostList } from './PostList';
 import { StandOut } from './StandOut.tsx';
 
 export const PinnedPosts: FunctionComponent<PinnedPostsProps> = function ({

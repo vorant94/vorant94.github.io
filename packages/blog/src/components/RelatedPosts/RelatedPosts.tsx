@@ -1,10 +1,10 @@
 import { THEME, type Post } from '@/shared';
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import { PostList } from './PostList.tsx';
+import { PostList } from '../PostList';
+import { StandOut } from '../StandOut.tsx';
+import { Title } from '../Title.tsx';
 import styles from './RelatedPosts.module.css';
-import { StandOut } from './StandOut.tsx';
-import { Title } from './Title.tsx';
 
 export const RelatedPosts: FunctionComponent<RelatedPostsProps> = function ({
   posts,

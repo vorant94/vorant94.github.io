@@ -6,16 +6,12 @@ import {
   type Post,
 } from '@/shared';
 import classNames from 'classnames';
-import type { FunctionComponent, PropsWithChildren } from 'react';
-import { Caption } from './Caption.tsx';
-import { ThemedImage } from './ThemedImage.tsx';
-import { Title } from './Title.tsx';
+import type { FunctionComponent } from 'react';
+import { Caption } from '../Caption.tsx';
+import { ThemedImage } from '../ThemedImage.tsx';
+import { Title } from '../Title.tsx';
 
-const PostTiledList: PostTiledListComponent = function ({ children }) {
-  return <ul className={classNames('flex flex-col gap-2')}>{children}</ul>;
-};
-
-const PostTiledListItem: PostTiledListItemComponent = function ({
+export const PostTiledListItem: PostTiledListItemComponent = function ({
   post,
   publishedAtFormat,
 }) {
@@ -53,17 +49,6 @@ const PostTiledListItem: PostTiledListItemComponent = function ({
     </li>
   );
 };
-
-PostTiledList.Item = PostTiledListItem;
-
-export { PostTiledList };
-
-export interface PostTiledListComponent
-  extends FunctionComponent<PropsWithChildren<PostTiledListProps>> {
-  Item: PostTiledListItemComponent;
-}
-
-export interface PostTiledListProps {}
 
 export type PostTiledListItemComponent =
   FunctionComponent<PostTiledListItemProps>;
