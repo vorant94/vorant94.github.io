@@ -7,6 +7,7 @@ import {
 } from '@/shared';
 import classNames from 'classnames';
 import type { FunctionComponent, LiHTMLAttributes } from 'react';
+import { Link } from '../Link';
 
 export const PostListItem: PostListItemComponent = function ({
   className,
@@ -15,20 +16,16 @@ export const PostListItem: PostListItemComponent = function ({
 }) {
   return (
     <li className={classNames('flex flex-col py-3 text-medium', className)}>
-      <a
+      <Link
         href={getPostFullPath(post)}
-        data-astro-prefetch="hover"
-        className={classNames(
-          ...THEME.primaryText,
-          THEME.linkDecoration,
-          'flex gap-3 items-center hover:text-cyan-500',
-        )}
+        prefetch="hover"
+        className={classNames(...THEME.primaryText, 'flex gap-3 items-center')}
         aria-label={post.data.title}>
         <span className="flex-1 truncate">{post.data.title}</span>
         <span className="whitespace-nowrap text-xs">
           {formatPostPublishedAt(post, publishedAtFormat)}
         </span>
-      </a>
+      </Link>
     </li>
   );
 };

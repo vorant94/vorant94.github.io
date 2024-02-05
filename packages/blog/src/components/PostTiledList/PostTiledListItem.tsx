@@ -8,6 +8,7 @@ import {
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
 import { Caption } from '../Caption.tsx';
+import { Link } from '../Link.tsx';
 import { ThemedImage } from '../ThemedImage.tsx';
 import { Title } from '../Title.tsx';
 
@@ -23,19 +24,19 @@ export const PostTiledListItem: PostTiledListItemComponent = function ({
         ...THEME.border,
       )}
       key={post.id}>
-      <a
+      <Link
         href={getPostFullPath(post)}
-        data-astro-prefetch="hover"
+        prefetch="hover"
         className="flex items-center group">
         <div className="flex-1 overflow-hidden">
-          <Title
-            className={classNames(
-              'truncate group-hover:text-cyan-500 group-hover:underline',
-              THEME.linkDecoration,
-            )}>
+          <Title className={classNames('truncate group-hover:text-inherit')}>
             {post.data.title}
           </Title>
-          <Caption>{formatPostPublishedAt(post, publishedAtFormat)}</Caption>
+          {/* this inline-block removes the inherited text-decoration, since it cannot be simply
+          overridden like any other parent css style*/}
+          <Caption className="inline-block">
+            {formatPostPublishedAt(post, publishedAtFormat)}
+          </Caption>
         </div>
         {post.data.coverImage && (
           <ThemedImage
@@ -45,7 +46,7 @@ export const PostTiledListItem: PostTiledListItemComponent = function ({
             alt={post.data.coverImageAlt!}
           />
         )}
-      </a>
+      </Link>
     </li>
   );
 };
