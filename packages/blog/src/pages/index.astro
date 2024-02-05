@@ -3,7 +3,16 @@ import { sortPostsByPublishedAt } from '@/shared';
 import { getCollection } from 'astro:content';
 import { partition } from 'lodash-es';
 import { Layout } from '@/layouts';
-import { Intro, PostTiledList, PinnedPosts, Link } from '@/components';
+import {
+  Intro,
+  PostTiledList,
+  PinnedPosts,
+  Link,
+  Carousel,
+  Divider,
+  Headline,
+  ProjectCard,
+} from '@/components';
 
 const allPosts = sortPostsByPublishedAt(await getCollection('posts'));
 const [pinnedPosts, allNonPinnedPosts] = partition(
@@ -19,6 +28,10 @@ const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
 
   <Intro />
 
+  <Divider>
+    <Headline>Recently Published</Headline>
+  </Divider>
+
   <PostTiledList>
     {recentNonPunnedPosts.map((post) => <PostTiledList.Item post={post} />)}
   </PostTiledList>
@@ -28,4 +41,29 @@ const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
     href="posts">
     See all posts
   </Link>
+
+  <Divider>
+    <Headline>My Projects</Headline>
+  </Divider>
+
+  <Carousel client:load>
+    <Carousel.Slide client:load>
+      <ProjectCard />
+    </Carousel.Slide>
+    <Carousel.Slide client:load>
+      <ProjectCard />
+    </Carousel.Slide>
+    <Carousel.Slide client:load>
+      <ProjectCard />
+    </Carousel.Slide>
+    <Carousel.Slide client:load>
+      <ProjectCard />
+    </Carousel.Slide>
+    <Carousel.Slide client:load>
+      <ProjectCard />
+    </Carousel.Slide>
+    <Carousel.Slide client:load>
+      <ProjectCard />
+    </Carousel.Slide>
+  </Carousel>
 </Layout>

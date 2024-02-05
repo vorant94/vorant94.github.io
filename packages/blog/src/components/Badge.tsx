@@ -5,23 +5,29 @@ import {
   type ThemedStyle,
 } from '@/shared';
 import classNames from 'classnames';
-import type { FunctionComponent, PropsWithChildren } from 'react';
+import type {
+  FunctionComponent,
+  HTMLAttributes,
+  PropsWithChildren,
+} from 'react';
 
 export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
-  function ({ color, children }) {
+  function ({ color, className, children }) {
     return (
       <span
         className={classNames(
           ...THEME.primaryText,
           'inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold',
           ...COLOR_TO_BG[color],
+          className,
         )}>
         {children}
       </span>
     );
   };
 
-export interface BadgeProps {
+export interface BadgeProps
+  extends Pick<HTMLAttributes<HTMLSpanElement>, 'className'> {
   color: Color;
 }
 
