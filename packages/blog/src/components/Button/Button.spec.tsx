@@ -5,7 +5,7 @@ import { Button } from './Button.tsx';
 
 describe('Button', () => {
   it('should render the button and its children', () => {
-    const screen = render(<Button>button</Button>);
+    const screen = render(<Button testId="button">button</Button>);
 
     const button = screen.getByTestId('button');
 
@@ -15,7 +15,13 @@ describe('Button', () => {
 
   it('should propagate onClick event of the button', async () => {
     const spy = vi.fn();
-    const screen = render(<Button onClick={spy}>button</Button>);
+    const screen = render(
+      <Button
+        onClick={spy}
+        testId="button">
+        button
+      </Button>,
+    );
     const button = screen.getByTestId('button');
     expect(spy).not.toBeCalled();
 

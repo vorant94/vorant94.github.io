@@ -20,7 +20,12 @@ function readingTimePlugin() {
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), sitemap(), react()],
+  integrations: [
+    tailwind(),
+    // because of this sitemap plugin not working in SSR mode the output cannot be server
+    sitemap(),
+    react(),
+  ],
   site: PROFILE.baseUrl,
   trailingSlash: 'never',
   // this adds to bundle an Astro script to manipulate head element to enable prefetch dynamically,

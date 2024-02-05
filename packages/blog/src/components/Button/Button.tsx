@@ -6,15 +6,17 @@ import type {
 } from 'react';
 
 export const Button: FunctionComponent<PropsWithChildren<ButtonProps>> =
-  function ({ children, className, ...props }) {
+  function ({ children, className, testId, ...props }) {
     return (
       <button
         className={classNames(className)}
-        data-testid="button"
+        data-testid={testId}
         {...props}>
         {children}
       </button>
     );
   };
 
-export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {}
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  testId?: string;
+}
