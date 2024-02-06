@@ -27,6 +27,8 @@
   "dependencies": {
     "@astrojs/react": "^3.0.9",
     "@fortawesome/fontawesome-free": "^6.5.1",
+    "@giscus/react": "^2.4.0",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@vercel/analytics": "^1.1.2",
     "astro": "4.3.1",
     "classnames": "^2.5.1",

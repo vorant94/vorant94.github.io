@@ -2,7 +2,7 @@
 import { sortPostsByPublishedAt } from '@/shared';
 import { getCollection } from 'astro:content';
 import { partition } from 'lodash-es';
-import { Layout } from '@/layouts';
+import { MainLayout } from '@/layouts';
 import {
   Intro,
   PostTiledList,
@@ -23,7 +23,7 @@ const [pinnedPosts, allNonPinnedPosts] = partition(
 const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
 ---
 
-<Layout>
+<MainLayout>
   <PinnedPosts posts={pinnedPosts} />
 
   <Intro />
@@ -66,4 +66,4 @@ const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
       <ProjectCard />
     </Carousel.Slide>
   </Carousel>
-</Layout>
+</MainLayout>
