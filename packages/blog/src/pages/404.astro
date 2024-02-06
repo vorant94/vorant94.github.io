@@ -1,0 +1,15 @@
+---
+import { ErrorLayout } from '@/layouts';
+import lottie404light from '@/assets/lottie-404-light.json';
+import lottie404dark from '@/assets/lottie-404-dark.json';
+import { ThemedLottie } from '@/components';
+---
+
+<ErrorLayout title="404 Not Found">
+  <ThemedLottie
+    autoplay
+    src={lottie404light}
+    srcDark={lottie404dark}
+    client:load
+  />
+</ErrorLayout>
