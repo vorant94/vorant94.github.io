@@ -2,7 +2,7 @@
 import { getCollection, getEntries } from 'astro:content';
 import { getImage } from 'astro:assets';
 import { type Post, sortPostsByPublishedAt } from '@/shared';
-import { Layout } from '@/layouts';
+import { MainLayout } from '@/layouts';
 import { PostFrontmatter, Comments, RelatedPosts } from '@/components';
 
 export async function getStaticPaths() {
@@ -42,7 +42,7 @@ if (coverImage) {
 const { Content, remarkPluginFrontmatter } = await post.render();
 ---
 
-<Layout
+<MainLayout
   title={title}
   image={coverImageSrc}
   description={description}
@@ -62,7 +62,7 @@ const { Content, remarkPluginFrontmatter } = await post.render();
     post={post}
     client:only="react"
   />
-</Layout>
+</MainLayout>
 
 <style is:global>
   @media (prefers-color-scheme: dark) {

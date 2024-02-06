@@ -6,7 +6,7 @@ import {
   getUniqPostTags,
   PublishedAtFormat,
 } from '@/shared';
-import { Layout } from '@/layouts';
+import { MainLayout } from '@/layouts';
 import { Divider, Headline, PostList } from '@/components';
 
 export async function getStaticPaths() {
@@ -33,7 +33,7 @@ interface Props {
 const { posts, tag } = Astro.props;
 ---
 
-<Layout title={`${tag} posts`}>
+<MainLayout title={`${tag} posts`}>
   <Divider isLeft={false}>
     <Headline>#{tag}</Headline>
   </Divider>
@@ -47,4 +47,4 @@ const { posts, tag } = Astro.props;
       ))
     }
   </PostList>
-</Layout>
+</MainLayout>
