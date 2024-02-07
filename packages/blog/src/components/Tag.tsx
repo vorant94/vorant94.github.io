@@ -1,6 +1,6 @@
 import { COLORS, extractStringFromReactNode, type Color } from '@/shared';
 import type {
-  AnchorHTMLAttributes,
+  ComponentPropsWithoutRef,
   FunctionComponent,
   PropsWithChildren,
 } from 'react';
@@ -15,11 +15,11 @@ export const Tag: FunctionComponent<PropsWithChildren<TagProps>> = function ({
 
   const base = <Badge color={color}>#{children}</Badge>;
 
+  // replace with Link here
   return href != null ? <a href={href}>{base}</a> : base;
 };
 
-export interface TagProps
-  extends AnchorHTMLAttributes<Pick<HTMLAnchorElement, 'href'>> {}
+export interface TagProps extends Pick<ComponentPropsWithoutRef<'a'>, 'href'> {}
 
 function hashToColor(value: string): Color {
   const hash = value

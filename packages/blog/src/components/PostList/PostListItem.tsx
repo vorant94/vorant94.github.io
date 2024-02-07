@@ -6,16 +6,19 @@ import {
   type Post,
 } from '@/shared';
 import classNames from 'classnames';
-import type { FunctionComponent, LiHTMLAttributes } from 'react';
+import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
 import { Link } from '../Link';
 
 export const PostListItem: PostListItemComponent = function ({
   className,
   post,
   publishedAtFormat,
+  ...rest
 }) {
   return (
-    <li className={classNames('flex flex-col py-3 text-medium', className)}>
+    <li
+      className={classNames('flex flex-col py-3 text-medium', className)}
+      {...rest}>
       <Link
         href={getPostFullPath(post)}
         prefetch="hover"
@@ -32,8 +35,7 @@ export const PostListItem: PostListItemComponent = function ({
 
 export type PostListItemComponent = FunctionComponent<PostListItemProps>;
 
-export interface PostListItemProps
-  extends Pick<LiHTMLAttributes<HTMLLIElement>, 'className'> {
+export interface PostListItemProps extends ComponentPropsWithoutRef<'li'> {
   post: Post;
   publishedAtFormat?: PublishedAtFormat;
 }

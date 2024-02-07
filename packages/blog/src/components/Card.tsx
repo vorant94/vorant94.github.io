@@ -1,14 +1,15 @@
 import { THEME } from '@/shared';
 import classNames from 'classnames';
 import type {
+  ComponentPropsWithoutRef,
   FunctionComponent,
-  HTMLAttributes,
   PropsWithChildren,
 } from 'react';
 
 export const Card: FunctionComponent<PropsWithChildren<CardProps>> = function ({
   children,
   className,
+  ...rest
 }) {
   return (
     <div
@@ -17,10 +18,10 @@ export const Card: FunctionComponent<PropsWithChildren<CardProps>> = function ({
         ...THEME.background,
         'border rounded-md p-5 flex gap-3',
         className,
-      )}>
+      )}
+      {...rest}>
       {children}
     </div>
   );
 };
-export interface CardProps
-  extends Pick<HTMLAttributes<HTMLDivElement>, 'className'> {}
+export interface CardProps extends ComponentPropsWithoutRef<'div'> {}

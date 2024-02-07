@@ -1,22 +1,22 @@
 import classNames from 'classnames';
 import type {
+  ComponentPropsWithoutRef,
   FunctionComponent,
-  HTMLAttributes,
   PropsWithChildren,
 } from 'react';
 
 export const Button: FunctionComponent<PropsWithChildren<ButtonProps>> =
-  function ({ children, className, testId, ...props }) {
+  function ({ children, className, testId, ...rest }) {
     return (
       <button
         className={classNames(className)}
         data-testid={testId}
-        {...props}>
+        {...rest}>
         {children}
       </button>
     );
   };
 
-export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   testId?: string;
 }
