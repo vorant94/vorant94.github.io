@@ -1,19 +1,20 @@
 import { THEME } from '@/shared';
 import classNames from 'classnames';
 import type {
+  ComponentPropsWithoutRef,
   FunctionComponent,
-  HTMLAttributes,
   PropsWithChildren,
 } from 'react';
 
 export const Caption: FunctionComponent<PropsWithChildren<CaptionPros>> =
-  function ({ children, className }) {
+  function ({ children, className, ...rest }) {
     return (
-      <span className={classNames('text-sm', THEME.secondaryText, className)}>
+      <span
+        className={classNames('text-sm', THEME.secondaryText, className)}
+        {...rest}>
         {children}
       </span>
     );
   };
 
-export interface CaptionPros
-  extends Pick<HTMLAttributes<HTMLSpanElement>, 'className'> {}
+export interface CaptionPros extends ComponentPropsWithoutRef<'span'> {}

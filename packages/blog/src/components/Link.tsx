@@ -1,7 +1,7 @@
 import { THEME } from '@/shared';
 import classNames from 'classnames';
 import {
-  type AnchorHTMLAttributes,
+  type ComponentPropsWithoutRef,
   type FunctionComponent,
   type PropsWithChildren,
 } from 'react';
@@ -11,21 +11,19 @@ export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = function ({
   className,
   children,
   prefetch,
-  ...props
+  ...rest
 }) {
   return (
     <a
       className={classNames(THEME.link, THEME.linkDecoration, className)}
       href={href}
       data-astro-prefetch={prefetch}
-      {...props}>
+      {...rest}>
       {children}
     </a>
   );
 };
 
-// not ElementRef<'a'> because of TS complains about
-// "Type string is not assignable to type HTMLAttributeReferrerPolicy | undefined"
-export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface LinkProps extends ComponentPropsWithoutRef<'a'> {
   prefetch?: 'hover' | 'tap' | 'viewport' | 'load';
 }

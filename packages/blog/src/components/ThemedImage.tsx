@@ -1,11 +1,11 @@
-import type { FunctionComponent, ImgHTMLAttributes } from 'react';
+import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
 
 // in some cases you must set both height and width or prefer width over height because of this tailwindcss default
 // https://github.com/tailwindlabs/tailwindcss/issues/506
 export const ThemedImage: FunctionComponent<ThemedImageProps> = function ({
   src,
   srcDark,
-  ...props
+  ...rest
 }) {
   return (
     <picture>
@@ -17,13 +17,13 @@ export const ThemedImage: FunctionComponent<ThemedImageProps> = function ({
       )}
       <img
         src={src}
-        {...props}
+        {...rest}
       />
     </picture>
   );
 };
 
-export interface ThemedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
-  src: string;
+export interface ThemedImageProps extends ComponentPropsWithoutRef<'img'> {
+  src: string; // to make it required
   srcDark?: string;
 }
