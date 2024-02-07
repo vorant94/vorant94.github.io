@@ -46,7 +46,7 @@ function useIsLinkActive(pathname?: string): boolean {
 
   useEffect(() => {
     const url = new URL(window.location.href);
-    setIsActive(url.pathname === pathname);
+    setIsActive(!pathname || url.pathname.startsWith(pathname));
   }, [isActive]);
 
   return isActive;

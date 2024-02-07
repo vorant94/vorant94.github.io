@@ -29,12 +29,13 @@ const projects = defineCollection({
   schema({ image }) {
     return z
       .object({
-        title: z.string(),
-        description: z.string(),
+        name: z.string(),
+        slogan: z.string(),
         status: z.enum([
-          'planing',
+          'draft',
           'in progress',
-          'in production',
+          'mvp',
+          'prod',
           'freezed',
           'closed',
         ]),
@@ -56,7 +57,7 @@ const changelogs = defineCollection({
   schema() {
     return z.object({
       publishedAt: z.date(),
-      project: reference('project'),
+      project: reference('projects'),
     });
   },
 });

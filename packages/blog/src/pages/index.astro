@@ -21,6 +21,8 @@ const [pinnedPosts, allNonPinnedPosts] = partition(
 );
 
 const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
+
+const projects = await getCollection('projects');
 ---
 
 <MainLayout>
@@ -47,23 +49,15 @@ const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
   </Divider>
 
   <Carousel client:load>
-    <Carousel.Slide client:load>
-      <ProjectCard />
-    </Carousel.Slide>
-    <Carousel.Slide client:load>
-      <ProjectCard />
-    </Carousel.Slide>
-    <Carousel.Slide client:load>
-      <ProjectCard />
-    </Carousel.Slide>
-    <Carousel.Slide client:load>
-      <ProjectCard />
-    </Carousel.Slide>
-    <Carousel.Slide client:load>
-      <ProjectCard />
-    </Carousel.Slide>
-    <Carousel.Slide client:load>
-      <ProjectCard />
-    </Carousel.Slide>
+    {
+      projects.map((project) => (
+        <Carousel.Slide client:load>
+          <ProjectCard
+            client:load
+            project={project}
+          />
+        </Carousel.Slide>
+      ))
+    }
   </Carousel>
 </MainLayout>

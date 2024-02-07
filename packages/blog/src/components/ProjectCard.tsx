@@ -1,14 +1,17 @@
+import { PROJECT_STATUS_TO_LABEL, type Project } from '@/shared';
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
 import { Badge } from './Badge.tsx';
 import { Text } from './Text.tsx';
 import { Title } from './Title.tsx';
 
-export const ProjectCard: FunctionComponent = function () {
+export const ProjectCard: FunctionComponent<ProjectCardProps> = function ({
+  project,
+}) {
   return (
     <div
       style={{
-        '--bg-image-url': `url(https://picsum.photos/seed/picsum/200/300)`,
+        '--bg-image-url': `url(${project.data.coverImage?.src})`,
       }}
       className={classNames(
         'w-56 h-64 flex flex-col shrink-0 cursor-pointer',
@@ -18,11 +21,15 @@ export const ProjectCard: FunctionComponent = function () {
         <Badge
           color="green"
           className="mb-2">
-          Lorem.
+          {PROJECT_STATUS_TO_LABEL[project.data.status]}
         </Badge>
-        <Title>Lorem ipsum dolor.</Title>
-        <Text>Lorem ipsum dolor sit amet.</Text>
+        <Title>{project.data.name}</Title>
+        <Text>{project.data.slogan}</Text>
       </div>
     </div>
   );
 };
+
+export interface ProjectCardProps {
+  project: Project;
+}

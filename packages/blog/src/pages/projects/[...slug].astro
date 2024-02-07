@@ -1,0 +1,58 @@
+---
+import {
+  groupPostsByPublishedAtYear,
+  PublishedAtFormat,
+  Project,
+  Changelog,
+  sortPostsByPublishedAt,
+} from '@/shared';
+import { getCollection, getEntries } from 'astro:content';
+import { MainLayout } from '@/layouts';
+import { Divider, PostList, Headline } from '@/components';
+import { getImage } from 'astro:assets';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  const allChangelogs = await getCollection('changelogs');
+
+  return await Promise.all(
+    projects.map(async (project) => {
+      const projectChangelogs = allChangelogs.filter(
+        (changelog) => changelog.data.project === project.id,
+      );
+
+      return {
+        params: { slug: project.slug },
+        props: { project, changelogs: projectChangelogs },
+      };
+    }),
+  );
+}
+
+interface Props {
+  project: Project;
+  changelogs: Changelog[];
+}
+
+const { project, changelogs } = Astro.props;
+
+const { coverImage, name, slogan } = project.data;
+
+let coverImageSrc: string | undefined;
+if (coverImage) {
+  const image = await getImage({
+    src: coverImage,
+    format: coverImage.format,
+  });
+  coverImageSrc = image.src;
+}
+
+const { Content } = await project.render();
+---
+
+<MainLayout
+  title={name}
+  image={coverImageSrc}
+  desctiption={slogan}>
+  <Content />
+</MainLayout>

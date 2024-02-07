@@ -6,17 +6,17 @@ import { MainLayout } from '@/layouts';
 import { PostFrontmatter, Comments, RelatedPosts } from '@/components';
 
 export async function getStaticPaths() {
-  const entries = sortPostsByPublishedAt(await getCollection('posts'));
+  const posts = sortPostsByPublishedAt(await getCollection('posts'));
 
   return await Promise.all(
-    entries.map(async (post) => {
-      const related = post.data.related
+    posts.map(async (post) => {
+      const relatedPosts = post.data.related
         ? sortPostsByPublishedAt(await getEntries(post.data.related))
         : [];
 
       return {
         params: { slug: post.slug },
-        props: { post, related },
+        props: { post, related: relatedPosts },
       };
     }),
   );
