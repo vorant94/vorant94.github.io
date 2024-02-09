@@ -1,14 +1,7 @@
 ---
-import {
-  groupPostsByPublishedAtYear,
-  PublishedAtFormat,
-  Project,
-  Changelog,
-  sortPostsByPublishedAt,
-} from '@/shared';
-import { getCollection, getEntries } from 'astro:content';
+import type { Project, Changelog } from '@/shared';
+import { getCollection } from 'astro:content';
 import { MainLayout } from '@/layouts';
-import { Divider, PostList, Headline } from '@/components';
 import { getImage } from 'astro:assets';
 
 export async function getStaticPaths() {
@@ -18,7 +11,7 @@ export async function getStaticPaths() {
   return await Promise.all(
     projects.map(async (project) => {
       const projectChangelogs = allChangelogs.filter(
-        (changelog) => changelog.data.project === project.id,
+        (changelog) => changelog.data.project.slug === project.slug,
       );
 
       return {
@@ -53,6 +46,10 @@ const { Content } = await project.render();
 <MainLayout
   title={name}
   image={coverImageSrc}
-  desctiption={slogan}>
+  description={slogan}>
   <Content />
+
+  <ul>
+    {changelogs.map((changelog) => <li>{changelog.data.publishedAt}</li>)}
+  </ul>
 </MainLayout>
