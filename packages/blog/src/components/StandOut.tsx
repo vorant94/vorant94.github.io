@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { Card, type CardProps } from './Card.tsx';
+import { Card, type CardProps } from './Card';
 
 export const StandOut: FunctionComponent<PropsWithChildren<StandOutProps>> =
   function ({ className, children }) {

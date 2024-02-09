@@ -10,7 +10,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeSlug from 'rehype-slug';
 // this import cannot use path aliases, since the whole config needs to be compiled before vite resolves them
-import { PROFILE } from './src/shared';
+import { PROFILE } from './src/shared/profile';
 
 function readingTimePlugin() {
   return function (tree, { data }) {

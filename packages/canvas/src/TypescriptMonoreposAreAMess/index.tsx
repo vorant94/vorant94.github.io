@@ -1,4 +1,4 @@
-import { Layout } from '../components/Layout.tsx';
+import { Layout } from '../components/Layout';
 import gitLogoDark from './git-logo-dark.svg';
 import gitLogo from './git-logo.svg';
 import tsLogoDark from './ts-logo-dark.svg';

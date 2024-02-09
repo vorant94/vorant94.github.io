@@ -1,21 +1,23 @@
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import {
-  PostTiledListItem,
-  type PostTiledListItemComponent,
-} from './PostTiledListItem.tsx';
+import { Item, type ItemComponent } from './Item';
 
 const PostTiledList: PostTiledListComponent = function ({ children }) {
   return <ul className={classNames('flex flex-col gap-2')}>{children}</ul>;
 };
 
-PostTiledList.Item = PostTiledListItem;
+PostTiledList.Item = Item;
 
 export { PostTiledList };
 
 export interface PostTiledListComponent
   extends FunctionComponent<PropsWithChildren<PostTiledListProps>> {
-  Item: PostTiledListItemComponent;
+  Item: ItemComponent;
 }
 
 export interface PostTiledListProps {}
+
+export type {
+  ItemComponent as PostTiledListItemComponent,
+  ItemProps as PostTiledListItemProps,
+} from './Item';
