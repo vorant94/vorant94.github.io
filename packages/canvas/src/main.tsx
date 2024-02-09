@@ -2,12 +2,12 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import { TypeScriptMonoreposAreAMess } from './TypeScriptMonoreposAreAMess';
+import { TypescriptMonoreposAreAMess } from './TypescriptMonoreposAreAMess';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <TypeScriptMonoreposAreAMess />,
+    element: <TypescriptMonoreposAreAMess />,
   },
 ]);
 
