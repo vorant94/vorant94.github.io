@@ -11,6 +11,8 @@ import { faBars, faRss, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { FunctionComponent } from 'react';
 
+// Astro ViewTransitions component breaks React adapter for FontAwesome Icons
+// and although CSS adapter is fine with it, I better avoid ViewTransitions since anyway it is very new browser feature
 export const Icon: FunctionComponent<IconProps> = function ({ glyph }) {
   return (
     <FontAwesomeIcon
