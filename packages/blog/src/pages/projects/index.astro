@@ -6,11 +6,15 @@ import { ProjectCard } from '@/components/ProjectCard';
 import { Headline } from '@/components/Headline';
 import { Divider } from '@/components/Divider';
 import {
+  type ProjectStatus,
   groupProjectsByStatus,
+  sortProjectsByStatus,
   PROJECT_STATUS_TO_LABEL,
 } from '@/shared/project.helpers';
 
-const projectsByStatus = groupProjectsByStatus(await getCollection('projects'));
+const projectsByStatus = groupProjectsByStatus(
+  sortProjectsByStatus(await getCollection('projects')),
+);
 
 const statuses = Object.keys(projectsByStatus);
 ---
@@ -20,7 +24,9 @@ const statuses = Object.keys(projectsByStatus);
     statuses.map((status) => (
       <>
         <Divider isLeft={false}>
-          <Headline>{PROJECT_STATUS_TO_LABEL[status]}</Headline>
+          <Headline>
+            {PROJECT_STATUS_TO_LABEL[status as ProjectStatus]}
+          </Headline>
         </Divider>
 
         <ProjectsGrid>

@@ -1,7 +1,7 @@
 ---
 name: Digital Garden
 slogan: My personal piece of Internet
-status: prod
+status: live
 coverImage: ../attachments/digital-garden/logo.webp
 coverImageAlt: Digital Garden logo
 coverImageDark: ../attachments/digital-garden/logo-dark.webp

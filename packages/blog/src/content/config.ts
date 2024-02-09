@@ -31,14 +31,7 @@ const projects = defineCollection({
       .object({
         name: z.string(),
         slogan: z.string(),
-        status: z.enum([
-          'draft',
-          'in progress',
-          'mvp',
-          'prod',
-          'freezed',
-          'closed',
-        ]),
+        status: z.enum(['concept', 'mvp', 'live', 'freezed', 'closed']),
         coverImage: image().optional().nullable(),
         coverImageAlt: z.string().optional().nullable(),
         coverImageDark: image().optional().nullable(),
