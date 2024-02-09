@@ -1,4 +1,8 @@
-import { formatPostPublishedAt, getPostTagFullPath, type Post } from '@/shared';
+import {
+  formatPostPublishedAt,
+  getPostTagFullPath,
+  type Post,
+} from '@/shared/post.helpers.ts';
 import type { FunctionComponent } from 'react';
 import { Caption } from './Caption.tsx';
 import { Tag } from './Tag.tsx';

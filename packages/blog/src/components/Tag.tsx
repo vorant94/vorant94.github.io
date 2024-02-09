@@ -1,4 +1,5 @@
-import { COLORS, extractStringFromReactNode, type Color } from '@/shared';
+import { extractStringFromReactNode } from '@/shared/react.helpers.ts';
+import { COLORS, type Color } from '@/shared/theme.ts';
 import type {
   ComponentPropsWithoutRef,
   FunctionComponent,

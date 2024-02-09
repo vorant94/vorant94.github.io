@@ -1,5 +1,5 @@
 import { Link, type LinkProps } from '@/components';
-import { THEME } from '@/shared';
+import { THEME } from '@/shared/theme.ts';
 import classNames from 'classnames';
 import {
   useEffect,

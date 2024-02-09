@@ -1,4 +1,5 @@
-import { THEME, type Post } from '@/shared';
+import type { Post } from '@/shared/post.helpers.ts';
+import { THEME } from '@/shared/theme.ts';
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
 import { PostList } from '../PostList';

@@ -1,12 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
+import { MainLayout } from '@/layouts';
+import { Divider, PostList, Headline } from '@/components';
 import {
   groupPostsByPublishedAtYear,
   PublishedAtFormat,
   sortPostsByPublishedAt,
-} from '@/shared';
-import { getCollection } from 'astro:content';
-import { MainLayout } from '@/layouts';
-import { Divider, PostList, Headline } from '@/components';
+} from '@/shared/post.helpers';
 
 const postsByYear = groupPostsByPublishedAtYear(
   sortPostsByPublishedAt(await getCollection('posts')),

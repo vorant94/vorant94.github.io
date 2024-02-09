@@ -1,9 +1,9 @@
 ---
 import { getCollection, getEntries } from 'astro:content';
 import { getImage } from 'astro:assets';
-import { type Post, sortPostsByPublishedAt } from '@/shared';
 import { MainLayout } from '@/layouts';
 import { PostFrontmatter, Comments, RelatedPosts } from '@/components';
+import { type Post, sortPostsByPublishedAt } from '@/shared/post.helpers';
 
 export async function getStaticPaths() {
   const entries = sortPostsByPublishedAt(await getCollection('posts'));

@@ -1,4 +1,4 @@
-import type { Post } from '@/shared';
+import type { Post } from '@/shared/post.helpers.ts';
 import type { FunctionComponent } from 'react';
 import { PostList } from './PostList';
 import { StandOut } from './StandOut.tsx';

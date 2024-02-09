@@ -1,5 +1,6 @@
 import { Icon } from '@/components';
-import { PROFILE, THEME } from '@/shared';
+import { PROFILE } from '@/shared/profile.ts';
+import { THEME } from '@/shared/theme.ts';
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
 

@@ -1,4 +1,4 @@
-import { PROFILE } from '@/shared';
+import { PROFILE } from '@/shared/profile.ts';
 import type { FunctionComponent } from 'react';
 import { StandOut } from '../StandOut.tsx';
 import { Strong } from '../Strong.tsx';

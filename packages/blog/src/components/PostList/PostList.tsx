@@ -1,4 +1,4 @@
-import { THEME } from '@/shared';
+import { THEME } from '@/shared/theme.ts';
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { PostListItem, type PostListItemComponent } from './PostListItem.tsx';

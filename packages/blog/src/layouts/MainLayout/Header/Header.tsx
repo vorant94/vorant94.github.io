@@ -1,5 +1,5 @@
 import { ThemedImage } from '@/components';
-import { THEME } from '@/shared';
+import { THEME } from '@/shared/theme.ts';
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import HeaderLogo from './HeaderLogo.webp?url';

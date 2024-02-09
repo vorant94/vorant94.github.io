@@ -1,10 +1,10 @@
 import {
   PublishedAtFormat,
-  THEME,
   formatPostPublishedAt,
   getPostFullPath,
   type Post,
-} from '@/shared';
+} from '@/shared/post.helpers.ts';
+import { THEME } from '@/shared/theme.ts';
 import classNames from 'classnames';
 import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
 import { Link } from '../Link';

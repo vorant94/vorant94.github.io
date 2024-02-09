@@ -1,4 +1,4 @@
-import type { Post } from '@/shared';
+import type { Post } from '@/shared/post.helpers.ts';
 import Giscus from '@giscus/react';
 import { type FunctionComponent } from 'react';
 

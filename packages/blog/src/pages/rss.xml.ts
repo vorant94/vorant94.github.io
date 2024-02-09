@@ -1,4 +1,8 @@
-import { getPostFullPath, PROFILE, sortPostsByPublishedAt } from '@/shared';
+import {
+  getPostFullPath,
+  sortPostsByPublishedAt,
+} from '@/shared/post.helpers.ts';
+import { PROFILE } from '@/shared/profile.ts';
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
