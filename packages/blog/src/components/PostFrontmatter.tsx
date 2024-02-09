@@ -1,8 +1,12 @@
-import { formatPostPublishedAt, getPostTagFullPath, type Post } from '@/shared';
+import {
+  formatPostPublishedAt,
+  getPostTagFullPath,
+  type Post,
+} from '@/shared/post.helpers';
 import type { FunctionComponent } from 'react';
-import { Caption } from './Caption.tsx';
-import { Tag } from './Tag.tsx';
-import { ThemedImage } from './ThemedImage.tsx';
+import { Caption } from './Caption';
+import { Tag } from './Tag';
+import { ThemedImage } from './ThemedImage';
 
 export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
   function ({ post, minutesRead }) {

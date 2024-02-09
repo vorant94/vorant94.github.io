@@ -1,21 +1,18 @@
 import {
   PublishedAtFormat,
-  THEME,
   formatPostPublishedAt,
   getPostFullPath,
   type Post,
-} from '@/shared';
+} from '@/shared/post.helpers';
+import { THEME } from '@/shared/theme';
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import { Caption } from '../Caption.tsx';
-import { Link } from '../Link.tsx';
-import { ThemedImage } from '../ThemedImage.tsx';
-import { Title } from '../Title.tsx';
+import { Caption } from '../Caption';
+import { Link } from '../Link';
+import { ThemedImage } from '../ThemedImage';
+import { Title } from '../Title';
 
-export const PostTiledListItem: PostTiledListItemComponent = function ({
-  post,
-  publishedAtFormat,
-}) {
+export const Item: ItemComponent = function ({ post, publishedAtFormat }) {
   return (
     <li
       className={classNames(
@@ -51,10 +48,9 @@ export const PostTiledListItem: PostTiledListItemComponent = function ({
   );
 };
 
-export type PostTiledListItemComponent =
-  FunctionComponent<PostTiledListItemProps>;
+export type ItemComponent = FunctionComponent<ItemProps>;
 
-export interface PostTiledListItemProps {
+export interface ItemProps {
   post: Post;
   publishedAtFormat?: PublishedAtFormat;
 }

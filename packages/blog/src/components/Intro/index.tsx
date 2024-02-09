@@ -1,9 +1,9 @@
-import { PROFILE } from '@/shared';
+import { PROFILE } from '@/shared/profile';
 import type { FunctionComponent } from 'react';
-import { StandOut } from '../StandOut.tsx';
-import { Strong } from '../Strong.tsx';
-import { Text } from '../Text.tsx';
-import { ThemedImage } from '../ThemedImage.tsx';
+import { StandOut } from '../StandOut';
+import { Strong } from '../Strong';
+import { Text } from '../Text';
+import { ThemedImage } from '../ThemedImage';
 import IntroLogo from './IntroLogo.webp?url';
 import IntroLogoDark from './IntroLogoDark.webp?url';
 

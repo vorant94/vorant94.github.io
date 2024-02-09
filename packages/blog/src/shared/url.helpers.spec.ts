@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { removeTrailingSlash } from './url.helpers.ts';
+import { removeTrailingSlash } from './url.helpers';
 
 describe(`url.helpers`, () => {
   it(`should remove trailing slash from a string`, () => {

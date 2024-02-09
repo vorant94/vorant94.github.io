@@ -1,30 +1,32 @@
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import styles from './Carousel.module.css';
-import {
-  CarouselSlide,
-  type CarouselSlideComponent,
-} from './CarouselSlide.tsx';
+import { Slide, type SlideComponent } from './Slide';
+import Styles from './styles.module.css';
 
 const Carousel: CarouselComponent = function ({ children }) {
   return (
     <div
       className={classNames(
         'flex gap-6 overflow-x-auto scroll-smooth',
-        styles.carousel,
+        Styles.carousel,
       )}>
       {children}
     </div>
   );
 };
 
-Carousel.Slide = CarouselSlide;
+Carousel.Slide = Slide;
 
 export { Carousel };
 
 export interface CarouselComponent
   extends FunctionComponent<PropsWithChildren<CarouselProps>> {
-  Slide: CarouselSlideComponent;
+  Slide: SlideComponent;
 }
 
 export interface CarouselProps {}
+
+export type {
+  SlideComponent as CarouselSlideComponent,
+  SlideProps as CarouselSlideProps,
+} from './Slide';

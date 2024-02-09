@@ -1,5 +1,6 @@
-import { Button, Icon } from '@/components';
-import { THEME } from '@/shared';
+import { Button } from '@/components/Button';
+import { Icon } from '@/components/Icon';
+import { THEME } from '@/shared/theme';
 import classNames from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 import {

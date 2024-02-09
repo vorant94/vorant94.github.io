@@ -3,7 +3,7 @@ import {
   type BackgroundColor,
   type Color,
   type ThemedStyle,
-} from '@/shared';
+} from '@/shared/theme';
 import classNames from 'classnames';
 import type {
   FunctionComponent,

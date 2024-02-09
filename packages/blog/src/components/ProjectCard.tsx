@@ -1,4 +1,7 @@
-import { PROJECT_STATUS_TO_LABEL, type Project } from '@/shared';
+import {
+  PROJECT_STATUS_TO_LABEL,
+  type Project,
+} from '@/shared/project.helpers';
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
 import { Badge } from './Badge.tsx';
