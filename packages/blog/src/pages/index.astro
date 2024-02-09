@@ -46,14 +46,11 @@ const projects = await getCollection('projects');
     <Headline>My Projects</Headline>
   </Divider>
 
-  <Carousel client:load>
+  <Carousel>
     {
       projects.map((project) => (
-        <Carousel.Slide client:load>
-          <ProjectCard
-            client:load
-            project={project}
-          />
+        <Carousel.Slide>
+          <ProjectCard project={project} />
         </Carousel.Slide>
       ))
     }

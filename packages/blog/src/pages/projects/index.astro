@@ -1,5 +1,43 @@
 ---
 import { MainLayout } from '@/layouts/MainLayout';
+import { ProjectsGrid } from '@/components/ProjectsGrid';
+import { getCollection } from 'astro:content';
+import { ProjectCard } from '@/components/ProjectCard';
+import { Headline } from '@/components/Headline';
+import { Divider } from '@/components/Divider';
+import {
+  groupProjectsByStatus,
+  PROJECT_STATUS_TO_LABEL,
+} from '@/shared/project.helpers';
+
+const projectsByStatus = groupProjectsByStatus(await getCollection('projects'));
+
+const statuses = Object.keys(projectsByStatus);
 ---
 
-<MainLayout title="Projects" />
+<MainLayout title="Projects">
+  {
+    statuses.map((status) => (
+      <>
+        <Divider isLeft={false}>
+          <Headline>{PROJECT_STATUS_TO_LABEL[status]}</Headline>
+        </Divider>
+
+        <ProjectsGrid>
+          {projectsByStatus[status]!.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+          {projectsByStatus[status]!.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+          {projectsByStatus[status]!.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+          {projectsByStatus[status]!.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+        </ProjectsGrid>
+      </>
+    ))
+  }
+</MainLayout>

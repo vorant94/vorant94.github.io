@@ -1,4 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
+import { groupBy } from 'lodash-es';
 
 export type Project = CollectionEntry<'projects'>;
 
@@ -12,3 +13,9 @@ export const PROJECT_STATUS_TO_LABEL: Record<ProjectStatus, string> = {
   freezed: 'Freezed',
   closed: 'Closed',
 };
+
+export function groupProjectsByStatus(
+  projects: Project[],
+): Record<string, Project[]> {
+  return groupBy(projects, ({ data }) => data.status);
+}

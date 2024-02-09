@@ -4,9 +4,10 @@ import {
 } from '@/shared/project.helpers';
 import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
-import { Badge } from './Badge.tsx';
-import { Text } from './Text.tsx';
-import { Title } from './Title.tsx';
+import { Badge } from '../Badge';
+import { Text } from '../Text';
+import { Title } from '../Title';
+import Styles from './styles.module.css';
 
 export const ProjectCard: FunctionComponent<ProjectCardProps> = function ({
   project,
@@ -20,14 +21,21 @@ export const ProjectCard: FunctionComponent<ProjectCardProps> = function ({
         'w-56 h-64 flex flex-col shrink-0 cursor-pointer',
         'bg-[image:var(--bg-image-url)] bg-cover bg-center rounded-2xl',
       )}>
-      <div className="bg-black bg-opacity-10 flex-1 flexflex-col items-start p-4 rounded-2xl">
+      <div
+        className={classNames(
+          'bg-black bg-opacity-10 flex-1 flexflex-col items-start p-4 rounded-2xl',
+        )}>
         <Badge
           color="green"
           className="mb-2">
           {PROJECT_STATUS_TO_LABEL[project.data.status]}
         </Badge>
-        <Title>{project.data.name}</Title>
-        <Text>{project.data.slogan}</Text>
+        <Title className={classNames(Styles.textOutline)}>
+          {project.data.name}
+        </Title>
+        <Text className={classNames(Styles.textOutline)}>
+          {project.data.slogan}
+        </Text>
       </div>
     </div>
   );
