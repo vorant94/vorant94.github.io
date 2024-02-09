@@ -1,2 +1,2 @@
-export * from './Nav.tsx';
-export type { NavLinkComponent, NavLinkProps } from './NavLink.tsx';
+export * from './Nav';
+export type { NavLinkComponent, NavLinkProps } from './NavLink';

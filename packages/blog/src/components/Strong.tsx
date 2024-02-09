@@ -1,4 +1,4 @@
-import { THEME } from '@/shared/theme.ts';
+import { THEME } from '@/shared/theme';
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 

@@ -1,11 +1,11 @@
-import { extractStringFromReactNode } from '@/shared/react.helpers.ts';
-import { COLORS, type Color } from '@/shared/theme.ts';
+import { extractStringFromReactNode } from '@/shared/react.helpers';
+import { COLORS, type Color } from '@/shared/theme';
 import type {
   ComponentPropsWithoutRef,
   FunctionComponent,
   PropsWithChildren,
 } from 'react';
-import { Badge } from './Badge.tsx';
+import { Badge } from './Badge';
 
 export const Tag: FunctionComponent<PropsWithChildren<TagProps>> = function ({
   children,

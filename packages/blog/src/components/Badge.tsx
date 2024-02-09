@@ -3,7 +3,7 @@ import {
   type BackgroundColor,
   type Color,
   type ThemedStyle,
-} from '@/shared/theme.ts';
+} from '@/shared/theme';
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 

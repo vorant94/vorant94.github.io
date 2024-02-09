@@ -2,7 +2,10 @@
 import { getCollection } from 'astro:content';
 import { partition } from 'lodash-es';
 import { MainLayout } from '@/layouts';
-import { Intro, PostTiledList, PinnedPosts, Link } from '@/components';
+import { Intro } from '@/components/Intro';
+import { PostTiledList } from '@/components/PostTiledList';
+import { PinnedPosts } from '@/components/PinnedPosts';
+import { Link } from '@/components/Link';
 import { sortPostsByPublishedAt } from '@/shared/post.helpers';
 
 const allPosts = sortPostsByPublishedAt(await getCollection('posts'));

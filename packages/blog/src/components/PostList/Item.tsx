@@ -3,13 +3,13 @@ import {
   formatPostPublishedAt,
   getPostFullPath,
   type Post,
-} from '@/shared/post.helpers.ts';
-import { THEME } from '@/shared/theme.ts';
+} from '@/shared/post.helpers';
+import { THEME } from '@/shared/theme';
 import classNames from 'classnames';
 import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
 import { Link } from '../Link';
 
-export const PostListItem: PostListItemComponent = function ({
+export const Item: ItemComponent = function ({
   className,
   post,
   publishedAtFormat,
@@ -33,9 +33,9 @@ export const PostListItem: PostListItemComponent = function ({
   );
 };
 
-export type PostListItemComponent = FunctionComponent<PostListItemProps>;
+export type ItemComponent = FunctionComponent<ItemProps>;
 
-export interface PostListItemProps extends ComponentPropsWithoutRef<'li'> {
+export interface ItemProps extends ComponentPropsWithoutRef<'li'> {
   post: Post;
   publishedAtFormat?: PublishedAtFormat;
 }

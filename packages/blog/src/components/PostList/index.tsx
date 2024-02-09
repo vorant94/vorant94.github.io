@@ -1,7 +1,7 @@
-import { THEME } from '@/shared/theme.ts';
+import { THEME } from '@/shared/theme';
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { PostListItem, type PostListItemComponent } from './PostListItem.tsx';
+import { Item, type ItemComponent } from './Item';
 
 const PostList: PostListComponent = function ({ children }) {
   return (
@@ -15,13 +15,18 @@ const PostList: PostListComponent = function ({ children }) {
   );
 };
 
-PostList.Item = PostListItem;
+PostList.Item = Item;
 
 export { PostList };
 
 export interface PostListComponent
   extends FunctionComponent<PropsWithChildren<PostListProps>> {
-  Item: PostListItemComponent;
+  Item: ItemComponent;
 }
 
 export interface PostListProps {}
+
+export type {
+  ItemComponent as PostListItemComponent,
+  ItemProps as PostListItemProps,
+} from './Item';

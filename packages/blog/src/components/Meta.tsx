@@ -1,4 +1,4 @@
-import { PROFILE } from '@/shared/profile.ts';
+import { PROFILE } from '@/shared/profile';
 import type { FunctionComponent } from 'react';
 
 export const Meta: FunctionComponent<MetaProps> = function ({
