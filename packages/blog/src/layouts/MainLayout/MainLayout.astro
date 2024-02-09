@@ -40,7 +40,8 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
       type={type}
     />
 
-    <ViewTransitions />
+    <!-- condition here is to avoid weird bug with fontawesome react icons, that disappear upon navigation -->
+    {isProd && <ViewTransitions />}
   </head>
   <body
     class:list={[

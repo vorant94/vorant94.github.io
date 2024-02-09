@@ -1,3 +1,4 @@
+import { ButtonLink } from '@/components/ButtonLink.tsx';
 import { ThemedImage } from '@/components/ThemedImage';
 import { THEME } from '@/shared/theme';
 import classNames from 'classnames';
@@ -14,14 +15,16 @@ export const Header: FunctionComponent<PropsWithChildren<HeaderProps>> =
           ...THEME.border,
         )}>
         <nav>
-          <a href="/">
+          <ButtonLink
+            href="/"
+            className={classNames('!p-0')}>
             <ThemedImage
               src={HeaderLogo}
               srcDark={HeaderLogoDark}
               alt="Logo"
               width="120"
             />
-          </a>
+          </ButtonLink>
         </nav>
 
         <span className="flex-1"></span>
