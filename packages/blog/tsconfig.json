@@ -1,21 +1,41 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "forceConsistentCasingInFileNames": true,
+    /* Base */
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "target": "ESNext",
     "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+
+    /* Strictness */
     "strict": true,
+    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+
+    /* Bundler/Compiler */
+    "moduleResolution": "Bundler",
+    "module": "NodeNext",
+    "noEmit": true,
+
+    /* Runtime/Framework */
+    "lib": ["ESNext"],
     "jsx": "react-jsx",
     "jsxImportSource": "react",
+    "allowImportingTsExtensions": true,
+
+    /* Vitest */
+    "baseUrl": ".",
+
+    /* Misc */
     "paths": {
       "@/*": ["src/*"],
     },

@@ -6,7 +6,7 @@ import tsLogo from './ts-logo.svg';
 import yarnLogoDark from './yarn-logo-dark.svg';
 import yarnLogo from './yarn-logo.svg';
 
-export function TypeScriptMonoreposAreAMess() {
+export function TypescriptMonoreposAreAMess() {
   return (
     <Layout>
       <div className="grid grid-cols-6 grid-rows-4 gap-6 p-40 bg-zinc-100 dark:bg-zinc-900">
