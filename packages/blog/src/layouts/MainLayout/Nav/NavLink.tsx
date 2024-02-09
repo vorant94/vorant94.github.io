@@ -8,7 +8,8 @@ import {
   type PropsWithChildren,
 } from 'react';
 
-export const NavLink: NavLinkComponent = function ({
+// has prefix Nav even internally in order to avoid conflicts with Link coming from components
+export const NavLink: LinkComponent = function ({
   href,
   className,
   children,
@@ -52,8 +53,6 @@ function useIsLinkActive(pathname?: string): boolean {
   return isActive;
 }
 
-export type NavLinkComponent = FunctionComponent<
-  PropsWithChildren<NavLinkProps>
->;
+export type LinkComponent = FunctionComponent<PropsWithChildren<NavLinkProps>>;
 
 export interface NavLinkProps extends LinkProps {}

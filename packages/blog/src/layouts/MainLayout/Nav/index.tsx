@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Modal, useIsModalOpen } from '../Modal';
-import { NavLink, type NavLinkComponent } from './NavLink';
+import { NavLink, type LinkComponent } from './NavLink';
 
 const Nav: NavComponent = function ({ children }) {
   const [isMobileNavOpen, setIsMobileNavOpen] = useIsMobileNavOpen();
@@ -56,7 +56,9 @@ export { Nav };
 
 export interface NavComponent
   extends FunctionComponent<PropsWithChildren<NavProps>> {
-  Link: NavLinkComponent;
+  Link: LinkComponent;
 }
 
 export interface NavProps {}
+
+export type { LinkComponent, NavLinkProps } from './NavLink';
