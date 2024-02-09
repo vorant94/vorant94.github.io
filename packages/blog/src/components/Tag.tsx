@@ -27,5 +27,5 @@ function hashToColor(value: string): Color {
     .map((char) => char.charCodeAt(0))
     .reduce((prev, curr) => prev + curr, 0);
 
-  return COLORS[hash % COLORS.length];
+  return COLORS[hash % COLORS.length]!;
 }

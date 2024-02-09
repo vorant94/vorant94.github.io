@@ -23,7 +23,7 @@ const years = Object.keys(postsByYear).reverse();
           <Headline>{year}</Headline>
         </Divider>
         <PostList>
-          {postsByYear[year].map((post) => (
+          {postsByYear[year]!.map((post) => (
             <PostList.Item
               post={post}
               publishedAtFormat={PublishedAtFormat.SHORT}
