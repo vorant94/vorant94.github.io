@@ -5,10 +5,10 @@ import type {
   PropsWithChildren,
 } from 'react';
 
-export const Button: FunctionComponent<PropsWithChildren<ButtonProps>> =
+export const ButtonLink: FunctionComponent<PropsWithChildren<ButtonLinkProps>> =
   function ({ children, className, isOutlined, testId, ...rest }) {
     return (
-      <button
+      <a
         className={classNames(
           'p-1 hover:text-cyan-500',
           {
@@ -20,11 +20,11 @@ export const Button: FunctionComponent<PropsWithChildren<ButtonProps>> =
         data-testid={testId}
         {...rest}>
         {children}
-      </button>
+      </a>
     );
   };
 
-export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
+export interface ButtonLinkProps extends ComponentPropsWithoutRef<'a'> {
   testId?: string;
   isOutlined?: boolean;
 }

@@ -1,26 +1,23 @@
+import { getPostTagFullPath } from '@/shared/post.helpers.ts';
 import { extractStringFromReactNode } from '@/shared/react.helpers';
 import { COLORS, type Color } from '@/shared/theme';
-import type {
-  ComponentPropsWithoutRef,
-  FunctionComponent,
-  PropsWithChildren,
-} from 'react';
+import type { FunctionComponent, PropsWithChildren } from 'react';
 import { Badge } from './Badge';
 
 export const Tag: FunctionComponent<PropsWithChildren<TagProps>> = function ({
   children,
-  href,
 }) {
-  const hashValue = extractStringFromReactNode(children);
-  const color = hashToColor(hashValue);
+  const tag = extractStringFromReactNode(children);
+  const color = hashToColor(tag);
 
-  const base = <Badge color={color}>#{children}</Badge>;
-
-  // replace with Link here
-  return href != null ? <a href={href}>{base}</a> : base;
+  return (
+    <a href={getPostTagFullPath(tag)}>
+      <Badge color={color}>#{tag}</Badge>
+    </a>
+  );
 };
 
-export interface TagProps extends Pick<ComponentPropsWithoutRef<'a'>, 'href'> {}
+export interface TagProps {}
 
 function hashToColor(value: string): Color {
   const hash = value

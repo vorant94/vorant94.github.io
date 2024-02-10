@@ -7,7 +7,6 @@ import { Nav } from './Nav';
 import { Background } from '@/components/Background';
 import { Meta } from '@/components/Meta';
 import '@/styles/reset.css';
-import { ViewTransitions } from 'astro:transitions';
 import { removeTrailingSlash } from '@/shared/url.helpers';
 import { THEME } from '@/shared/theme';
 import { PROFILE } from '@/shared/profile';
@@ -39,8 +38,6 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
       description={description}
       type={type}
     />
-
-    <ViewTransitions />
   </head>
   <body
     class:list={[

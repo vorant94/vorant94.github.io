@@ -16,11 +16,14 @@ const Nav: NavComponent = function ({ children }) {
 
   return (
     <>
-      <nav className="hidden lg:flex">
+      <nav
+        data-testid="desktop-nav"
+        className="hidden lg:flex">
         <ul className="flex gap-3 md:gap-4 lg:gap-6">{children}</ul>
       </nav>
 
       <Button
+        aria-label="mobile-nav-burger"
         className="lg:hidden"
         onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
         <Icon glyph="menu" />
@@ -29,7 +32,9 @@ const Nav: NavComponent = function ({ children }) {
       <Modal
         isOpen={isMobileNavOpen}
         onCloseClick={() => setIsMobileNavOpen(false)}>
-        <nav className="flex-1 flex flex-col justify-center">
+        <nav
+          data-testid="mobile-nav"
+          className="flex-1 flex flex-col justify-center">
           <ul className="flex flex-col gap-3 px-6">{children}</ul>
         </nav>
       </Modal>

@@ -1,3 +1,4 @@
+import { ButtonLink } from '@/components/ButtonLink.tsx';
 import { Icon } from '@/components/Icon';
 import { PROFILE } from '@/shared/profile';
 import { THEME } from '@/shared/theme';
@@ -16,12 +17,12 @@ export const Footer: FunctionComponent<FooterProps> = function () {
 
       <div className="flex-1"></div>
 
-      <a
+      <ButtonLink
         href="/rss.xml"
         aria-label="RSS feed"
         target="_blank">
         <Icon glyph="rss" />
-      </a>
+      </ButtonLink>
     </footer>
   );
 };

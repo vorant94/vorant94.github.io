@@ -1,8 +1,4 @@
-import {
-  formatPostPublishedAt,
-  getPostTagFullPath,
-  type Post,
-} from '@/shared/post.helpers';
+import { formatPostPublishedAt, type Post } from '@/shared/post.helpers';
 import type { FunctionComponent } from 'react';
 import { Caption } from './Caption';
 import { Tag } from './Tag';
@@ -44,7 +40,7 @@ export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
           <ul className="flex list-none m-0 p-0 gap-1">
             {tags.map((tag) => (
               <li key={tag}>
-                <Tag href={getPostTagFullPath(tag)}>{tag}</Tag>
+                <Tag>{tag}</Tag>
               </li>
             ))}
           </ul>
