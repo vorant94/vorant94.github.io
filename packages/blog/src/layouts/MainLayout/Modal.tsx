@@ -22,16 +22,18 @@ export const Modal: FunctionComponent<PropsWithChildren<ModalProps>> =
             key="modal"
             initial={{ y: '-100%' }}
             animate={{ y: '0' }}
-            // for some reason works only with y, translateY on exit causes loss of animation
+            // for some reason works only with y, translateY on exit specifically causes loss of animation
             exit={{ y: '-100%' }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
             className={classNames(
               'fixed top-0 left-0 w-dvw h-dvh backdrop-filter backdrop-blur z-10',
             )}>
             <div
               className={classNames(THEME.fullWidth, 'flex flex-col h-full')}>
               <Header>
-                <Button onClick={onCloseClick}>
+                <Button
+                  aria-label="modal-close"
+                  onClick={onCloseClick}>
                   <Icon glyph="close" />
                 </Button>
               </Header>
