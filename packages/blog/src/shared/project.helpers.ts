@@ -1,5 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 import { groupBy } from 'lodash-es';
+import type { Color } from './theme';
 
 export type Project = CollectionEntry<'projects'>;
 
@@ -11,6 +12,14 @@ export const PROJECT_STATUS_TO_LABEL: Record<ProjectStatus, string> = {
   live: 'Live',
   freezed: 'Freezed',
   closed: 'Closed',
+};
+
+export const PROJECT_STATUS_TO_BADGE_COLOR: Record<ProjectStatus, Color> = {
+  concept: 'neutral',
+  mvp: 'yellow',
+  live: 'green',
+  freezed: 'blue',
+  closed: 'indigo',
 };
 
 const PROJECT_STATUS_ORDER: Record<ProjectStatus, number> = {

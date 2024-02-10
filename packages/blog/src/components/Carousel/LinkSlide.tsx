@@ -1,3 +1,4 @@
+import type { Color } from '@/shared/theme';
 import classNames from 'classnames';
 import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
 import { Badge } from '../Badge';
@@ -10,19 +11,21 @@ export const LinkSlide: LinkSlideComponent = function ({
   href,
   bgImageSrc,
   bgImageSrcDark,
-  badge,
+  badgeLabel,
+  badgeColor,
   title,
   subTitle,
 }) {
   return (
     <ButtonLink
+      isOutlined={true}
       style={{
         '--bg-image-url': `url(${bgImageSrc})`,
         '--bg-image-dark-url': `url(${bgImageSrcDark})`,
       }}
       href={href}
       className={classNames(
-        'w-56 h-64 flex flex-col shrink-0',
+        '!p-0 w-56 h-64 flex flex-col shrink-0',
         'bg-[image:var(--bg-image-url)] bg-cover bg-center',
         'rounded-2xl overflow-hidden',
         {
@@ -34,9 +37,9 @@ export const LinkSlide: LinkSlideComponent = function ({
           'bg-black bg-opacity-10 flex-1 flex flex-col items-start p-4',
         )}>
         <Badge
-          color="green"
+          color={badgeColor}
           className="mb-2">
-          {badge}
+          {badgeLabel}
         </Badge>
         <Title className={classNames(Styles.textOutline)}>{title}</Title>
         <Text className={classNames(Styles.textOutline)}>{subTitle}</Text>
@@ -51,7 +54,8 @@ export interface LinkSlideProps
   extends Pick<ComponentPropsWithoutRef<'a'>, 'href'> {
   bgImageSrc?: string;
   bgImageSrcDark?: string;
-  badge?: string;
+  badgeLabel: string;
+  badgeColor: Color;
   title?: string;
   subTitle?: string;
 }

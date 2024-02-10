@@ -13,6 +13,7 @@ import { sortPostsByPublishedAt } from '@/shared/post.helpers';
 import {
   getProjectFullPath,
   PROJECT_STATUS_TO_LABEL,
+  PROJECT_STATUS_TO_BADGE_COLOR,
 } from '@/shared/project.helpers';
 
 const allPosts = sortPostsByPublishedAt(await getCollection('posts'));
@@ -56,8 +57,9 @@ const projects = await getCollection('projects');
           bgImageSrc={project.data.coverImage?.src}
           bgImageSrc={project.data.coverImageDark?.src}
           href={getProjectFullPath(project)}
-          badge={PROJECT_STATUS_TO_LABEL[project.data.status]}
-          badge={project.data.name}
+          badgeLabel={PROJECT_STATUS_TO_LABEL[project.data.status]}
+          badgeColor={PROJECT_STATUS_TO_BADGE_COLOR[project.data.status]}
+          title={project.data.name}
           subTitle={project.data.slogan}
         />
       ))
