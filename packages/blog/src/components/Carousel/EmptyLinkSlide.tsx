@@ -5,7 +5,7 @@ import type {
   FunctionComponent,
   PropsWithChildren,
 } from 'react';
-import { ButtonLink } from '../ButtonLink.tsx';
+import { ButtonLink } from '../ButtonLink';
 
 export const EmptyLinkSlide: EmptyLinkSlideComponent = function ({
   children,

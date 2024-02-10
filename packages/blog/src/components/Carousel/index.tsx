@@ -1,10 +1,7 @@
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import {
-  EmptyLinkSlide,
-  type EmptyLinkSlideComponent,
-} from './EmptyLinkSlide.tsx';
-import { LinkSlide, type LinkSlideComponent } from './LinkSlide.tsx';
+import { EmptyLinkSlide, type EmptyLinkSlideComponent } from './EmptyLinkSlide';
+import { LinkSlide, type LinkSlideComponent } from './LinkSlide';
 import Styles from './styles.module.css';
 
 const Carousel: CarouselComponent = function ({ children }) {
@@ -35,9 +32,9 @@ export interface CarouselProps {}
 export type {
   LinkSlideComponent as CarouselLinkSlideComponent,
   LinkSlideProps as CarouselLinkSlideProps,
-} from './LinkSlide.tsx';
+} from './LinkSlide';
 
 export type {
   EmptyLinkSlideComponent as CarouselEmptyLinkSlideComponent,
   EmptyLinkSlideProps as CarouselEmptyLinkSlideProps,
-} from './LinkSlide.tsx';
+} from './EmptyLinkSlide';

@@ -1,4 +1,4 @@
-import { ButtonLink } from '@/components/ButtonLink.tsx';
+import { ButtonLink } from '@/components/ButtonLink';
 import { ThemedImage } from '@/components/ThemedImage';
 import { THEME } from '@/shared/theme';
 import classNames from 'classnames';

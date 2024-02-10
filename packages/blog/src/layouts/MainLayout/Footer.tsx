@@ -1,4 +1,4 @@
-import { ButtonLink } from '@/components/ButtonLink.tsx';
+import { ButtonLink } from '@/components/ButtonLink';
 import { Icon } from '@/components/Icon';
 import { PROFILE } from '@/shared/profile';
 import { THEME } from '@/shared/theme';

@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
-import { Badge } from '../Badge.tsx';
-import { ButtonLink } from '../ButtonLink.tsx';
-import { Text } from '../Text.tsx';
-import { Title } from '../Title.tsx';
+import { Badge } from '../Badge';
+import { ButtonLink } from '../ButtonLink';
+import { Text } from '../Text';
+import { Title } from '../Title';
 import Styles from './LinkSlide.module.css';
 
 export const LinkSlide: LinkSlideComponent = function ({
