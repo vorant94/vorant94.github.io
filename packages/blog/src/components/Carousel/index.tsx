@@ -1,13 +1,17 @@
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { Slide, type SlideComponent } from './Slide';
+import {
+  EmptyLinkSlide,
+  type EmptyLinkSlideComponent,
+} from './EmptyLinkSlide.tsx';
+import { LinkSlide, type LinkSlideComponent } from './LinkSlide.tsx';
 import Styles from './styles.module.css';
 
 const Carousel: CarouselComponent = function ({ children }) {
   return (
     <div
       className={classNames(
-        'flex gap-6 overflow-x-auto scroll-smooth',
+        'p-1 flex gap-6 overflow-x-auto scroll-smooth',
         Styles.carousel,
       )}>
       {children}
@@ -15,18 +19,25 @@ const Carousel: CarouselComponent = function ({ children }) {
   );
 };
 
-Carousel.Slide = Slide;
+Carousel.LinkSlide = LinkSlide;
+Carousel.EmptyLinkSlide = EmptyLinkSlide;
 
 export { Carousel };
 
 export interface CarouselComponent
   extends FunctionComponent<PropsWithChildren<CarouselProps>> {
-  Slide: SlideComponent;
+  LinkSlide: LinkSlideComponent;
+  EmptyLinkSlide: EmptyLinkSlideComponent;
 }
 
 export interface CarouselProps {}
 
 export type {
-  SlideComponent as CarouselSlideComponent,
-  SlideProps as CarouselSlideProps,
-} from './Slide';
+  LinkSlideComponent as CarouselLinkSlideComponent,
+  LinkSlideProps as CarouselLinkSlideProps,
+} from './LinkSlide.tsx';
+
+export type {
+  EmptyLinkSlideComponent as CarouselEmptyLinkSlideComponent,
+  EmptyLinkSlideProps as CarouselEmptyLinkSlideProps,
+} from './LinkSlide.tsx';

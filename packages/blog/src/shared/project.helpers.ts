@@ -33,3 +33,7 @@ export function groupProjectsByStatus(
 ): Record<string, Project[]> {
   return groupBy(projects, ({ data }) => data.status);
 }
+
+export function getProjectFullPath({ slug }: Project): string {
+  return `/projects/${slug}`;
+}

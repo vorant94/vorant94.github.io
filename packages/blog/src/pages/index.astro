@@ -11,6 +11,10 @@ import { Divider } from '@/components/Divider';
 import { Headline } from '@/components/Headline';
 import { ProjectCard } from '@/components/ProjectCard';
 import { sortPostsByPublishedAt } from '@/shared/post.helpers';
+import {
+  getProjectFullPath,
+  PROJECT_STATUS_TO_LABEL,
+} from '@/shared/project.helpers';
 
 const allPosts = sortPostsByPublishedAt(await getCollection('posts'));
 const [pinnedPosts, allNonPinnedPosts] = partition(
@@ -49,10 +53,16 @@ const projects = await getCollection('projects');
   <Carousel>
     {
       projects.map((project) => (
-        <Carousel.Slide>
-          <ProjectCard project={project} />
-        </Carousel.Slide>
+        <Carousel.LinkSlide
+          bgImageSrc={project.data.coverImage?.src}
+          bgImageSrc={project.data.coverImageDark?.src}
+          href={getProjectFullPath(project)}
+          badge={PROJECT_STATUS_TO_LABEL[project.data.status]}
+          badge={project.data.name}
+          subTitle={project.data.slogan}
+        />
       ))
     }
+    <Carousel.EmptyLinkSlide href="/projects">See all</Carousel.EmptyLinkSlide>
   </Carousel>
 </MainLayout>
