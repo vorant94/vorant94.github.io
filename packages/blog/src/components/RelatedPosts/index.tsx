@@ -5,7 +5,7 @@ import type { FunctionComponent } from 'react';
 import { PostList } from '../PostList';
 import { StandOut } from '../StandOut';
 import { Title } from '../Title';
-import Styles from './styles.module.css';
+import Styles from './index.module.css';
 
 export const RelatedPosts: FunctionComponent<RelatedPostsProps> = function ({
   posts,

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { EmptyLinkSlide, type EmptyLinkSlideComponent } from './EmptyLinkSlide';
 import { LinkSlide, type LinkSlideComponent } from './LinkSlide';
-import Styles from './styles.module.css';
+import Styles from './index.module.css';
 
 const Carousel: CarouselComponent = function ({ children }) {
   return (
