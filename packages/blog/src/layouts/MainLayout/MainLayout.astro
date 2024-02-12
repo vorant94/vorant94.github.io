@@ -20,6 +20,7 @@ interface Props {
 
 const { title, image, description, type } = Astro.props;
 const isProd = import.meta.env.PROD;
+const baseUrl = Astro.url.origin;
 const currentPath = removeTrailingSlash(Astro.url.pathname);
 ---
 
@@ -37,6 +38,7 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
       image={image}
       description={description}
       type={type}
+      baseUrl={baseUrl}
     />
   </head>
   <body

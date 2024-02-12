@@ -7,11 +7,12 @@ export const Seo: FunctionComponent<SeoProps> = function ({
   image = '/favicon.ico',
   description = PROFILE.description,
   type = 'website',
+  baseUrl,
 }) {
   const fullTitle = title === PROFILE.title ? title : `vorant94 | ${title}`;
-  const domain = PROFILE.baseUrl.split('/').at(-1);
-  const fullUrl = new URL(currentPath, PROFILE.baseUrl).toString();
-  const imageSrc = new URL(image, PROFILE.baseUrl).toString();
+  const domain = baseUrl.split('/').at(-1);
+  const fullUrl = new URL(currentPath, baseUrl).toString();
+  const imageSrc = new URL(image, baseUrl).toString();
 
   return (
     <>
@@ -72,4 +73,5 @@ export interface SeoProps {
   image?: string;
   description?: string;
   type?: string;
+  baseUrl: string;
 }

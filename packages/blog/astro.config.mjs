@@ -2,15 +2,29 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
+import { config } from 'dotenv';
 import { h } from 'hastscript';
 import { toString } from 'mdast-util-to-string';
+import process from 'node:process';
 import readingTime from 'reading-time';
 import rehypeAddClasses from 'rehype-add-classes';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeSlug from 'rehype-slug';
-// this import cannot use path aliases, since the whole config needs to be compiled before vite resolves them
-import { PROFILE } from './src/shared/profile';
+import { z } from 'zod';
+
+config();
+
+const ciSchema = z.object({
+  BASE_URL: z.string().url(),
+  CI: z.coerce.boolean().pipe(z.literal(true)),
+});
+const localSchema = z.object({
+  BASE_URL: z.string().url().nullish().default('http://localhost:4321'),
+  CI: z.void(),
+});
+
+const env = z.union([ciSchema, localSchema]).parse(process.env);
 
 function readingTimePlugin() {
   return function (tree, { data }) {
@@ -26,7 +40,7 @@ export default defineConfig({
     sitemap(),
     react(),
   ],
-  site: PROFILE.baseUrl,
+  site: env.BASE_URL,
   trailingSlash: 'never',
   // this adds to bundle an Astro script to manipulate head element to enable prefetch dynamically,
   // hence despite being in SSG mode astro should be moved from devDependencies to dependencies
