@@ -3,45 +3,51 @@ import { defineCollection, reference, z } from 'astro:content';
 const posts = defineCollection({
   type: 'content',
   schema({ image }) {
-    return z
-      .object({
-        title: z.string(),
-        description: z.string(),
-        tags: z.array(z.string()),
-        publishedAt: z.date(),
-        coverImage: image().nullish(),
-        coverImageAlt: z.string().nullish(),
-        coverImageDark: image().nullish(),
-        related: z.array(reference('posts')).nullish(),
-        isPinned: z.boolean().nullish().default(false),
-        code: z.string().url().nullish(),
-      })
-      .refine(
-        (value) =>
-          !value.coverImage || (!!value.coverImage && !!value.coverImageAlt),
-        'Cover Image should have Alt text',
-      );
+    const base = z.object({
+      title: z.string(),
+      description: z.string(),
+      tags: z.array(z.string()),
+      publishedAt: z.date(),
+      related: z.array(reference('posts')).nullish(),
+      isPinned: z.boolean().nullish().default(false),
+      code: z.string().url().nullish(),
+    });
+
+    const withoutCover = base.extend({
+      coverImage: z.void(),
+    });
+
+    const withCover = base.extend({
+      coverImage: image(),
+      coverImageAlt: z.string(),
+      coverImageDark: image().nullish(),
+    });
+
+    return z.union([withCover, withoutCover]);
   },
 });
 
 const projects = defineCollection({
   type: 'content',
   schema({ image }) {
-    return z
-      .object({
-        name: z.string(),
-        slogan: z.string(),
-        status: z.enum(['concept', 'mvp', 'live', 'freezed', 'closed']),
-        coverImage: image().optional().nullable(),
-        coverImageAlt: z.string().optional().nullable(),
-        coverImageDark: image().optional().nullable(),
-        code: z.string().url(),
-      })
-      .refine(
-        (value) =>
-          !value.coverImage || (!!value.coverImage && !!value.coverImageAlt),
-        'Cover Image should have Alt text',
-      );
+    const base = z.object({
+      name: z.string(),
+      slogan: z.string(),
+      status: z.enum(['concept', 'mvp', 'live', 'freezed', 'closed']),
+      code: z.string().url(),
+    });
+
+    const withoutCover = base.extend({
+      coverImage: z.void(),
+    });
+
+    const withCover = base.extend({
+      coverImage: image(),
+      coverImageAlt: z.string(),
+      coverImageDark: image().nullish(),
+    });
+
+    return z.union([withCover, withoutCover]);
   },
 });
 

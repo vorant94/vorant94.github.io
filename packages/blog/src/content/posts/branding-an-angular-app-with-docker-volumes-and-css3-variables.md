@@ -6,7 +6,6 @@ tags:
   - docker
   - angular
 publishedAt: 2021-01-26
-coverImage:
 related:
 isPinned:
 ---
