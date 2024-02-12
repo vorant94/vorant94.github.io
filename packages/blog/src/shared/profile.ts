@@ -1,7 +1,6 @@
 import type { IconGlyph } from '@/components/Icon';
 
 export const PROFILE: Profile = {
-  baseUrl: 'https://www.vorant94.io',
   title: `vorant94's Digital Garden`,
   description: `Welcome to my digital garden, here I write about all sorts of things (mostly about technologies, a little bit on gaming, traveling and self-reflecting)`,
   email: 'vorant94@pm.me',
@@ -45,7 +44,6 @@ export const PROFILE: Profile = {
 };
 
 export interface Profile {
-  baseUrl: string;
   title: string;
   description: string;
   email: string;

@@ -9,12 +9,12 @@ const posts = defineCollection({
         description: z.string(),
         tags: z.array(z.string()),
         publishedAt: z.date(),
-        coverImage: image().optional().nullable(),
-        coverImageAlt: z.string().optional().nullable(),
-        coverImageDark: image().optional().nullable(),
-        related: z.array(reference('posts')).optional().nullable(),
-        isPinned: z.boolean().optional().nullable().default(false),
-        code: z.string().url().optional().nullable(),
+        coverImage: image().nullish(),
+        coverImageAlt: z.string().nullish(),
+        coverImageDark: image().nullish(),
+        related: z.array(reference('posts')).nullish(),
+        isPinned: z.boolean().nullish().default(false),
+        code: z.string().url().nullish(),
       })
       .refine(
         (value) =>
