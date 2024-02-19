@@ -15,6 +15,7 @@ import {
   PROJECT_STATUS_TO_LABEL,
   PROJECT_STATUS_TO_BADGE_COLOR,
 } from '@/shared/project.helpers';
+import { isProjectDataWithCover } from '../shared/project.helpers';
 
 const allPosts = sortPostsByPublishedAt(await getCollection('posts'));
 const [pinnedPosts, allNonPinnedPosts] = partition(
@@ -52,17 +53,29 @@ const projects = await getCollection('projects');
 
   <Carousel>
     {
-      projects.map((project) => (
-        <Carousel.LinkSlide
-          bgImageSrc={project.data.coverImage?.src}
-          bgImageSrc={project.data.coverImageDark?.src}
-          href={getProjectFullPath(project)}
-          badgeLabel={PROJECT_STATUS_TO_LABEL[project.data.status]}
-          badgeColor={PROJECT_STATUS_TO_BADGE_COLOR[project.data.status]}
-          title={project.data.name}
-          subTitle={project.data.slogan}
-        />
-      ))
+      projects.map((project) => {
+        const { data } = project;
+
+        return isProjectDataWithCover(data) ? (
+          <Carousel.LinkSlide
+            bgImageSrc={data.coverImage?.src}
+            bgImageSrcDark={data.coverImageDark?.src}
+            href={getProjectFullPath(project)}
+            badgeLabel={PROJECT_STATUS_TO_LABEL[data.status]}
+            badgeColor={PROJECT_STATUS_TO_BADGE_COLOR[data.status]}
+            title={data.name}
+            subTitle={data.slogan}
+          />
+        ) : (
+          <Carousel.LinkSlide
+            href={getProjectFullPath(project)}
+            badgeLabel={PROJECT_STATUS_TO_LABEL[data.status]}
+            badgeColor={PROJECT_STATUS_TO_BADGE_COLOR[data.status]}
+            title={data.name}
+            subTitle={data.slogan}
+          />
+        );
+      })
     }
     <Carousel.EmptyLinkSlide href="/projects">See all</Carousel.EmptyLinkSlide>
   </Carousel>

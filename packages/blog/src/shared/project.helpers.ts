@@ -1,10 +1,37 @@
-import type { CollectionEntry } from 'astro:content';
+import { z, type CollectionEntry, type SchemaContext } from 'astro:content';
 import { groupBy } from 'lodash-es';
 import type { Color } from './theme';
 
 export type Project = CollectionEntry<'projects'>;
 
-export type ProjectStatus = Project['data']['status'];
+const base = z.object({
+  name: z.string(),
+  slogan: z.string(),
+  status: z.enum(['concept', 'mvp', 'live', 'freezed', 'closed']),
+  code: z.string().url(),
+});
+
+export const projectWithoutCover = base.extend({
+  coverImage: z.void(),
+});
+
+export const projectWithCover = ({ image }: SchemaContext) =>
+  base.extend({
+    coverImage: image(),
+    coverImageAlt: z.string(),
+    coverImageDark: image().nullish(),
+  });
+
+export type ProjectWithoutCoverData = z.infer<typeof projectWithoutCover>;
+export type ProjectWithCoverData = z.infer<ReturnType<typeof projectWithCover>>;
+export type ProjectData = ProjectWithoutCoverData | ProjectWithCoverData;
+export type ProjectStatus = ProjectData['status'];
+
+export function isProjectDataWithCover(
+  data: ProjectData,
+): data is ProjectWithCoverData {
+  return 'coverImage' in data;
+}
 
 export const PROJECT_STATUS_TO_LABEL: Record<ProjectStatus, string> = {
   concept: 'Concept',

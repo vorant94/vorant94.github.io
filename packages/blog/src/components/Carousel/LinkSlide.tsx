@@ -52,10 +52,10 @@ export type LinkSlideComponent = FunctionComponent<LinkSlideProps>;
 
 export interface LinkSlideProps
   extends Pick<ComponentPropsWithoutRef<'a'>, 'href'> {
-  bgImageSrc?: string;
-  bgImageSrcDark?: string;
+  bgImageSrc?: string | null;
+  bgImageSrcDark?: string | null;
   badgeLabel: string;
   badgeColor: Color;
-  title?: string;
-  subTitle?: string;
+  title?: string | null;
+  subTitle?: string | null;
 }

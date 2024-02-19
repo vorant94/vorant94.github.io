@@ -1,4 +1,8 @@
-import { formatPostPublishedAt, type Post } from '@/shared/post.helpers';
+import {
+  formatPostPublishedAt,
+  isPostDataWithCover,
+  type Post,
+} from '@/shared/post.helpers';
 import type { FunctionComponent } from 'react';
 import { Caption } from './Caption';
 import { Tag } from './Tag';
@@ -6,29 +10,21 @@ import { ThemedImage } from './ThemedImage';
 
 export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
   function ({ post, minutesRead }) {
-    const {
-      title,
-      tags,
-      coverImage,
-      coverImageAlt,
-      coverImageDark,
-      description,
-      code,
-    } = post.data;
+    const { data } = post;
 
     return (
       <>
-        {coverImage && (
+        {isPostDataWithCover(data) && (
           <div className="self-center">
             <ThemedImage
-              src={coverImage.src}
-              srcDark={coverImageDark?.src}
-              alt={coverImageAlt!}
+              src={data.coverImage.src}
+              srcDark={data.coverImageDark?.src}
+              alt={data.coverImageAlt!}
             />
           </div>
         )}
 
-        <h1>{title}</h1>
+        <h1>{data.title}</h1>
 
         <div className="flex flex-col lg:flex-row gap-2 lg:items-center justify-between">
           <div className="flex gap-2 items-center">
@@ -38,7 +34,7 @@ export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
           </div>
 
           <ul className="flex list-none m-0 p-0 gap-1">
-            {tags.map((tag) => (
+            {data.tags.map((tag) => (
               <li key={tag}>
                 <Tag>{tag}</Tag>
               </li>
@@ -47,14 +43,14 @@ export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
         </div>
 
         <p>
-          <em>{description}</em>
+          <em>{data.description}</em>
         </p>
 
-        {code && (
+        {data.code && (
           <p>
             All the code mentioned in the post can be found in my{' '}
             <a
-              href={code}
+              href={data.code}
               target="_blank">
               GitHub
             </a>
