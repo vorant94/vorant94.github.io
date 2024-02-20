@@ -31,7 +31,7 @@ export interface BadgeProps
   color: Color;
 }
 
-const colorToBg: Record<Color, ThemedStyle<BackgroundColor>> = {
+const colorToBg = {
   slate: ['bg-slate-100', 'dark:bg-slate-800'],
   gray: ['bg-gray-100', 'dark:bg-gray-800'],
   zinc: ['bg-zinc-100', 'dark:bg-zinc-800'],
@@ -54,4 +54,4 @@ const colorToBg: Record<Color, ThemedStyle<BackgroundColor>> = {
   fuchsia: ['bg-fuchsia-100', 'dark:bg-fuchsia-800'],
   pink: ['bg-pink-100', 'dark:bg-pink-800'],
   rose: ['bg-rose-100', 'dark:bg-rose-800'],
-};
+} as const satisfies Record<Color, ThemedStyle<BackgroundColor>>;

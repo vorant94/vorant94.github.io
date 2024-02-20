@@ -33,29 +33,29 @@ export function isProjectDataWithCover(
   return 'coverImage' in data;
 }
 
-export const projectStatusToLabel: Record<ProjectStatus, string> = {
+export const projectStatusToLabel = {
   concept: 'Concept',
   mvp: 'MVP',
   live: 'Live',
   freezed: 'Freezed',
   closed: 'Closed',
-};
+} as const satisfies Record<ProjectStatus, string>;
 
-export const projectStatusToBadgeColor: Record<ProjectStatus, Color> = {
+export const projectStatusToBadgeColor = {
   concept: 'neutral',
   mvp: 'yellow',
   live: 'green',
   freezed: 'blue',
   closed: 'indigo',
-};
+} as const satisfies Record<ProjectStatus, Color>;
 
-const projectStatusOrder: Record<ProjectStatus, number> = {
+const projectStatusOrder = {
   live: 0,
   mvp: 1,
   concept: 2,
   freezed: 3,
   closed: 4,
-};
+} as const satisfies Record<ProjectStatus, number>;
 
 export function sortProjectsByStatus(projects: Project[]): Project[] {
   return projects.toSorted(

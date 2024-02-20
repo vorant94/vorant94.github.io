@@ -17,7 +17,7 @@ export const Icon: FunctionComponent<IconProps> = function ({ glyph }) {
   return (
     <FontAwesomeIcon
       fixedWidth={true}
-      icon={ICON_GLYPH_TO_FA_ICON[glyph]!}
+      icon={iconGlyphToFaIcon[glyph]!}
     />
   );
 };
@@ -39,7 +39,7 @@ export const ICON_GLYPHS = [
 ] as const;
 export type IconGlyph = (typeof ICON_GLYPHS)[number];
 
-const ICON_GLYPH_TO_FA_ICON: Record<IconGlyph, IconProp> = {
+const iconGlyphToFaIcon = {
   'linked-in': faLinkedin,
   github: faGithub,
   medium: faMedium,
@@ -49,4 +49,4 @@ const ICON_GLYPH_TO_FA_ICON: Record<IconGlyph, IconProp> = {
   rss: faRss,
   menu: faBars,
   close: faXmark,
-};
+} as const satisfies Record<IconGlyph, IconProp>;
