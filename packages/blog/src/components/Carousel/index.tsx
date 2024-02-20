@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { cn } from '@/shared/react.helpers';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { EmptyLinkSlide, type EmptyLinkSlideComponent } from './EmptyLinkSlide';
 import { LinkSlide, type LinkSlideComponent } from './LinkSlide';
@@ -7,7 +7,7 @@ import Styles from './index.module.css';
 const Carousel: CarouselComponent = function ({ children }) {
   return (
     <div
-      className={classNames(
+      className={cn(
         'p-1 flex gap-6 overflow-x-auto scroll-smooth',
         Styles.carousel,
       )}>

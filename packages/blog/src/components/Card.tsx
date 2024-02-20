@@ -1,5 +1,5 @@
+import { cn } from '@/shared/react.helpers';
 import { THEME } from '@/shared/theme';
-import classNames from 'classnames';
 import type {
   ComponentPropsWithoutRef,
   FunctionComponent,
@@ -13,7 +13,7 @@ export const Card: FunctionComponent<PropsWithChildren<CardProps>> = function ({
 }) {
   return (
     <div
-      className={classNames(
+      className={cn(
         ...THEME.border,
         ...THEME.background,
         'border rounded-md p-5 flex gap-3',

@@ -1,5 +1,5 @@
+import { cn } from '@/shared/react.helpers';
 import type { Color } from '@/shared/theme';
-import classNames from 'classnames';
 import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
 import { Badge } from '../Badge';
 import { ButtonLink } from '../ButtonLink';
@@ -24,7 +24,7 @@ export const LinkSlide: LinkSlideComponent = function ({
         '--bg-image-dark-url': `url(${bgImageSrcDark})`,
       }}
       href={href}
-      className={classNames(
+      className={cn(
         '!p-0 w-56 h-64 flex flex-col shrink-0',
         'bg-[image:var(--bg-image-url)] bg-cover bg-center',
         'rounded-2xl overflow-hidden',
@@ -33,7 +33,7 @@ export const LinkSlide: LinkSlideComponent = function ({
         },
       )}>
       <div
-        className={classNames(
+        className={cn(
           'bg-black bg-opacity-10 flex-1 flex flex-col items-start p-4',
         )}>
         <Badge
@@ -41,8 +41,8 @@ export const LinkSlide: LinkSlideComponent = function ({
           className="mb-2">
           {badgeLabel}
         </Badge>
-        <Title className={classNames(Styles.textOutline)}>{title}</Title>
-        <Text className={classNames(Styles.textOutline)}>{subTitle}</Text>
+        <Title className={cn(Styles.textOutline)}>{title}</Title>
+        <Text className={cn(Styles.textOutline)}>{subTitle}</Text>
       </div>
     </ButtonLink>
   );

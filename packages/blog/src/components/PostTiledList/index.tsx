@@ -1,9 +1,9 @@
-import classNames from 'classnames';
+import { cn } from '@/shared/react.helpers';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { Item, type ItemComponent } from './Item';
 
 const PostTiledList: PostTiledListComponent = function ({ children }) {
-  return <ul className={classNames('flex flex-col gap-2')}>{children}</ul>;
+  return <ul className={cn('flex flex-col gap-2')}>{children}</ul>;
 };
 
 PostTiledList.Item = Item;

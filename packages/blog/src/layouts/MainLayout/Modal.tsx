@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button';
 import { Icon } from '@/components/Icon';
+import { cn } from '@/shared/react.helpers';
 import { THEME } from '@/shared/theme';
-import classNames from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   useEffect,
@@ -25,11 +25,10 @@ export const Modal: FunctionComponent<PropsWithChildren<ModalProps>> =
             // for some reason works only with y, translateY on exit specifically causes loss of animation
             exit={{ y: '-100%' }}
             transition={{ duration: 0.3 }}
-            className={classNames(
+            className={cn(
               'fixed top-0 left-0 w-dvw h-dvh backdrop-filter backdrop-blur z-10',
             )}>
-            <div
-              className={classNames(THEME.fullWidth, 'flex flex-col h-full')}>
+            <div className={cn(THEME.fullWidth, 'flex flex-col h-full')}>
               <Header>
                 <Button
                   aria-label="modal-close"

@@ -1,11 +1,11 @@
-import classNames from 'classnames';
+import { cn } from '@/shared/react.helpers';
 import { type FunctionComponent } from 'react';
 
 export const Background: FunctionComponent = function () {
   return (
     <>
-      <div className={classNames(COMMON, 'bg-cyan-500 left-0 top-0')}></div>
-      <div className={classNames(COMMON, 'bg-lime-500 right-0 bottom-0')}></div>
+      <div className={cn(COMMON, 'bg-cyan-500 left-0 top-0')}></div>
+      <div className={cn(COMMON, 'bg-lime-500 right-0 bottom-0')}></div>
     </>
   );
 };

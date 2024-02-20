@@ -1,5 +1,5 @@
+import { cn } from '@/shared/react.helpers';
 import { THEME } from '@/shared/theme';
-import classNames from 'classnames';
 import type {
   ComponentPropsWithoutRef,
   PropsWithChildren,
@@ -14,7 +14,7 @@ export function Text({
 }: PropsWithChildren<TextProps>): ReactElement {
   return (
     <span
-      className={classNames(
+      className={cn(
         ...THEME.primaryText,
         {
           'text-sm font-light': level === 'sm',

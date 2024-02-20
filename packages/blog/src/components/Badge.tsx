@@ -1,10 +1,10 @@
+import { cn } from '@/shared/react.helpers';
 import {
   THEME,
   type BackgroundColor,
   type Color,
   type ThemedStyle,
 } from '@/shared/theme';
-import classNames from 'classnames';
 import type {
   FunctionComponent,
   HTMLAttributes,
@@ -15,7 +15,7 @@ export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
   function ({ color, className, children }) {
     return (
       <span
-        className={classNames(
+        className={cn(
           ...THEME.primaryText,
           'inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold',
           ...COLOR_TO_BG[color],

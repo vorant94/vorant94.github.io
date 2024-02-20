@@ -1,5 +1,5 @@
-import { THEME } from '@/shared/theme.ts';
-import classNames from 'classnames';
+import { cn } from '@/shared/react.helpers';
+import { THEME } from '@/shared/theme';
 import type {
   ComponentPropsWithoutRef,
   FunctionComponent,
@@ -15,11 +15,11 @@ export const EmptyLinkSlide: EmptyLinkSlideComponent = function ({
     <ButtonLink
       isOutlined={true}
       href={href}
-      className={classNames(
+      className={cn(
         '!p-0 w-56 h-64 flex flex-col shrink-0 items-center justify-center group',
       )}>
       <span
-        className={classNames(
+        className={cn(
           'truncate max-w-full',
           THEME.link,
           'group-hover:text-cyan-500',

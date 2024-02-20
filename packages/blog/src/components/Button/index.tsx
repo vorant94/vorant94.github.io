@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { cn } from '@/shared/react.helpers';
 import type {
   ComponentPropsWithoutRef,
   FunctionComponent,
@@ -9,7 +9,7 @@ export const Button: FunctionComponent<PropsWithChildren<ButtonProps>> =
   function ({ children, className, isOutlined, testId, ...rest }) {
     return (
       <button
-        className={classNames(
+        className={cn(
           'p-1 hover:text-cyan-500',
           {
             ['border rounded-2xl hover:outline outline-cyan-500 hover:border-cyan-500']:

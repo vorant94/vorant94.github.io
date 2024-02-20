@@ -1,5 +1,5 @@
+import { cn } from '@/shared/react.helpers';
 import { THEME } from '@/shared/theme';
-import classNames from 'classnames';
 import {
   type ComponentPropsWithoutRef,
   type FunctionComponent,
@@ -15,7 +15,7 @@ export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = function ({
 }) {
   return (
     <a
-      className={classNames(THEME.link, THEME.linkDecoration, className)}
+      className={cn(THEME.link, THEME.linkDecoration, className)}
       href={href}
       data-astro-prefetch={prefetch}
       {...rest}>
