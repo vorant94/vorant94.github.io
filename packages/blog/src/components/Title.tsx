@@ -1,5 +1,5 @@
+import { cn } from '@/shared/react.helpers';
 import { THEME } from '@/shared/theme';
-import classNames from 'classnames';
 import type {
   ComponentPropsWithoutRef,
   FunctionComponent,
@@ -10,7 +10,7 @@ export const Title: FunctionComponent<PropsWithChildren<TitleProps>> =
   function ({ children, inline, className, ...rest }) {
     return (
       <h6
-        className={classNames(
+        className={cn(
           ...THEME.primaryText,
           'text-lg font-medium',
           {

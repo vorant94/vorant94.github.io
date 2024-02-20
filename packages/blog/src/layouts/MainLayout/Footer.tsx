@@ -1,14 +1,14 @@
-import { ButtonLink } from '@/components/ButtonLink.tsx';
+import { ButtonLink } from '@/components/ButtonLink';
 import { Icon } from '@/components/Icon';
 import { PROFILE } from '@/shared/profile';
+import { cn } from '@/shared/react.helpers';
 import { THEME } from '@/shared/theme';
-import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
 
 export const Footer: FunctionComponent<FooterProps> = function () {
   return (
     <footer
-      className={classNames(
+      className={cn(
         'flex gap-1 items-center p-4 border-t',
         ...THEME.border,
         THEME.secondaryText,

@@ -4,8 +4,8 @@ import {
   getPostFullPath,
   type Post,
 } from '@/shared/post.helpers';
+import { cn } from '@/shared/react.helpers';
 import { THEME } from '@/shared/theme';
-import classNames from 'classnames';
 import type { FunctionComponent } from 'react';
 import { Caption } from '../Caption';
 import { Link } from '../Link';
@@ -15,7 +15,7 @@ import { Title } from '../Title';
 export const Item: ItemComponent = function ({ post, publishedAtFormat }) {
   return (
     <li
-      className={classNames(
+      className={cn(
         'flex flex-col p-3 text-medium rounded-md duration-100',
         'hover:border hover:shadow-md hover:scale-105',
         ...THEME.border,
@@ -26,7 +26,7 @@ export const Item: ItemComponent = function ({ post, publishedAtFormat }) {
         prefetch="hover"
         className="flex items-center group">
         <div className="flex-1 overflow-hidden">
-          <Title className={classNames('truncate group-hover:text-inherit')}>
+          <Title className={cn('truncate group-hover:text-inherit')}>
             {post.data.title}
           </Title>
           {/* this inline-block removes the inherited text-decoration, since it cannot be simply

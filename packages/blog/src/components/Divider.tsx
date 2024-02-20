@@ -1,5 +1,5 @@
+import { cn } from '@/shared/react.helpers';
 import { THEME } from '@/shared/theme';
-import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 
 export const Divider: FunctionComponent<PropsWithChildren<DividerProps>> =
@@ -7,17 +7,17 @@ export const Divider: FunctionComponent<PropsWithChildren<DividerProps>> =
     return (
       <div className="relative flex py-5 items-center">
         {isLeft && (
-          <div className={classNames(...THEME.border, 'flex-grow border-t')} />
+          <div className={cn(...THEME.border, 'flex-grow border-t')} />
         )}
         <div
-          className={classNames('flex-shrink', {
+          className={cn('flex-shrink', {
             'ml-4': isLeft,
             'mr-4': isRight,
           })}>
           {children}
         </div>
         {isRight && (
-          <div className={classNames(...THEME.border, 'flex-grow border-t')} />
+          <div className={cn(...THEME.border, 'flex-grow border-t')} />
         )}
       </div>
     );

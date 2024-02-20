@@ -1,6 +1,6 @@
 import { Link, type LinkProps } from '@/components/Link';
+import { cn } from '@/shared/react.helpers';
 import { THEME } from '@/shared/theme';
-import classNames from 'classnames';
 import {
   useEffect,
   useState,
@@ -20,7 +20,7 @@ export const NavLink: LinkComponent = function ({
   return (
     <li>
       <Link
-        className={classNames(
+        className={cn(
           'hover:underline font-semibold block text-center',
           'text-2xl p-3 md:p-4 rounded-full border-2',
           THEME.background,

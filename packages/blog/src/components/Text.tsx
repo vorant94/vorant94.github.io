@@ -1,5 +1,5 @@
+import { cn } from '@/shared/react.helpers';
 import { THEME } from '@/shared/theme';
-import classNames from 'classnames';
 import type { PropsWithChildren, ReactElement } from 'react';
 
 export function Text({
@@ -8,7 +8,7 @@ export function Text({
 }: PropsWithChildren<TextProps>): ReactElement {
   return (
     <span
-      className={classNames(...THEME.primaryText, {
+      className={cn(...THEME.primaryText, {
         'text-sm font-light': level === 'sm',
       })}>
       {children}

@@ -1,4 +1,4 @@
-import { getPostTagFullPath } from '@/shared/post.helpers.ts';
+import { getPostTagFullPath } from '@/shared/post.helpers';
 import { extractStringFromReactNode } from '@/shared/react.helpers';
 import { COLORS, type Color } from '@/shared/theme';
 import type { FunctionComponent, PropsWithChildren } from 'react';
