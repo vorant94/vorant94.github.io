@@ -1,8 +1,8 @@
 import { ButtonLink } from '@/components/ButtonLink';
 import { Icon } from '@/components/Icon';
-import { PROFILE } from '@/shared/profile';
+import { profile } from '@/shared/profile';
 import { cn } from '@/shared/react.helpers';
-import { THEME } from '@/shared/theme';
+import { theme } from '@/shared/tailwind.helpers';
 import type { FunctionComponent } from 'react';
 
 export const Footer: FunctionComponent<FooterProps> = function () {
@@ -10,10 +10,10 @@ export const Footer: FunctionComponent<FooterProps> = function () {
     <footer
       className={cn(
         'flex gap-1 items-center p-4 border-t',
-        ...THEME.border,
-        THEME.secondaryText,
+        ...theme.border,
+        theme.secondaryText,
       )}>
-      <span className="text-sm">{PROFILE.copyright}</span>
+      <span className="text-sm">{profile.copyright}</span>
 
       <div className="flex-1"></div>
 

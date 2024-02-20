@@ -1,10 +1,10 @@
-import { PROFILE } from '@/shared/profile';
+import { profile } from '@/shared/profile';
 import type { FunctionComponent } from 'react';
 
 export const Meta: FunctionComponent<MetaProps> = function ({
-  title = PROFILE.title,
+  title = profile.title,
 }) {
-  const fullTitle = title === PROFILE.title ? title : `vorant94 | ${title}`;
+  const fullTitle = title === profile.title ? title : `vorant94 | ${title}`;
 
   return (
     <>

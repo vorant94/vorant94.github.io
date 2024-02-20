@@ -1,4 +1,4 @@
-import { PROFILE } from '@/shared/profile';
+import { profile } from '@/shared/profile';
 import type { FunctionComponent } from 'react';
 import { StandOut } from '../StandOut';
 import { Strong } from '../Strong';
@@ -21,7 +21,7 @@ export const Intro: FunctionComponent = function () {
 
       <div className="flex flex-col gap-2">
         <Strong>Hi, there, I'm Mordechai! 👋</Strong>
-        <Text level="sm">{PROFILE.description}</Text>
+        <Text level="sm">{profile.description}</Text>
         <Text level="sm">
           Make yourself at home, take a sit and grab something to{' '}
           <span className="line-through">drink</span> read

@@ -1,5 +1,5 @@
 import { cn } from '@/shared/react.helpers';
-import { THEME } from '@/shared/theme';
+import { theme } from '@/shared/tailwind.helpers';
 import type {
   ComponentPropsWithoutRef,
   FunctionComponent,
@@ -14,8 +14,8 @@ export const Card: FunctionComponent<PropsWithChildren<CardProps>> = function ({
   return (
     <div
       className={cn(
-        ...THEME.border,
-        ...THEME.background,
+        ...theme.border,
+        ...theme.background,
         'border rounded-md p-5 flex gap-3',
         className,
       )}

@@ -1,5 +1,5 @@
 import { cn } from '@/shared/react.helpers';
-import type { Color } from '@/shared/theme';
+import type { Color } from '@/shared/tailwind.helpers';
 import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
 import { Badge } from '../Badge';
 import { ButtonLink } from '../ButtonLink';

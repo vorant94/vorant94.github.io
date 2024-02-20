@@ -1,10 +1,10 @@
 import { cn } from '@/shared/react.helpers';
 import {
-  THEME,
+  theme,
   type BackgroundColor,
   type Color,
   type ThemedStyle,
-} from '@/shared/theme';
+} from '@/shared/tailwind.helpers';
 import type {
   FunctionComponent,
   HTMLAttributes,
@@ -16,9 +16,9 @@ export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
     return (
       <span
         className={cn(
-          ...THEME.primaryText,
+          ...theme.primaryText,
           'inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold',
-          ...COLOR_TO_BG[color],
+          ...colorToBg[color],
           className,
         )}>
         {children}
@@ -31,7 +31,7 @@ export interface BadgeProps
   color: Color;
 }
 
-const COLOR_TO_BG: Record<Color, ThemedStyle<BackgroundColor>> = {
+const colorToBg: Record<Color, ThemedStyle<BackgroundColor>> = {
   slate: ['bg-slate-100', 'dark:bg-slate-800'],
   gray: ['bg-gray-100', 'dark:bg-gray-800'],
   zinc: ['bg-zinc-100', 'dark:bg-zinc-800'],

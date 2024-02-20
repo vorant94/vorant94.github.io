@@ -1,6 +1,6 @@
 import { getPostTagFullPath } from '@/shared/post.helpers';
 import { extractStringFromReactNode } from '@/shared/react.helpers';
-import { COLORS, type Color } from '@/shared/theme';
+import { colors, type Color } from '@/shared/tailwind.helpers';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { Badge } from './Badge';
 
@@ -25,5 +25,5 @@ function hashToColor(value: string): Color {
     .map((char) => char.charCodeAt(0))
     .reduce((prev, curr) => prev + curr, 0);
 
-  return COLORS[hash % COLORS.length]!;
+  return colors[hash % colors.length]!;
 }

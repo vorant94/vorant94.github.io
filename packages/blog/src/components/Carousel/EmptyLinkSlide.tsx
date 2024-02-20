@@ -1,5 +1,5 @@
 import { cn } from '@/shared/react.helpers';
-import { THEME } from '@/shared/theme';
+import { theme } from '@/shared/tailwind.helpers';
 import type {
   ComponentPropsWithoutRef,
   FunctionComponent,
@@ -21,7 +21,7 @@ export const EmptyLinkSlide: EmptyLinkSlideComponent = function ({
       <span
         className={cn(
           'truncate max-w-full',
-          THEME.link,
+          theme.link,
           'group-hover:text-cyan-500',
         )}>
         {children}

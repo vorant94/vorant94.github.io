@@ -1,6 +1,6 @@
 import { z, type CollectionEntry, type SchemaContext } from 'astro:content';
 import { groupBy } from 'lodash-es';
-import type { Color } from './theme';
+import type { Color } from './tailwind.helpers';
 
 export type Project = CollectionEntry<'projects'>;
 
@@ -33,7 +33,7 @@ export function isProjectDataWithCover(
   return 'coverImage' in data;
 }
 
-export const PROJECT_STATUS_TO_LABEL: Record<ProjectStatus, string> = {
+export const projectStatusToLabel: Record<ProjectStatus, string> = {
   concept: 'Concept',
   mvp: 'MVP',
   live: 'Live',
@@ -41,7 +41,7 @@ export const PROJECT_STATUS_TO_LABEL: Record<ProjectStatus, string> = {
   closed: 'Closed',
 };
 
-export const PROJECT_STATUS_TO_BADGE_COLOR: Record<ProjectStatus, Color> = {
+export const projectStatusToBadgeColor: Record<ProjectStatus, Color> = {
   concept: 'neutral',
   mvp: 'yellow',
   live: 'green',
@@ -49,7 +49,7 @@ export const PROJECT_STATUS_TO_BADGE_COLOR: Record<ProjectStatus, Color> = {
   closed: 'indigo',
 };
 
-const PROJECT_STATUS_ORDER: Record<ProjectStatus, number> = {
+const projectStatusOrder: Record<ProjectStatus, number> = {
   live: 0,
   mvp: 1,
   concept: 2,
@@ -60,7 +60,7 @@ const PROJECT_STATUS_ORDER: Record<ProjectStatus, number> = {
 export function sortProjectsByStatus(projects: Project[]): Project[] {
   return projects.toSorted(
     (a, b) =>
-      PROJECT_STATUS_ORDER[a.data.status] - PROJECT_STATUS_ORDER[b.data.status],
+      projectStatusOrder[a.data.status] - projectStatusOrder[b.data.status],
   );
 }
 

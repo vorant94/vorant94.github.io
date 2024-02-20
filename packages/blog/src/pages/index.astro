@@ -12,8 +12,8 @@ import { Headline } from '@/components/Headline';
 import { sortPostsByPublishedAt } from '@/shared/post.helpers';
 import {
   getProjectFullPath,
-  PROJECT_STATUS_TO_LABEL,
-  PROJECT_STATUS_TO_BADGE_COLOR,
+  projectStatusToLabel,
+  projectStatusToBadgeColor,
 } from '@/shared/project.helpers';
 import { isProjectDataWithCover } from '../shared/project.helpers';
 
@@ -61,16 +61,16 @@ const projects = await getCollection('projects');
             bgImageSrc={data.coverImage?.src}
             bgImageSrcDark={data.coverImageDark?.src}
             href={getProjectFullPath(project)}
-            badgeLabel={PROJECT_STATUS_TO_LABEL[data.status]}
-            badgeColor={PROJECT_STATUS_TO_BADGE_COLOR[data.status]}
+            badgeLabel={projectStatusToLabel[data.status]}
+            badgeColor={projectStatusToBadgeColor[data.status]}
             title={data.name}
             subTitle={data.slogan}
           />
         ) : (
           <Carousel.LinkSlide
             href={getProjectFullPath(project)}
-            badgeLabel={PROJECT_STATUS_TO_LABEL[data.status]}
-            badgeColor={PROJECT_STATUS_TO_BADGE_COLOR[data.status]}
+            badgeLabel={projectStatusToLabel[data.status]}
+            badgeColor={projectStatusToBadgeColor[data.status]}
             title={data.name}
             subTitle={data.slogan}
           />

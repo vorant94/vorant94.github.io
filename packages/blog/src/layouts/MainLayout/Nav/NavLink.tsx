@@ -1,6 +1,6 @@
 import { Link, type LinkProps } from '@/components/Link';
 import { cn } from '@/shared/react.helpers';
-import { THEME } from '@/shared/theme';
+import { theme } from '@/shared/tailwind.helpers';
 import {
   useEffect,
   useState,
@@ -23,11 +23,11 @@ export const NavLink: LinkComponent = function ({
         className={cn(
           'hover:underline font-semibold block text-center',
           'text-2xl p-3 md:p-4 rounded-full border-2',
-          THEME.background,
-          THEME.border,
+          theme.background,
+          theme.border,
           'lg:text-sm lg:p-0 lg:bg-none dark:lg:bg-none lg:rounded-none lg:border-none',
-          THEME.link,
-          THEME.linkDecoration,
+          theme.link,
+          theme.linkDecoration,
           { 'underline !text-cyan-500': isLinkActive },
           className,
         )}
