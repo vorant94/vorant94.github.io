@@ -14,6 +14,10 @@ export default {
         '@media (hover: hover) { &:hover }',
         '@media (hover: none) { &:active }',
       ]);
+      addVariant('group-hover', [
+        '@media (hover: hover) { .group:hover & }',
+        '@media (hover: none) { .group:active & }',
+      ]);
     }),
   ],
 } satisfies Config;
