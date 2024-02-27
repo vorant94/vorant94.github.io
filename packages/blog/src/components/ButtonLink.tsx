@@ -6,7 +6,7 @@ import type {
 } from 'react';
 
 export const ButtonLink: FunctionComponent<PropsWithChildren<ButtonLinkProps>> =
-  function ({ children, className, isOutlined, testId, ...rest }) {
+  function ({ children, className, isOutlined, level, testId, ...rest }) {
     return (
       <a
         className={cn(
@@ -14,6 +14,7 @@ export const ButtonLink: FunctionComponent<PropsWithChildren<ButtonLinkProps>> =
           {
             ['border rounded-2xl hover:outline outline-cyan-500 hover:border-cyan-500']:
               isOutlined,
+            'text-sm font-light': level === 'sm',
           },
           className,
         )}
@@ -27,4 +28,8 @@ export const ButtonLink: FunctionComponent<PropsWithChildren<ButtonLinkProps>> =
 export interface ButtonLinkProps extends ComponentPropsWithoutRef<'a'> {
   testId?: string;
   isOutlined?: boolean;
+  level?: ButtonLinkLevel;
 }
+
+export const BUTTON_LINK_LEVELS = ['md', 'sm'] as const;
+export type ButtonLinkLevel = (typeof BUTTON_LINK_LEVELS)[number];

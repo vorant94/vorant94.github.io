@@ -6,9 +6,9 @@ import { Headline } from '@/components/Headline';
 import { PostList } from '@/components/PostList';
 import {
   groupPostsByPublishedAtYear,
-  PublishedAtFormat,
   sortPostsByPublishedAt,
 } from '@/shared/post.helpers';
+import { PublishedAtFormat } from '@/shared/collection.helpers';
 
 const postsByYear = groupPostsByPublishedAtYear(
   sortPostsByPublishedAt(await getCollection('posts')),

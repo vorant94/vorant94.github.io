@@ -1,8 +1,7 @@
 ---
 import { MainLayout } from '@/layouts/MainLayout';
-import { ProjectsGrid } from '@/components/ProjectsGrid';
+import { ProjectTiledList } from '@/components/ProjectTiledList';
 import { getCollection } from 'astro:content';
-import { ProjectCard } from '@/components/ProjectCard';
 import { Headline } from '@/components/Headline';
 import { Divider } from '@/components/Divider';
 import {
@@ -11,12 +10,20 @@ import {
   sortProjectsByStatus,
   projectStatusToLabel,
 } from '@/shared/project.helpers';
+import {
+  groupChangelogsByProject,
+  sortChangelogsByPublishedAt,
+} from '@/shared/changelog.helpers';
 
 const projectsByStatus = groupProjectsByStatus(
   sortProjectsByStatus(await getCollection('projects')),
 );
 
 const statuses = Object.keys(projectsByStatus);
+
+const changelogs = groupChangelogsByProject(
+  sortChangelogsByPublishedAt(await getCollection('changelogs')),
+);
 ---
 
 <MainLayout title="Projects">
@@ -27,20 +34,14 @@ const statuses = Object.keys(projectsByStatus);
           <Headline>{projectStatusToLabel[status as ProjectStatus]}</Headline>
         </Divider>
 
-        <ProjectsGrid>
+        <ProjectTiledList>
           {projectsByStatus[status]!.map((project) => (
-            <ProjectCard project={project} />
+            <ProjectTiledList.Item
+              project={project}
+              changelogs={changelogs[project.slug]!.slice(0, 2)}
+            />
           ))}
-          {projectsByStatus[status]!.map((project) => (
-            <ProjectCard project={project} />
-          ))}
-          {projectsByStatus[status]!.map((project) => (
-            <ProjectCard project={project} />
-          ))}
-          {projectsByStatus[status]!.map((project) => (
-            <ProjectCard project={project} />
-          ))}
-        </ProjectsGrid>
+        </ProjectTiledList>
       </>
     ))
   }

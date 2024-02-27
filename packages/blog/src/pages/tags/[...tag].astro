@@ -7,7 +7,7 @@ import { PostList } from '@/components/PostList';
 import { sortPostsByPublishedAt } from '@/shared/post.helpers';
 import { getUniqPostTags } from '@/shared/post.helpers';
 import type { Post } from '@/shared/post.helpers';
-import { PublishedAtFormat } from '@/shared/post.helpers';
+import { PublishedAtFormat } from '@/shared/collection.helpers';
 
 export async function getStaticPaths() {
   const entries = sortPostsByPublishedAt(await getCollection('posts'));

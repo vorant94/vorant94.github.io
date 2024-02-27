@@ -31,5 +31,5 @@ export interface TextProps extends ComponentPropsWithoutRef<'span'> {
   level?: TextLevel;
 }
 
-export const BODY_LEVELS = ['md', 'sm'] as const;
-export type TextLevel = (typeof BODY_LEVELS)[number];
+export const TEXT_LEVELS = ['md', 'sm'] as const;
+export type TextLevel = (typeof TEXT_LEVELS)[number];

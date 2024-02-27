@@ -8,7 +8,8 @@ const base = z.object({
   name: z.string(),
   slogan: z.string(),
   status: z.enum(['concept', 'mvp', 'live', 'freezed', 'closed']),
-  code: z.string().url(),
+  sourceCodeUrl: z.string().url(),
+  productionUrl: z.string().url().nullish(),
 });
 
 export const projectWithoutCover = base.extend({

@@ -1,8 +1,5 @@
-import {
-  formatPostPublishedAt,
-  isPostDataWithCover,
-  type Post,
-} from '@/shared/post.helpers';
+import { formatPublishedAt } from '@/shared/collection.helpers';
+import { isPostDataWithCover, type Post } from '@/shared/post.helpers';
 import type { FunctionComponent } from 'react';
 import { Caption } from './Caption';
 import { Tag } from './Tag';
@@ -28,7 +25,7 @@ export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
 
         <div className="flex flex-col lg:flex-row gap-2 lg:items-center justify-between">
           <div className="flex gap-2 items-center">
-            <Caption>{formatPostPublishedAt(post)}</Caption>
+            <Caption>{formatPublishedAt(post.data.publishedAt)}</Caption>
             <Caption>&#x2022;</Caption>
             <Caption>{minutesRead}</Caption>
           </div>

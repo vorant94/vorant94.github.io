@@ -11,11 +11,19 @@ export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = function ({
   className,
   children,
   prefetch,
+  level,
   ...rest
 }) {
   return (
     <a
-      className={cn(theme.link, theme.linkDecoration, className)}
+      className={cn(
+        theme.link,
+        theme.linkDecoration,
+        {
+          'text-sm font-light': level === 'sm',
+        },
+        className,
+      )}
       href={href}
       data-astro-prefetch={prefetch}
       {...rest}>
@@ -26,4 +34,8 @@ export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = function ({
 
 export interface LinkProps extends ComponentPropsWithoutRef<'a'> {
   prefetch?: 'hover' | 'tap' | 'viewport' | 'load';
+  level?: LinkLevel;
 }
+
+export const LINK_LEVELS = ['md', 'sm'] as const;
+export type LinkLevel = (typeof LINK_LEVELS)[number];

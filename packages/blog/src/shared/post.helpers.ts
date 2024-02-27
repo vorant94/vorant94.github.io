@@ -6,6 +6,7 @@ import {
 import { compareDesc, format } from 'date-fns';
 import { groupBy } from 'lodash-es';
 import { z } from 'zod';
+import { PublishedAtFormat } from './collection.helpers';
 
 export type Post = CollectionEntry<'posts'>;
 
@@ -38,25 +39,12 @@ export function isPostDataWithCover(data: PostData): data is PostWithCoverData {
   return 'coverImage' in data;
 }
 
-export enum PublishedAtFormat {
-  FULL = 'MMM dd, yyyy',
-  SHORT = 'MMM dd',
-  YEAR = 'yyyy',
-}
-
 export function getPostFullPath({ slug }: Post): string {
   return `/posts/${slug}`;
 }
 
 export function getPostTagFullPath(tag: string): string {
   return `/tags/${tag}`;
-}
-
-export function formatPostPublishedAt(
-  { data }: Post,
-  formatStr = PublishedAtFormat.FULL,
-): string {
-  return format(data.publishedAt, formatStr);
 }
 
 export function sortPostsByPublishedAt(posts: Post[]): Post[] {

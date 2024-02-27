@@ -1,6 +1,8 @@
 import {
+  formatPublishedAt,
   PublishedAtFormat,
-  formatPostPublishedAt,
+} from '@/shared/collection.helpers';
+import {
   getPostFullPath,
   isPostDataWithCover,
   type Post,
@@ -35,7 +37,7 @@ export const Item: ItemComponent = function ({ post, publishedAtFormat }) {
           {/* this inline-block removes the inherited text-decoration, since it cannot be simply
           overridden like any other parent css style*/}
           <Caption className="inline-block">
-            {formatPostPublishedAt(post, publishedAtFormat)}
+            {formatPublishedAt(post.data.publishedAt, publishedAtFormat)}
           </Caption>
         </div>
         {isPostDataWithCover(data) && (

@@ -15,7 +15,7 @@ import {
   projectStatusToLabel,
   projectStatusToBadgeColor,
 } from '@/shared/project.helpers';
-import { isProjectDataWithCover } from '../shared/project.helpers';
+import { isProjectDataWithCover } from '@/shared/project.helpers';
 
 const allPosts = sortPostsByPublishedAt(await getCollection('posts'));
 const [pinnedPosts, allNonPinnedPosts] = partition(
