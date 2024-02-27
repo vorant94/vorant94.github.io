@@ -34,20 +34,6 @@ const projects = await getCollection('projects');
   <Intro />
 
   <Divider>
-    <Headline>Recently Published</Headline>
-  </Divider>
-
-  <PostTiledList>
-    {recentNonPunnedPosts.map((post) => <PostTiledList.Item post={post} />)}
-  </PostTiledList>
-
-  <Link
-    className="self-center"
-    href="posts">
-    See all posts
-  </Link>
-
-  <Divider>
     <Headline>My Projects</Headline>
   </Divider>
 
@@ -79,4 +65,18 @@ const projects = await getCollection('projects');
     }
     <Carousel.EmptyLinkSlide href="/projects">See all</Carousel.EmptyLinkSlide>
   </Carousel>
+
+  <Divider>
+    <Headline>Recent Posts</Headline>
+  </Divider>
+
+  <PostTiledList>
+    {recentNonPunnedPosts.map((post) => <PostTiledList.Item post={post} />)}
+  </PostTiledList>
+
+  <Link
+    className="self-center"
+    href="posts">
+    See all
+  </Link>
 </MainLayout>
