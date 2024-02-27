@@ -28,12 +28,6 @@ export type ProjectWithCoverData = z.infer<ReturnType<typeof projectWithCover>>;
 export type ProjectData = ProjectWithoutCoverData | ProjectWithCoverData;
 export type ProjectStatus = ProjectData['status'];
 
-export function isProjectDataWithCover(
-  data: ProjectData,
-): data is ProjectWithCoverData {
-  return 'coverImage' in data;
-}
-
 export const projectStatusToLabel = {
   concept: 'Concept',
   mvp: 'MVP',

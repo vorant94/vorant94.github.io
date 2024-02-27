@@ -9,7 +9,6 @@ import {
   PublishedAtFormat,
   sortEntriesByPublishedAt,
 } from '@/shared/collection.helpers';
-import { PublishedAtFormat } from '@/shared/collection.helpers';
 
 const postsByYear = groupPostsByPublishedAtYear(
   sortEntriesByPublishedAt(await getCollection('posts')),

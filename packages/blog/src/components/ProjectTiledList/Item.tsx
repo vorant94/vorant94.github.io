@@ -4,11 +4,11 @@ import {
 } from '@/shared/changelog.helpers';
 import {
   PublishedAtFormat,
-  formatPublishedAt,
+  formatEntryPublishedAt,
+  isEntryDataWithCover,
 } from '@/shared/collection.helpers';
 import {
   getProjectFullPath,
-  isProjectDataWithCover,
   projectStatusToBadgeColor,
   projectStatusToLabel,
   type Project,
@@ -31,7 +31,7 @@ export const Item: ItemComponent = function ({ project, changelogs }) {
   return (
     <Card
       style={
-        isProjectDataWithCover(data)
+        isEntryDataWithCover(data)
           ? {
               '--bg-image-url': `url(${data.coverImage.src})`,
               '--bg-image-dark-url': `url(${data.coverImageDark?.src})`,
@@ -40,7 +40,7 @@ export const Item: ItemComponent = function ({ project, changelogs }) {
       }
       className={cn(
         'flex-1 flex-col',
-        'bg-[image:var(--bg-image-url)] bg-right bg-no-repeat bg-[length:auto_200%]',
+        'bg-[image:var(--bg-image-url)] dark:bg-[image:var(--bg-image-dark-url)] bg-right bg-no-repeat bg-[length:auto_200%]',
       )}
       overlay={
         <Card.Overlay
@@ -72,7 +72,7 @@ export const Item: ItemComponent = function ({ project, changelogs }) {
                 <Link
                   level="sm"
                   href={getChangelogFullPath(changelog)}>
-                  {formatPublishedAt(
+                  {formatEntryPublishedAt(
                     changelog.data.publishedAt,
                     PublishedAtFormat.FULL,
                   )}

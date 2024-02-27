@@ -10,10 +10,8 @@ import {
   sortProjectsByStatus,
   projectStatusToLabel,
 } from '@/shared/project.helpers';
-import {
-  groupChangelogsByProject,
-  sortChangelogsByPublishedAt,
-} from '@/shared/changelog.helpers';
+import { groupChangelogsByProject } from '@/shared/changelog.helpers';
+import { sortEntriesByPublishedAt } from '@/shared/collection.helpers';
 
 const projectsByStatus = groupProjectsByStatus(
   sortProjectsByStatus(await getCollection('projects')),
@@ -22,7 +20,7 @@ const projectsByStatus = groupProjectsByStatus(
 const statuses = Object.keys(projectsByStatus);
 
 const changelogs = groupChangelogsByProject(
-  sortChangelogsByPublishedAt(await getCollection('changelogs')),
+  sortEntriesByPublishedAt(await getCollection('changelogs')),
 );
 ---
 
