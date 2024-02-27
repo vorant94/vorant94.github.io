@@ -9,7 +9,7 @@ import { Link } from '@/components/Link';
 import { Carousel } from '@/components/Carousel';
 import { Divider } from '@/components/Divider';
 import { Headline } from '@/components/Headline';
-import { sortPostsByPublishedAt } from '@/shared/post.helpers';
+import { sortEntriesByPublishedAt } from '@/shared/collection.helpers';
 import {
   getProjectFullPath,
   projectStatusToLabel,
@@ -17,7 +17,7 @@ import {
 } from '@/shared/project.helpers';
 import { isProjectDataWithCover } from '@/shared/project.helpers';
 
-const allPosts = sortPostsByPublishedAt(await getCollection('posts'));
+const allPosts = sortEntriesByPublishedAt(await getCollection('posts'));
 const [pinnedPosts, allNonPinnedPosts] = partition(
   allPosts,
   (entry) => entry.data.isPinned,

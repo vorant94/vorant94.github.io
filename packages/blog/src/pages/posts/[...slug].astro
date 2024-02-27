@@ -5,15 +5,16 @@ import { MainLayout } from '@/layouts/MainLayout';
 import { PostFrontmatter } from '@/components/PostFrontmatter';
 import { Comments } from '@/components/Comments';
 import { RelatedPosts } from '@/components/RelatedPosts';
-import { type Post, sortPostsByPublishedAt } from '@/shared/post.helpers';
+import { type Post } from '@/shared/post.helpers';
+import { sortEntriesByPublishedAt } from '@/shared/collection.helpers';
 
 export async function getStaticPaths() {
-  const posts = sortPostsByPublishedAt(await getCollection('posts'));
+  const posts = sortEntriesByPublishedAt(await getCollection('posts'));
 
   return await Promise.all(
     posts.map(async (post) => {
       const relatedPosts = post.data.related
-        ? sortPostsByPublishedAt(await getEntries(post.data.related))
+        ? sortEntriesByPublishedAt(await getEntries(post.data.related))
         : [];
 
       return {

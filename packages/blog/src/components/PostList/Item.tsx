@@ -1,5 +1,5 @@
 import {
-  formatPublishedAt,
+  formatEntryPublishedAt,
   PublishedAtFormat,
 } from '@/shared/collection.helpers';
 import { getPostFullPath, type Post } from '@/shared/post.helpers';
@@ -25,7 +25,7 @@ export const Item: ItemComponent = function ({
         aria-label={post.data.title}>
         <span className="flex-1 truncate">{post.data.title}</span>
         <span className="whitespace-nowrap text-xs">
-          {formatPublishedAt(post.data.publishedAt, publishedAtFormat)}
+          {formatEntryPublishedAt(post.data.publishedAt, publishedAtFormat)}
         </span>
       </Link>
     </li>

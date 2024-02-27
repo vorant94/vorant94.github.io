@@ -4,14 +4,15 @@ import { MainLayout } from '@/layouts/MainLayout';
 import { Divider } from '@/components/Divider';
 import { Headline } from '@/components/Headline';
 import { PostList } from '@/components/PostList';
+import { groupPostsByPublishedAtYear } from '@/shared/post.helpers';
 import {
-  groupPostsByPublishedAtYear,
-  sortPostsByPublishedAt,
-} from '@/shared/post.helpers';
+  PublishedAtFormat,
+  sortEntriesByPublishedAt,
+} from '@/shared/collection.helpers';
 import { PublishedAtFormat } from '@/shared/collection.helpers';
 
 const postsByYear = groupPostsByPublishedAtYear(
-  sortPostsByPublishedAt(await getCollection('posts')),
+  sortEntriesByPublishedAt(await getCollection('posts')),
 );
 
 const years = Object.keys(postsByYear).reverse();

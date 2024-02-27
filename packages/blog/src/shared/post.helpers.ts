@@ -3,7 +3,7 @@ import {
   type CollectionEntry,
   type SchemaContext,
 } from 'astro:content';
-import { compareDesc, format } from 'date-fns';
+import { format } from 'date-fns';
 import { groupBy } from 'lodash-es';
 import { z } from 'zod';
 import { PublishedAtFormat } from './collection.helpers';
@@ -35,22 +35,12 @@ export type PostWithoutCoverData = z.infer<typeof postWithoutCover>;
 export type PostWithCoverData = z.infer<ReturnType<typeof postWithCover>>;
 export type PostData = PostWithoutCoverData | PostWithCoverData;
 
-export function isPostDataWithCover(data: PostData): data is PostWithCoverData {
-  return 'coverImage' in data;
-}
-
 export function getPostFullPath({ slug }: Post): string {
   return `/posts/${slug}`;
 }
 
 export function getPostTagFullPath(tag: string): string {
   return `/tags/${tag}`;
-}
-
-export function sortPostsByPublishedAt(posts: Post[]): Post[] {
-  return posts.sort((a, b) =>
-    compareDesc(a.data.publishedAt, b.data.publishedAt),
-  );
 }
 
 export function groupPostsByPublishedAtYear(
