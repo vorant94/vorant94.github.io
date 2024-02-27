@@ -4,13 +4,15 @@ import { MainLayout } from '@/layouts/MainLayout';
 import { Divider } from '@/components/Divider';
 import { Headline } from '@/components/Headline';
 import { PostList } from '@/components/PostList';
-import { sortPostsByPublishedAt } from '@/shared/post.helpers';
+import {
+  sortEntriesByPublishedAt,
+  PublishedAtFormat,
+} from '@/shared/collection.helpers';
 import { getUniqPostTags } from '@/shared/post.helpers';
 import type { Post } from '@/shared/post.helpers';
-import { PublishedAtFormat } from '@/shared/post.helpers';
 
 export async function getStaticPaths() {
-  const entries = sortPostsByPublishedAt(await getCollection('posts'));
+  const entries = sortEntriesByPublishedAt(await getCollection('posts'));
   const tags = getUniqPostTags(entries);
 
   return await Promise.all(

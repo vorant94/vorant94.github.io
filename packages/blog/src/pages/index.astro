@@ -6,9 +6,9 @@ import { Intro } from '@/components/Intro';
 import { PostTiledList } from '@/components/PostTiledList';
 import { PinnedPosts } from '@/components/PinnedPosts';
 import { Link } from '@/components/Link';
-import { sortPostsByPublishedAt } from '@/shared/post.helpers';
+import { sortEntriesByPublishedAt } from '@/shared/collection.helpers';
 
-const allPosts = sortPostsByPublishedAt(await getCollection('posts'));
+const allPosts = sortEntriesByPublishedAt(await getCollection('posts'));
 const [pinnedPosts, allNonPinnedPosts] = partition(
   allPosts,
   (entry) => entry.data.isPinned,

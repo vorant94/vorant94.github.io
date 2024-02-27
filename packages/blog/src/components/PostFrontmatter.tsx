@@ -1,8 +1,8 @@
 import {
-  formatPostPublishedAt,
-  isPostDataWithCover,
-  type Post,
-} from '@/shared/post.helpers';
+  formatEntryPublishedAt,
+  isEntryDataWithCover,
+} from '@/shared/collection.helpers';
+import type { Post } from '@/shared/post.helpers';
 import type { FunctionComponent } from 'react';
 import { Caption } from './Caption';
 import { Tag } from './Tag';
@@ -14,7 +14,7 @@ export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
 
     return (
       <>
-        {isPostDataWithCover(data) && (
+        {isEntryDataWithCover(data) && (
           <div className="self-center">
             <ThemedImage
               src={data.coverImage.src}
@@ -28,7 +28,7 @@ export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
 
         <div className="flex flex-col lg:flex-row gap-2 lg:items-center justify-between">
           <div className="flex gap-2 items-center">
-            <Caption>{formatPostPublishedAt(post)}</Caption>
+            <Caption>{formatEntryPublishedAt(data.publishedAt)}</Caption>
             <Caption>&#x2022;</Caption>
             <Caption>{minutesRead}</Caption>
           </div>

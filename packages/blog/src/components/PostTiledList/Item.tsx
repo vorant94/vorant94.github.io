@@ -1,10 +1,9 @@
 import {
+  formatEntryPublishedAt,
+  isEntryDataWithCover,
   PublishedAtFormat,
-  formatPostPublishedAt,
-  getPostFullPath,
-  isPostDataWithCover,
-  type Post,
-} from '@/shared/post.helpers';
+} from '@/shared/collection.helpers';
+import { getPostFullPath, type Post } from '@/shared/post.helpers';
 import { cn } from '@/shared/react.helpers';
 import { theme } from '@/shared/tailwind.helpers';
 import type { FunctionComponent } from 'react';
@@ -35,10 +34,10 @@ export const Item: ItemComponent = function ({ post, publishedAtFormat }) {
           {/* this inline-block removes the inherited text-decoration, since it cannot be simply
           overridden like any other parent css style*/}
           <Caption className="inline-block">
-            {formatPostPublishedAt(post, publishedAtFormat)}
+            {formatEntryPublishedAt(data.publishedAt, publishedAtFormat)}
           </Caption>
         </div>
-        {isPostDataWithCover(data) && (
+        {isEntryDataWithCover(data) && (
           <ThemedImage
             className="h-20 w-20 object-scale-down"
             src={data.coverImage.src}

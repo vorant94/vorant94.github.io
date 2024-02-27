@@ -1,9 +1,8 @@
 import {
+  formatEntryPublishedAt,
   PublishedAtFormat,
-  formatPostPublishedAt,
-  getPostFullPath,
-  type Post,
-} from '@/shared/post.helpers';
+} from '@/shared/collection.helpers';
+import { getPostFullPath, type Post } from '@/shared/post.helpers';
 import { cn } from '@/shared/react.helpers';
 import { theme } from '@/shared/tailwind.helpers';
 import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
@@ -26,7 +25,7 @@ export const Item: ItemComponent = function ({
         aria-label={post.data.title}>
         <span className="flex-1 truncate">{post.data.title}</span>
         <span className="whitespace-nowrap text-xs">
-          {formatPostPublishedAt(post, publishedAtFormat)}
+          {formatEntryPublishedAt(post.data.publishedAt, publishedAtFormat)}
         </span>
       </Link>
     </li>
