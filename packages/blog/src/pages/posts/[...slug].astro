@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
       return {
         params: { slug: post.slug },
-        props: { post, related: relatedPosts },
+        props: { post, relatedPosts },
       };
     }),
   );
@@ -26,10 +26,10 @@ export async function getStaticPaths() {
 
 interface Props {
   post: Post;
-  related: Post[];
+  relatedPosts: Post[];
 }
 
-const { post, related } = Astro.props;
+const { post, relatedPosts } = Astro.props;
 const { coverImage, title, description } = post.data;
 
 let coverImageSrc: string | undefined;
@@ -58,7 +58,7 @@ const { Content, remarkPluginFrontmatter } = await post.render();
     <Content />
   </article>
 
-  {related.length > 0 && <RelatedPosts posts={related} />}
+  {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
 
   <Comments
     post={post}
