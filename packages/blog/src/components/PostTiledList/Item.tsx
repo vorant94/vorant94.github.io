@@ -2,6 +2,7 @@ import {
   PublishedAtFormat,
   formatPostPublishedAt,
   getPostFullPath,
+  isPostDataWithCover,
   type Post,
 } from '@/shared/post.helpers';
 import { cn } from '@/shared/react.helpers';
@@ -13,6 +14,8 @@ import { ThemedImage } from '../ThemedImage';
 import { Title } from '../Title';
 
 export const Item: ItemComponent = function ({ post, publishedAtFormat }) {
+  const { data } = post;
+
   return (
     <li
       className={cn(
@@ -35,12 +38,12 @@ export const Item: ItemComponent = function ({ post, publishedAtFormat }) {
             {formatPostPublishedAt(post, publishedAtFormat)}
           </Caption>
         </div>
-        {post.data.coverImage && (
+        {isPostDataWithCover(data) && (
           <ThemedImage
             className="h-20 w-20 object-scale-down"
-            src={post.data.coverImage.src}
-            srcDark={post.data.coverImageDark?.src}
-            alt={post.data.coverImageAlt!}
+            src={data.coverImage.src}
+            srcDark={data.coverImageDark?.src}
+            alt={data.coverImageAlt!}
           />
         )}
       </Link>

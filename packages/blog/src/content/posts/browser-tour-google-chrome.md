@@ -5,7 +5,6 @@ tags:
   - tech
   - software
 publishedAt: 2023-03-14
-coverImage:
 related:
   - browser-tour-safari
 ---
