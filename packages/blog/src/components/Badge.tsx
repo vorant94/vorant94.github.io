@@ -1,10 +1,10 @@
 import { cn } from '@/shared/react.helpers';
 import {
-  THEME,
+  theme,
   type BackgroundColor,
   type Color,
   type ThemedStyle,
-} from '@/shared/theme';
+} from '@/shared/tailwind.helpers';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 
 export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
@@ -12,9 +12,9 @@ export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
     return (
       <span
         className={cn(
-          ...THEME.primaryText,
+          ...theme.primaryText,
           'inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold',
-          ...COLOR_TO_BG[color],
+          ...colorToBg[color],
         )}>
         {children}
       </span>
@@ -25,7 +25,7 @@ export interface BadgeProps {
   color: Color;
 }
 
-const COLOR_TO_BG: Record<Color, ThemedStyle<BackgroundColor>> = {
+const colorToBg = {
   slate: ['bg-slate-100', 'dark:bg-slate-800'],
   gray: ['bg-gray-100', 'dark:bg-gray-800'],
   zinc: ['bg-zinc-100', 'dark:bg-zinc-800'],
@@ -48,4 +48,4 @@ const COLOR_TO_BG: Record<Color, ThemedStyle<BackgroundColor>> = {
   fuchsia: ['bg-fuchsia-100', 'dark:bg-fuchsia-800'],
   pink: ['bg-pink-100', 'dark:bg-pink-800'],
   rose: ['bg-rose-100', 'dark:bg-rose-800'],
-};
+} as const satisfies Record<Color, ThemedStyle<BackgroundColor>>;

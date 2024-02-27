@@ -1,4 +1,4 @@
-export const THEME: Theme = {
+export const theme = {
   // TODO put this tuple to shared lib since they are used in canvas as well
   background: ['bg-slate-50', 'dark:bg-slate-900'],
   primaryText: ['text-slate-800', 'dark:text-slate-100'],
@@ -9,7 +9,7 @@ export const THEME: Theme = {
     'hover:underline underline-offset-4 decoration-4 decoration-dotted decoration-cyan-500',
   secondaryText: 'text-slate-500',
   fullWidth: 'mx-auto sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl',
-};
+} as const satisfies Theme;
 
 export interface Theme {
   readonly background: ThemedStyle<BackgroundColor>;
@@ -30,7 +30,7 @@ export type TextColor = `text-${Color}-${string}`;
 export type BorderColor = `border-${Color}-${string}`;
 export type DivideColor = `divide-${Color}-${string}`;
 
-export const COLORS = [
+export const colors = [
   'slate',
   'gray',
   'zinc',
@@ -54,4 +54,4 @@ export const COLORS = [
   'pink',
   'rose',
 ] as const;
-export type Color = (typeof COLORS)[number];
+export type Color = (typeof colors)[number];

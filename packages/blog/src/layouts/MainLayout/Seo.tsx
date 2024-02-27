@@ -1,15 +1,15 @@
-import { PROFILE } from '@/shared/profile';
+import { profile } from '@/shared/profile';
 import type { FunctionComponent } from 'react';
 
 export const Seo: FunctionComponent<SeoProps> = function ({
   currentPath,
-  title = PROFILE.title,
+  title = profile.title,
   image = '/favicon.ico',
-  description = PROFILE.description,
+  description = profile.description,
   type = 'website',
   baseUrl,
 }) {
-  const fullTitle = title === PROFILE.title ? title : `vorant94 | ${title}`;
+  const fullTitle = title === profile.title ? title : `vorant94 | ${title}`;
   const domain = baseUrl.split('/').at(-1);
   const fullUrl = new URL(currentPath, baseUrl).toString();
   const imageSrc = new URL(image, baseUrl).toString();

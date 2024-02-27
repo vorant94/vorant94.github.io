@@ -1,5 +1,5 @@
 import { cn } from '@/shared/react.helpers';
-import { THEME } from '@/shared/theme';
+import { theme } from '@/shared/tailwind.helpers';
 import type {
   ComponentPropsWithoutRef,
   FunctionComponent,
@@ -11,7 +11,7 @@ export const Title: FunctionComponent<PropsWithChildren<TitleProps>> =
     return (
       <h6
         className={cn(
-          ...THEME.primaryText,
+          ...theme.primaryText,
           'text-lg font-medium',
           {
             'inline-block': inline,

@@ -7,8 +7,8 @@ import { Icon } from '@/components/Icon';
 import { Headline } from '@/components/Headline';
 import { Text } from '@/components/Text';
 import { ButtonLink } from '@/components/ButtonLink';
-import { PROFILE } from '@/shared/profile';
-import { THEME } from '@/shared/theme';
+import { profile } from '@/shared/profile';
+import { theme } from '@/shared/tailwind.helpers';
 import { cn } from '@/shared/react.helpers';
 ---
 
@@ -36,7 +36,7 @@ import { cn } from '@/shared/react.helpers';
 
   <ul class="grid grid-cols-3 gap-5 mx-auto">
     {
-      PROFILE.socialLinks.map((link) => (
+      profile.socialLinks.map((link) => (
         <li>
           <ButtonLink
             isOutlined={true}
@@ -45,7 +45,7 @@ import { cn } from '@/shared/react.helpers';
             className={cn([
               'w-24 h-24 p-2',
               'flex flex-col gap-2 items-center justify-center',
-              ...THEME.primaryText,
+              ...theme.primaryText,
             ])}>
             <span class="text-xl">
               <Icon glyph={link.glyph} />

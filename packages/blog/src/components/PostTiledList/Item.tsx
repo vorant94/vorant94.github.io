@@ -5,7 +5,7 @@ import {
   type Post,
 } from '@/shared/post.helpers';
 import { cn } from '@/shared/react.helpers';
-import { THEME } from '@/shared/theme';
+import { theme } from '@/shared/tailwind.helpers';
 import type { FunctionComponent } from 'react';
 import { Caption } from '../Caption';
 import { Link } from '../Link';
@@ -18,7 +18,7 @@ export const Item: ItemComponent = function ({ post, publishedAtFormat }) {
       className={cn(
         'flex flex-col p-3 text-medium rounded-md duration-100',
         'hover:border hover:shadow-md hover:scale-105',
-        ...THEME.border,
+        ...theme.border,
       )}
       key={post.id}>
       <Link

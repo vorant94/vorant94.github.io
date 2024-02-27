@@ -1,11 +1,11 @@
 import { cn } from '@/shared/react.helpers';
-import { THEME } from '@/shared/theme';
+import { theme } from '@/shared/tailwind.helpers';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 
 export const Strong: FunctionComponent<PropsWithChildren<StrongProps>> =
   function ({ children }) {
     return (
-      <strong className={cn(...THEME.primaryText, 'font-semibold')}>
+      <strong className={cn(...theme.primaryText, 'font-semibold')}>
         {children}
       </strong>
     );

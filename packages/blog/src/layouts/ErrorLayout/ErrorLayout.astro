@@ -2,7 +2,7 @@
 import { Background } from '@/components/Background';
 import { Meta } from '@/components/Meta';
 import '@/styles/reset.css';
-import { THEME } from '@/shared/theme';
+import { theme } from '@/shared/tailwind.helpers';
 
 interface Props {
   title?: string;
@@ -21,8 +21,8 @@ const { title } = Astro.props;
   </head>
   <body
     class:list={[
-      ...THEME.background,
-      THEME.fullWidth,
+      ...theme.background,
+      theme.fullWidth,
       'flex flex-col min-h-dvh',
     ]}>
     <Background />

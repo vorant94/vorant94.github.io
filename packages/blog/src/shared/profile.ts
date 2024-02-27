@@ -1,6 +1,6 @@
 import type { IconGlyph } from '@/components/Icon';
 
-export const PROFILE: Profile = {
+export const profile = {
   title: `vorant94's Digital Garden`,
   description: `Welcome to my digital garden, here I write about all sorts of things (mostly about technologies, a little bit on gaming, traveling and self-reflecting)`,
   email: 'vorant94@pm.me',
@@ -41,7 +41,7 @@ export const PROFILE: Profile = {
       url: new URL('https://twitter.com/vorant94'),
     },
   ],
-};
+} as const satisfies Profile;
 
 export interface Profile {
   title: string;

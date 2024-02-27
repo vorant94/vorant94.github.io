@@ -1,5 +1,5 @@
 import { cn } from '@/shared/react.helpers';
-import { THEME } from '@/shared/theme';
+import { theme } from '@/shared/tailwind.helpers';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 
 export const Divider: FunctionComponent<PropsWithChildren<DividerProps>> =
@@ -7,7 +7,7 @@ export const Divider: FunctionComponent<PropsWithChildren<DividerProps>> =
     return (
       <div className="relative flex py-5 items-center">
         {isLeft && (
-          <div className={cn(...THEME.border, 'flex-grow border-t')} />
+          <div className={cn(...theme.border, 'flex-grow border-t')} />
         )}
         <div
           className={cn('flex-shrink', {
@@ -17,7 +17,7 @@ export const Divider: FunctionComponent<PropsWithChildren<DividerProps>> =
           {children}
         </div>
         {isRight && (
-          <div className={cn(...THEME.border, 'flex-grow border-t')} />
+          <div className={cn(...theme.border, 'flex-grow border-t')} />
         )}
       </div>
     );
