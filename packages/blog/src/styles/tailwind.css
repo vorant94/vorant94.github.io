@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .va-background {
+    @apply bg-slate-50 dark:bg-slate-900;
+  }
+
+  .va-primary-text {
+    @apply text-slate-800 dark:text-slate-100;
+  }
+
+  .va-secondary-text {
+    @apply text-slate-500;
+  }
+
+  .va-border {
+    @apply border-slate-300 dark:border-slate-600;
+  }
+
+  .va-fullscreen {
+    @apply mx-auto sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl;
+  }
+}

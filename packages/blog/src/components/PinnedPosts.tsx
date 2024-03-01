@@ -1,6 +1,6 @@
 import type { Post } from '@/shared/post.helpers';
 import type { FunctionComponent } from 'react';
-import { PostList } from './PostList';
+import { PostListItem } from './PostList/PostListItem';
 import { StandOut } from './StandOut';
 
 export const PinnedPosts: FunctionComponent<PinnedPostsProps> = function ({
@@ -16,7 +16,7 @@ export const PinnedPosts: FunctionComponent<PinnedPostsProps> = function ({
             <span className="flex gap-3 items-center">
               <span className="-scale-x-100">📌</span>
 
-              <PostList.Item
+              <PostListItem
                 post={post}
                 className="flex-1 !py-0"
               />

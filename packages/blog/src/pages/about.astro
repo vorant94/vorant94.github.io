@@ -1,6 +1,6 @@
 ---
-import { MainLayout } from '@/layouts/MainLayout';
-import { Intro } from '@/components/Intro';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
+import { Intro } from '@/components/Intro/Intro';
 import { Link } from '@/components/Link';
 import { Divider } from '@/components/Divider';
 import { Icon } from '@/components/Icon';
@@ -8,7 +8,6 @@ import { Headline } from '@/components/Headline';
 import { Text } from '@/components/Text';
 import { ButtonLink } from '@/components/ButtonLink';
 import { profile } from '@/shared/profile';
-import { theme } from '@/shared/tailwind.helpers';
 import { cn } from '@/shared/react.helpers';
 ---
 
@@ -43,9 +42,9 @@ import { cn } from '@/shared/react.helpers';
             href={link.url.toString()}
             target="_blank"
             className={cn([
+              'va-primary-text',
               'w-24 h-24 p-2',
               'flex flex-col gap-2 items-center justify-center',
-              ...theme.primaryText,
             ])}>
             <span class="text-xl">
               <Icon glyph={link.glyph} />

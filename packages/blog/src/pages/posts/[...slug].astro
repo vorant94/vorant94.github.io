@@ -1,10 +1,10 @@
 ---
 import { getCollection, getEntries } from 'astro:content';
 import { getImage } from 'astro:assets';
-import { MainLayout } from '@/layouts/MainLayout';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { PostFrontmatter } from '@/components/PostFrontmatter';
 import { Comments } from '@/components/Comments';
-import { RelatedPosts } from '@/components/RelatedPosts';
+import { RelatedPosts } from '@/components/RelatedPosts/RelatedPosts';
 import { type Post } from '@/shared/post.helpers';
 import { sortEntriesByPublishedAt } from '@/shared/collection.helpers';
 

@@ -9,7 +9,7 @@
     }
 
     &::before {
-      font-family: 'Font Awesome 6 Free';
+      font: var(--fa-font-solid);
       content: '\f0d7';
     }
   }

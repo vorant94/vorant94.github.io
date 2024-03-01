@@ -1,5 +1,4 @@
 import { cn } from '@/shared/react.helpers';
-import { theme } from '@/shared/tailwind.helpers';
 import type {
   ComponentPropsWithoutRef,
   FunctionComponent,
@@ -17,8 +16,7 @@ const Card: CardComponent = function ({
   return (
     <div
       className={cn(
-        ...theme.border,
-        ...theme.background,
+        'va-border va-background',
         'border rounded-md p-5 flex gap-3 relative',
         className,
       )}

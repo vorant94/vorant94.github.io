@@ -1,5 +1,4 @@
 import { cn } from '@/shared/react.helpers';
-import { theme } from '@/shared/tailwind.helpers';
 import type {
   ComponentPropsWithoutRef,
   PropsWithChildren,
@@ -15,7 +14,7 @@ export function Text({
   return (
     <span
       className={cn(
-        ...theme.primaryText,
+        'va-primary-text',
         {
           'text-sm font-light': level === 'sm',
         },

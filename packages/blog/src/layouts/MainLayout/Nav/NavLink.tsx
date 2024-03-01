@@ -1,6 +1,5 @@
 import { Link, type LinkProps } from '@/components/Link';
 import { cn } from '@/shared/react.helpers';
-import { theme } from '@/shared/tailwind.helpers';
 import {
   useEffect,
   useState,
@@ -8,7 +7,6 @@ import {
   type PropsWithChildren,
 } from 'react';
 
-// has prefix Nav even internally in order to avoid conflicts with Link coming from components
 export const NavLink: LinkComponent = function ({
   href,
   className,
@@ -21,13 +19,10 @@ export const NavLink: LinkComponent = function ({
     <li>
       <Link
         className={cn(
-          'hover:underline font-semibold block text-center',
+          'font-semibold block text-center',
           'text-2xl p-3 md:p-4 rounded-full border-2',
-          theme.background,
-          theme.border,
+          'va-background va-border',
           'lg:text-sm lg:p-0 lg:bg-none dark:lg:bg-none lg:rounded-none lg:border-none',
-          theme.link,
-          theme.linkDecoration,
           { 'underline !text-cyan-500': isLinkActive },
           className,
         )}

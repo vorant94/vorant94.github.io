@@ -1,7 +1,6 @@
-import { Button } from '@/components/Button';
+import { Button } from '@/components/Button/Button';
 import { Icon } from '@/components/Icon';
 import { cn } from '@/shared/react.helpers';
-import { theme } from '@/shared/tailwind.helpers';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   useEffect,
@@ -11,7 +10,7 @@ import {
   type PropsWithChildren,
   type SetStateAction,
 } from 'react';
-import { Header } from './Header';
+import { Header } from './Header/Header';
 
 export const Modal: FunctionComponent<PropsWithChildren<ModalProps>> =
   function ({ children, isOpen, onCloseClick }) {
@@ -28,7 +27,7 @@ export const Modal: FunctionComponent<PropsWithChildren<ModalProps>> =
             className={cn(
               'fixed top-0 left-0 w-dvw h-dvh backdrop-filter backdrop-blur z-10',
             )}>
-            <div className={cn(theme.fullWidth, 'flex flex-col h-full')}>
+            <div className={cn('va-fullscreen flex flex-col h-full')}>
               <Header>
                 <Button
                   aria-label="modal-close"
