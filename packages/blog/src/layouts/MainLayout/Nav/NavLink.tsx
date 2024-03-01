@@ -7,7 +7,6 @@ import {
   type PropsWithChildren,
 } from 'react';
 
-// has prefix Nav even internally in order to avoid conflicts with Link coming from components
 export const NavLink: LinkComponent = function ({
   href,
   className,

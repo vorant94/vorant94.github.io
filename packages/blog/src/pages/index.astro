@@ -1,9 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import { partition } from 'lodash-es';
-import { MainLayout } from '@/layouts/MainLayout';
-import { Intro } from '@/components/Intro';
-import { PostTiledList } from '@/components/PostTiledList';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
+import { Intro } from '@/components/Intro/Intro';
+import { PostTiledList } from '@/components/PostTiledList/PostTiledList';
+import { PostTiledListItem } from '@/components/PostTiledList/PostTiledListItem';
 import { PinnedPosts } from '@/components/PinnedPosts';
 import { Link } from '@/components/Link';
 import { sortEntriesByPublishedAt } from '@/shared/collection.helpers';
@@ -23,7 +24,7 @@ const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
   <Intro />
 
   <PostTiledList>
-    {recentNonPunnedPosts.map((post) => <PostTiledList.Item post={post} />)}
+    {recentNonPunnedPosts.map((post) => <PostTiledListItem post={post} />)}
   </PostTiledList>
 
   <Link

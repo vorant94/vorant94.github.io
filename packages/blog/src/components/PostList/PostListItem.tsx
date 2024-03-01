@@ -7,7 +7,7 @@ import { cn } from '@/shared/react.helpers';
 import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
 import { Link } from '../Link';
 
-export const Item: ItemComponent = function ({
+export const PostListItem: FunctionComponent<PostListItemProps> = function ({
   className,
   post,
   publishedAtFormat,
@@ -31,9 +31,7 @@ export const Item: ItemComponent = function ({
   );
 };
 
-export type ItemComponent = FunctionComponent<ItemProps>;
-
-export interface ItemProps extends ComponentPropsWithoutRef<'li'> {
+export interface PostListItemProps extends ComponentPropsWithoutRef<'li'> {
   post: Post;
   publishedAtFormat?: PublishedAtFormat;
 }

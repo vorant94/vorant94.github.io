@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
-import { Button } from '.';
+import { Button } from './Button';
 
 describe('Button', () => {
   it('should render the button and its children', () => {

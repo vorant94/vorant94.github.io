@@ -1,9 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
-import { MainLayout } from '@/layouts/MainLayout';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { Divider } from '@/components/Divider';
 import { Headline } from '@/components/Headline';
-import { PostList } from '@/components/PostList';
+import { PostList } from '@/components/PostList/PostList';
+import { PostListItem } from '@/components/PostList/PostListItem';
 import {
   sortEntriesByPublishedAt,
   PublishedAtFormat,
@@ -42,7 +43,7 @@ const { posts, tag } = Astro.props;
   <PostList>
     {
       posts.map((post) => (
-        <PostList.Item
+        <PostListItem
           post={post}
           publishedAtFormat={PublishedAtFormat.SHORT}
         />

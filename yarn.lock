@@ -554,6 +554,7 @@ __metadata:
     "@astrojs/sitemap": "npm:^3.0.5"
     "@astrojs/tailwind": "npm:^5.1.0"
     "@astrojs/upgrade": "npm:^0.2.3"
+    "@fortawesome/fontawesome-free": "npm:^6.5.1"
     "@fortawesome/fontawesome-svg-core": "npm:^6.5.1"
     "@fortawesome/free-brands-svg-icons": "npm:^6.5.1"
     "@fortawesome/free-solid-svg-icons": "npm:^6.5.1"
@@ -1031,6 +1032,13 @@ __metadata:
   version: 6.5.1
   resolution: "@fortawesome/fontawesome-common-types@npm:6.5.1"
   checksum: 10c0/afd4e6de0af60b1dc1557877f8f5fa95ee9f0fb0558581d25c46d24c2946bbcf54e351451d0ca2d6b043a283a66526450da7cf052a45702237b0c8383823a825
+  languageName: node
+  linkType: hard
+
+"@fortawesome/fontawesome-free@npm:^6.5.1":
+  version: 6.5.1
+  resolution: "@fortawesome/fontawesome-free@npm:6.5.1"
+  checksum: 10c0/dc359ede1ddfc6d91915345143008420001c56b164a6fe95d81bcca631eecca41009bfacf794d55bdb9d927c112119ce90a11cb4f576a815ed69ec681e5eb824
   languageName: node
   linkType: hard
 

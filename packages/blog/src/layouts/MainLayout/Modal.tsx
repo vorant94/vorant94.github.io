@@ -1,4 +1,4 @@
-import { Button } from '@/components/Button';
+import { Button } from '@/components/Button/Button';
 import { Icon } from '@/components/Icon';
 import { cn } from '@/shared/react.helpers';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -10,7 +10,7 @@ import {
   type PropsWithChildren,
   type SetStateAction,
 } from 'react';
-import { Header } from './Header';
+import { Header } from './Header/Header';
 
 export const Modal: FunctionComponent<PropsWithChildren<ModalProps>> =
   function ({ children, isOpen, onCloseClick }) {
