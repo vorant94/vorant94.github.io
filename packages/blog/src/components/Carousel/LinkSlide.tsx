@@ -35,7 +35,7 @@ export const LinkSlide: LinkSlideComponent = function ({
       )}>
       <div
         className={cn(
-          'bg-black bg-opacity-10 flex-1 flex flex-col items-start p-4',
+          'bg-black dark:bg-white !bg-opacity-10 flex-1 flex flex-col items-start p-4',
         )}>
         <Badge
           color={badgeColor}
