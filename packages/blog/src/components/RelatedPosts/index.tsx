@@ -1,6 +1,5 @@
 import type { Post } from '@/shared/post.helpers';
 import { cn } from '@/shared/react.helpers';
-import { theme } from '@/shared/tailwind.helpers';
 import type { FunctionComponent } from 'react';
 import { PostList } from '../PostList';
 import { StandOut } from '../StandOut';
@@ -12,7 +11,7 @@ export const RelatedPosts: FunctionComponent<RelatedPostsProps> = function ({
 }) {
   return (
     <StandOut className="flex-col">
-      <details className={cn(...theme.primaryText, Styles.details)}>
+      <details className={cn('va-primary-text', Styles.details)}>
         <summary className="hover:cursor-pointer">
           <Title inline={true}>
             <span className="pl-2">Related posts</span>

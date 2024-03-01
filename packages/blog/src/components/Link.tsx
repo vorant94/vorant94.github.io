@@ -1,5 +1,4 @@
 import { cn } from '@/shared/react.helpers';
-import { theme } from '@/shared/tailwind.helpers';
 import {
   type ComponentPropsWithoutRef,
   type FunctionComponent,
@@ -15,7 +14,10 @@ export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = function ({
 }) {
   return (
     <a
-      className={cn(theme.link, theme.linkDecoration, className)}
+      className={cn(
+        'text-slate-500 decoration-cyan-500 decoration-dotted decoration-4 underline-offset-4 hover:text-cyan-500 hover:underline group-hover:text-cyan-500 group-hover:underline',
+        className,
+      )}
       href={href}
       data-astro-prefetch={prefetch}
       {...rest}>

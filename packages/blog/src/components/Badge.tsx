@@ -1,6 +1,5 @@
 import { cn } from '@/shared/react.helpers';
 import {
-  theme,
   type BackgroundColor,
   type Color,
   type ThemedStyle,
@@ -12,7 +11,7 @@ export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
     return (
       <span
         className={cn(
-          ...theme.primaryText,
+          'va-primary-text',
           'inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold',
           ...colorToBg[color],
         )}>

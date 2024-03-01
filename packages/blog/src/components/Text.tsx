@@ -1,5 +1,4 @@
 import { cn } from '@/shared/react.helpers';
-import { theme } from '@/shared/tailwind.helpers';
 import type { PropsWithChildren, ReactElement } from 'react';
 
 export function Text({
@@ -8,7 +7,7 @@ export function Text({
 }: PropsWithChildren<TextProps>): ReactElement {
   return (
     <span
-      className={cn(...theme.primaryText, {
+      className={cn('va-primary-text', {
         'text-sm font-light': level === 'sm',
       })}>
       {children}

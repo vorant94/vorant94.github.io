@@ -7,8 +7,8 @@ import { Nav } from './Nav';
 import { Background } from '@/components/Background';
 import { Meta } from '@/components/Meta';
 import '@/styles/reset.css';
+import '@/styles/tailwind.css';
 import { removeTrailingSlash } from '@/shared/url.helpers';
-import { theme } from '@/shared/tailwind.helpers';
 import { profile } from '@/shared/profile';
 
 interface Props {
@@ -41,12 +41,7 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
       baseUrl={baseUrl}
     />
   </head>
-  <body
-    class:list={[
-      ...theme.background,
-      theme.fullWidth,
-      'flex flex-col min-h-dvh',
-    ]}>
+  <body class:list={['va-background va-fullscreen flex flex-col min-h-dvh']}>
     {isProd && <Analytics client:only="react" />}
 
     <Background />

@@ -1,11 +1,10 @@
 import { cn } from '@/shared/react.helpers';
-import { theme } from '@/shared/tailwind.helpers';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { Item, type ItemComponent } from './Item';
 
 const PostList: PostListComponent = function ({ children }) {
   return (
-    <ul className={cn('flex flex-col divide-y divide-dashed', ...theme.divide)}>
+    <ul className={cn('flex flex-col divide-y divide-dashed', 'va-border')}>
       {children}
     </ul>
   );

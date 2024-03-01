@@ -5,7 +5,6 @@ import {
 } from '@/shared/collection.helpers';
 import { getPostFullPath, type Post } from '@/shared/post.helpers';
 import { cn } from '@/shared/react.helpers';
-import { theme } from '@/shared/tailwind.helpers';
 import type { FunctionComponent } from 'react';
 import { Caption } from '../Caption';
 import { Link } from '../Link';
@@ -18,16 +17,16 @@ export const Item: ItemComponent = function ({ post, publishedAtFormat }) {
   return (
     <li
       className={cn(
-        'flex flex-col p-3 text-medium rounded-md duration-100',
+        'flex flex-col text-medium rounded-md duration-100',
         'hover:border hover:shadow-md hover:scale-105',
-        ...theme.border,
+        'va-border',
       )}
       key={post.id}>
       <Link
         href={getPostFullPath(post)}
         prefetch="hover"
-        className="flex items-center group">
-        <div className="flex-1 overflow-hidden">
+        className={cn('flex items-center p-3 group')}>
+        <div className={cn('flex-1 overflow-hidden')}>
           <Title className={cn('truncate group-hover:text-inherit')}>
             {post.data.title}
           </Title>
