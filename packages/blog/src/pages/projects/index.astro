@@ -1,6 +1,7 @@
 ---
-import { MainLayout } from '@/layouts/MainLayout';
-import { ProjectTiledList } from '@/components/ProjectTiledList';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
+import { ProjectTiledList } from '@/components/ProjectTiledList/ProjectTiledList';
+import { ProjectTiledListItem } from '@/components/ProjectTiledList/ProjectTiledListItem';
 import { getCollection } from 'astro:content';
 import { Headline } from '@/components/Headline';
 import { Divider } from '@/components/Divider';
@@ -34,7 +35,7 @@ const changelogs = groupChangelogsByProject(
 
         <ProjectTiledList>
           {projectsByStatus[status]!.map((project) => (
-            <ProjectTiledList.Item
+            <ProjectTiledListItem
               project={project}
               changelogs={changelogs[project.slug]!.slice(0, 2)}
             />
