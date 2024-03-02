@@ -26,9 +26,13 @@ const [pinnedPosts, allNonPinnedPosts] = partition(
   (entry) => entry.data.isPinned,
 );
 
-const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
+const recentNonPinnedPosts = allNonPinnedPosts.slice(0, 3);
 
-const projects = await getCollection('projects');
+const allProjects = await getCollection('projects');
+
+const featuredProjects = allProjects
+  .filter((project) => project.data.isFeatured)
+  .slice(0, 3);
 ---
 
 <MainLayout>
@@ -37,12 +41,12 @@ const projects = await getCollection('projects');
   <Intro />
 
   <Divider>
-    <Headline>My Projects</Headline>
+    <Headline>Featured Projects</Headline>
   </Divider>
 
   <Carousel>
     {
-      projects.map((project) => {
+      featuredProjects.map((project) => {
         const { data } = project;
 
         return isEntryDataWithCover(data) ? (
@@ -74,7 +78,7 @@ const projects = await getCollection('projects');
   </Divider>
 
   <PostTiledList>
-    {recentNonPunnedPosts.map((post) => <PostTiledListItem post={post} />)}
+    {recentNonPinnedPosts.map((post) => <PostTiledListItem post={post} />)}
   </PostTiledList>
 
   <Link

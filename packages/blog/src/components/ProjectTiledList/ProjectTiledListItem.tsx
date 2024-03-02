@@ -28,6 +28,7 @@ import { Title } from '../Title';
 export const ProjectTiledListItem: FunctionComponent<ProjectTiledListItemProps> =
   function ({ project, changelogs }) {
     const { data } = project;
+
     return (
       <Card
         style={

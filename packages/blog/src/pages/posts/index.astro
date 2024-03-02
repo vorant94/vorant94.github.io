@@ -25,6 +25,7 @@ const years = Object.keys(postsByYear).reverse();
         <Divider isLeft={false}>
           <Headline>{year}</Headline>
         </Divider>
+
         <PostList>
           {postsByYear[year]!.map((post) => (
             <PostListItem

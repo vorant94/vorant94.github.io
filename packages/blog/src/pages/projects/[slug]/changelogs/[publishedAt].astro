@@ -1,0 +1,36 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
+import type { Project } from '@/shared/project.helpers';
+import type { Changelog } from '@/shared/changelog.helpers';
+import {
+  formatEntryPublishedAt,
+  PublishedAtFormat,
+} from '@/shared/collection.helpers';
+
+export async function getStaticPaths() {
+  const changelogs = await getCollection('changelogs');
+
+  return await Promise.all(
+    changelogs.map(async (changelog) => {
+      const project = await getEntry(changelog.data.project);
+      const publishedAt = formatEntryPublishedAt(
+        changelog.data.publishedAt,
+        PublishedAtFormat.SLUGIFY,
+      );
+
+      return {
+        params: { slug: project.slug, publishedAt },
+        props: { project, changelog },
+      };
+    }),
+  );
+}
+
+interface Props {
+  project: Project;
+  changelog: Changelog;
+}
+---
+
+<MainLayout> changelog </MainLayout>

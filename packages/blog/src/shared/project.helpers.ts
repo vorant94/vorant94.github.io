@@ -4,10 +4,20 @@ import type { Color } from './tailwind.helpers';
 
 export type Project = CollectionEntry<'projects'>;
 
+export const projectStatuses = [
+  'concept',
+  'mvp',
+  'live',
+  'freezed',
+  'closed',
+] as const;
+export type ProjectStatus = (typeof projectStatuses)[number];
+
 const base = z.object({
   name: z.string(),
   slogan: z.string(),
-  status: z.enum(['concept', 'mvp', 'live', 'freezed', 'closed']),
+  status: z.enum(projectStatuses),
+  isFeatured: z.boolean().default(false),
   sourceCodeUrl: z.string().url(),
   productionUrl: z.string().url().nullish(),
 });
@@ -26,7 +36,6 @@ export const projectWithCover = ({ image }: SchemaContext) =>
 export type ProjectWithoutCoverData = z.infer<typeof projectWithoutCover>;
 export type ProjectWithCoverData = z.infer<ReturnType<typeof projectWithCover>>;
 export type ProjectData = ProjectWithoutCoverData | ProjectWithCoverData;
-export type ProjectStatus = ProjectData['status'];
 
 export const projectStatusToLabel = {
   concept: 'Concept',
@@ -44,7 +53,7 @@ export const projectStatusToBadgeColor = {
   closed: 'indigo',
 } as const satisfies Record<ProjectStatus, Color>;
 
-const projectStatusOrder = {
+export const projectStatusOrder = {
   live: 0,
   mvp: 1,
   concept: 2,
@@ -52,16 +61,9 @@ const projectStatusOrder = {
   closed: 4,
 } as const satisfies Record<ProjectStatus, number>;
 
-export function sortProjectsByStatus(projects: Project[]): Project[] {
-  return projects.toSorted(
-    (a, b) =>
-      projectStatusOrder[a.data.status] - projectStatusOrder[b.data.status],
-  );
-}
-
 export function groupProjectsByStatus(
   projects: Project[],
-): Record<string, Project[]> {
+): Partial<Record<ProjectStatus, Project[]>> {
   return groupBy(projects, ({ data }) => data.status);
 }
 

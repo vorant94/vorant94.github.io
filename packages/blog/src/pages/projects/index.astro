@@ -8,17 +8,22 @@ import { Divider } from '@/components/Divider';
 import {
   type ProjectStatus,
   groupProjectsByStatus,
-  sortProjectsByStatus,
   projectStatusToLabel,
+  projectStatuses,
+  projectStatusOrder,
 } from '@/shared/project.helpers';
 import { groupChangelogsByProject } from '@/shared/changelog.helpers';
 import { sortEntriesByPublishedAt } from '@/shared/collection.helpers';
 
-const projectsByStatus = groupProjectsByStatus(
-  sortProjectsByStatus(await getCollection('projects')),
-);
+const projectsByStatus = groupProjectsByStatus(await getCollection('projects'));
 
-const statuses = Object.keys(projectsByStatus);
+const statuses = projectStatuses
+  .toSorted((a, b) => projectStatusOrder[a] - projectStatusOrder[b])
+  //   astro check ignores optional chaining for some reason
+  .filter(
+    (status) =>
+      status in projectsByStatus && projectsByStatus[status]!.length > 0,
+  );
 
 const changelogs = groupChangelogsByProject(
   sortEntriesByPublishedAt(await getCollection('changelogs')),
