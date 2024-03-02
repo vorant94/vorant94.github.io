@@ -1,4 +1,5 @@
-import { Layout } from '../components/Layout';
+import { Layout } from '@/components/Layout';
+import type { FunctionComponent } from 'react';
 import gitLogoDark from './git-logo-dark.svg';
 import gitLogo from './git-logo.svg';
 import tsLogoDark from './ts-logo-dark.svg';
@@ -6,7 +7,7 @@ import tsLogo from './ts-logo.svg';
 import yarnLogoDark from './yarn-logo-dark.svg';
 import yarnLogo from './yarn-logo.svg';
 
-export function TypescriptMonoreposAreAMess() {
+export const TypescriptMonoreposAreAMess: FunctionComponent = function () {
   return (
     <Layout>
       <div className="grid grid-cols-6 grid-rows-4 gap-6 p-40 bg-zinc-100 dark:bg-zinc-900">
@@ -38,7 +39,7 @@ export function TypescriptMonoreposAreAMess() {
       </div>
     </Layout>
   );
-}
+};
 
 // bg-zinc-100 -> #f4f4f5
 // bg-zinc-900 -> #18181b

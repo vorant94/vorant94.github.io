@@ -1,13 +1,24 @@
+import { Main } from '@/Main';
+import { Route } from '@/Main/route.ts';
+import { ThoughtsOnModernFrameworkFeatures } from '@/ThoughtsOnModernFrameworkFeatures';
+import { TypescriptMonoreposAreAMess } from '@/TypescriptMonoreposAreAMess';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './index.css';
-import { TypescriptMonoreposAreAMess } from './TypescriptMonoreposAreAMess';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: Route.MAIN,
+    element: <Main />,
+  },
+  {
+    path: Route.TYPESCRIPT_MONOREPOS_ARE_A_MESS,
     element: <TypescriptMonoreposAreAMess />,
+  },
+  {
+    path: Route.THOUGHTS_ON_MODERN_FRAMEWORK_FEATURES,
+    element: <ThoughtsOnModernFrameworkFeatures />,
   },
 ]);
 
