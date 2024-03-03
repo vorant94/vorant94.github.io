@@ -1,4 +1,4 @@
-import { Layout } from '@/components/Layout';
+import { Layout } from '@/components/Layout.tsx';
 import type { FunctionComponent } from 'react';
 import gitLogoDark from './git-logo-dark.svg';
 import gitLogo from './git-logo.svg';

@@ -1,12 +1,12 @@
 import {
   formatEntryPublishedAt,
   isEntryDataWithCover,
-} from '@/shared/collection.helpers';
-import type { Post } from '@/shared/post.helpers';
+} from '@/shared/collection.helpers.ts';
+import type { Post } from '@/shared/post.helpers.ts';
 import type { FunctionComponent } from 'react';
-import { Caption } from './Caption';
-import { Tag } from './Tag';
-import { ThemedImage } from './ThemedImage';
+import { Caption } from './Caption.tsx';
+import { Tag } from './Tag.tsx';
+import { ThemedImage } from './ThemedImage.tsx';
 
 export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
   function ({ post, minutesRead }) {

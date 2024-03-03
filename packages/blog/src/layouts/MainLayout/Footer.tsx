@@ -1,6 +1,6 @@
-import { ButtonLink } from '@/components/ButtonLink';
-import { Icon } from '@/components/Icon';
-import { profile } from '@/shared/profile';
+import { ButtonLink } from '@/components/ButtonLink.tsx';
+import { Icon } from '@/components/Icon.tsx';
+import { profile } from '@/shared/profile.ts';
 import { cn } from '@digital-garden/utils';
 import type { FunctionComponent } from 'react';
 

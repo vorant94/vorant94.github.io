@@ -1,5 +1,5 @@
-import { Button } from '@/components/Button/Button';
-import { Icon } from '@/components/Icon';
+import { Button } from '@/components/Button/Button.tsx';
+import { Icon } from '@/components/Icon.tsx';
 import {
   useEffect,
   type Dispatch,
@@ -8,8 +8,8 @@ import {
   type SetStateAction,
 } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Modal, useIsModalOpen } from '../Modal';
-import { NavLink, type LinkComponent } from './NavLink';
+import { Modal, useIsModalOpen } from '../Modal.tsx';
+import { NavLink, type LinkComponent } from './NavLink.tsx';
 
 const Nav: NavComponent = function ({ children }) {
   const [isMobileNavOpen, setIsMobileNavOpen] = useIsMobileNavOpen();

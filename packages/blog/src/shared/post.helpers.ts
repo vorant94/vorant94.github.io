@@ -6,7 +6,7 @@ import {
 import { format } from 'date-fns';
 import { groupBy } from 'lodash-es';
 import { z } from 'zod';
-import { PublishedAtFormat } from './collection.helpers';
+import { PublishedAtFormat } from './collection.helpers.ts';
 
 export type Post = CollectionEntry<'posts'>;
 

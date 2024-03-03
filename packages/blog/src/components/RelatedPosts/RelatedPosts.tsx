@@ -1,11 +1,11 @@
-import type { Post } from '@/shared/post.helpers';
+import type { Post } from '@/shared/post.helpers.ts';
 import { cn } from '@digital-garden/utils';
 import '@fortawesome/fontawesome-free/css/solid.css';
 import type { FunctionComponent } from 'react';
-import { PostList } from '../PostList/PostList';
-import { PostListItem } from '../PostList/PostListItem';
-import { StandOut } from '../StandOut';
-import { Title } from '../Title';
+import { PostList } from '../PostList/PostList.tsx';
+import { PostListItem } from '../PostList/PostListItem.tsx';
+import { StandOut } from '../StandOut.tsx';
+import { Title } from '../Title.tsx';
 import Styles from './RelatedPosts.module.css';
 
 export const RelatedPosts: FunctionComponent<RelatedPostsProps> = function ({

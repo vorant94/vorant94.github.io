@@ -1,5 +1,5 @@
 import { compareDesc, format } from 'date-fns';
-import type { Post, PostData, PostWithCoverData } from './post.helpers';
+import type { Post, PostData, PostWithCoverData } from './post.helpers.ts';
 
 export function isEntryDataWithCover(
   data: PostData,
