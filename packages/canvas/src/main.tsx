@@ -1,5 +1,5 @@
-import { Main } from '@/Main';
-import { Route } from '@/Main/route.ts';
+import { Home } from '@/Home';
+import { Route } from '@/Home/route.ts';
 import { ThoughtsOnModernFrameworkFeatures } from '@/ThoughtsOnModernFrameworkFeatures';
 import { TypescriptMonoreposAreAMess } from '@/TypescriptMonoreposAreAMess';
 import { StrictMode } from 'react';
@@ -10,7 +10,7 @@ import './index.css';
 const router = createBrowserRouter([
   {
     path: Route.MAIN,
-    element: <Main />,
+    element: <Home />,
   },
   {
     path: Route.TYPESCRIPT_MONOREPOS_ARE_A_MESS,

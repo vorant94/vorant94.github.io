@@ -1,9 +1,10 @@
-import { routeToLabel } from '@/Main/route.ts';
 import { Layout } from '@/components/Layout.tsx';
+import { cn } from '@digital-garden/utils';
 import type { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
+import { routeToLabel } from './route.ts';
 
-export const Main: FunctionComponent = function () {
+export const Home: FunctionComponent = function () {
   return (
     <Layout>
       <nav>
@@ -12,7 +13,7 @@ export const Main: FunctionComponent = function () {
             <li key={link}>
               <Link
                 to={link}
-                className={'text-slate-500 hover:text-cyan-500'}>
+                className={cn('text-slate-500 hover:text-cyan-500')}>
                 {label}
               </Link>
             </li>

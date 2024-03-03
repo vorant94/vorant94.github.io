@@ -619,6 +619,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@digital-garden/canvas@workspace:packages/canvas"
   dependencies:
+    "@digital-garden/utils": "workspace:^"
     "@types/react": "npm:^18.2.57"
     "@types/react-dom": "npm:^18.2.19"
     "@vitejs/plugin-react": "npm:^4.2.1"
