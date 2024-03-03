@@ -57,6 +57,9 @@ jobs:
 
       - run: yarn
 
+      # need in order to build local dependencies in the right order
+      - run: yarn build
+
       - run: yarn workspace @digital-garden/blog run vercel:pull --token=${{ secrets.VERCEL_TOKEN }}
 
       - run: yarn workspace @digital-garden/blog run vercel:build --token=${{ secrets.VERCEL_TOKEN }}

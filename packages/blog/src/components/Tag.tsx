@@ -1,6 +1,9 @@
 import { getPostTagFullPath } from '@/shared/post.helpers';
-import { extractStringFromReactNode } from '@/shared/react.helpers';
-import { colors, type Color } from '@/shared/tailwind.helpers';
+import {
+  colors,
+  extractStringFromReactNode,
+  type Color,
+} from '@digital-garden/utils';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { Badge } from './Badge';
 
