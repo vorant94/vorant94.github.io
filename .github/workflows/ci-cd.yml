@@ -23,9 +23,6 @@ jobs:
 
       - run: yarn
 
-      # need in order to build local dependencies in the right order
-      - run: yarn build
-
       - run: yarn workspace @digital-garden/blog run check
 
       - run: yarn test
@@ -59,9 +56,6 @@ jobs:
           cache: "yarn"
 
       - run: yarn
-
-      # need in order to build local dependencies in the right order
-      - run: yarn build
 
       - run: yarn workspace @digital-garden/blog run vercel:pull --token=${{ secrets.VERCEL_TOKEN }}
 

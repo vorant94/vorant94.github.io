@@ -36,7 +36,8 @@
     /* Misc */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@digital-garden/utils": ["../utils/src/index.ts"]
     }
   },
   "exclude": ["dist"]
