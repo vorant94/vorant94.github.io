@@ -1,7 +1,7 @@
-import { Home } from '@/Home';
-import { Route } from '@/Home/route.ts';
-import { ThoughtsOnModernFrameworkFeatures } from '@/ThoughtsOnModernFrameworkFeatures/index.tsx';
+import { Home } from '@/Home/Home.tsx';
+import { ThoughtsOnModernFrameworkFeatures } from '@/ThoughtsOnModernFrameworkFeatures/ThoughtsOnModernFrameworkFeatures.tsx';
 import { TypescriptMonoreposAreAMess } from '@/TypescriptMonoreposAreAMess/TypescriptMonoreposAreAMess.tsx';
+import { Route } from '@/shared/route.ts';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
