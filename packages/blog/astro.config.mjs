@@ -49,6 +49,10 @@ export default defineConfig({
     resolve: {
       alias: {
         '@/': new URL('./src/', import.meta.url).pathname,
+        '@digital-garden/utils': new URL(
+          '../utils/src/index.ts',
+          import.meta.url,
+        ).pathname,
       },
     },
   },
