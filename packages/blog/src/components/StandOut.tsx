@@ -1,6 +1,6 @@
 import { cn } from '@digital-garden/utils';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { Card, type CardProps } from './Card/Card';
+import { Card, type CardProps } from './Card/Card.tsx';
 
 export const StandOut: FunctionComponent<PropsWithChildren<StandOutProps>> =
   function ({ className, children }) {

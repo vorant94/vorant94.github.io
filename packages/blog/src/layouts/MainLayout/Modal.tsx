@@ -1,5 +1,5 @@
-import { Button } from '@/components/Button/Button';
-import { Icon } from '@/components/Icon';
+import { Button } from '@/components/Button/Button.tsx';
+import { Icon } from '@/components/Icon.tsx';
 import { cn } from '@digital-garden/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
@@ -10,7 +10,7 @@ import {
   type PropsWithChildren,
   type SetStateAction,
 } from 'react';
-import { Header } from './Header/Header';
+import { Header } from './Header/Header.tsx';
 
 export const Modal: FunctionComponent<PropsWithChildren<ModalProps>> =
   function ({ children, isOpen, onCloseClick }) {

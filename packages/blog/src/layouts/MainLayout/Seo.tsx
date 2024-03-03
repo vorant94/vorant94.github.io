@@ -1,4 +1,4 @@
-import { profile } from '@/shared/profile';
+import { profile } from '@/shared/profile.ts';
 import type { FunctionComponent } from 'react';
 
 export const Seo: FunctionComponent<SeoProps> = function ({

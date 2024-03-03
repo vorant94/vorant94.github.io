@@ -2,11 +2,11 @@
 import { getCollection } from 'astro:content';
 import { partition } from 'lodash-es';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
-import { Intro } from '@/components/Intro/Intro';
-import { PostTiledList } from '@/components/PostTiledList/PostTiledList';
-import { PostTiledListItem } from '@/components/PostTiledList/PostTiledListItem';
-import { PinnedPosts } from '@/components/PinnedPosts';
-import { Link } from '@/components/Link';
+import { Intro } from '@/components/Intro/Intro.tsx';
+import { PostTiledList } from '@/components/PostTiledList/PostTiledList.tsx';
+import { PostTiledListItem } from '@/components/PostTiledList/PostTiledListItem.tsx';
+import { PinnedPosts } from '@/components/PinnedPosts.tsx';
+import { Link } from '@/components/Link.tsx';
 import { Carousel } from '@/components/Carousel/Carousel';
 import { CarouselLinkSlide } from '@/components/Carousel/CarouselLinkSlide';
 import { CarouselEmptyLinkSlide } from '@/components/Carousel/CarouselEmptyLinkSlide';
@@ -15,7 +15,7 @@ import { Headline } from '@/components/Headline';
 import {
   sortEntriesByPublishedAt,
   isEntryDataWithCover,
-} from '@/shared/collection.helpers';
+} from '@/shared/collection.helpers.ts';
 import {
   getProjectFullPath,
   projectStatusToLabel,

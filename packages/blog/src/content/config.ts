@@ -1,4 +1,4 @@
-import { postWithCover, postWithoutCover } from '@/shared/post.helpers';
+import { postWithCover, postWithoutCover } from '@/shared/post.helpers.ts';
 import {
   projectWithCover,
   projectWithoutCover,

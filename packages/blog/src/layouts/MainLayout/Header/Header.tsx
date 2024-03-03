@@ -1,5 +1,5 @@
-import { ButtonLink } from '@/components/ButtonLink';
-import { ThemedImage } from '@/components/ThemedImage';
+import { ButtonLink } from '@/components/ButtonLink.tsx';
+import { ThemedImage } from '@/components/ThemedImage.tsx';
 import { cn } from '@digital-garden/utils';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import HeaderLogo from './HeaderLogo.webp?url';
