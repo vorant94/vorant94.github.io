@@ -13,12 +13,13 @@ import {
   projectStatusToLabel,
   type Project,
 } from '@/shared/project.helpers';
-import { cn } from '@/shared/react.helpers';
+import { cn } from '@digital-garden/utils';
 import type { FunctionComponent } from 'react';
 import { Badge } from '../Badge';
 import { ButtonLink } from '../ButtonLink';
 import { Caption } from '../Caption';
-import { Card } from '../Card';
+import { Card } from '../Card/Card';
+import { CardOverlay } from '../Card/CardOverlay';
 import { Divider } from '../Divider';
 import { Icon } from '../Icon';
 import { Link } from '../Link';
@@ -44,7 +45,7 @@ export const ProjectTiledListItem: FunctionComponent<ProjectTiledListItemProps> 
           'bg-[image:var(--bg-image-url)] dark:bg-[image:var(--bg-image-dark-url)] bg-right bg-no-repeat bg-[length:auto_200%]',
         )}
         overlay={
-          <Card.Overlay
+          <CardOverlay
             className={cn(
               'bg-gradient-to-l from-transparent to-60% to-slate-50 dark:to-slate-900',
             )}

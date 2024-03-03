@@ -1,13 +1,13 @@
-import { cn } from '@/shared/react.helpers';
+import { cn } from '@digital-garden/utils';
 import type {
   ComponentPropsWithoutRef,
   FunctionComponent,
   PropsWithChildren,
   ReactElement,
 } from 'react';
-import { Overlay, type OverlayComponent } from './Overlay';
+import { type OverlayComponent } from './CardOverlay';
 
-const Card: CardComponent = function ({
+export const Card: FunctionComponent<PropsWithChildren<CardProps>> = function ({
   children,
   overlay,
   className,
@@ -26,15 +26,6 @@ const Card: CardComponent = function ({
     </div>
   );
 };
-
-Card.Overlay = Overlay;
-
-export { Card };
-
-export interface CardComponent
-  extends FunctionComponent<PropsWithChildren<CardProps>> {
-  Overlay: OverlayComponent;
-}
 
 export interface CardProps extends ComponentPropsWithoutRef<'div'> {
   overlay?: ReactElement<OverlayComponent>;

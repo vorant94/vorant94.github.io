@@ -7,7 +7,9 @@ import { PostTiledList } from '@/components/PostTiledList/PostTiledList';
 import { PostTiledListItem } from '@/components/PostTiledList/PostTiledListItem';
 import { PinnedPosts } from '@/components/PinnedPosts';
 import { Link } from '@/components/Link';
-import { Carousel } from '@/components/Carousel';
+import { Carousel } from '@/components/Carousel/Carousel';
+import { CarouselLinkSlide } from '@/components/Carousel/CarouselLinkSlide';
+import { CarouselEmptyLinkSlide } from '@/components/Carousel/CarouselEmptyLinkSlide';
 import { Divider } from '@/components/Divider';
 import { Headline } from '@/components/Headline';
 import {
@@ -50,7 +52,7 @@ const featuredProjects = allProjects
         const { data } = project;
 
         return isEntryDataWithCover(data) ? (
-          <Carousel.LinkSlide
+          <CarouselLinkSlide
             bgImageSrc={data.coverImage?.src}
             bgImageSrcDark={data.coverImageDark?.src}
             href={getProjectFullPath(project)}
@@ -60,7 +62,7 @@ const featuredProjects = allProjects
             subTitle={data.slogan}
           />
         ) : (
-          <Carousel.LinkSlide
+          <CarouselLinkSlide
             href={getProjectFullPath(project)}
             badgeLabel={projectStatusToLabel[data.status]}
             badgeColor={projectStatusToBadgeColor[data.status]}
@@ -70,7 +72,7 @@ const featuredProjects = allProjects
         );
       })
     }
-    <Carousel.EmptyLinkSlide href="/projects">See all</Carousel.EmptyLinkSlide>
+    <CarouselEmptyLinkSlide href="/projects">See all</CarouselEmptyLinkSlide>
   </Carousel>
 
   <Divider>

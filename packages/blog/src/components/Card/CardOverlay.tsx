@@ -1,7 +1,7 @@
-import { cn } from '@/shared/react.helpers';
+import { cn } from '@digital-garden/utils';
 import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
 
-export const Overlay: OverlayComponent = function ({ className, ...rest }) {
+export const CardOverlay: OverlayComponent = function ({ className, ...rest }) {
   return (
     <div
       className={cn(

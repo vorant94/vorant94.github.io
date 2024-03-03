@@ -1,13 +1,13 @@
-import { cn } from '@/shared/react.helpers';
+import { cn } from '@digital-garden/utils';
 import type {
   ComponentPropsWithoutRef,
   FunctionComponent,
   PropsWithChildren,
 } from 'react';
 import { ButtonLink } from '../ButtonLink';
-import Styles from './EmptyLinkSlide.module.css';
+import Styles from './CarouselEmptyLinkSlide.module.css';
 
-export const EmptyLinkSlide: EmptyLinkSlideComponent = function ({
+export const CarouselEmptyLinkSlide: EmptyLinkSlideComponent = function ({
   children,
   href,
 }) {

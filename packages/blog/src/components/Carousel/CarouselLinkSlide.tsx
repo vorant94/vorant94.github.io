@@ -1,13 +1,12 @@
-import { cn } from '@/shared/react.helpers';
-import { type Color } from '@/shared/tailwind.helpers';
+import { cn, type Color } from '@digital-garden/utils';
 import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
 import { Badge } from '../Badge';
 import { ButtonLink } from '../ButtonLink';
 import { Text } from '../Text';
 import { Title } from '../Title';
-import Styles from './LinkSlide.module.css';
+import Styles from './CarouselLinkSlide.module.css';
 
-export const LinkSlide: LinkSlideComponent = function ({
+export const CarouselLinkSlide: LinkSlideComponent = function ({
   href,
   bgImageSrc,
   bgImageSrcDark,
