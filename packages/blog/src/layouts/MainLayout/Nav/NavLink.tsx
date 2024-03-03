@@ -1,5 +1,5 @@
 import { Link, type LinkProps } from '@/components/Link';
-import { cn } from '@/shared/react.helpers';
+import { cn } from '@digital-garden/utils';
 import {
   useEffect,
   useState,

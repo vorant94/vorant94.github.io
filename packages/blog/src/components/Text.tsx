@@ -1,4 +1,4 @@
-import { cn } from '@/shared/react.helpers';
+import { cn } from '@digital-garden/utils';
 import type {
   ComponentPropsWithoutRef,
   PropsWithChildren,

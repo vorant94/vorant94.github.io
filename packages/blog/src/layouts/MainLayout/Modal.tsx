@@ -1,6 +1,6 @@
 import { Button } from '@/components/Button/Button';
 import { Icon } from '@/components/Icon';
-import { cn } from '@/shared/react.helpers';
+import { cn } from '@digital-garden/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   useEffect,
