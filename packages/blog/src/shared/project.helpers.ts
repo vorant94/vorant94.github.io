@@ -1,6 +1,6 @@
+import type { Color } from '@digital-garden/utils';
 import { z, type CollectionEntry, type SchemaContext } from 'astro:content';
 import { groupBy } from 'lodash-es';
-import type { Color } from './tailwind.helpers';
 
 export type Project = CollectionEntry<'projects'>;
 
