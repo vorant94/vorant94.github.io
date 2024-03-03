@@ -1,6 +1,6 @@
-import { sortEntriesByPublishedAt } from '@/shared/collection.helpers';
-import { getPostFullPath } from '@/shared/post.helpers';
-import { profile } from '@/shared/profile';
+import { sortEntriesByPublishedAt } from '@/shared/collection.helpers.ts';
+import { getPostFullPath } from '@/shared/post.helpers.ts';
+import { profile } from '@/shared/profile.ts';
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';

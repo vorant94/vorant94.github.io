@@ -1,11 +1,11 @@
 import {
   formatEntryPublishedAt,
   PublishedAtFormat,
-} from '@/shared/collection.helpers';
-import { getPostFullPath, type Post } from '@/shared/post.helpers';
+} from '@/shared/collection.helpers.ts';
+import { getPostFullPath, type Post } from '@/shared/post.helpers.ts';
 import { cn } from '@digital-garden/utils';
 import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
-import { Link } from '../Link';
+import { Link } from '../Link.tsx';
 
 export const PostListItem: FunctionComponent<PostListItemProps> = function ({
   className,

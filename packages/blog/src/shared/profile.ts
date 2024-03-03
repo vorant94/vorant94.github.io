@@ -1,4 +1,4 @@
-import type { IconGlyph } from '@/components/Icon';
+import type { IconGlyph } from '@/components/Icon.tsx';
 
 export const profile = {
   title: `vorant94's Digital Garden`,

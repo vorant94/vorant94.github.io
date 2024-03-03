@@ -1,11 +1,11 @@
-import { getPostTagFullPath } from '@/shared/post.helpers';
+import { getPostTagFullPath } from '@/shared/post.helpers.ts';
 import {
   colors,
   extractStringFromReactNode,
   type Color,
 } from '@digital-garden/utils';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { Badge } from './Badge';
+import { Badge } from './Badge.tsx';
 
 export const Tag: FunctionComponent<PropsWithChildren<TagProps>> = function ({
   children,

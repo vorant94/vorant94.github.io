@@ -2,14 +2,14 @@ import {
   formatEntryPublishedAt,
   isEntryDataWithCover,
   PublishedAtFormat,
-} from '@/shared/collection.helpers';
-import { getPostFullPath, type Post } from '@/shared/post.helpers';
+} from '@/shared/collection.helpers.ts';
+import { getPostFullPath, type Post } from '@/shared/post.helpers.ts';
 import { cn } from '@digital-garden/utils';
 import type { FunctionComponent } from 'react';
-import { Caption } from '../Caption';
-import { Link } from '../Link';
-import { ThemedImage } from '../ThemedImage';
-import { Title } from '../Title';
+import { Caption } from '../Caption.tsx';
+import { Link } from '../Link.tsx';
+import { ThemedImage } from '../ThemedImage.tsx';
+import { Title } from '../Title.tsx';
 
 export const PostTiledListItem: FunctionComponent<PostTiledListItemProps> =
   function ({ post, publishedAtFormat }) {
