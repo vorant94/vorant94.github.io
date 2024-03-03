@@ -2,7 +2,7 @@ import { postWithCover, postWithoutCover } from '@/shared/post.helpers.ts';
 import {
   projectWithCover,
   projectWithoutCover,
-} from '@/shared/project.helpers';
+} from '@/shared/project.helpers.ts';
 import { defineCollection, reference, z } from 'astro:content';
 
 const posts = defineCollection({

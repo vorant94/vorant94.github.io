@@ -1,7 +1,7 @@
 import {
   formatEntryPublishedAt,
   PublishedAtFormat,
-} from '@/shared/collection.helpers';
+} from '@/shared/collection.helpers.ts';
 import type { CollectionEntry } from 'astro:content';
 import { groupBy } from 'lodash-es';
 

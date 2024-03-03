@@ -1,19 +1,19 @@
 ---
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
-import { ProjectTiledList } from '@/components/ProjectTiledList/ProjectTiledList';
-import { ProjectTiledListItem } from '@/components/ProjectTiledList/ProjectTiledListItem';
+import { ProjectTiledList } from '@/components/ProjectTiledList/ProjectTiledList.tsx';
+import { ProjectTiledListItem } from '@/components/ProjectTiledList/ProjectTiledListItem.tsx';
 import { getCollection } from 'astro:content';
-import { Headline } from '@/components/Headline';
-import { Divider } from '@/components/Divider';
+import { Headline } from '@/components/Headline.tsx';
+import { Divider } from '@/components/Divider.tsx';
 import {
   type ProjectStatus,
   groupProjectsByStatus,
   projectStatusToLabel,
   projectStatuses,
   projectStatusOrder,
-} from '@/shared/project.helpers';
-import { groupChangelogsByProject } from '@/shared/changelog.helpers';
-import { sortEntriesByPublishedAt } from '@/shared/collection.helpers';
+} from '@/shared/project.helpers.ts';
+import { groupChangelogsByProject } from '@/shared/changelog.helpers.ts';
+import { sortEntriesByPublishedAt } from '@/shared/collection.helpers.ts';
 
 const projectsByStatus = groupProjectsByStatus(await getCollection('projects'));
 

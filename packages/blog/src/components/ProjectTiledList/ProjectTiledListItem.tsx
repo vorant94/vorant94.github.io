@@ -1,30 +1,30 @@
 import {
   getChangelogFullPath,
   type Changelog,
-} from '@/shared/changelog.helpers';
+} from '@/shared/changelog.helpers.ts';
 import {
   PublishedAtFormat,
   formatEntryPublishedAt,
   isEntryDataWithCover,
-} from '@/shared/collection.helpers';
+} from '@/shared/collection.helpers.ts';
 import {
   getProjectFullPath,
   projectStatusToBadgeColor,
   projectStatusToLabel,
   type Project,
-} from '@/shared/project.helpers';
+} from '@/shared/project.helpers.ts';
 import { cn } from '@digital-garden/utils';
 import type { FunctionComponent } from 'react';
-import { Badge } from '../Badge';
-import { ButtonLink } from '../ButtonLink';
-import { Caption } from '../Caption';
-import { Card } from '../Card/Card';
-import { CardOverlay } from '../Card/CardOverlay';
-import { Divider } from '../Divider';
-import { Icon } from '../Icon';
-import { Link } from '../Link';
-import { Text } from '../Text';
-import { Title } from '../Title';
+import { Badge } from '../Badge.tsx';
+import { ButtonLink } from '../ButtonLink.tsx';
+import { Caption } from '../Caption.tsx';
+import { Card } from '../Card/Card.tsx';
+import { CardOverlay } from '../Card/CardOverlay.tsx';
+import { Divider } from '../Divider.tsx';
+import { Icon } from '../Icon.tsx';
+import { Link } from '../Link.tsx';
+import { Text } from '../Text.tsx';
+import { Title } from '../Title.tsx';
 
 export const ProjectTiledListItem: FunctionComponent<ProjectTiledListItemProps> =
   function ({ project, changelogs }) {

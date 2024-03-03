@@ -4,7 +4,7 @@ import type {
   FunctionComponent,
   PropsWithChildren,
 } from 'react';
-import { ButtonLink } from '../ButtonLink';
+import { ButtonLink } from '../ButtonLink.tsx';
 import Styles from './CarouselEmptyLinkSlide.module.css';
 
 export const CarouselEmptyLinkSlide: EmptyLinkSlideComponent = function ({

@@ -1,8 +1,8 @@
-import type { Changelog } from '@/shared/changelog.helpers';
+import type { Changelog } from '@/shared/changelog.helpers.ts';
 import type {
   ProjectData,
   ProjectWithCoverData,
-} from '@/shared/project.helpers';
+} from '@/shared/project.helpers.ts';
 import { compareDesc, format } from 'date-fns';
 import type { Post, PostData, PostWithCoverData } from './post.helpers.ts';
 

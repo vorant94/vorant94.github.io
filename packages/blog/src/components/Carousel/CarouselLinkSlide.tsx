@@ -1,9 +1,9 @@
 import { cn, type Color } from '@digital-garden/utils';
 import type { ComponentPropsWithoutRef, FunctionComponent } from 'react';
-import { Badge } from '../Badge';
-import { ButtonLink } from '../ButtonLink';
-import { Text } from '../Text';
-import { Title } from '../Title';
+import { Badge } from '../Badge.tsx';
+import { ButtonLink } from '../ButtonLink.tsx';
+import { Text } from '../Text.tsx';
+import { Title } from '../Title.tsx';
 import Styles from './CarouselLinkSlide.module.css';
 
 export const CarouselLinkSlide: LinkSlideComponent = function ({

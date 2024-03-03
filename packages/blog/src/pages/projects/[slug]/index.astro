@@ -2,8 +2,8 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { getImage } from 'astro:assets';
-import type { Project } from '@/shared/project.helpers';
-import type { Changelog } from '@/shared/changelog.helpers';
+import type { Project } from '@/shared/project.helpers.ts';
+import type { Changelog } from '@/shared/changelog.helpers.ts';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
