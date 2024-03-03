@@ -1,7 +1,7 @@
 import { ButtonLink } from '@/components/ButtonLink';
 import { Icon } from '@/components/Icon';
 import { profile } from '@/shared/profile';
-import { cn } from '@/shared/react.helpers';
+import { cn } from '@digital-garden/utils';
 import type { FunctionComponent } from 'react';
 
 export const Footer: FunctionComponent<FooterProps> = function () {

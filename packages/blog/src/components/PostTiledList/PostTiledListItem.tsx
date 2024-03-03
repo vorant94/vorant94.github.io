@@ -4,7 +4,7 @@ import {
   PublishedAtFormat,
 } from '@/shared/collection.helpers';
 import { getPostFullPath, type Post } from '@/shared/post.helpers';
-import { cn } from '@/shared/react.helpers';
+import { cn } from '@digital-garden/utils';
 import type { FunctionComponent } from 'react';
 import { Caption } from '../Caption';
 import { Link } from '../Link';

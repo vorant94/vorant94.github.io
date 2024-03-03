@@ -1,6 +1,6 @@
 import { ButtonLink } from '@/components/ButtonLink';
 import { ThemedImage } from '@/components/ThemedImage';
-import { cn } from '@/shared/react.helpers';
+import { cn } from '@digital-garden/utils';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import HeaderLogo from './HeaderLogo.webp?url';
 import HeaderLogoDark from './HeaderLogoDark.webp?url';

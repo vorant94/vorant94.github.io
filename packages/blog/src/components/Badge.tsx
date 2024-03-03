@@ -1,9 +1,9 @@
-import { cn } from '@/shared/react.helpers';
 import {
+  cn,
   type BackgroundColor,
   type Color,
   type ThemedStyle,
-} from '@/shared/tailwind.helpers';
+} from '@digital-garden/utils';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 
 export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =

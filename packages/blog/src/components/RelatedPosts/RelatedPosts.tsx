@@ -1,5 +1,5 @@
 import type { Post } from '@/shared/post.helpers';
-import { cn } from '@/shared/react.helpers';
+import { cn } from '@digital-garden/utils';
 import '@fortawesome/fontawesome-free/css/solid.css';
 import type { FunctionComponent } from 'react';
 import { PostList } from '../PostList/PostList';
