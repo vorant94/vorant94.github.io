@@ -4,7 +4,7 @@ import type { FunctionComponent, PropsWithChildren } from 'react';
 export const Headline: FunctionComponent<PropsWithChildren<HeadlineProps>> =
   function ({ children }) {
     return (
-      <h3 className={cn('text-2xl font-semibold', 'va-primary-text')}>
+      <h3 className={cn('text-2xl font-semibold', 'dg-primary-text')}>
         {children}
       </h3>
     );

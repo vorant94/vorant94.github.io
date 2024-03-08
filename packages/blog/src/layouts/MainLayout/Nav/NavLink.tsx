@@ -21,7 +21,7 @@ export const NavLink: LinkComponent = function ({
         className={cn(
           'font-semibold block text-center',
           'text-2xl p-3 md:p-4 rounded-full border-2',
-          'va-background va-border',
+          'dg-background dg-border',
           'lg:text-sm lg:p-0 lg:bg-none dark:lg:bg-none lg:rounded-none lg:border-none',
           { 'underline !text-cyan-500': isLinkActive },
           className,

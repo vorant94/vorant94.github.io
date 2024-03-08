@@ -7,7 +7,7 @@ export function Text({
 }: PropsWithChildren<TextProps>): ReactElement {
   return (
     <span
-      className={cn('va-primary-text', {
+      className={cn('dg-primary-text', {
         'text-sm font-light': level === 'sm',
       })}>
       {children}

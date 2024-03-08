@@ -9,7 +9,7 @@ export const Header: FunctionComponent<PropsWithChildren<HeaderProps>> =
   function ({ children }) {
     return (
       <header
-        className={cn('flex gap-1 items-center p-4 border-b', 'va-border')}>
+        className={cn('flex gap-1 items-center p-4 border-b', 'dg-border')}>
         <nav>
           <ButtonLink
             href="/"
