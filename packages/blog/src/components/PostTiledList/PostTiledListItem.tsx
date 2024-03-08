@@ -20,7 +20,7 @@ export const PostTiledListItem: FunctionComponent<PostTiledListItemProps> =
         className={cn(
           'flex flex-col text-medium rounded-md duration-100',
           'hover:border hover:shadow-md hover:scale-105',
-          'va-border',
+          'dg-border',
         )}
         key={post.id}>
         <Link

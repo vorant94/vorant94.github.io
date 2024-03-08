@@ -20,7 +20,7 @@ export const PostListItem: FunctionComponent<PostListItemProps> = function ({
       <Link
         href={getPostFullPath(post)}
         prefetch="hover"
-        className={cn('va-primary-text', 'flex gap-3 items-center')}
+        className={cn('dg-primary-text', 'flex gap-3 items-center')}
         aria-label={post.data.title}>
         <span className="flex-1 truncate">{post.data.title}</span>
         <span className="whitespace-nowrap text-xs">

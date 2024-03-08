@@ -4,7 +4,7 @@ import type { FunctionComponent, PropsWithChildren } from 'react';
 export const Strong: FunctionComponent<PropsWithChildren<StrongProps>> =
   function ({ children }) {
     return (
-      <strong className={cn('va-primary-text', 'font-semibold')}>
+      <strong className={cn('dg-primary-text', 'font-semibold')}>
         {children}
       </strong>
     );
