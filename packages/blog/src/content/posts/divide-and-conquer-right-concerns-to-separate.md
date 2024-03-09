@@ -4,12 +4,12 @@ description: One of the core programming principles is separation of concerns. I
 tags:
   - node
   - design-principles
-publishedAt: 2024-03-08
+publishedAt: 2024-03-10
 coverImage: ../attachments/divide-and-conquer-right-concerns-to-separate/cover.webp
 coverImageAlt: triple spider man meme featuring React, Vue and Angular
 ---
 
-### Historical reference (in less than 30 mins)
+## Historical reference (in less than 30 mins)
 
 Historically it happened so the UI side of websites is split into 3 technologies: markup - HTML, styling - CSS and code - JS. This separation is one of the first things newcomers to web learn. I remember I was briefly introduced that it is possible to write both CSS and JS right inside HTML, but we quickly concluded it is a bad practice because of **separation of concerns**: markup, styling and code should be kept separate to keep stuff organized.
 
@@ -27,7 +27,7 @@ Last year I started to play around with mobile development. Since I have an iPho
 
 Recently I watched the [documentary about React](https://youtu.be/8pDqJVdNa44?si=LsjVUCznknGEjI7d). Also I use [Tailwind](https://tailwindcss.com/) for the blog you are reading right now. Both those technologies are accused of violating separation of concerns principle: React merges markup and code by leveraging JSX, Tailwind puts styling back into markup. But this time it didn't feel wrong. I finally succeeded to switch my mindset and understand why it is even better separation of concerns that what I learned initially.
 
-### "Concern" is not technical term, but a logical one
+## "Concern" is not technical term, but a logical one
 
 The common way to explain OOP is using real-world analogy, in particular via biological classification of organisms:
 
@@ -89,8 +89,60 @@ Now back to real-world programming and my lovely kitten. This way in the program
 
 I consider this way of structuring the code is way more intuitive and easier to understand, but it comes with a very important mental switch under the hood: the concerns we are separating are not `CatComponent` from `CatController`, but `CatComponent` from `DogComponent`. The **tech categorization** comes after and only after **logical categorization**. On a low level it means markup, styling, code are not a concern since they are technical traits, component is a concern. On a high level it means components, directives, services are not a concern because of the same reason, the dashboard, settings, news feed are a concern. You first separate with vertical split, and only after it with horizontal split.
 
-### Benefits of vertical split mindset
+## Benefits of vertical split mindset
+
+It all sounds good and everything (I hope), but what's the point, yeah?
+
+![Where is the money, Lebowski](../attachments/divide-and-conquer-right-concerns-to-separate/where-is-the-money-lebowski.jpg)
+
+#### Less mental overhead
+
+Let's say you are in a huge back-end project having 100 resources. Each of those resources is a REST endpoint, so it consists from at least 3 type of files: route handlers, business logic services and data access layer models. If you make horizontal slice you have 3 folders with 100 files in each one of them, if you make vertical one - 100 folders with 3 files in each.
+
+Now you have to add a new resource. While developing with horizontal split you need constantly jump between 3 directories full of other files, but with vertical one you scoping down your work to 1 directory with only 3 files. Less white noise you have easier the work goes.
+
+But it doesn't end up with developing only. Now let's say you developed resource A, that led for changes to resource B, that already existed in the project. You finished your changes and send it to your team lead for code review. The order of files your team lead sees is the following:
+
+- new route handler of resource A
+- updated route handler of resource B
+- new business logic service of resource A
+- updated business logic service of resource B
+- ...
+
+Which makes not only you jump in between different directories during development, but also all the people who needs to review your code. There is no option to first go over all the resource A changes and then go to resource B stuff. I worked in projects with horizontal split structure. During the review of my code I personally saw team lead constantly jumping over a bunch of resource B files just to get to next resource A file. He didn't see it as problem, but I saw it caused him to struggle to get the full picture of this PR. Wouldn't it be way more convenient if the order of files for review would be like this?
+
+- new route handler, new business logic and all of the stuff related to resource A
+- updated route handler, updated business logic and all of the stuff related to resource B
+
+#### Scalable out-of-the-box
+
+When we lay down the foundation of the project we want it to scale to 1m users with ease. Usually it means the following: micro-service event-driven architecture with load balancing deployed in cloud native technologies with zero down-time available across the globe. In real world you either never finish the MVP of such or you make a lot of shortcuts only to find yourself in huge tech-debt after a while.
+
+It comes so because all those fancy words come with a price: **system complexity**. Huge scalable systems not only serve a lot of users, they are meant to be developed by a lot of developers. From the other side good old monolith can rocket-boost your MVP in less than a week. But after you get your VC money and the project gets first somewhat serious traffic it'll face its performance ceiling and it won't be easy task to split it into smaller standalone parts. Don't forget about talking your investors into spending half-a-year to do it without increasing the margins.
+
+I do believe that vertical split allows to get the best of two worlds. You develop a monolith at first as fast as you need. But since you have 100 folders with 3 files in each and not vise-versa when the moment comes it is easier to take 50 of those folders and put them into server on its own. Furthermore since you put the logical boundaries first it is less likely for anyone to mix things up along the way. Everybody knows not to mix controllers with models, but keep project-specific logical entities in the right order is way harder. Vertical split forces us to not shortcut the essential architecture.
+
+#### Unit tests aren't nightmare anymore
+
+Recently during one of the job interviews I was having recently I got home assignment to build the following component. It is a tree select dropdown with option for single and multi selection mode and option to filter leaves. As part of the task I was asked to cover one of the component parts with unit tests. The framework is Angular.
+
+![Home assignment demo](../attachments/divide-and-conquer-right-concerns-to-separate/home-assignment-demo.png)
+
+The final solution included 1 component, 5 directives, 1 pipe, 2 services and 2 non-standard file types. The classic unit testing means you identify a minimal standalone unit inside your program, mocks or stubs all the other and tests a behavior of the chosen one. In my example it can be any of the mentioned above entities since each of them is technically standalone. The mocking or stubbing is a painful part, because you as a developers don't develop anything, you don't add value to the code, you just making endless preparations to code the thing that should add value.
+
+Here I caught myself once again thinking in **technical** terms instead of **logical**. Nobody argues that private methods shouldn't be covered with unit testing, right? It causes too strong coupling of tests with actual code. Only public part that is meant to be used should be guarded. This principle while being grounded in technical terms of "private" and "public" actually talks logically: test cover the surface of the unit without going any deeper. Components, directives, pipes and services are technical Angular terms, the surface is what user of the component uses and in this case it is 1 root component and nothing more. So the candidate for the test coverage became obvious and nothing should be mocked.
+
+You can say that it is not a unit test, but rather integrational one, because it touches several entities and theoretically user can access other internal entities. But I don't think so. Imagine that language or framework provides you with the option to keep stuff "private" while simultaneously split it into several different entities. Would you cover each file with its own tests?[^2]
+
+We shouldn't obey technical restrictions of our tools: just like "concern" is not a technical term, "unit" also not of this kind. Understanding this reduces amount of boilerplate and allows our code and test be more meaningful.
+
+## Outro
+
+While I do see this pattern in a lot of technologies today, overwhelming majority of them isn't developed by one person with one mindset. As a result we have React unified technically different HTML and JS into JSX, but then came NextJS with all other meta-frameworks and introduced purely technical distinction between different components with file-based routing... Angular itself preaches "Folders-by-feature", but decided to keep markup, styling and code separate, because it wanted to achieve a more vanilla-like web-experience for its users...
+
+After all nothing is perfect and is never meant to be. "Good enough" is our industry slogan, thats for sure. But having a right mental model as well as unlearning harmful parts of college education is a way to care for yourself during the activity, that takes almost as much time as you sleep. Now I have less chance to shoot myself in the foot, wish the same for you.
 
 ---
 
 [^1]: Imagine you have LSP for the CSS shit like [text-overflow: ellipsis;](https://stackoverflow.com/questions/17779293/css-text-overflow-ellipsis-not-working) or [text-decoration: none;](https://stackoverflow.com/questions/1261955/inherited-text-decoration-style), that can instruct you which exact combination of rules you need to use to get what you want. Imagine you have LSP for the full list of only relevant CSS properties on a target HTML element without leaving your IDE. Imagine you don't need to wait for a good [Can I use](https://caniuse.com/) score for CSS3 variables nor go with SCSS to get reusable styling values. This is what you get when markup, styling and code are not separated.
+[^2]: Dart allows it with partial files by the way. So there you can keep files within reasonable size as well as keep right level of encapsulation.

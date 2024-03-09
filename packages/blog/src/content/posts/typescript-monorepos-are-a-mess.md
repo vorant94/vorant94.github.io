@@ -14,7 +14,7 @@ isPinned:
 code: https://github.com/vorant94/typescript-monorepo
 ---
 
-### Why TypeScript?
+## Why TypeScript?
 
 ![TypeScript meme](../attachments/typescript-monorepos-are-a-mess/typescript-meme.webp)
 
@@ -36,7 +36,7 @@ And once again while the first point is not really a problem for me since I woul
 
 In conclusion I think the pain of build boilerplate pays off by avoiding pain of running though code manually, so the TypeScript it is.
 
-### Why Monorepo?
+## Why Monorepo?
 
 ![TypeScript meme](../attachments/typescript-monorepos-are-a-mess/monorepo-meme.webp)
 
@@ -63,7 +63,7 @@ A monorepo is some sort of golden mean: since projects are stored physically tog
 
 And while monorepos are widely used for authoring libraries at this point I do really believe that any code-base (whether it is a set of libraries or an end-user facing app) that is meant to live longer than 2 years will inevitably end up in a situation where monorepo would be a better solution afterwards. On top of it since monorepo with a single project basically equal to a monolith (in terms of boilerplate amount) I prefer to use monorepo even with only one project code-base. So the monorepo it is.
 
-### Monorepo options
+## Monorepo options
 
 There are plenty of different ways to spin-up a monorepo. I'm aware of at least three levels where it can be implemented: via Git itself with the usage of [Git Submodules](https://www.git-scm.com/book/en/v2/Git-Tools-Submodules), via package manager (all NPM, Yarn, PNPM support it) or via a dedicated system like [Nx](https://nx.dev). I won't dive into Git submodules because I didn't practice it at all. Neither I go with Nx, because from my experience it has the same problem as all of modern meta-frameworks[^2], that I try to avoid as much as possible. Also since I'm not familiar with PNPM I have nothing to say about it.
 
@@ -77,7 +77,7 @@ We left with NPM and Yarn which both have support for monorepos, and from this d
 
 And at last I do like syntax of Yarn for running commands within a package context (`yarn workspace <package-name> <command-name>`) more than what NPM offers (`npm run <command-name> --workspace=<package-name>`), but it is only a matter of taste.
 
-### Our goals
+## Our goals
 
 The default modern NodeJS workflow consists of the three following parts:
 
@@ -85,7 +85,7 @@ The default modern NodeJS workflow consists of the three following parts:
 - compiling TS to JS as part of CI/CD
 - spinning-up a dev server with live-reload support locally
 
-###### Running compiled JS-code
+#### Running compiled JS-code
 
 Since we have a support for monorepo on package manager level it won't be a problem to resolve all the local workspace dependencies after everything is compiled to JS, we just need to reference them correctly in appropriate `package.json` files:
 
@@ -118,7 +118,7 @@ A couple of notes here:
 - `"lib": "workspace:^"` - is the syntax for Yarn Workspace Protocol mentioned above
 - `"main": "src/index.js"` - entry point for our lib, that is resolved during imports
 
-###### Compiling TS to JS
+#### Compiling TS to JS
 
 Compiling a monorepo is also relatively easy task: `tsc`, built-in compiler of TypeScript, has support for monorepos as well, it is called "project references" there. We need to duplicate out `package.json` workspace dependencies as `tsconfig.json` references, then modify a little bit `tsconfig.json` of library packages and we are good to go. `tsc` will traverse the dependency tree and will rebuild all the dependencies that are out-of-sync since the last build. Although it already introduces a little bit of config duplication, it is still not a big deal
 
@@ -193,11 +193,11 @@ A couple of notes here:
 - `composite: true` - `tsc` flag that tell it to not only generate the JS output, but `tsconfig.tsbuildinfo` file as well, that is used to determine whether lib JS code is in sync with latest TS code
 - `shx rm -rf dist && shx rm -f tsconfig.tsbuildinfo` - since `tsconfig.tsbuildinfo` is essentially a part of build output it also needs to be cleaned upon re-builds
 
-###### Live-reload dev server
+#### Live-reload dev server
 
 So we are left with most interesting part, dev server with live-reload. Here we have a couple of different tools in the NodeJS ecosystem, let's discuss them separately
 
-### nodemon + ts-node (tsc)
+## nodemon + ts-node (tsc)
 
 ![nodemon and ts-node logos with tsc logo in the background](../attachments/typescript-monorepos-are-a-mess/nodemon+ts-node.webp)
 
@@ -209,7 +209,7 @@ Futhermore since some recent NodeJS version (Node 18-ish) trying to run `ts-node
 
 Likely alternative solutions are already emerged in the ecosystem.
 
-### tsx (esbuild)
+## tsx (esbuild)
 
 ![tsx imaginary logo with esbuild in the backgound](../attachments/typescript-monorepos-are-a-mess/tsx.webp)
 
@@ -219,7 +219,7 @@ The thing is that `tsx` achieves the faster builds (on the fly of course) by usi
 
 There is a good comment in [the issue on GitHub](https://github.com/privatenumber/tsx/issues/96) explaining that there are actually two available `esbuild` API: Transform API and Plugin API. Plugin API can be extended with plugins (duh...) in order to actually build TS and there is already a [plugin](https://github.com/smacker/esbuild-plugin-ts-references) to take into account project references. But unfortunately `tsx` uses ESbuild Transform API, so as of now it doesn't fit into monorepo project structure[^3].
 
-### Node watch mode + tsc (final solution)
+## Node watch mode + tsc (final solution)
 
 ![nodejs and typescript logo](../attachments/typescript-monorepos-are-a-mess/node+tsc.webp)
 The final solution that I found working for me is actually avoiding all 3-party tooling. You see `tsc` itself has built-in watch mode, the only last part there is to restart the server on each re-build. And recently NodeJS introduced its own watch mode (it's still experimental, but I'm OK to use experimental stuff for dev-only purposes). As simple as that: run `tsc` in watch mode, it will rebuild code on changes resolving project references, run `node` in watch mode, it will restart process on changes resolving changes in monorepo dependencies as well.
@@ -271,7 +271,7 @@ Also as a small semantic sugar: we can run both those processes with a single co
 
 As an additional bonus if you wish to have your exception traces direct you to TS source files instead of actual JS files, you can use [source-map-support](https://www.npmjs.com/package/source-map-support)
 
-### What's next
+## What's next
 
 As you may notice all the stuff above was about back-end TypeScript and the solution was to avoid using any third-party stuff, only first-party TypeScript and NodeJS features. Do you know where you cannot build your project with `tsc` only, but you need to bundle it? Do you know where you should be able to resolve imports not only from a `.ts` files, but also from `.css` and even `.jpg`/`.png`?
 
