@@ -17,19 +17,19 @@
     "@digital-garden/utils": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.1"
+    "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
-    "@types/react": "^18.2.57",
-    "@types/react-dom": "^18.2.19",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
     "@vitejs/plugin-react": "^4.2.1",
     "postcss": "^8.4.35",
     "postcss-load-config": "^5.0.3",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
-    "prettier-plugin-tailwindcss": "^0.5.11",
+    "prettier-plugin-tailwindcss": "^0.5.12",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.3"
+    "typescript": "^5.4.2",
+    "vite": "^5.1.5"
   }
 }
