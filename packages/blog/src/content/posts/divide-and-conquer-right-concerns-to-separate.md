@@ -31,7 +31,27 @@ Recently I watched the [documentary about React](https://youtu.be/8pDqJVdNa44?si
 
 The common way to explain OOP is using real-world analogy, in particular via biological classification of organisms:
 
-IMAGE HERE
+```typescript
+abstract class Animal {
+  abstract move(): void;
+}
+
+class Mammal extends Animal {
+  move() {
+    // Move in 2d space
+  }
+}
+
+class Ave extends Animal {
+  move() {
+    // Move in 3d space
+  }
+}
+
+class Dog extends Mammal {}
+
+class Crow extends Ave {}
+```
 
 You have a most abstract class of `Animal`, which is distinct from `Plant`. Then you have two classes of `Mammal` and `Ave`, which are distinct from each other, but both **inherit** from `Animal`. Then you have a `Dog` class as a most narrow example of `Mammal` and a `Crow` as a most narrow example of `Ave`. This analogy allows developers to structure the code in DRY and well-organized manner. For example a common thing between all animals is that they can move, so the abstract class `Animal` can define abstract method `move`, then `Mammal` can implement this method considering that mammals walk and `Ave` can implement this method considering that birds fly.
 
@@ -41,9 +61,29 @@ There is a well-known issue with inheritance in OOP: each new bottom-level candi
 
 Here comes another programming buzzword - **composition**.
 
-IMAGE HERE
+```typescript
+interface Walkable {
+  walk(): void;
+}
 
-Instead of defining the whole chain of different classes we define the bottom-level ones that we need (`Dog`, `Crow`) and set of traits or skills that we can attach to them (`Flyable`, `Walkable`). This way each new bottom level candidate (`Bat`, `Penguin`) can take traits that it needs or introduce a new one (`Swimmable`) without forcing existing stuff to be changed.
+interface Flyable {
+  fly(): void;
+}
+
+class Dog implements Walkable {
+  walk() {
+    // Move in 2d space
+  }
+}
+
+class Crow implements Flyable {
+  fly() {
+    // Move in 3d space
+  }
+}
+```
+
+Instead of defining deep chain of different classes we define the bottom-level set of candidates that we need (`Dog`, `Crow`) and set of traits or skills that we can attach to them (`Flyable`, `Walkable`). This way each new bottom level candidate (`Bat`, `Penguin`) can take traits that it needs or introduce a new one (`Swimmable`) without forcing existing stuff to be changed.
 
 Now back to real-world programming and my lovely kitten. This way in the program I can have `Cat` entity as a directory that has some digital characteristics like `CatService`, `CatController` and `CatComponent` as files within this directory just like in real world it has physical characteristics of `Walkable`, `Talkable` and so on.
 
