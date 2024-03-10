@@ -3,6 +3,7 @@ import {
   isEntryDataWithCover,
 } from '@/shared/collection.helpers.ts';
 import type { Post } from '@/shared/post.helpers.ts';
+import { cn } from '@digital-garden/utils';
 import type { FunctionComponent } from 'react';
 import { Caption } from './Caption.tsx';
 import { Tag } from './Tag.tsx';
@@ -35,7 +36,9 @@ export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
 
           <ul className="flex list-none m-0 p-0 gap-1">
             {data.tags.map((tag) => (
-              <li key={tag}>
+              <li
+                key={tag}
+                className={cn('p-0 m-0')}>
                 <Tag>{tag}</Tag>
               </li>
             ))}

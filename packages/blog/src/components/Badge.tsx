@@ -5,13 +5,13 @@ import {
   type ThemedStyle,
 } from '@digital-garden/utils';
 import type {
+  ComponentPropsWithoutRef,
   FunctionComponent,
-  HTMLAttributes,
   PropsWithChildren,
 } from 'react';
 
 export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
-  function ({ color, className, children }) {
+  function ({ color, children, className, ...rest }) {
     return (
       <span
         className={cn(
@@ -19,14 +19,14 @@ export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
           'inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold',
           ...colorToBg[color],
           className,
-        )}>
+        )}
+        {...rest}>
         {children}
       </span>
     );
   };
 
-export interface BadgeProps
-  extends Pick<HTMLAttributes<HTMLSpanElement>, 'className'> {
+export interface BadgeProps extends ComponentPropsWithoutRef<'span'> {
   color: Color;
 }
 
