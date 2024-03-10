@@ -25,5 +25,5 @@ export const ThemedImage: FunctionComponent<ThemedImageProps> = function ({
 
 export interface ThemedImageProps extends ComponentPropsWithoutRef<'img'> {
   src: string; // to make it required
-  srcDark?: string;
+  srcDark?: string | null;
 }
