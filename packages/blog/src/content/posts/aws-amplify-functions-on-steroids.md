@@ -14,7 +14,7 @@ isPinned:
 code: https://github.com/vorant94/amplify-functions-on-steroids
 ---
 
-### What we have out of the box
+## What we have out of the box
 
 When we add an API to Amplify project it out-of-the-box offers us key-value storage to store all of our data (using DynamoDB) and GraphQL-based CRUD API to access it (using AppSync) with a bunch of directives to customize the schema. The customization means we as a developers are not limited to CRUD only. For example, there are a couple of ways to implement a custom resolvers based on our business logic requirements. One of these ways is to define a Lambda function and link it in schema via `@function` directive. Those lambdas can be written in different languages, but we will focus more on Node.JS since it is nice to have the same language ecosystem both on Front-End and Back-End side. In our case there will be three custom mutation resolvers: one to mark all current todos as completed, second to delete all of the completed todos and third to toggle completion of a todo (instead of setting it to either `true` or `false` manually). The UI should look something like this:
 
@@ -43,7 +43,7 @@ Our goals are:
 
 ![goals](../attachments/aws-amplify-functions-on-steroids/goals.jpg)
 
-### TypeScript support
+## TypeScript support
 
 Amplify documentation offers us a [handy guide](https://docs.amplify.aws/cli/function/build-options/) on how to do it, which is a good starting point (don't ask me why they hid it under the "Build options" and didn't do a dedicated post).
 
@@ -63,7 +63,7 @@ After all the preparation is done, we can now re-write the actual JS code of the
 
 ![lambdas file structure and typescript code](../attachments/aws-amplify-functions-on-steroids/lambdas-file-structure-and-typescript-code.png)
 
-### Sharing code between lambdas
+## Sharing code between lambdas
 
 There is obvious code duplication between our lambdas. Let's start with the `appSyncRequest` function that signs and sends AppSync request. As far as I looked for a solutions our options are lambda layers and dedicated npm package. Each of them has serious trade-offs. At the moment there is no support for `amplify mock` for those lambdas that use lambda layers from one hand, and from another - publishing a separate npm package that is only used in the scope of one and only project is too much boilerplate and simply redundant.
 
@@ -83,7 +83,7 @@ Both those options are about sharing JavaScript code, but since we migrated to T
 
 > As a bonus in order to avoid long `../../../../` imports from shared folder, you can add a couple of path aliases into `tsconfig.json`. But if you do so, don't forget to convert shortened imports back to long ones after transpilation. It can be done by adding `tsc-alias` run (after `tsc` run) into `amplify:...` scripts, that we added as a part of Amplify "Build options" guide.
 
-### Amplify CLI Codegen multi-target
+## Amplify CLI Codegen multi-target
 
 Now that we have a good support for TS it and we placed removed repetitive code, it would be nice just like in UI to benefit from auto-generated types based on our AppSync schema. According to this GitHub [issue](https://github.com/aws-amplify/amplify-codegen/issues/49) there is no support for multiple targets in Amplify Codegen at the moment, but... Since Amplify stores Codegen config as a file in the root of our repo we can update it manually to our needs and Codegen will do what we want him to do without any problem... Just don't tell this secret to anyone😜
 
@@ -93,7 +93,7 @@ Now that we have a good support for TS it and we placed removed repetitive code,
 
 The only problem with this approach is that the Codegen runs after the code is built and pushed to the cloud. E.g. if you change the schema you first need to do `amplify push`, then after you get updated types you need to make `amplify push` once again to re-build lambdas, that depends on those types. A possible workaround for it may be a separate push of API and lambdas (e.g. `amplify push api` at first and `amplify push function` after it). Or we can mock API (`amplify mock api`), which will trigger the build of API, which will trigger Codegen with latest changes, and then we can push everything together.
 
-### Conclusion
+## Conclusion
 
 To sum up we achieved everything we wanted and are now ready to boost the productivity of any Amplify-based project, the trade-offs that we have as a result are:
 

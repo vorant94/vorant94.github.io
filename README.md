@@ -20,6 +20,9 @@ Welcome to my digital garden, here I write about all sorts of things (mostly abo
 - Facebook post
 - Twitter post
 - Telegram story
+- Medium
+- Dev.to
+- Hacker News
 
 ### png to webp example
 

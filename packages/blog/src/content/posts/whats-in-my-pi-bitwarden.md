@@ -21,13 +21,13 @@ There are multiple options to store your passwords nowadays. I suppose that the 
 
 > **Whining minute**: modern browsers IMHO should become way more modular, they should not do all at once, they should allow to integrate all at once. Hence password manager should not be built-in, but there should be option to use external one without need for custom browser plugins.
 
-### In the beginning... there was 1Password
+## In the beginning... there was 1Password
 
 At first many years ago I migrated to [1Password](https://1password.com/) and it was really nice experience. It is a standalone subscription-based password manager that exceptionally well integrates itself into both MacOS and iOS. It is even frequently promoted by Apple when they want to demonstrate the amount of apps of their ecosystem. The main problem for me with it was its monetization approach. While subscription is not active the user can't create/update new records or autofill existing ones. He/she still can view already created ones and copy-paste them manually, without those capabilities being free 1Password would be easy no-go for me, but still... Let's be clear, how many new accounts do you need to create each month? I usually don't do a lot. Payment for autofill is just artificial boundary, so what should I pay for on a monthly basis? For the storing the data on their cloud infrastructure? I doubt it cost what they ask for. I'm sure if it was one-time payment I would be still using this app, but it is not an option.
 
 There are a lot of free open-source password managers, but those I saw are usually don't have cross-device sync or poorly integrated with OS. It is a common situation for open source software since it is written by volunteer programmers in their free time.
 
-### Here comes the savior
+## Here comes the savior
 
 So once I bought Raspberry Pi I found a good alternative for 1Password, it is called [Bitwarden](https://bitwarden.com/). From the functionality that I personally use they are pretty equal, there is no such a thing that I used in 1Password, but is in lack in Bitwarden. From the design perspective 1Password is indeed prettier, but Bitwarden is free when you self-host it. So instead of paying for storing my passwords in the cloud, I'm running my own instance of Bitwarden and connecting iOS and MacOS clients to it. As with all other my Pi apps there is a trade-off of being unable to connect to server outside the home (without VPN). But thankfully all of the Bitwarden apps I used are offline-first: once they synced their data with server, user can disconnect from it, all the synced records are still accessible within the app.
 
@@ -35,7 +35,7 @@ Deployment of Bitwarden server itself can be a little bit hard thing to do from 
 
 But since the server is open-source, there is already a solution to it. One of the good people out there implemented a lightweight alternative called [Vaultwarden](https://github.com/dani-garcia/vaultwarden) that is fully compatible with official Bitwarden clients, but consists only from one module and doesn't require SMTP server or API keys. So this is what I use in practice.
 
-### HTTPS hassle
+## HTTPS hassle
 
 As I previously said some apps required me to dive into setting up HTTPS connection to my Pi even though nothing is going outside a home network. Bitwarden is one of them although it is not the one to blame. According to this [GitHub issue](https://github.com/dani-garcia/vaultwarden/discussions/2274) it happens that it uses some browser crypto functionality and browser forces user to have HTTPS in order to enable this functionality.
 
@@ -59,14 +59,14 @@ The encryption is the only thing that I need and while there are a couple of SSL
 
 I ended up finding a way to create my own "authority" and generate certificate with it. Since it was not a real authority I needed to manually add it to trust-list at all my devices. In conjunction with Nginx it was good enough for browsers to enable crypto stuff and Bitwarden web client started to work as expected.
 
-### I have a garage car without a garage
+## I have a garage car without a garage
 
 We will come back to HTTPS topic later once more, but for now this is it. As you see there are a lot of work needs to be done, when you want to self-host apps, but as long as I can do it incrementally and still benefit from each iteration it pays off for me with the feeling of accomplishment. After all my Pi - is programmers alternative to having a garage with a car, that you regularly spent time fixing even though you could bring it to service.
 
-### Bonus
+## Bonus
 
 One additional thing to mention is that regardless of the size of company, regardless of how much money they spend to be as secure as possible, once the thing is in the cloud you cannot be 100% protected from malicious attacks. Even if data is encrypted in such way that it is useless after being hacked, still making attack surface as small as possible is the best security strategy. And what can be more secure than hosting the server inside your local network without access to the Internet? So I'm sure that Bitwarden / Vaultwarden setup is not only cheaper that everything I used before, but also more secure by definition.
 
-### P.S.
+## P.S.
 
 There is also very interesting [password game](https://neal.fun/password-game/), that I think you should give a shot to😎

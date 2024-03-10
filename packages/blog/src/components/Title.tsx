@@ -10,7 +10,7 @@ export const Title: FunctionComponent<PropsWithChildren<TitleProps>> =
     return (
       <h6
         className={cn(
-          'va-primary-text',
+          'dg-primary-text',
           'text-lg font-medium',
           {
             'inline-block': inline,

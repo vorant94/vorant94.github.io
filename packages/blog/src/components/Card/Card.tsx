@@ -16,7 +16,7 @@ export const Card: FunctionComponent<PropsWithChildren<CardProps>> = function ({
   return (
     <div
       className={cn(
-        'va-border va-background',
+        'dg-border dg-background',
         'border rounded-md p-5 flex gap-3 relative',
         className,
       )}

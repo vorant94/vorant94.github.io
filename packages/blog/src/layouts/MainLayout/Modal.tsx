@@ -27,7 +27,7 @@ export const Modal: FunctionComponent<PropsWithChildren<ModalProps>> =
             className={cn(
               'fixed top-0 left-0 w-dvw h-dvh backdrop-filter backdrop-blur z-10',
             )}>
-            <div className={cn('va-fullscreen flex flex-col h-full')}>
+            <div className={cn('dg-fullscreen flex flex-col h-full')}>
               <Header>
                 <Button
                   aria-label="modal-close"

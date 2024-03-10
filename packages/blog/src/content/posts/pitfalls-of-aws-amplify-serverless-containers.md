@@ -12,15 +12,15 @@ isPinned:
 code: https://github.com/vorant94/amplify-serverless-containers
 ---
 
-### Starting point
+## Starting point
 
 In order to get to the point of serverless containers let's assume we have an Angular project that is configured with AWS according to [this guide](https://docs.amplify.aws/start/q/integration/angular/). After the project is initialized it needs also to be configured to allow advanced workflows by running `aws configure project`.
 
-### File converter API
+## File converter API
 
 The API that I chose to implement in the scope of this app is [Gotenberg](https://gotenberg.dev/). It is basically a wrapper on top of the LibreOffice API distributed as a nice stateless Docker container, what makes it a perfect candidate for our purpose.
 
-### First try (or DeploymentAwaiter problem)
+## First try (or DeploymentAwaiter problem)
 
 I started by adding a new api with `amplify add api` and followed by `REST -> API Gateway + AWS Fargate (Container-based)`. CLI gave me a couple of templates that I am supposed to select from. I chose a custom one and continued with other configuration (for testing purpose I didn't restrict access to the API).
 
@@ -112,7 +112,7 @@ services:
 
 I ran `amplify push`, got another DeploymentAwaiter error, removed an API to clear any potential consequences of previous `amplify push` runs, added it again, pushed and now Gotenberg is deployed!
 
-### Second try (or Service is Unavailable problem)
+## Second try (or Service is Unavailable problem)
 
 Now I was able to connect to our API with a URL that Amplify CLI printed to output, and it resulted in Service Unavailable error, so...
 
@@ -122,6 +122,6 @@ So I decided to do a weird thing once more and despite that I want the API to be
 
 But at what cost? (c)
 
-### Conclusion
+## Conclusion
 
 After all it was a little hard experience since the guide itself references official Docker documentation, but the basic knowledge of it actually leads the user to errors with unclear error messages. Overall the feeling is that if you code exactly the way that Amplify templates say everything kinda works, but one step left or one step right and you are lost. I don't think that i'll use in production AWS Amplify Serverless Containers at least for now, but I'll keep an eye on it.

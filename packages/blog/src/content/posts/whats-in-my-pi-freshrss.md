@@ -20,13 +20,13 @@ RSS protocol is sort of standard contract between tools that blog authors use to
 
 > **Side note**: any podcast you are listening from time to time is just an RSS-feed wrapped by a pretty app with an interface adapted for consuming audio content. So RSS is not just about text content
 
-### One feed to rule them all ©
+## One feed to rule them all ©
 
 With all that being said FreshRSS was one of the first apps that I self-hosted and it went through a lot of iterations on how exactly I'm using it. For a couple of times I tried to centralise there all of the content I consume online since this way I could avoid annoying algorithmic recommendation feeds. But not all of the content platforms provide built-in RSS feed. YouTube does, Medium does, but Telegram, Twitter and Facebook don't. So I googled for a solution and found [RSSHub](https://docs.rsshub.app/), which basically a self-hosted web scrapper that can generate RSS feed pretty much from everything. So in case a platform supports RSS I could just add it to FreshRSS as is, and it case the platform doesn't support it, I could add via RSSHub.
 
 This setup gave me one unified feed with all of my subscriptions: small personal website blogs, Medium profiles, YouTube channels, different independent podcasts, Twitter accounts and Telegram channels. I didn't succeeded on generating the feed from Facebook stuff, since its security policies required additional configuration for RSSHub, which I didn't want to dive into. Getting the feed from Facebook user accounts (compared to feed from FB public pages) is impossible at all from what I understood, so I just skipped it.
 
-### And... it didn't work
+## And... it didn't work
 
 A couple of months later I regretted the decision to go full RSS. As with any abstraction when you try to use a lot of different stuff in unified form you inevitable cut some corners, e.g. loose some unique features in each of these different things.
 
@@ -38,12 +38,12 @@ Furthermore talking about video content like YouTube: you probably notice that w
 
 So after all as of now I use RSS feeds only for Medium (mostly from my laptop, so I don't care about broken deep links) and small personal blogs, forums, that have no other way to distribute their content outside of their UI besides RSS.
 
-### Reeder 5
+## Reeder 5
 
 FreshRSS by itself provides web interface to read / manage your feed. They even support UI theme customization, but I wanted more native experience. So I found [Reeder 5](https://reederapp.com/), exceptionally well designed RSS feed reader specifically for iOS/MacOS. It supports wide range of RSS aggregators to read feeds from there, which also included self-hosted FreshRSS instance. I cannot recommend it more, it is really beautiful app...
 
 > **Side note**: recently I read a good [article](https://borism.medium.com/the-death-of-three-apps-72f3c0e802ab) about a couple of third-party clients for Twitter, Wikipedia and Reddit. All of them are now dead because of changes in the terms of usage of their respective services. And it is really sad because they showed what the UI can be if it is done separately from the main service. Twitter, Wikipedia or Reddit don't make money directly from their official apps, so their UI is about good enough quality. But paid third-party apps must give something above and beyond compared to official free apps, so they are forced to come up with a better solution. It shows how sometimes segregation of some system components (like service itself and app for it) can lead to overall better outcome for an end user
 
-### Bonus
+## Bonus
 
 In case you don't have a desire to try self-hosting, but wanna play with RSS, there are plenty of apps / services that provide RSS aggregation, but do not require any sort of backend for it. For example Reeder I was talking about actually can work with RSS feeds stored in your iCloud. For Android a long long time ago I used [Feedly](https://feedly.com/), but I remember that I didn't like it much for some reason. In short there are more than enough options for you to try if you wish.

@@ -14,7 +14,7 @@ export function Text({
   return (
     <span
       className={cn(
-        'va-primary-text',
+        'dg-primary-text',
         {
           'text-sm font-light': level === 'sm',
         },

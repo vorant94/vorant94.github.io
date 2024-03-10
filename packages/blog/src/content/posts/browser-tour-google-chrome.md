@@ -11,11 +11,11 @@ related:
 
 Now let's dive into the most popular browser currently available, Google Chrome.
 
-### AirPlay/ChromeCast
+## AirPlay/ChromeCast
 
 Как писалось выше Chrome поддерживает ChromeCast и это жирный плюс, но сюрпризом может оказаться то, что он не поддерживает AirPlay... Причина этого мне не ясна. Я еще могу понять, почему Apple разрешает себе игнорировать весь внешний мир (их собственная экосистема покрывает 99% потребностей пользователя), но по идее Chrome не должен себе такого позволять, так как это всего лишь браузер, который всегда существует в рамках какой-то операционной системы (ChromeOS не в счет).
 
-### Chrome extensions and apps
+## Chrome extensions and apps
 
 One of the typical features of a modern large apps is the ability to install all kinds of extensions, and Chrome is no exception. The task of such a system of plugins is primarily to get rid of “the other side” the problem, that is, to enable third-party developers to extend the functionality of the browser and/or integrate it with their services. Since Chrome is the most popular browser, the developers of those extensions in most cases will develop them specifically for this browser.
 
@@ -23,7 +23,7 @@ Besides just extensions, Chrome allows you to “install” sites as application
 
 However, Chrome applications can also be opened as a regular tab, without creating a separate window. In this case, deep links are not broken, and the entire “application” serves only as a bookmark shortcut. For example, if you use some application launcher like Alfred, then along with applications you can also search for bookmarks, which slightly integrates the external Internet into your personal laptop.
 
-### Integration with Apple/Google services
+## Integration with Apple/Google services
 
 Coming back to the topic of integrations with OS technologies, Chrome is not integrated with TouchID in any way. This affects the user experience not only of the browser itself, but also of its extensions. For example, the Bitwarden extension for Safari can be unlocked using a fingerprint without any additional requirements, but the same in the Chrome version of the extension can only be done if the Bitwarden desktop client is running in the background...
 
@@ -31,23 +31,23 @@ There is also no separation of time spent in the browser by sites through Time L
 
 You would expect that Chrome, in exchange for the lack of integration with the user's ecosystem (in my case, the Apple ecosystem), would provide smoother integration with Google services, but I wouldn't say so. Just as Safari stores bookmarks, history, and passwords through iCloud, Chrome stores it all through Google Account. I didn't notice any unique service that could be called a competitive advantage or an exclusive feature of Chrome.
 
-### Third-party apps
+## Third-party apps
 
 Here everything is much more ambiguous. On the one hand, due to the popularity of Chrome, some developers of application specifically for MacOS integrate with both Safari and Chrome, but some don't do this. In my case, the case is: Alfred 5 and Things 3 features, which I talked about in the previous post, work exactly the same as with Safari, but Reeder 5 decided not to provide integration with Chrome.
 
-### Sites support
+## Sites support
 
 Here everything is just as should be expected: since the browser is the most popular one, sites are first of all developed and tested for the correct functioning in it. Which leads to the fact that a Chrome user will be least likely to encounter bugs or something like that coming from the sites compared to users of other browsers.
 
-### Developer tools
+## Developer tools
 
 Since I use Chrome for work and for programming outside of work, in this case I don’t feel the problem of two apps that I wrote about in the previous part (one for surfing the network, the other for development). But it won't change the fact that it is still impossible to separate these two elements.
 
-### Summary
+## Summary
 
 In fact, the overall impression of Chrome can be boiled down to the concept of a "blank slate" with the addition of Google services - it seems like there is nothing to talk about. All of its once progressive functionality has become the basic set of features of any normal browser. Which is not far from the truth, because Chrome by definition is Chromium + Google. That’s why the size of such review is noticeably smaller than the same about Safari. I don’t want to fill the resulting empty space with technical details about operating speed, battery consumption and so on, because from personal experience I didn't feel a difference on these points when moving from one browser to another.
 
-**Advantages:**
+#### Advantages:
 
 - good integration with technologies outside Apple
   - ChromeCast
@@ -61,7 +61,7 @@ In fact, the overall impression of Chrome can be boiled down to the concept of a
 - excellent site support
 - bookmarks can be stored as standalone apps (if you open them as tabs)
 
-**Disadvantages:**
+#### Disadvantages:
 
 - not all third-party MacOS app are integrated with Chrome
   - Reeder 5

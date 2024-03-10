@@ -12,7 +12,7 @@ related:
 isPinned:
 ---
 
-### Intro
+## Intro
 
 For those who may not be familiar already with Dart in general and Flutter in particular, those are relatively new players in the field. Dart is the dynamically-typed programming language and Flutter is a cross-platform UI framework. Both are developed by Google.
 
@@ -20,7 +20,7 @@ They were built from the ground up with the goal to be used to write client-side
 
 My personal experience with it so far was pretty depthless based on the requirements of the projects that I used Flutter in, so I won't go into technical details of how for example Dart Event Loop is built and whether it is different from JavaScript implementation or not, I'll focus more on the developer experience of Dart compared to what we have in JS/TS and some insights that I found along the way.
 
-### Backward variable/function declaration syntax
+## Backward variable/function declaration syntax
 
 As I said previously Dart is taking inspiration from its older brothers at least to lower entry-level for newcomers. So the syntax in general can be considered Java-like. One of the things that I didn't think is a problem before is a variable or function declaration syntax.
 
@@ -50,7 +50,7 @@ It really blows my mind to write stuff in this order because I'm used to first f
 
 Also while I was writing this post I just realized that `function` keyword in `JS/TS` is simply redundant. When compiler / interpreter parses the code there is already enough info to distinguish between regular variable and a function: in case name is followed by assignment operator it is a variable, in case it is followed by parenthesis - it is a function. Simple as that considering the fact that class methods in `ES6` don't require any additional keywords. Now I wonder what is the history behind `function` keyword in `JS` in the first place🤔
 
-### Two types of constant values
+## Two types of constant values
 
 Both of JavaScript and Dart are somewhat compiled and interpreted languages at the same time based on the definition that we agree upon, but even so Dart came with a new for me concept of compile-time constants.
 
@@ -58,7 +58,7 @@ In modern JS/TS you have a `let` declaration, which mean that variable is mutabl
 
 One of Dart perks that are related to built or compiled languages is that it can distinguish between values that can be fully calculated and frozen at compile-time and those that can only be calculated once at run-time. For example we can create compile-time constant value like calculating the sum of two pre-defined numbers e.g. `const sum = 1 + 3`, but we have to use run-time constant in case like defining current timestamp e.g. `final now = DateTime.now()`. Under the hood it allows all sorts of optimizations and linters even automatically highlights the cases where you are able use compile-time syntax, but anyway it forced me to think differently from what I used to: now in addition to binary choice about mutability I also have another binary decision about immutability itself.
 
-### Class method extensions
+## Class method extensions
 
 Have you ever thought while using some built-in class methods or some third-party library classes that it would be better if they implement this and that? For example I'd find it quite useful if ES6 `Map` class exposed `getOrThrow` method, which instead of returning `undefined` when it didn't find anything would well... throw an error. Without it I need to do it manually each time. The way to avoid unnecessary code duplication in JS/TS is to declare a helper function
 
@@ -137,7 +137,7 @@ build(BuildContext context) {
 
 It gives a feeling of a very deep integration between built-in and third-party libraries, as you can tap into inner language / framework stuff and enhance it by your meaning, which in total leads to betted dev experience. But besides this fully subjective advantage the way the IDE autocompletion handles method extension makes sharing common practices between team members as lean as possible: you don't need to inform your teammate about new `indexedMap` helper function, he/she will see it inside IDE autocompletion suggestions.
 
-### Reflection
+## Reflection
 
 Another new for me concept that I used in my everyday job, but didn't know it was a thing up until now, is reflection. According to Wikipedia reflection - is the ability of a process to examine, introspect, and modify its own structure and behavior. I don't know about you, but it ain't say much for me, so lets see reflection of JS in action:
 
@@ -211,7 +211,7 @@ person2['lastName'] = 'World';
 
 It really boggled my mind why other language developers have two different words for the same concept, "object" and "map"/"dictionary", I considered it to be semantic stuff... no more🤓
 
-### Types actually have runtime impact
+## Types actually have runtime impact
 
 One of the obvious things that Dart can benefit from is that it has built-in type system. TypeScript is really great and have even way more advanced and complex type system than Dart, but still after you compile it to JavaScript you loose all these features. I knew and expected it to be different in Dart, but one particular example caught me like "Aha! Gotcha" and it is how you can use generics in conjunction with Flutter `BuildContext`. Long story short in case you want to access a widget / component higher up the widget tree e.g. parent widget, you can get it from the context of your current widget. Looks something like that
 
@@ -227,6 +227,6 @@ const parent = context.findAncestorStateOfType(ParentWidget);
 
 We have to pass parent widget type as an argument to the method. Not a big difference, but still makes you think about stuff under the hood.
 
-### Outro
+## Outro
 
 There are a number of Dart features that I still don't fully get and also Flutter framework itself, but this post is already long enough, so I'll stop here. But anyway learning new programming language is just like learning a new speaking language: by learning something different to what you are used to, you both learn new stuff and dive deeper into already known things.

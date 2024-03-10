@@ -4,7 +4,7 @@ import type { FunctionComponent, PropsWithChildren } from 'react';
 export const PostList: FunctionComponent<PropsWithChildren<PostListProps>> =
   function ({ children }) {
     return (
-      <ul className={cn('flex flex-col divide-y divide-dashed', 'va-border')}>
+      <ul className={cn('flex flex-col divide-y divide-dashed', 'dg-border')}>
         {children}
       </ul>
     );

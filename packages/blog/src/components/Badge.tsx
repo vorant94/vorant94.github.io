@@ -15,7 +15,7 @@ export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
     return (
       <span
         className={cn(
-          'va-primary-text',
+          'dg-primary-text',
           'inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold',
           ...colorToBg[color],
           className,

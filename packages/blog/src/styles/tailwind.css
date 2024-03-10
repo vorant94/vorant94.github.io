@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 @layer components {
-  .va-background {
+  .dg-background {
     @apply bg-slate-50 dark:bg-slate-900;
   }
 
-  .va-primary-text {
+  .dg-primary-text {
     @apply text-slate-800 dark:text-slate-100;
   }
 
-  .va-secondary-text {
+  .dg-secondary-text {
     @apply text-slate-500;
   }
 
-  .va-border {
+  .dg-border {
     @apply border-slate-300 dark:border-slate-600;
   }
 
-  .va-fullscreen {
+  .dg-fullscreen {
     @apply mx-auto sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl;
   }
 }
