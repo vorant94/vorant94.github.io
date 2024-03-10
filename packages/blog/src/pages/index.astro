@@ -7,7 +7,6 @@ import { PostTiledList } from '@/components/PostTiledList/PostTiledList.tsx';
 import { PostTiledListItem } from '@/components/PostTiledList/PostTiledListItem.tsx';
 import { PinnedPosts } from '@/components/PinnedPosts.tsx';
 import { Link } from '@/components/Link.tsx';
-import { Carousel } from '@/components/Carousel/Carousel.tsx';
 import { Divider } from '@/components/Divider.tsx';
 import { Headline } from '@/components/Headline.tsx';
 import {
@@ -55,7 +54,9 @@ const featuredProjects = allProjects
         return (
           <ProjectGridCell
             imageSrc={data.coverImage?.src}
-            imageSrcDark={data.coverImageDark?.src}
+            imageSrcDark={
+              isEntryDataWithCover(data) ? data.coverImageDark?.src : null
+            }
             href={getProjectFullPath(project)}
             title={data.name}
             subTitle={data.slogan}
