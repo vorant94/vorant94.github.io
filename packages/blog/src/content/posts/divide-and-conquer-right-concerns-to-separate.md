@@ -6,7 +6,7 @@ tags:
   - design-principles
 publishedAt: 2024-03-10
 coverImage: ../attachments/divide-and-conquer-right-concerns-to-separate/cover.webp
-coverImageAlt: triple spider man meme featuring React, Vue and Angular
+coverImageAlt: Julius Caesar statue
 ---
 
 ## Historical reference (in less than 30 mins)
