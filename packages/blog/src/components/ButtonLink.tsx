@@ -5,7 +5,7 @@ import type {
   PropsWithChildren,
 } from 'react';
 
-// TODO align with va-link styles
+// TODO align with dg-link styles
 export const ButtonLink: FunctionComponent<PropsWithChildren<ButtonLinkProps>> =
   function ({ children, className, isOutlined, level, testId, ...rest }) {
     return (

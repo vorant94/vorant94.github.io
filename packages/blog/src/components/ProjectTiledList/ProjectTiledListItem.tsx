@@ -91,7 +91,7 @@ export const ProjectTiledListItem: FunctionComponent<ProjectTiledListItemProps> 
                 target="_blank"
                 href={data.productionUrl}
                 isOutlined={true}
-                className={cn('va-background p-2 flex gap-1.5 items-center')}>
+                className={cn('dg-background p-2 flex gap-1.5 items-center')}>
                 <Icon glyph="globe" />
                 Production
               </ButtonLink>
@@ -102,7 +102,7 @@ export const ProjectTiledListItem: FunctionComponent<ProjectTiledListItemProps> 
               target="_blank"
               href={data.sourceCodeUrl}
               isOutlined={true}
-              className={cn('va-background p-2 flex gap-1.5 items-center')}>
+              className={cn('dg-background p-2 flex gap-1.5 items-center')}>
               <Icon glyph="github" />
               Source
             </ButtonLink>

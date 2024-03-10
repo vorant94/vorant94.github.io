@@ -13,7 +13,9 @@ export const ProjectGridEmptyCell: FunctionComponent<
     <ButtonLink
       href={href}
       isOutlined={true}
-      className={cn('p-3 flex items-center justify-center h-24')}>
+      className={cn(
+        'p-3 flex items-center justify-center h-24 dg-secondary-text',
+      )}>
       {children}
     </ButtonLink>
   );
