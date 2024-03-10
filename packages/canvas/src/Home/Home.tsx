@@ -1,8 +1,8 @@
 import { Layout } from '@/components/Layout.tsx';
+import { routeToLabel } from '@/shared/route.ts';
 import { cn } from '@digital-garden/utils';
 import type { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
-import { routeToLabel } from '../shared/route.ts';
 
 export const Home: FunctionComponent = function () {
   return (
