@@ -2,8 +2,9 @@
 title: 'Divide and conquer: right concerns to separate'
 description: One of the core programming principles is separation of concerns. It guides programmers to separate applications into smaller units with distinct boundaries. My view on it went over a couple of iterations and I'd like to share with you what it means for me now
 tags:
-  - node
-  - design-principles
+  - design-patterns
+  - separation-of-concerns
+  - programming
 publishedAt: 2024-03-10
 coverImage: ../attachments/divide-and-conquer-right-concerns-to-separate/cover.webp
 coverImageAlt: Julius Caesar statue
