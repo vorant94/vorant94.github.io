@@ -10,7 +10,7 @@ related:
 isPinned:
 ---
 
-### The problem
+## The problem
 
 When you develop an app that is meant to be hosted on customer environment and you have several customers each customer will probably request to have its own theme for the app, which consists of set of images and colors that fit these images. And we are not talking here about runtime theme switch by user like light/dark theme, we are talking about environment theme, about branding of the app.
 
@@ -45,7 +45,7 @@ And it is totally working as a solution, but have a couple of problems:
 
 So here is my proposal, which is easy not only to implement but also to scale with time: **things like environment theme assets need to be replaced after build** using for example Docker volumes. As already mentioned above theme can consist of images and styles, so let's take it one by one: how to replace images and how to replace styles.
 
-### How to replace images
+## How to replace images
 
 Let's say we want to replace the following image in our app
 
@@ -76,7 +76,7 @@ volumes: ng-app-theme
 
 **/assets/theme** - is a location of our theme inside of app. Remember that files in the volume must have the same name as in repo in order to replace them.
 
-### How to replace styles
+## How to replace styles
 
 This one is a little bit trickier but we can nail it. Many modern CSS frameworks have their own theme set-up and most likely use one of CSS preprocessors like SASS or LESS. So we may have one general file with all of SASS/LESS variables that needs to be replaced, but only in development, not after build. After the build is done there is no such file, only compiled vanilla CSS code. We could somehow parse these files in order to replace values of each variable with the new one, but it is hard to implement and it has its own downsides.
 
@@ -125,7 +125,7 @@ So with all this set up we have our default theme in `theme.js` and what we shou
 
 ---
 
-### Conclusion
+## Conclusion
 
 This solution not only allows us to get rid of dozens of files inside our repository, but we also now can have only one build and only one image in Docker registry for all of our customers. Also since Docker volumes have a lot of different drivers theme files can be stored not only locally on customer server, but on another dedicated host. And all we've done is just a couple of lines of code. The only thing I want to add in conclusion is a simple check list of what we've done to achieve desired behaviour:
 

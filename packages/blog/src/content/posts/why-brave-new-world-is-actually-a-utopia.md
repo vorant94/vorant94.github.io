@@ -8,7 +8,7 @@ coverImage: ../attachments/why-brave-new-world-is-actually-a-utopia/cover.jpg
 coverImageAlt: Brave New World book cover
 ---
 
-### Before we begin
+## Before we begin
 
 First, I want to clarify that my thoughts are based on the belief that happiness is subjective. What do I mean? I believe there isn't one universal state where everybody is equally happy and enlightened. Each person relies on his/her own benchmarks while searching for happiness and self-realization. And it's ok; it is how it should be because we all differ.
 
@@ -18,7 +18,7 @@ If we dive into our own history, we find out that the idea of forcing your own v
 
 Finally, this post is intended for people who already read the book. If I were to reveal the exposition here, the amount of text would become unreadable. Moreover, I read "Brave New World" about a year or something ago, and providing the exposition would force me to reread it. In this case, I probably wouldn't have written this post because of my laziness.
 
-### Let's start
+## Let's start
 
 After all that being said, let's finally dive into the thing. From the first appearance, the world of Aldous Huxley is a pure nightmare with the strictest caste system that gives no chances to change anything, with absolute slavery of personality to science, which by itself is under control of the government, and with unprecedented level of consumerism in the society, where literally everything is built in a way to make people spend more money. But is it as bad as it looks?
 
@@ -34,6 +34,6 @@ John, the Savage, is the bastard of the Director and Linda, born naturally in th
 
 The most "problematic" character from the perspective of my idea is Mustafa Mond. He is just as much a minority representative as Helmholtz, but envying the island dwellers, he sacrifices his ambitions and realization potential to support the system. The system equally makes everyone happy at the cost of its supremacy happiness, as an ordinary citizen simply cannot lead such a system. Only the exact opposite, someone who sees much broader and more profound, can lead a mass of ordinary people. Mustafa cannot be considered a literary device or a system error because he manages it; he seamlessly fits into the overall picture of the world, unlike Bernard or John. The only thing I can hold onto is that such a position is his conscious choice. He chose to sacrifice everything for humanity; he was given the choice of "island or self-sacrifice," and he decided. I would say that such people would, on the contrary, be unhappy on the islands; their altruism would eat them from within. How could they act so selfishly and risk humanity's overall stability and happiness to satisfy their insatiable ambitions?
 
-### The conclusion
+## The conclusion
 
 I don't know how exactly Aldous Huxley wrote his novel. I also don't know whether he meant the points I described above or it came up so by itself (probably, all of it is just my imagination anyway). Maybe Bernard and John are more than tricks for reader convenience. But one way or another, if we were to look at the work from a different angle, we would see a system that gives a chance to be happy and to self-realize to everyone and everybody: ordinary people, people with ambitions, and altruists. And isn't a world where everyone is happy called a utopia?
