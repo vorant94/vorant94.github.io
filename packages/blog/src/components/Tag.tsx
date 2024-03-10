@@ -1,5 +1,6 @@
 import { getPostTagFullPath } from '@/shared/post.helpers.ts';
 import {
+  cn,
   colors,
   extractStringFromReactNode,
   type Color,
@@ -15,7 +16,13 @@ export const Tag: FunctionComponent<PropsWithChildren<TagProps>> = function ({
 
   return (
     <a href={getPostTagFullPath(tag)}>
-      <Badge color={color}>#{tag}</Badge>
+      <Badge
+        color={color}
+        className={cn(
+          'inline-block max-w-24 sm:max-w-none lg:max-w-24 xl:max-w-none truncate',
+        )}>
+        #{tag}
+      </Badge>
     </a>
   );
 };

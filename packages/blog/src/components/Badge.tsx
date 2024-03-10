@@ -4,23 +4,29 @@ import {
   type Color,
   type ThemedStyle,
 } from '@digital-garden/utils';
-import type { FunctionComponent, PropsWithChildren } from 'react';
+import type {
+  ComponentPropsWithoutRef,
+  FunctionComponent,
+  PropsWithChildren,
+} from 'react';
 
 export const Badge: FunctionComponent<PropsWithChildren<BadgeProps>> =
-  function ({ color, children }) {
+  function ({ color, children, className, ...rest }) {
     return (
       <span
         className={cn(
           'dg-primary-text',
           'inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold',
           ...colorToBg[color],
-        )}>
+          className,
+        )}
+        {...rest}>
         {children}
       </span>
     );
   };
 
-export interface BadgeProps {
+export interface BadgeProps extends ComponentPropsWithoutRef<'span'> {
   color: Color;
 }
 
