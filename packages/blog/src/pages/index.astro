@@ -8,10 +8,8 @@ import { PostTiledListItem } from '@/components/PostTiledList/PostTiledListItem.
 import { PinnedPosts } from '@/components/PinnedPosts.tsx';
 import { Link } from '@/components/Link.tsx';
 import { Carousel } from '@/components/Carousel/Carousel.tsx';
-import { CarouselLinkSlide } from '@/components/Carousel/CarouselLinkSlide';
-import { CarouselEmptyLinkSlide } from '@/components/Carousel/CarouselEmptyLinkSlide';
-import { Divider } from '@/components/Divider';
-import { Headline } from '@/components/Headline';
+import { Divider } from '@/components/Divider.tsx';
+import { Headline } from '@/components/Headline.tsx';
 import {
   sortEntriesByPublishedAt,
   isEntryDataWithCover,
@@ -20,7 +18,10 @@ import {
   getProjectFullPath,
   projectStatusToLabel,
   projectStatusToBadgeColor,
-} from '@/shared/project.helpers';
+} from '@/shared/project.helpers.ts';
+import { ProjectGrid } from '@/components/ProjectGrid/ProjectGrid.tsx';
+import { ProjectGridCell } from '@/components/ProjectGrid/ProjectGridCell.tsx';
+import { ProjectGridEmptyCell } from '@/components/ProjectGrid/ProjectGridEmptyCell.tsx';
 
 const allPosts = sortEntriesByPublishedAt(await getCollection('posts'));
 const [pinnedPosts, allNonPinnedPosts] = partition(
@@ -46,34 +47,27 @@ const featuredProjects = allProjects
     <Headline>Featured Projects</Headline>
   </Divider>
 
-  <Carousel>
+  <ProjectGrid>
     {
       featuredProjects.map((project) => {
         const { data } = project;
 
-        return isEntryDataWithCover(data) ? (
-          <CarouselLinkSlide
-            bgImageSrc={data.coverImage?.src}
-            bgImageSrcDark={data.coverImageDark?.src}
+        return (
+          <ProjectGridCell
+            imageSrc={data.coverImage?.src}
+            imageSrcDark={data.coverImageDark?.src}
             href={getProjectFullPath(project)}
-            badgeLabel={projectStatusToLabel[data.status]}
-            badgeColor={projectStatusToBadgeColor[data.status]}
             title={data.name}
             subTitle={data.slogan}
-          />
-        ) : (
-          <CarouselLinkSlide
-            href={getProjectFullPath(project)}
             badgeLabel={projectStatusToLabel[data.status]}
             badgeColor={projectStatusToBadgeColor[data.status]}
-            title={data.name}
-            subTitle={data.slogan}
           />
         );
       })
     }
-    <CarouselEmptyLinkSlide href="/projects">See all</CarouselEmptyLinkSlide>
-  </Carousel>
+
+    <ProjectGridEmptyCell href="/projects">See all</ProjectGridEmptyCell>
+  </ProjectGrid>
 
   <Divider>
     <Headline>Recent Posts</Headline>

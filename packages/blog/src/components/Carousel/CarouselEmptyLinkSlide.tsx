@@ -7,10 +7,9 @@ import type {
 import { ButtonLink } from '../ButtonLink.tsx';
 import Styles from './CarouselEmptyLinkSlide.module.css';
 
-export const CarouselEmptyLinkSlide: EmptyLinkSlideComponent = function ({
-  children,
-  href,
-}) {
+export const CarouselEmptyLinkSlide: FunctionComponent<
+  PropsWithChildren<EmptyLinkSlideProps>
+> = function ({ children, href }) {
   return (
     <ButtonLink
       isOutlined={true}
@@ -28,10 +27,6 @@ export const CarouselEmptyLinkSlide: EmptyLinkSlideComponent = function ({
     </ButtonLink>
   );
 };
-
-export type EmptyLinkSlideComponent = FunctionComponent<
-  PropsWithChildren<EmptyLinkSlideProps>
->;
 
 export interface EmptyLinkSlideProps
   extends Pick<ComponentPropsWithoutRef<'a'>, 'href'> {}
