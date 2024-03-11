@@ -20,6 +20,7 @@
     "@storybook/web-components": "^7.6.17",
     "@storybook/web-components-vite": "^7.6.17",
     "lit": "^3.1.2",
+    "postcss-load-config": "^5.0.3",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.12",
