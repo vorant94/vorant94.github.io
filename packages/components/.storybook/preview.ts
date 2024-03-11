@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/web-components';
+import '@/index.css';
 
 export default {
   parameters: {

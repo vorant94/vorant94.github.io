@@ -29,7 +29,13 @@
 
     /* Runtime/Framework */
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+
+    /* Misc */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["**/*.stories.ts"]

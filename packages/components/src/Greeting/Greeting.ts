@@ -13,14 +13,19 @@ export class Greeting extends HTMLElement {
     super();
 
     this.shadow = this.attachShadow({ mode: 'open' });
+  }
+
+  connectedCallback() {
     this.shadow.innerHTML = `
       ${Greeting.styles}
       
-      <div class="greeting">
+      <div class="greeting text-2xl">
         Hello, <slot></slot>!
       </div>
     `;
   }
 }
 
-customElements.define('dg-greeting', Greeting);
+if(!customElements.get('dg-greeting')) {
+  customElements.define('dg-greeting', Greeting);
+}
