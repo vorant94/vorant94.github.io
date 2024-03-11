@@ -16,11 +16,11 @@ export const PostTiledListItem: FunctionComponent<PostTiledListItemProps> =
     const { data } = post;
 
     return (
+      // can't use dg-border here, because need to juggle transparency with color to keep siblings stable during scale
       <li
         className={cn(
-          'flex flex-col text-medium rounded-md duration-100',
-          'hover:border hover:shadow-md hover:scale-105',
-          'dg-border',
+          'flex flex-col text-medium rounded-md duration-100 border border-transparent',
+          'hover:border-slate-300 hover:dark:border-slate-600 hover:shadow-md hover:scale-105',
         )}
         key={post.id}>
         <Link
