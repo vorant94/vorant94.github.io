@@ -1,0 +1,33 @@
+{
+  "name": "@digital-garden/components",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "vite": "vite",
+    "format:check": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "prettier": "prettier",
+    "start": "storybook dev -p 6006",
+    "build:storybook": "storybook build",
+    "storybook": "storybook"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/web-components": "^7.6.17",
+    "@storybook/web-components-vite": "^7.6.17",
+    "lit": "^3.1.2",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.6.17",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4",
+    "vite-plugin-dts": "^3.7.3",
+    "vite-plugin-externalize-deps": "^0.8.0"
+  }
+}
