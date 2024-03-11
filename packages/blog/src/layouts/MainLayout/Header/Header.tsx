@@ -13,6 +13,7 @@ export const Header: FunctionComponent<PropsWithChildren<HeaderProps>> =
         <nav>
           <ButtonLink
             href="/"
+            prefetch="hover"
             className={cn('!p-0')}>
             <ThemedImage
               src={HeaderLogo}

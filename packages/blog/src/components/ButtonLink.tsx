@@ -7,7 +7,7 @@ import type {
 
 // TODO align with dg-link styles
 export const ButtonLink: FunctionComponent<PropsWithChildren<ButtonLinkProps>> =
-  function ({ children, className, isOutlined, level, testId, ...rest }) {
+  function ({ children, className, isOutlined, level, testId, prefetch, ...rest }) {
     return (
       <a
         className={cn(
@@ -20,6 +20,7 @@ export const ButtonLink: FunctionComponent<PropsWithChildren<ButtonLinkProps>> =
           className,
         )}
         data-testid={testId}
+        data-astro-prefetch={prefetch}
         {...rest}>
         {children}
       </a>
@@ -27,6 +28,7 @@ export const ButtonLink: FunctionComponent<PropsWithChildren<ButtonLinkProps>> =
   };
 
 export interface ButtonLinkProps extends ComponentPropsWithoutRef<'a'> {
+  prefetch?: 'hover' | 'tap' | 'viewport' | 'load';
   testId?: string;
   isOutlined?: boolean;
   level?: ButtonLinkLevel;
