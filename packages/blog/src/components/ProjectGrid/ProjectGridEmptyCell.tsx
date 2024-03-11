@@ -1,4 +1,4 @@
-import { ButtonLink } from '@/components/ButtonLink.tsx';
+import { Link } from '@/components/Link.tsx';
 import { cn } from '@digital-garden/utils';
 import type {
   ComponentPropsWithoutRef,
@@ -10,14 +10,18 @@ export const ProjectGridEmptyCell: FunctionComponent<
   PropsWithChildren<ProjectGridEmptyCellProps>
 > = function ({ children, href }) {
   return (
-    <ButtonLink
-      href={href}
-      isOutlined={true}
+    <div
       className={cn(
-        'p-3 flex items-center justify-center h-24 dg-secondary-text',
+        'flex h-24 items-center justify-center rounded-2xl duration-100 border border-transparent group  cursor-pointer',
+        'hover:border-slate-300 hover:dark:border-slate-600 hover:shadow-md hover:scale-105',
       )}>
-      {children}
-    </ButtonLink>
+      <Link
+        href={href}
+        prefetch={'hover'}
+        className={cn('flex items-center p-3')}>
+        {children}
+      </Link>
+    </div>
   );
 };
 export interface ProjectGridEmptyCellProps

@@ -1,6 +1,6 @@
 import { Badge } from '@/components/Badge.tsx';
-import { ButtonLink } from '@/components/ButtonLink.tsx';
 import { Caption } from '@/components/Caption.tsx';
+import { Link } from '@/components/Link.tsx';
 import { ThemedImage } from '@/components/ThemedImage.tsx';
 import { Title } from '@/components/Title.tsx';
 import { cn, type Color } from '@digital-garden/utils';
@@ -17,24 +17,30 @@ export const ProjectGridCell: FunctionComponent<ProjectGridCellProps> =
     badgeColor,
   }) {
     return (
-      <ButtonLink
-        href={href}
-        isOutlined={true}
+      <div
         className={cn(
-          'p-3 flex items-center justify-center gap-2 h-24 group relative overflow-hidden',
+          'flex h-24 items-center justify-center relative overflow-hidden rounded-2xl duration-100 border border-transparent group cursor-pointer',
+          'hover:border-slate-300 hover:dark:border-slate-600 hover:shadow-md hover:scale-105',
         )}>
-        {imageSrc ? (
-          <ThemedImage
-            className={cn('w-12')}
-            src={imageSrc}
-            srcDark={imageSrcDark}
-          />
-        ) : null}
-        <div className={cn('flex-1 flex flex-col')}>
-          <Title className={cn('group-hover:text-inherit')}>{title}</Title>
-
-          <Caption>{subTitle}</Caption>
-        </div>
+        <Link
+          href={href}
+          prefetch="hover"
+          className={cn('flex items-center p-3 gap-2')}>
+          {imageSrc && (
+            <ThemedImage
+              className={cn('h-12 w-12 object-scale-down')}
+              src={imageSrc}
+              srcDark={imageSrcDark}
+            />
+          )}
+          {/* adding display: flex here breaks inline-block hack from below */}
+          <div className={cn('flex-1')}>
+            <Title className={cn('group-hover:text-inherit')}>{title}</Title>
+            {/* this inline-block removes the inherited text-decoration, since it cannot be simply
+          overridden like any other parent css style*/}
+            <Caption className="inline-block">{subTitle}</Caption>
+          </div>
+        </Link>
 
         <Badge
           color={badgeColor}
@@ -43,7 +49,7 @@ export const ProjectGridCell: FunctionComponent<ProjectGridCellProps> =
           )}>
           {badgeLabel}
         </Badge>
-      </ButtonLink>
+      </div>
     );
   };
 
