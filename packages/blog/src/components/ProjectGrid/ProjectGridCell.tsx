@@ -19,7 +19,7 @@ export const ProjectGridCell: FunctionComponent<ProjectGridCellProps> =
     return (
       <div
         className={cn(
-          'flex h-24 items-center justify-center relative overflow-hidden rounded-2xl duration-100 border border-transparent group cursor-pointer',
+          'flex h-24 items-center justify-center relative overflow-hidden rounded-md duration-100 border border-transparent group cursor-pointer',
           'hover:border-slate-300 hover:dark:border-slate-600 hover:shadow-md hover:scale-105',
         )}>
         <Link
