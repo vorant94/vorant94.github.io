@@ -3,10 +3,6 @@ import { getCollection, getEntry } from 'astro:content';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import type { Project } from '@/shared/project.helpers.ts';
 import type { Changelog } from '@/shared/changelog.helpers.ts';
-import {
-  formatEntryPublishedAt,
-  PublishedAtFormat,
-} from '@/shared/collection.helpers.ts';
 
 export async function getStaticPaths() {
   const changelogs = await getCollection('changelogs');
