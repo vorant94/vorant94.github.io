@@ -4,6 +4,10 @@ import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { getImage } from 'astro:assets';
 import type { Project } from '@/shared/project.helpers.ts';
 import type { Changelog } from '@/shared/changelog.helpers.ts';
+import { ProjectFrontmatter } from '@/components/ProjectFrontmatter.tsx';
+import { Divider } from '@/components/Divider';
+import { Headline } from '@/components/Headline';
+import { ProjectChangelogs } from '@/components/ProjectChangelogs';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -30,15 +34,15 @@ interface Props {
 
 const { project, changelogs } = Astro.props;
 
-const { coverImage, name, slogan } = project.data;
+const { logo, name, slogan } = project.data;
 
-let coverImageSrc: string | undefined;
-if (coverImage) {
+let logoSrc: string | undefined;
+if (logo) {
   const image = await getImage({
-    src: coverImage,
-    format: coverImage.format,
+    src: logo,
+    format: logo.format,
   });
-  coverImageSrc = image.src;
+  logoSrc = image.src;
 }
 
 const { Content } = await project.render();
@@ -46,11 +50,17 @@ const { Content } = await project.render();
 
 <MainLayout
   title={name}
-  image={coverImageSrc}
+  image={logoSrc}
   description={slogan}>
-  <Content />
+  <article class="prose dark:prose-invert prose-img:mx-auto">
+    <ProjectFrontmatter project={project} />
 
-  <ul>
-    {changelogs.map((changelog) => <li>{changelog.data.publishedAt}</li>)}
-  </ul>
+    <Content />
+  </article>
+
+  <Divider isLeft={false}>
+    <Headline>Changelogs</Headline>
+  </Divider>
+
+  <ProjectChangelogs changelogs={changelogs} />
 </MainLayout>

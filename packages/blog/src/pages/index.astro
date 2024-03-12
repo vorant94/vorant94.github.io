@@ -9,10 +9,7 @@ import { PinnedPosts } from '@/components/PinnedPosts.tsx';
 import { Link } from '@/components/Link.tsx';
 import { Divider } from '@/components/Divider.tsx';
 import { Headline } from '@/components/Headline.tsx';
-import {
-  sortEntriesByPublishedAt,
-  isEntryDataWithCover,
-} from '@/shared/collection.helpers.ts';
+import { sortEntriesByPublishedAt } from '@/shared/collection.helpers.ts';
 import {
   getProjectFullPath,
   projectStatusToLabel,
@@ -53,10 +50,8 @@ const featuredProjects = allProjects
 
         return (
           <ProjectGridCell
-            imageSrc={data.coverImage?.src}
-            imageSrcDark={
-              isEntryDataWithCover(data) ? data.coverImageDark?.src : null
-            }
+            imageSrc={data.logo?.src}
+            imageSrcDark={data.logoDark?.src}
             href={getProjectFullPath(project)}
             title={data.name}
             subTitle={data.slogan}

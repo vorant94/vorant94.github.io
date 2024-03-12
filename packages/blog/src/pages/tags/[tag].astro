@@ -3,14 +3,16 @@ import { getCollection } from 'astro:content';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { Divider } from '@/components/Divider.tsx';
 import { Headline } from '@/components/Headline.tsx';
-import { PostList } from '@/components/PostList/PostList.tsx';
-import { PostListItem } from '@/components/PostList/PostListItem.tsx';
+import { ArchiveList } from '@/components/ArchiveList/ArchiveList.tsx';
+import { ArchiveListItem } from '@/components/ArchiveList/ArchiveListItem.tsx';
 import {
   sortEntriesByPublishedAt,
   PublishedAtFormat,
 } from '@/shared/collection.helpers.ts';
 import { getUniqPostTags } from '@/shared/post.helpers.ts';
 import type { Post } from '@/shared/post.helpers.ts';
+import { formatEntryPublishedAt } from '@/shared/collection.helpers';
+import { getPostFullPath } from '@/shared/post.helpers';
 
 export async function getStaticPaths() {
   const entries = sortEntriesByPublishedAt(await getCollection('posts'));
@@ -40,14 +42,18 @@ const { posts, tag } = Astro.props;
   <Divider isLeft={false}>
     <Headline>#{tag}</Headline>
   </Divider>
-  <PostList>
+  <ArchiveList>
     {
       posts.map((post) => (
-        <PostListItem
-          post={post}
-          publishedAtFormat={PublishedAtFormat.SHORT}
+        <ArchiveListItem
+          left={post.data.title}
+          right={formatEntryPublishedAt(
+            post.data.publishedAt,
+            PublishedAtFormat.SHORT,
+          )}
+          href={getPostFullPath(post)}
         />
       ))
     }
-  </PostList>
+  </ArchiveList>
 </MainLayout>

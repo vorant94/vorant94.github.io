@@ -1,3 +1,4 @@
+import { DigitalGarden } from '@/DigitalGarden/DigitalGarden.tsx';
 import { Home } from '@/Home/Home.tsx';
 import { ThoughtsOnModernFrameworkFeatures } from '@/ThoughtsOnModernFrameworkFeatures/ThoughtsOnModernFrameworkFeatures.tsx';
 import { TypescriptMonoreposAreAMess } from '@/TypescriptMonoreposAreAMess/TypescriptMonoreposAreAMess.tsx';
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: Route.THOUGHTS_ON_MODERN_FRAMEWORK_FEATURES,
     element: <ThoughtsOnModernFrameworkFeatures />,
+  },
+  {
+    path: Route.DIGITAL_GARDEN,
+    element: <DigitalGarden />,
   },
 ]);
 

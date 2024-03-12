@@ -1,4 +1,4 @@
-import { Layout } from '@/components/Layout.tsx';
+import { Layout } from '@/shared/Layout.tsx';
 import type { FunctionComponent } from 'react';
 import angularLogo from './angular-logo.png';
 import reactLogo from './react-logo.svg';

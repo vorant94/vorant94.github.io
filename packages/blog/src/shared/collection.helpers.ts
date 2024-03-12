@@ -1,16 +1,9 @@
 import type { Changelog } from '@/shared/changelog.helpers.ts';
-import type {
-  ProjectData,
-  ProjectWithCoverData,
-} from '@/shared/project.helpers.ts';
 import { compareDesc, format } from 'date-fns';
 import type { Post, PostData, PostWithCoverData } from './post.helpers.ts';
 
-export function isEntryDataWithCover(
-  data: ProjectData,
-): data is ProjectWithCoverData;
 export function isEntryDataWithCover(data: PostData): data is PostWithCoverData;
-export function isEntryDataWithCover(data: PostData | ProjectData): boolean {
+export function isEntryDataWithCover(data: PostData): boolean {
   return 'coverImage' in data;
 }
 

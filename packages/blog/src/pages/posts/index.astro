@@ -3,13 +3,15 @@ import { getCollection } from 'astro:content';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { Divider } from '@/components/Divider.tsx';
 import { Headline } from '@/components/Headline.tsx';
-import { PostList } from '@/components/PostList/PostList.tsx';
-import { PostListItem } from '@/components/PostList/PostListItem.tsx';
+import { ArchiveList } from '@/components/ArchiveList/ArchiveList.tsx';
+import { ArchiveListItem } from '@/components/ArchiveList/ArchiveListItem.tsx';
 import { groupPostsByPublishedAtYear } from '@/shared/post.helpers.ts';
 import {
   PublishedAtFormat,
   sortEntriesByPublishedAt,
 } from '@/shared/collection.helpers.ts';
+import { formatEntryPublishedAt } from '@/shared/collection.helpers';
+import { getPostFullPath } from '@/shared/post.helpers';
 
 const postsByYear = groupPostsByPublishedAtYear(
   sortEntriesByPublishedAt(await getCollection('posts')),
@@ -26,14 +28,18 @@ const years = Object.keys(postsByYear).reverse();
           <Headline>{year}</Headline>
         </Divider>
 
-        <PostList>
+        <ArchiveList>
           {postsByYear[year]!.map((post) => (
-            <PostListItem
-              post={post}
-              publishedAtFormat={PublishedAtFormat.SHORT}
+            <ArchiveListItem
+              left={post.data.title}
+              right={formatEntryPublishedAt(
+                post.data.publishedAt,
+                PublishedAtFormat.SHORT,
+              )}
+              href={getPostFullPath(post)}
             />
           ))}
-        </PostList>
+        </ArchiveList>
       </>
     ))
   }

@@ -2,7 +2,6 @@ import {
   getChangelogFullPath,
   type Changelog,
 } from '@/shared/changelog.helpers.ts';
-import { isEntryDataWithCover } from '@/shared/collection.helpers.ts';
 import {
   getProjectFullPath,
   projectStatusToBadgeColor,
@@ -28,14 +27,10 @@ export const ProjectTiledListItem: FunctionComponent<ProjectTiledListItemProps> 
 
     return (
       <Card
-        style={
-          isEntryDataWithCover(data)
-            ? {
-                '--bg-image-url': `url(${data.coverImage.src})`,
-                '--bg-image-dark-url': `url(${data.coverImageDark?.src})`,
-              }
-            : {}
-        }
+        style={{
+          '--bg-image-url': `url(${data.logo.src})`,
+          '--bg-image-dark-url': `url(${data.logoDark?.src})`,
+        }}
         className={cn(
           'flex-1 flex-col',
           'bg-[image:var(--bg-image-url)] dark:bg-[image:var(--bg-image-dark-url)] bg-right bg-no-repeat bg-[length:auto_200%]',

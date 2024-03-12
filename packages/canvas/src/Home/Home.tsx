@@ -1,4 +1,4 @@
-import { Layout } from '@/components/Layout.tsx';
+import { Layout } from '@/shared/Layout.tsx';
 import { routeToLabel } from '@/shared/route.ts';
 import { cn } from '@digital-garden/utils';
 import type { FunctionComponent } from 'react';
