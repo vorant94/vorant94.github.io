@@ -3,6 +3,7 @@ import { getCollection, getEntry } from 'astro:content';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import type { Project } from '@/shared/project.helpers.ts';
 import type { Changelog } from '@/shared/changelog.helpers.ts';
+import { Comments } from '@/components/Comments.tsx';
 
 export async function getStaticPaths() {
   const changelogs = await getCollection('changelogs');
@@ -24,6 +25,23 @@ interface Props {
   project: Project;
   changelog: Changelog;
 }
+
+const { project, changelog } = Astro.props;
+
+const { Content } = await changelog.render();
 ---
 
-<MainLayout> changelog </MainLayout>
+<MainLayout>
+  <article class="prose dark:prose-invert prose-img:mx-auto">
+    <h1>{project.data.name} v{changelog.data.version}</h1>
+
+    <Content />
+  </article>
+
+  <Comments
+    category="Changelogs"
+    categoryId="DIC_kwDOKWcyP84Cd674"
+    term={changelog.slug}
+    client:only="react"
+  />
+</MainLayout>

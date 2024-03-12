@@ -62,7 +62,9 @@ const { Content, remarkPluginFrontmatter } = await post.render();
   {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
 
   <Comments
-    post={post}
+    category="Posts"
+    categoryId="DIC_kwDOKWcyP84Cc9LF"
+    term={post.slug}
     client:only="react"
   />
 </MainLayout>

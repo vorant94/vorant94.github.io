@@ -8,6 +8,7 @@ import { ProjectFrontmatter } from '@/components/ProjectFrontmatter.tsx';
 import { Divider } from '@/components/Divider';
 import { Headline } from '@/components/Headline';
 import { ProjectChangelogs } from '@/components/ProjectChangelogs';
+import { Comments } from '@/components/Comments';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -63,4 +64,11 @@ const { Content } = await project.render();
   </Divider>
 
   <ProjectChangelogs changelogs={changelogs} />
+
+  <Comments
+    category="Projects"
+    categoryId="DIC_kwDOKWcyP84Cd672"
+    term={project.slug}
+    client:only="react"
+  />
 </MainLayout>
