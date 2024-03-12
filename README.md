@@ -4,6 +4,7 @@ Welcome to my digital garden, here I write about all sorts of things (mostly abo
 
 ### reference
 
+- https://jakelazaroff.com/
 - https://codechips.me/
 - https://tonsky.me/
 - https://flaviocopes.com/
