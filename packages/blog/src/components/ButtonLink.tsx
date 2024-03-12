@@ -7,7 +7,15 @@ import type {
 
 // TODO align with dg-link styles
 export const ButtonLink: FunctionComponent<PropsWithChildren<ButtonLinkProps>> =
-  function ({ children, className, isOutlined, level, testId, prefetch, ...rest }) {
+  function ({
+    children,
+    className,
+    isOutlined,
+    level,
+    testId,
+    prefetch,
+    ...rest
+  }) {
     return (
       <a
         className={cn(

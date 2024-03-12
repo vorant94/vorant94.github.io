@@ -21,6 +21,7 @@ const changelogs = defineCollection({
     return z.object({
       publishedAt: z.date(),
       project: reference('projects'),
+      version: z.string(),
     });
   },
 });

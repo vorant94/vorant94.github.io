@@ -2,11 +2,7 @@ import {
   getChangelogFullPath,
   type Changelog,
 } from '@/shared/changelog.helpers.ts';
-import {
-  PublishedAtFormat,
-  formatEntryPublishedAt,
-  isEntryDataWithCover,
-} from '@/shared/collection.helpers.ts';
+import { isEntryDataWithCover } from '@/shared/collection.helpers.ts';
 import {
   getProjectFullPath,
   projectStatusToBadgeColor,
@@ -74,10 +70,7 @@ export const ProjectTiledListItem: FunctionComponent<ProjectTiledListItemProps> 
                   <Link
                     level="sm"
                     href={getChangelogFullPath(changelog)}>
-                    {formatEntryPublishedAt(
-                      changelog.data.publishedAt,
-                      PublishedAtFormat.FULL,
-                    )}
+                    v{changelog.data.version}
                   </Link>
                 </li>
               ))}

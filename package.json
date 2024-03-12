@@ -1,6 +1,7 @@
 {
   "name": "digital-garden",
   "type": "module",
+  "version": "1.0.0",
   "private": true,
   "packageManager": "yarn@4.1.0",
   "workspaces": [
@@ -16,5 +17,12 @@
   "devDependencies": {
     "concurrently": "^8.2.2",
     "husky": "^9.0.11"
-  }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "os": [
+    "osx",
+    "linux"
+  ]
 }

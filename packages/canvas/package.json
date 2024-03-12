@@ -1,7 +1,6 @@
 {
   "name": "@digital-garden/canvas",
   "type": "module",
-  "private": true,
   "scripts": {
     "dev": "vite",
     "start": "vite",
