@@ -7,7 +7,7 @@ export const Comments: FunctionComponent<CommentsProps> = function ({ post }) {
     <Giscus
       repo="vorant94/digital-garden"
       repoId="R_kgDOKWcyPw"
-      category="Comments"
+      category="Posts"
       categoryId="DIC_kwDOKWcyP84Cc9LF"
       mapping="specific"
       term={post.slug}
