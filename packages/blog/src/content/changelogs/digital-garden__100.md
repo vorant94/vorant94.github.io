@@ -6,6 +6,8 @@ version: 1.0.0
 
 ## New Section: Projects
 
+![Projects](../attachments/digital-garden__100/projects.png)
+
 The main part of this update is a new Projects section. When I started the blog the main source for post ideas was my job, but since then I came up with a couple of ideas for my own pet-projects. At the moment I have 3 of those including the blog itself. I discover a lot of cool stuff while coding them, but most times I don't want to write a whole post about it. But from the other side I also don't want to leave the blog without content for too long.
 
 So I came up to a conclusion to combine pet-project coding and blogging: I'll showcase the projects I work on and share my findings in the form of changelogs. Those changelogs aren't meant to be just formal list of changes since the last publications, but rather a stories of what, how and why I did in the scope of the project. So they should be as interesting to read as a regular post.
@@ -16,6 +18,7 @@ Also I'm not sure how properly integrate changelogs into RSS feed and how exactl
 
 ## Mobile navigation
 
+![Projects](../attachments/digital-garden__100/mobile-nav.png)
 Since the number of navigation items in the header grows, I needed to come up with at least some sort of adaptive navigation for mobile. I stopped at classic burger-button and full-screen overlay with some small animations. And now I get it why back-end devs consider front-end ones not a real programmers...
 
 #### Animations with CSS
@@ -24,6 +27,7 @@ Up until now I didn't have a lot of experience with animations. At the job it ei
 
 ## utterances to giscus migration
 
+![Projects](../attachments/digital-garden__100/giscus.png)
 My blog is SSG one, which means there is no backend behind it. Which means that from one side I don't have to pay money for a such, but from another - I needed to find a way to achieve some data persistence. The posts are `.md` files that are stored alongside the source code of the repo. But what about the comments?
 
 Up until recently I used [utterances](https://utteranc.es/), a light-weight app, that can use GitHub issues as a comments platform. And while it did its job well, I found its twin-brother, [giscus](https://giscus.app/), and instantly migrated without hesitation.
