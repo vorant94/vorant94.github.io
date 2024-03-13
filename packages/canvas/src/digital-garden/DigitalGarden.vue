@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { CenteredLayout } from '@digital-garden/components';
 import dark from './dark.png';
 import light from './light.png';
 </script>

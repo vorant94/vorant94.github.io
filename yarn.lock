@@ -1938,6 +1938,7 @@ __metadata:
     typescript: "npm:~5.4.2"
     vite: "npm:^5.1.6"
     vue: "npm:^3.4.21"
+    vue-docgen-web-types: "npm:^0.1.8"
     vue-router: "npm:^4.3.0"
     vue-tsc: "npm:^2.0.6"
   languageName: unknown
@@ -6095,6 +6096,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chokidar@npm:^3.4.2, chokidar@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "chokidar@npm:3.6.0"
+  dependencies:
+    anymatch: "npm:~3.1.2"
+    braces: "npm:~3.0.2"
+    fsevents: "npm:~2.3.2"
+    glob-parent: "npm:~5.1.2"
+    is-binary-path: "npm:~2.1.0"
+    is-glob: "npm:~4.0.1"
+    normalize-path: "npm:~3.0.0"
+    readdirp: "npm:~3.6.0"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: 10c0/8361dcd013f2ddbe260eacb1f3cb2f2c6f2b0ad118708a343a5ed8158941a39cb8fb1d272e0f389712e74ee90ce8ba864eece9e0e62b9705cb468a2f6d917462
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:^3.5.3":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
@@ -6111,25 +6131,6 @@ __metadata:
     fsevents:
       optional: true
   checksum: 10c0/1076953093e0707c882a92c66c0f56ba6187831aa51bb4de878c1fec59ae611a3bf02898f190efec8e77a086b8df61c2b2a3ea324642a0558bdf8ee6c5dc9ca1
-  languageName: node
-  linkType: hard
-
-"chokidar@npm:^3.6.0":
-  version: 3.6.0
-  resolution: "chokidar@npm:3.6.0"
-  dependencies:
-    anymatch: "npm:~3.1.2"
-    braces: "npm:~3.0.2"
-    fsevents: "npm:~2.3.2"
-    glob-parent: "npm:~5.1.2"
-    is-binary-path: "npm:~2.1.0"
-    is-glob: "npm:~4.0.1"
-    normalize-path: "npm:~3.0.0"
-    readdirp: "npm:~3.6.0"
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  checksum: 10c0/8361dcd013f2ddbe260eacb1f3cb2f2c6f2b0ad118708a343a5ed8158941a39cb8fb1d272e0f389712e74ee90ce8ba864eece9e0e62b9705cb468a2f6d917462
   languageName: node
   linkType: hard
 
@@ -10331,7 +10332,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.15, lodash@npm:^4.17.21, lodash@npm:~4.17.15":
+"lodash@npm:^4.17.15, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:~4.17.15":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
@@ -16335,7 +16336,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-docgen-api@npm:^4.75.1":
+"vue-docgen-api@npm:^4.30.0, vue-docgen-api@npm:^4.75.1":
   version: 4.76.0
   resolution: "vue-docgen-api@npm:4.76.0"
   dependencies:
@@ -16354,6 +16355,23 @@ __metadata:
   peerDependencies:
     vue: ">=2"
   checksum: 10c0/51d63fd6b20c10bf1777f14266ff04421680a6c1b23048c25d76115b7515a5015660d9e0d05ecdb02eaf0653efef3baaa0ae46c1d11be8e8ad7c286a5e745026
+  languageName: node
+  linkType: hard
+
+"vue-docgen-web-types@npm:^0.1.8":
+  version: 0.1.8
+  resolution: "vue-docgen-web-types@npm:0.1.8"
+  dependencies:
+    chokidar: "npm:^3.4.2"
+    globby: "npm:^11.0.1"
+    lodash: "npm:^4.17.20"
+    mkdirp: "npm:^1.0.4"
+    vue-docgen-api: "npm:^4.30.0"
+  peerDependencies:
+    vue: ">=2.0.0"
+  bin:
+    vue-docgen-web-types: lib/cli.js
+  checksum: 10c0/ed054fa9bc2bc473a5c99c5cd5874ffdda4f73ceb51beb373c172aa8f5cdc038c9daf5f93d544ae2edaf2cb832fbd3345a1de266495b7caf360cb1dc274a0ace
   languageName: node
   linkType: hard
 
