@@ -28,15 +28,15 @@
     "noEmit": true,
 
     /* Runtime/Framework */
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "preserve",
     "allowImportingTsExtensions": true,
 
     /* Misc */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@digital-garden/components": ["../components/src/index.ts"]
     }
   },
   "include": ["src"]

@@ -1924,21 +1924,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@digital-garden/canvas@workspace:packages/canvas"
   dependencies:
-    "@digital-garden/utils": "workspace:^"
-    "@types/react": "npm:^18.2.64"
-    "@types/react-dom": "npm:^18.2.21"
-    "@vitejs/plugin-react": "npm:^4.2.1"
-    postcss: "npm:^8.4.35"
+    "@digital-garden/components": "workspace:^"
+    "@types/node": "npm:^20.11.25"
+    "@vitejs/plugin-vue": "npm:^5.0.4"
     postcss-load-config: "npm:^5.0.3"
     prettier: "npm:^3.2.5"
     prettier-plugin-organize-imports: "npm:^3.2.4"
     prettier-plugin-tailwindcss: "npm:^0.5.12"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    react-router-dom: "npm:^6.22.3"
     tailwindcss: "npm:^3.4.1"
-    typescript: "npm:^5.4.2"
+    typescript: "npm:~5.4.0"
     vite: "npm:^5.1.5"
+    vue: "npm:^3.4.21"
+    vue-router: "npm:^4.3.0"
+    vue-tsc: "npm:^2.0.6"
   languageName: unknown
   linkType: soft
 
@@ -2790,13 +2788,6 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10c0/3af6ea4891e6fa8091e666802adffe7718b3cd390a10fa9229a5f40f8efded9f3918ea01b046103d93923d41cc32119505ebb6bde76cad07a87b6cf4f2119347
-  languageName: node
-  linkType: hard
-
-"@remix-run/router@npm:1.15.3":
-  version: 1.15.3
-  resolution: "@remix-run/router@npm:1.15.3"
-  checksum: 10c0/aea197447cee21e137d70f0c93e00de70c64fcfae20ae349ade9dc4202e782bd94dbc88be7302d13b6aa6cde38a701b074cd8e09a161d14cecda832a36dd2695
   languageName: node
   linkType: hard
 
@@ -4580,7 +4571,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react@npm:^4.2.0, @vitejs/plugin-react@npm:^4.2.1":
+"@vitejs/plugin-react@npm:^4.2.0":
   version: 4.2.1
   resolution: "@vitejs/plugin-react@npm:4.2.1"
   dependencies:
@@ -6009,23 +6000,6 @@ __metadata:
   checksum: 10c0/60589001c7d9bb89e2bf08f1aeadd09c867e41661b1fd2c1d562ca8e67a9f645f7dd9572aeca7ffdfff37a4e17ccf6a4cfdd29dde5a7454f5f08f5f372345d13
   languageName: node
   linkType: hard
-
-"canvas-vue@workspace:packages/canvas-vue":
-  version: 0.0.0-use.local
-  resolution: "canvas-vue@workspace:packages/canvas-vue"
-  dependencies:
-    "@digital-garden/components": "workspace:^"
-    "@types/node": "npm:^20.11.25"
-    "@vitejs/plugin-vue": "npm:^5.0.4"
-    postcss-load-config: "npm:^5.0.3"
-    tailwindcss: "npm:^3.4.1"
-    typescript: "npm:~5.4.0"
-    vite: "npm:^5.1.5"
-    vue: "npm:^3.4.21"
-    vue-router: "npm:^4.3.0"
-    vue-tsc: "npm:^2.0.6"
-  languageName: unknown
-  linkType: soft
 
 "ccount@npm:^2.0.0":
   version: 2.0.1
@@ -13348,30 +13322,6 @@ __metadata:
   peerDependencies:
     react: ">=16.8.0"
   checksum: 10c0/c58b30d8b8ff993edbc73f7de59a2d86d8abd6380b06a9b41667c3bdd5401e5e710fa1d0fdac21368759ab9b958e8b479a111329a06e9b0241ee08f500b37a20
-  languageName: node
-  linkType: hard
-
-"react-router-dom@npm:^6.22.3":
-  version: 6.22.3
-  resolution: "react-router-dom@npm:6.22.3"
-  dependencies:
-    "@remix-run/router": "npm:1.15.3"
-    react-router: "npm:6.22.3"
-  peerDependencies:
-    react: ">=16.8"
-    react-dom: ">=16.8"
-  checksum: 10c0/39b0472db5d153cbbbf4f5df5c0b26f2b75ffd7b857d7b67d17e03f4618d806b957cf033fbeb265bb317ade951e6ce0d576311bdf6eb15a7013203079cfadf03
-  languageName: node
-  linkType: hard
-
-"react-router@npm:6.22.3":
-  version: 6.22.3
-  resolution: "react-router@npm:6.22.3"
-  dependencies:
-    "@remix-run/router": "npm:1.15.3"
-  peerDependencies:
-    react: ">=16.8"
-  checksum: 10c0/a2c85c3d1fa93585e312b1f7e6e21d1ca421875013a8d879e109d3ed41fb035bc93faef4cd42b354ea18d039bc50b679bf752679ad83ac26a986e3432fbd0462
   languageName: node
   linkType: hard
 
