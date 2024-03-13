@@ -6,5 +6,4 @@ export default {
     extend: {},
   },
   plugins: [],
-  prefix: 'dg-',
 } satisfies Config;

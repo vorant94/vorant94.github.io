@@ -23,9 +23,4 @@ export default defineConfig({
       formats: ['es'],
     },
   },
-  resolve: {
-    alias: {
-      '@/': new URL('./src/', import.meta.url).pathname,
-    },
-  },
 });

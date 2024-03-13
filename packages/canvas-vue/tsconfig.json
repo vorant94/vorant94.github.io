@@ -30,8 +30,14 @@
     /* Runtime/Framework */
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "jsx": "preserve",
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+
+    /* Misc */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@digital-garden/components": ["../components/src/index.ts"]
+    }
   },
-  "include": ["src"],
-  "exclude": ["**/*.stories.ts"]
+  "include": ["src"]
 }
