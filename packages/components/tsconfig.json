@@ -29,6 +29,7 @@
 
     /* Runtime/Framework */
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "preserve",
     "allowImportingTsExtensions": true,
 
     /* Misc */

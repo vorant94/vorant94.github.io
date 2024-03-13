@@ -1,1 +1,4 @@
-export * from './Greeting/Greeting.ts';
+import HelloWorld from '@/HelloWorld/HelloWorld.vue';
+import './index.css';
+
+export { HelloWorld };

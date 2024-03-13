@@ -23,7 +23,7 @@
     "noImplicitReturns": true,
 
     /* Bundler/Compiler */
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "module": "ESNext",
     "noEmit": true,
 

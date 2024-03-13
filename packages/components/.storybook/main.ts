@@ -1,4 +1,4 @@
-import type { StorybookConfig } from '@storybook/web-components-vite';
+import type { StorybookConfig } from '@storybook/vue3-vite';
 import { dirname, join } from 'node:path';
 
 /**
@@ -14,9 +14,11 @@ export default {
   addons: [
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@chromatic-com/storybook'),
+    getAbsolutePath('@storybook/addon-interactions'),
   ],
   framework: {
-    name: getAbsolutePath('@storybook/web-components-vite'),
+    name: getAbsolutePath('@storybook/vue3-vite'),
     options: {},
   },
   docs: {

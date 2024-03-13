@@ -1,9 +1,8 @@
-import type { Preview } from '@storybook/web-components';
-import '@/index.css';
+import type { Preview } from '@storybook/vue3';
+import '../src/index.css';
 
 export default {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
