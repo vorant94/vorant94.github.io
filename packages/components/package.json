@@ -1,0 +1,53 @@
+{
+  "name": "@digital-garden/components",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "vue-tsc && vite build",
+    "vite": "vite",
+    "format:check": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "prettier": "prettier",
+    "start": "storybook dev -p 6006",
+    "build:storybook": "storybook build",
+    "storybook": "storybook"
+  },
+  "dependencies": {
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^1.2.18",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/addon-interactions": "^8.0.0",
+    "@storybook/addon-links": "^8.0.0",
+    "@storybook/blocks": "^8.0.0",
+    "@storybook/test": "^8.0.0",
+    "@storybook/vue3": "^8.0.0",
+    "@storybook/vue3-vite": "^8.0.0",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.18",
+    "cssnano": "^6.1.0",
+    "postcss": "^8.4.35",
+    "postcss-load-config": "^5.0.3",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "prettier-plugin-tailwindcss": "^0.5.12",
+    "storybook": "^8.0.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.6",
+    "vite-plugin-dts": "^3.7.3",
+    "vite-plugin-externalize-deps": "^0.8.0",
+    "vue-tsc": "^1.8.27"
+  }
+}
