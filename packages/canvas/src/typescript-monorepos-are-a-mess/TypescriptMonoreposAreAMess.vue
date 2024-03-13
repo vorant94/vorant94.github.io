@@ -2,7 +2,6 @@
 import gitLogoDark from './git-logo-dark.svg';
 import gitLogo from './git-logo.svg';
 import tsLogoDark from './ts-logo-dark.svg';
-import { CenteredLayout } from '@digital-garden/components';
 import tsLogo from './ts-logo.svg';
 import yarnLogoDark from './yarn-logo-dark.svg';
 import yarnLogo from './yarn-logo.svg';

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { routeToName } from '@/home/route.ts';
-import { CenteredLayout } from '@digital-garden/components';
 </script>
 
 <template>

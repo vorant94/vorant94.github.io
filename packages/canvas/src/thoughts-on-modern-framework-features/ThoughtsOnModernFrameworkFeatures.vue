@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { CenteredLayout } from '@digital-garden/components';
 import angularLogo from './angular-logo.png';
 import reactLogo from './react-logo.svg';
 import spiderManTriple from './spider-man-triple.jpg';

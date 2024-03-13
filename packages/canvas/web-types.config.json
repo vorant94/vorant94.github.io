@@ -1,0 +1,4 @@
+{
+  "watch": true,
+  "components": ["../components/src/**/*.vue"]
+}
