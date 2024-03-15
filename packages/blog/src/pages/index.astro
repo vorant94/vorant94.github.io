@@ -47,6 +47,7 @@ const featuredProjects = allProjects
     {
       featuredProjects.map((project) => {
         const { data } = project;
+        const badgeLabel = `${projectStatusToLabel[data.status]}${data.version ? ` v${data.version}` : ''}`;
 
         return (
           <ProjectGridCell
@@ -55,7 +56,7 @@ const featuredProjects = allProjects
             href={getProjectFullPath(project)}
             title={data.name}
             subTitle={data.slogan}
-            badgeLabel={projectStatusToLabel[data.status]}
+            badgeLabel={badgeLabel}
             badgeColor={projectStatusToBadgeColor[data.status]}
           />
         );

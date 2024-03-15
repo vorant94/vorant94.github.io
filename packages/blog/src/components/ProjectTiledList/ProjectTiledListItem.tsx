@@ -24,6 +24,7 @@ import { Title } from '../Title.tsx';
 export const ProjectTiledListItem: FunctionComponent<ProjectTiledListItemProps> =
   function ({ project, changelogs }) {
     const { data } = project;
+    const badgeLabel = `${projectStatusToLabel[data.status]}${data.version ? ` v${data.version}` : ''}`;
 
     return (
       <Card
@@ -48,7 +49,7 @@ export const ProjectTiledListItem: FunctionComponent<ProjectTiledListItemProps> 
           </Link>
           <span>•</span>
           <Badge color={projectStatusToBadgeColor[data.status]}>
-            {projectStatusToLabel[data.status]}
+            {badgeLabel}
           </Badge>
         </div>
 

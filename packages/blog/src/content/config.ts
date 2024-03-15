@@ -14,6 +14,7 @@ const projects = defineCollection({
       name: z.string(),
       slogan: z.string(),
       status: z.enum(projectStatuses),
+      version: z.string().nullish(),
       isFeatured: z.boolean().default(false),
       sourceCodeUrl: z.string().url(),
       productionUrl: z.string().url().nullish(),
