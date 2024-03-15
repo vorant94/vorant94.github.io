@@ -50,12 +50,12 @@ const { Content, remarkPluginFrontmatter } = await post.render();
   image={coverImageSrc}
   description={description}
   type="article">
-  <article class="prose dark:prose-invert prose-img:mx-auto">
-    <PostFrontmatter
-      post={post}
-      minutesRead={remarkPluginFrontmatter.minutesRead}
-    />
+  <PostFrontmatter
+    post={post}
+    minutesRead={remarkPluginFrontmatter.minutesRead}
+  />
 
+  <article class="prose dark:prose-invert prose-img:mx-auto mt-6">
     <Content />
   </article>
 

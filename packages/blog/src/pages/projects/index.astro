@@ -1,8 +1,8 @@
 ---
 import { Divider } from '@/components/Divider.tsx';
-import { Headline } from '@/components/Headline.tsx';
 import { ProjectTiledList } from '@/components/ProjectTiledList/ProjectTiledList.tsx';
 import { ProjectTiledListItem } from '@/components/ProjectTiledList/ProjectTiledListItem.tsx';
+import { Title } from '@/components/Title.tsx';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { groupChangelogsByProject } from '@/shared/changelog.helpers.ts';
 import { sortEntriesByPublishedAt } from '@/shared/collection.helpers.ts';
@@ -35,7 +35,9 @@ const changelogs = groupChangelogsByProject(
     statuses.map((status) => (
       <>
         <Divider isLeft={false}>
-          <Headline>{projectStatusToLabel[status as ProjectStatus]}</Headline>
+          <Title base="h3">
+            {projectStatusToLabel[status as ProjectStatus]}
+          </Title>
         </Divider>
 
         <ProjectTiledList>

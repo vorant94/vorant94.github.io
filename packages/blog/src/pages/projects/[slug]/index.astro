@@ -1,9 +1,9 @@
 ---
 import { Comments } from '@/components/Comments';
 import { Divider } from '@/components/Divider';
-import { Headline } from '@/components/Headline';
 import { ProjectChangelogs } from '@/components/ProjectChangelogs';
 import { ProjectFrontmatter } from '@/components/ProjectFrontmatter.tsx';
+import { Title } from '@/components/Title.tsx';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import type { Changelog } from '@/shared/changelog.helpers.ts';
 import type { Project } from '@/shared/project.helpers.ts';
@@ -53,14 +53,14 @@ const { Content } = await project.render();
   title={name}
   image={logoSrc}
   description={slogan}>
-  <article class="prose dark:prose-invert prose-img:mx-auto">
-    <ProjectFrontmatter project={project} />
+  <ProjectFrontmatter project={project} />
 
+  <article class="prose dark:prose-invert prose-img:mx-auto mt-6">
     <Content />
   </article>
 
   <Divider isLeft={false}>
-    <Headline>Changelogs</Headline>
+    <Title base="h3">Changelogs</Title>
   </Divider>
 
   <ProjectChangelogs changelogs={changelogs} />

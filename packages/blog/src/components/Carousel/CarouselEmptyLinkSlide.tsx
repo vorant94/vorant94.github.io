@@ -19,7 +19,7 @@ export const CarouselEmptyLinkSlide: FunctionComponent<
       )}>
       <span
         className={cn(
-          'truncate max-w-full dg-secondary-text group-hover:text-inherit',
+          'truncate max-w-full text-slate-500 group-hover:text-inherit',
           Styles.textOutline,
         )}>
         {children}

@@ -1,7 +1,7 @@
 import { profile } from '@/shared/profile.ts';
+import { cn } from '@digital-garden/utils';
 import type { FunctionComponent } from 'react';
 import { StandOut } from '../StandOut.tsx';
-import { Strong } from '../Strong.tsx';
 import { Text } from '../Text.tsx';
 import { ThemedImage } from '../ThemedImage.tsx';
 import IntroLogo from './IntroLogo.webp?url';
@@ -20,9 +20,15 @@ export const Intro: FunctionComponent = function () {
       </div>
 
       <div className="flex flex-col gap-2">
-        <Strong>Hi, there, I'm Mordechai! 👋</Strong>
-        <Text level="sm">{profile.description}</Text>
-        <Text level="sm">
+        <Text base="strong">Hi, there, I'm Mordechai! 👋</Text>
+        <Text
+          base="span"
+          className={cn('text-sm font-light')}>
+          {profile.description}
+        </Text>
+        <Text
+          base="span"
+          className={cn('text-sm font-light')}>
           Make yourself at home, take a sit and grab something to{' '}
           <span className="line-through">drink</span> read
         </Text>

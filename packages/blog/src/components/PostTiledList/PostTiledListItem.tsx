@@ -29,7 +29,9 @@ export const PostTiledListItem: FunctionComponent<PostTiledListItemProps> =
           className={cn('flex items-center p-3')}>
           {/* adding display: flex here breaks inline-block hack from below */}
           <div className={cn('flex-1 overflow-hidden')}>
-            <Title className={cn('truncate group-hover:text-inherit')}>
+            <Title
+              base="h6"
+              className={cn('truncate group-hover:text-inherit')}>
               {post.data.title}
             </Title>
             {/* this inline-block removes the inherited text-decoration, since it cannot be simply

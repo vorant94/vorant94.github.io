@@ -45,7 +45,11 @@ export const ProjectTiledListItem: FunctionComponent<ProjectTiledListItemProps> 
         }>
         <div className="flex gap-2 items-center">
           <Link href={getProjectFullPath(project)}>
-            <Title className={cn('hover:text-inherit')}>{data.name}</Title>
+            <Title
+              base="h6"
+              className={cn('hover:text-inherit')}>
+              {data.name}
+            </Title>
           </Link>
           <span>•</span>
           <Badge color={projectStatusToBadgeColor[data.status]}>

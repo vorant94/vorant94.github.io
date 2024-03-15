@@ -41,10 +41,14 @@ export const CarouselLinkSlide: LinkSlideComponent = function ({
           className="mb-2">
           {badgeLabel}
         </Badge>
-        <Title className={cn(Styles.textOutline, 'group-hover:text-inherit')}>
+        <Title
+          base="h6"
+          className={cn(Styles.textOutline, 'group-hover:text-inherit')}>
           {title}
         </Title>
-        <Text className={cn(Styles.textOutline, 'group-hover:text-inherit')}>
+        <Text
+          base="span"
+          className={cn(Styles.textOutline, 'group-hover:text-inherit')}>
           {subTitle}
         </Text>
       </div>

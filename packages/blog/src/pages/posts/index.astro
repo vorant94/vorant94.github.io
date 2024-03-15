@@ -2,7 +2,7 @@
 import { ArchiveList } from '@/components/ArchiveList/ArchiveList.tsx';
 import { ArchiveListItem } from '@/components/ArchiveList/ArchiveListItem.tsx';
 import { Divider } from '@/components/Divider.tsx';
-import { Headline } from '@/components/Headline.tsx';
+import { Title } from '@/components/Title.tsx';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { formatEntryPublishedAt } from '@/shared/collection.helpers';
 import {
@@ -25,7 +25,7 @@ const years = Object.keys(postsByYear).reverse();
     years.map((year) => (
       <>
         <Divider isLeft={false}>
-          <Headline>{year}</Headline>
+          <Title base="h3">{year}</Title>
         </Divider>
 
         <ArchiveList>

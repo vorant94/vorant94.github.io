@@ -2,7 +2,7 @@
 import { ArchiveList } from '@/components/ArchiveList/ArchiveList.tsx';
 import { ArchiveListItem } from '@/components/ArchiveList/ArchiveListItem.tsx';
 import { Divider } from '@/components/Divider.tsx';
-import { Headline } from '@/components/Headline.tsx';
+import { Title } from '@/components/Title.tsx';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { formatEntryPublishedAt } from '@/shared/collection.helpers';
 import {
@@ -40,7 +40,7 @@ const { posts, tag } = Astro.props;
 
 <MainLayout title={`${tag} posts`}>
   <Divider isLeft={false}>
-    <Headline>#{tag}</Headline>
+    <Title base="h3">#{tag}</Title>
   </Divider>
   <ArchiveList>
     {

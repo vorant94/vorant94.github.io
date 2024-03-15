@@ -35,7 +35,11 @@ export const ProjectGridCell: FunctionComponent<ProjectGridCellProps> =
           )}
           {/* adding display: flex here breaks inline-block hack from below */}
           <div className={cn('flex-1')}>
-            <Title className={cn('group-hover:text-inherit')}>{title}</Title>
+            <Title
+              base="h6"
+              className={cn('group-hover:text-inherit')}>
+              {title}
+            </Title>
             {/* this inline-block removes the inherited text-decoration, since it cannot be simply
           overridden like any other parent css style*/}
             <Caption className="inline-block">{subTitle}</Caption>

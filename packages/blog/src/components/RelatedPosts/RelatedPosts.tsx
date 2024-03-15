@@ -17,9 +17,12 @@ export const RelatedPosts: FunctionComponent<RelatedPostsProps> = function ({
 }) {
   return (
     <StandOut className="flex-col">
-      <details className={cn('dg-primary-text', Styles.details)}>
+      <details
+        className={cn('text-slate-800 dark:text-slate-100', Styles.details)}>
         <summary className="hover:cursor-pointer">
-          <Title inline={true}>
+          <Title
+            base="h6"
+            className="mb-0 inline-block">
             <span className="pl-2">Related posts</span>
           </Title>
         </summary>

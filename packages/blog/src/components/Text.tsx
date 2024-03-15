@@ -7,28 +7,33 @@ import type {
 
 export function Text({
   children,
-  level = 'md',
+  base,
   className,
   ...rest
 }: PropsWithChildren<TextProps>): ReactElement {
+  const Base = base;
+
   return (
-    <span
+    <Base
       className={cn(
-        'dg-primary-text',
-        {
-          'text-sm font-light': level === 'sm',
-        },
+        'text-slate-800 dark:text-slate-100',
+        textBaseToStyle[base],
         className,
       )}
       {...rest}>
       {children}
-    </span>
+    </Base>
   );
 }
 
 export interface TextProps extends ComponentPropsWithoutRef<'span'> {
-  level?: TextLevel;
+  base: TextBase;
 }
 
-export const TEXT_LEVELS = ['md', 'sm'] as const;
-export type TextLevel = (typeof TEXT_LEVELS)[number];
+export const textBase = ['span', 'strong', 'em'] as const;
+export type TextBase = (typeof textBase)[number];
+const textBaseToStyle = {
+  span: '',
+  strong: 'font-semibold',
+  em: 'font-light',
+} as const satisfies Record<TextBase, string>;

@@ -1,6 +1,5 @@
 ---
 import { Divider } from '@/components/Divider.tsx';
-import { Headline } from '@/components/Headline.tsx';
 import { Intro } from '@/components/Intro/Intro.tsx';
 import { Link } from '@/components/Link.tsx';
 import { PinnedPosts } from '@/components/PinnedPosts.tsx';
@@ -9,6 +8,7 @@ import { PostTiledListItem } from '@/components/PostTiledList/PostTiledListItem.
 import { ProjectGrid } from '@/components/ProjectGrid/ProjectGrid.tsx';
 import { ProjectGridCell } from '@/components/ProjectGrid/ProjectGridCell.tsx';
 import { ProjectGridEmptyCell } from '@/components/ProjectGrid/ProjectGridEmptyCell.tsx';
+import { Title } from '@/components/Title.tsx';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { sortEntriesByPublishedAt } from '@/shared/collection.helpers.ts';
 import {
@@ -40,7 +40,7 @@ const featuredProjects = allProjects
   <Intro />
 
   <Divider>
-    <Headline>Featured Projects</Headline>
+    <Title base="h3">Featured Projects</Title>
   </Divider>
 
   <ProjectGrid>
@@ -67,7 +67,7 @@ const featuredProjects = allProjects
   </ProjectGrid>
 
   <Divider>
-    <Headline>Recent Posts</Headline>
+    <Title base="h3">Recent Posts</Title>
   </Divider>
 
   <PostTiledList>
