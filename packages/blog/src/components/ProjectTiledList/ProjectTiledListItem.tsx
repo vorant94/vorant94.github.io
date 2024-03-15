@@ -62,7 +62,7 @@ export const ProjectTiledListItem: FunctionComponent<ProjectTiledListItemProps> 
         <div className="grid grid-cols-2">
           <div className="flex flex-col">
             <Divider isLeft={false}>
-              <Text>Latest Changes</Text>
+              <Text base="span">Latest Changes</Text>
             </Divider>
             <ul className={cn('flex flex-col divide-y divide-dashed')}>
               {changelogs.map((changelog) => (
