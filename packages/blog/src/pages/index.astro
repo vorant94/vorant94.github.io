@@ -1,13 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
-import { partition } from 'lodash-es';
-import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { Intro } from '@/components/Intro/Intro.tsx';
+import { Link } from '@/components/Link.tsx';
+import { PinnedPosts } from '@/components/PinnedPosts.tsx';
 import { PostTiledList } from '@/components/PostTiledList/PostTiledList.tsx';
 import { PostTiledListItem } from '@/components/PostTiledList/PostTiledListItem.tsx';
-import { PinnedPosts } from '@/components/PinnedPosts.tsx';
-import { Link } from '@/components/Link.tsx';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { sortEntriesByPublishedAt } from '@/shared/collection.helpers.ts';
+import { getCollection } from 'astro:content';
+import { partition } from 'lodash-es';
 
 const allPosts = sortEntriesByPublishedAt(await getCollection('posts'));
 const [pinnedPosts, allNonPinnedPosts] = partition(

@@ -1,16 +1,16 @@
 ---
-import { getCollection } from 'astro:content';
-import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { Divider } from '@/components/Divider.tsx';
 import { Headline } from '@/components/Headline.tsx';
 import { PostList } from '@/components/PostList/PostList.tsx';
 import { PostListItem } from '@/components/PostList/PostListItem.tsx';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import {
-  sortEntriesByPublishedAt,
   PublishedAtFormat,
+  sortEntriesByPublishedAt,
 } from '@/shared/collection.helpers.ts';
-import { getUniqPostTags } from '@/shared/post.helpers.ts';
 import type { Post } from '@/shared/post.helpers.ts';
+import { getUniqPostTags } from '@/shared/post.helpers.ts';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const entries = sortEntriesByPublishedAt(await getCollection('posts'));
