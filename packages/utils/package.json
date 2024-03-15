@@ -15,9 +15,6 @@
   "scripts": {
     "build": "tsc && vite build",
     "vite": "vite",
-    "format:check": "prettier . --check",
-    "format:fix": "prettier . --write",
-    "prettier": "prettier",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "vitest": "vitest"

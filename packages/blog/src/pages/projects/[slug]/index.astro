@@ -1,14 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
-import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
-import { getImage } from 'astro:assets';
-import type { Project } from '@/shared/project.helpers.ts';
-import type { Changelog } from '@/shared/changelog.helpers.ts';
-import { ProjectFrontmatter } from '@/components/ProjectFrontmatter.tsx';
+import { Comments } from '@/components/Comments';
 import { Divider } from '@/components/Divider';
 import { Headline } from '@/components/Headline';
 import { ProjectChangelogs } from '@/components/ProjectChangelogs';
-import { Comments } from '@/components/Comments';
+import { ProjectFrontmatter } from '@/components/ProjectFrontmatter.tsx';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
+import type { Changelog } from '@/shared/changelog.helpers.ts';
+import type { Project } from '@/shared/project.helpers.ts';
+import { getImage } from 'astro:assets';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');

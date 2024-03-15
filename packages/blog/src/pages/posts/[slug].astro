@@ -1,12 +1,12 @@
 ---
-import { getCollection, getEntries } from 'astro:content';
-import { getImage } from 'astro:assets';
-import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
-import { PostFrontmatter } from '@/components/PostFrontmatter.tsx';
 import { Comments } from '@/components/Comments.tsx';
+import { PostFrontmatter } from '@/components/PostFrontmatter.tsx';
 import { RelatedPosts } from '@/components/RelatedPosts/RelatedPosts.tsx';
-import { type Post } from '@/shared/post.helpers.ts';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { sortEntriesByPublishedAt } from '@/shared/collection.helpers.ts';
+import { type Post } from '@/shared/post.helpers.ts';
+import { getImage } from 'astro:assets';
+import { getCollection, getEntries } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = sortEntriesByPublishedAt(await getCollection('posts'));

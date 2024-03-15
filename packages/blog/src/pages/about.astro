@@ -1,12 +1,12 @@
 ---
-import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
+import { ButtonLink } from '@/components/ButtonLink.tsx';
+import { Divider } from '@/components/Divider.tsx';
+import { Headline } from '@/components/Headline.tsx';
+import { Icon } from '@/components/Icon.tsx';
 import { Intro } from '@/components/Intro/Intro.tsx';
 import { Link } from '@/components/Link.tsx';
-import { Divider } from '@/components/Divider.tsx';
-import { Icon } from '@/components/Icon.tsx';
-import { Headline } from '@/components/Headline.tsx';
 import { Text } from '@/components/Text.tsx';
-import { ButtonLink } from '@/components/ButtonLink.tsx';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { profile } from '@/shared/profile.ts';
 import { cn } from '@digital-garden/utils';
 ---
@@ -33,7 +33,7 @@ import { cn } from '@digital-garden/utils';
     <Headline>How to reach me</Headline>
   </Divider>
 
-  <ul class="grid grid-cols-3 gap-5 mx-auto">
+  <ul class="mx-auto grid grid-cols-3 gap-5">
     {
       profile.socialLinks.map((link) => (
         <li>
@@ -43,8 +43,7 @@ import { cn } from '@digital-garden/utils';
             target="_blank"
             className={cn([
               'dg-primary-text',
-              'w-24 h-24 p-2',
-              'flex flex-col gap-2 items-center justify-center',
+              'flex h-24 w-24 flex-col items-center justify-center gap-2 p-2',
             ])}>
             <span class="text-xl">
               <Icon glyph={link.glyph} />

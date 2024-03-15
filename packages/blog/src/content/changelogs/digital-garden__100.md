@@ -83,11 +83,11 @@ In Web you can achieve exactly the same with JavaScript and inline styles, but m
 
 /* applying animation to a specific selector */
 .example  {
+  animation-duration: 4s;
+  animation-name: example;
+  background-color: red;
   width: 100px;
   height: 100px;
-  background-color: red;
-  animation-name: example;
-  animation-duration: 4s;
 }
 ```
 

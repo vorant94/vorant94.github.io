@@ -9,8 +9,8 @@
     }
 
     &::before {
-      font: var(--fa-font-solid);
       content: '\f0d7';
+      font: var(--fa-font-solid);
     }
   }
 

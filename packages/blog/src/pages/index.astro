@@ -1,23 +1,23 @@
 ---
-import { getCollection } from 'astro:content';
-import { partition } from 'lodash-es';
-import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
-import { Intro } from '@/components/Intro/Intro.tsx';
-import { PostTiledList } from '@/components/PostTiledList/PostTiledList.tsx';
-import { PostTiledListItem } from '@/components/PostTiledList/PostTiledListItem.tsx';
-import { PinnedPosts } from '@/components/PinnedPosts.tsx';
-import { Link } from '@/components/Link.tsx';
 import { Divider } from '@/components/Divider.tsx';
 import { Headline } from '@/components/Headline.tsx';
-import { sortEntriesByPublishedAt } from '@/shared/collection.helpers.ts';
-import {
-  getProjectFullPath,
-  projectStatusToLabel,
-  projectStatusToBadgeColor,
-} from '@/shared/project.helpers.ts';
+import { Intro } from '@/components/Intro/Intro.tsx';
+import { Link } from '@/components/Link.tsx';
+import { PinnedPosts } from '@/components/PinnedPosts.tsx';
+import { PostTiledList } from '@/components/PostTiledList/PostTiledList.tsx';
+import { PostTiledListItem } from '@/components/PostTiledList/PostTiledListItem.tsx';
 import { ProjectGrid } from '@/components/ProjectGrid/ProjectGrid.tsx';
 import { ProjectGridCell } from '@/components/ProjectGrid/ProjectGridCell.tsx';
 import { ProjectGridEmptyCell } from '@/components/ProjectGrid/ProjectGridEmptyCell.tsx';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
+import { sortEntriesByPublishedAt } from '@/shared/collection.helpers.ts';
+import {
+  getProjectFullPath,
+  projectStatusToBadgeColor,
+  projectStatusToLabel,
+} from '@/shared/project.helpers.ts';
+import { getCollection } from 'astro:content';
+import { partition } from 'lodash-es';
 
 const allPosts = sortEntriesByPublishedAt(await getCollection('posts'));
 const [pinnedPosts, allNonPinnedPosts] = partition(

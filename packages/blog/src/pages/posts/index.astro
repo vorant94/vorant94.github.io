@@ -1,17 +1,17 @@
 ---
-import { getCollection } from 'astro:content';
-import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
-import { Divider } from '@/components/Divider.tsx';
-import { Headline } from '@/components/Headline.tsx';
 import { ArchiveList } from '@/components/ArchiveList/ArchiveList.tsx';
 import { ArchiveListItem } from '@/components/ArchiveList/ArchiveListItem.tsx';
-import { groupPostsByPublishedAtYear } from '@/shared/post.helpers.ts';
+import { Divider } from '@/components/Divider.tsx';
+import { Headline } from '@/components/Headline.tsx';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
+import { formatEntryPublishedAt } from '@/shared/collection.helpers';
 import {
   PublishedAtFormat,
   sortEntriesByPublishedAt,
 } from '@/shared/collection.helpers.ts';
-import { formatEntryPublishedAt } from '@/shared/collection.helpers';
 import { getPostFullPath } from '@/shared/post.helpers';
+import { groupPostsByPublishedAtYear } from '@/shared/post.helpers.ts';
+import { getCollection } from 'astro:content';
 
 const postsByYear = groupPostsByPublishedAtYear(
   sortEntriesByPublishedAt(await getCollection('posts')),

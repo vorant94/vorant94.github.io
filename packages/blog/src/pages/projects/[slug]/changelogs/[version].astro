@@ -1,9 +1,9 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
-import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
-import type { Project } from '@/shared/project.helpers.ts';
-import type { Changelog } from '@/shared/changelog.helpers.ts';
 import { Comments } from '@/components/Comments.tsx';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
+import type { Changelog } from '@/shared/changelog.helpers.ts';
+import type { Project } from '@/shared/project.helpers.ts';
+import { getCollection, getEntry } from 'astro:content';
 
 export async function getStaticPaths() {
   const changelogs = await getCollection('changelogs');
