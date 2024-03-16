@@ -1,6 +1,6 @@
 ---
 name: Digital Garden
-slogan: My personal piece of Internet
+slogan: My personal piece of the Internet
 status: live
 logo: ../attachments/digital-garden/logo.webp
 logoDark: ../attachments/digital-garden/logo-dark.webp
