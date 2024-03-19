@@ -5,6 +5,7 @@
 # to property inherit types of built-in Astro Collection helpers
 **/.astro
 **/.vercel
+**/.nuxt
 
 **/test-results/
 **/playwright-report/
