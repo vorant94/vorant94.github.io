@@ -7,7 +7,8 @@ export const profile = {
   copyright: 'Mordechai Dror © 2023-present',
   navLinks: [
     { label: '👨‍💻 About', url: '/about' },
-    { label: '📒 Posts', url: '/posts' },
+    { label: '✏️ Posts', url: '/posts' },
+    { label: '🏗️ Projects', url: '/projects' },
   ],
   socialLinks: [
     {

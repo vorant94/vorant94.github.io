@@ -6,24 +6,33 @@ import type {
 } from 'react';
 
 export const Title: FunctionComponent<PropsWithChildren<TitleProps>> =
-  function ({ children, inline, className, ...rest }) {
+  function ({ children, base, className, ...rest }) {
+    const Base = base;
+
     return (
-      <h6
+      <Base
         className={cn(
-          'dg-primary-text',
-          'text-lg font-medium',
-          {
-            'inline-block': inline,
-            'mb-0': inline,
-          },
+          'text-slate-800 dark:text-slate-100',
+          titleBaseToStyles[base],
           className,
         )}
         {...rest}>
         {children}
-      </h6>
+      </Base>
     );
   };
 
-export interface TitleProps extends ComponentPropsWithoutRef<'h6'> {
-  inline?: boolean;
+export interface TitleProps extends ComponentPropsWithoutRef<'h1'> {
+  base: TitleBase;
 }
+
+export const titleBases = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
+export type TitleBase = (typeof titleBases)[number];
+const titleBaseToStyles = {
+  h1: 'text-4xl font-extrabold',
+  h2: '',
+  h3: 'text-2xl font-semibold',
+  h4: '',
+  h5: '',
+  h6: ' text-lg font-medium',
+} as const satisfies Record<TitleBase, string>;

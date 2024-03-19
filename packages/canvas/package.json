@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "vite": "vite",
     "vue-tsc": "vue-tsc",
-    "generate-web-types": "vue-docgen-web-types --configFile web-types.config.json",
+    "codegen:web-types": "vue-docgen-web-types --configFile web-types.config.json",
     "vue-docgen-web-types": "vue-docgen-web-types"
   },
   "dependencies": {

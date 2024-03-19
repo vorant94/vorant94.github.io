@@ -7,7 +7,12 @@ import {
   faTelegram,
   faXTwitter,
 } from '@fortawesome/free-brands-svg-icons';
-import { faBars, faRss, faXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faGlobe,
+  faRss,
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { FunctionComponent } from 'react';
 
@@ -36,6 +41,7 @@ export const ICON_GLYPHS = [
   'rss',
   'menu',
   'close',
+  'globe',
 ] as const;
 export type IconGlyph = (typeof ICON_GLYPHS)[number];
 
@@ -49,4 +55,5 @@ const iconGlyphToFaIcon = {
   rss: faRss,
   menu: faBars,
   close: faXmark,
+  globe: faGlobe,
 } as const satisfies Record<IconGlyph, IconProp>;

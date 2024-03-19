@@ -1,16 +1,19 @@
-import type { Post } from '@/shared/post.helpers.ts';
 import Giscus from '@giscus/react';
 import { type FunctionComponent } from 'react';
 
-export const Comments: FunctionComponent<CommentsProps> = function ({ post }) {
+export const Comments: FunctionComponent<CommentsProps> = function ({
+  category,
+  categoryId,
+  term,
+}) {
   return (
     <Giscus
       repo="vorant94/digital-garden"
       repoId="R_kgDOKWcyPw"
-      category="Posts"
-      categoryId="DIC_kwDOKWcyP84Cc9LF"
+      category={category}
+      categoryId={categoryId}
       mapping="specific"
-      term={post.slug}
+      term={term}
       strict="0"
       reactionsEnabled="1"
       emitMetadata="0"
@@ -23,5 +26,7 @@ export const Comments: FunctionComponent<CommentsProps> = function ({ post }) {
 };
 
 export interface CommentsProps {
-  post: Post;
+  category: string;
+  categoryId: string;
+  term: string;
 }

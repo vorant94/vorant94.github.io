@@ -7,14 +7,16 @@ import { cn } from '@digital-garden/utils';
 import type { FunctionComponent } from 'react';
 import { Caption } from './Caption.tsx';
 import { Tag } from './Tag.tsx';
+import { Text } from './Text.tsx';
 import { ThemedImage } from './ThemedImage.tsx';
+import { Title } from './Title.tsx';
 
 export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
   function ({ post, minutesRead }) {
     const { data } = post;
 
     return (
-      <>
+      <div className={cn('flex flex-col gap-6')}>
         {isEntryDataWithCover(data) && (
           <div className="self-center">
             <ThemedImage
@@ -25,7 +27,7 @@ export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
           </div>
         )}
 
-        <h1>{data.title}</h1>
+        <Title base="h1">{data.title}</Title>
 
         <div className="flex flex-col lg:flex-row gap-2 lg:items-center justify-between">
           <div className="flex gap-2 items-center">
@@ -45,9 +47,7 @@ export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
           </ul>
         </div>
 
-        <p>
-          <em>{data.description}</em>
-        </p>
+        <Text base="em">{data.description}</Text>
 
         {data.code && (
           <p>
@@ -59,7 +59,7 @@ export const PostFrontmatter: FunctionComponent<PostFrontmatterProps> =
             </a>
           </p>
         )}
-      </>
+      </div>
     );
   };
 

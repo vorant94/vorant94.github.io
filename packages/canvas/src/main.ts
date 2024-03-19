@@ -1,5 +1,6 @@
 import './index.css';
 
+import DigitalGarden from '@/digital-garden/DigitalGarden.vue';
 import Home from '@/home/Home.vue';
 import { Route, routeToName } from '@/home/route.ts';
 import ThoughtsOnModernFrameworkFeatures from '@/thoughts-on-modern-framework-features/ThoughtsOnModernFrameworkFeatures.vue';
@@ -31,6 +32,11 @@ app.use(
         path: Route.THOUGHTS_ON_MODERN_FRAMEWORK_FEATURES,
         name: routeToName[Route.THOUGHTS_ON_MODERN_FRAMEWORK_FEATURES],
         component: ThoughtsOnModernFrameworkFeatures,
+      },
+      {
+        path: Route.DIGITAL_GARDEN,
+        name: routeToName[Route.DIGITAL_GARDEN],
+        component: DigitalGarden,
       },
     ],
   }),

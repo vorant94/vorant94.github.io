@@ -19,20 +19,23 @@ export const PostTiledListItem: FunctionComponent<PostTiledListItemProps> =
       // can't use dg-border here, because need to juggle transparency with color to keep siblings stable during scale
       <li
         className={cn(
-          'flex flex-col text-medium rounded-md duration-100 border border-transparent',
+          'flex flex-col text-medium rounded-md duration-100 border border-transparent group cursor-pointer',
           'hover:border-slate-300 hover:dark:border-slate-600 hover:shadow-md hover:scale-105',
         )}
         key={post.id}>
         <Link
           href={getPostFullPath(post)}
           prefetch="hover"
-          className={cn('flex items-center p-3 group')}>
+          className={cn('flex items-center p-3')}>
+          {/* adding display: flex here breaks inline-block hack from below */}
           <div className={cn('flex-1 overflow-hidden')}>
-            <Title className={cn('truncate group-hover:text-inherit')}>
+            <Title
+              base="h6"
+              className={cn('truncate group-hover:text-inherit')}>
               {post.data.title}
             </Title>
             {/* this inline-block removes the inherited text-decoration, since it cannot be simply
-          overridden like any other parent css style*/}
+          overridden like any other parent css style */}
             <Caption className="inline-block">
               {formatEntryPublishedAt(data.publishedAt, publishedAtFormat)}
             </Caption>

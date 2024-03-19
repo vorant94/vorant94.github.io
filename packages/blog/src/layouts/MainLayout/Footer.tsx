@@ -9,7 +9,7 @@ export const Footer: FunctionComponent<FooterProps> = function () {
     <footer
       className={cn(
         'flex gap-1 items-center p-4 border-t',
-        'dg-border dg-secondary-text',
+        'dg-border text-slate-500',
       )}>
       <span className="text-sm">{profile.copyright}</span>
 

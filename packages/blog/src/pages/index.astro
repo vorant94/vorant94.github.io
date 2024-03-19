@@ -1,11 +1,21 @@
 ---
+import { Divider } from '@/components/Divider.tsx';
 import { Intro } from '@/components/Intro/Intro.tsx';
 import { Link } from '@/components/Link.tsx';
 import { PinnedPosts } from '@/components/PinnedPosts.tsx';
 import { PostTiledList } from '@/components/PostTiledList/PostTiledList.tsx';
 import { PostTiledListItem } from '@/components/PostTiledList/PostTiledListItem.tsx';
+import { ProjectGrid } from '@/components/ProjectGrid/ProjectGrid.tsx';
+import { ProjectGridCell } from '@/components/ProjectGrid/ProjectGridCell.tsx';
+import { ProjectGridEmptyCell } from '@/components/ProjectGrid/ProjectGridEmptyCell.tsx';
+import { Title } from '@/components/Title.tsx';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { sortEntriesByPublishedAt } from '@/shared/collection.helpers.ts';
+import {
+  getProjectFullPath,
+  projectStatusToBadgeColor,
+  projectStatusToLabel,
+} from '@/shared/project.helpers.ts';
 import { getCollection } from 'astro:content';
 import { partition } from 'lodash-es';
 
@@ -15,7 +25,13 @@ const [pinnedPosts, allNonPinnedPosts] = partition(
   (entry) => entry.data.isPinned,
 );
 
-const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
+const recentNonPinnedPosts = allNonPinnedPosts.slice(0, 3);
+
+const allProjects = await getCollection('projects');
+
+const featuredProjects = allProjects
+  .filter((project) => project.data.isFeatured)
+  .slice(0, 3);
 ---
 
 <MainLayout>
@@ -23,14 +39,45 @@ const recentNonPunnedPosts = allNonPinnedPosts.slice(0, 3);
 
   <Intro />
 
+  <Divider>
+    <Title base="h3">Featured Projects</Title>
+  </Divider>
+
+  <ProjectGrid>
+    {
+      featuredProjects.map((project) => {
+        const { data } = project;
+        const badgeLabel = `${projectStatusToLabel[data.status]}${data.version ? ` v${data.version}` : ''}`;
+
+        return (
+          <ProjectGridCell
+            imageSrc={data.logo?.src}
+            imageSrcDark={data.logoDark?.src}
+            href={getProjectFullPath(project)}
+            title={data.name}
+            subTitle={data.slogan}
+            badgeLabel={badgeLabel}
+            badgeColor={projectStatusToBadgeColor[data.status]}
+          />
+        );
+      })
+    }
+
+    <ProjectGridEmptyCell href="/projects">See all</ProjectGridEmptyCell>
+  </ProjectGrid>
+
+  <Divider>
+    <Title base="h3">Recent Posts</Title>
+  </Divider>
+
   <PostTiledList>
-    {recentNonPunnedPosts.map((post) => <PostTiledListItem post={post} />)}
+    {recentNonPinnedPosts.map((post) => <PostTiledListItem post={post} />)}
   </PostTiledList>
 
   <Link
     className="self-center"
     prefetch="hover"
     href="posts">
-    See all posts
+    See all
   </Link>
 </MainLayout>

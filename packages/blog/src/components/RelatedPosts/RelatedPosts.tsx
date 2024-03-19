@@ -1,9 +1,13 @@
-import type { Post } from '@/shared/post.helpers.ts';
+import {
+  PublishedAtFormat,
+  formatEntryPublishedAt,
+} from '@/shared/collection.helpers.ts';
+import { getPostFullPath, type Post } from '@/shared/post.helpers.ts';
 import { cn } from '@digital-garden/utils';
 import '@fortawesome/fontawesome-free/css/solid.css';
 import type { FunctionComponent } from 'react';
-import { PostList } from '../PostList/PostList.tsx';
-import { PostListItem } from '../PostList/PostListItem.tsx';
+import { ArchiveList } from '../ArchiveList/ArchiveList.tsx';
+import { ArchiveListItem } from '../ArchiveList/ArchiveListItem.tsx';
 import { StandOut } from '../StandOut.tsx';
 import { Title } from '../Title.tsx';
 import Styles from './RelatedPosts.module.css';
@@ -13,20 +17,28 @@ export const RelatedPosts: FunctionComponent<RelatedPostsProps> = function ({
 }) {
   return (
     <StandOut className="flex-col">
-      <details className={cn('dg-primary-text', Styles.details)}>
+      <details
+        className={cn('text-slate-800 dark:text-slate-100', Styles.details)}>
         <summary className="hover:cursor-pointer">
-          <Title inline={true}>
+          <Title
+            base="h6"
+            className="mb-0 inline-block">
             <span className="pl-2">Related posts</span>
           </Title>
         </summary>
-        <PostList>
+        <ArchiveList>
           {posts.map((post) => (
-            <PostListItem
-              post={post}
+            <ArchiveListItem
+              left={post.data.title}
+              right={formatEntryPublishedAt(
+                post.data.publishedAt,
+                PublishedAtFormat.SHORT,
+              )}
+              href={getPostFullPath(post)}
               key={post.id}
             />
           ))}
-        </PostList>
+        </ArchiveList>
       </details>
     </StandOut>
   );

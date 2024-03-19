@@ -1,11 +1,11 @@
 ---
 import { ButtonLink } from '@/components/ButtonLink.tsx';
 import { Divider } from '@/components/Divider.tsx';
-import { Headline } from '@/components/Headline.tsx';
 import { Icon } from '@/components/Icon.tsx';
 import { Intro } from '@/components/Intro/Intro.tsx';
 import { Link } from '@/components/Link.tsx';
 import { Text } from '@/components/Text.tsx';
+import { Title } from '@/components/Title.tsx';
 import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
 import { profile } from '@/shared/profile.ts';
 import { cn } from '@digital-garden/utils';
@@ -15,10 +15,10 @@ import { cn } from '@digital-garden/utils';
   <Intro />
 
   <Divider>
-    <Headline>Stay up to date</Headline>
+    <Title base="h3">Stay up to date</Title>
   </Divider>
 
-  <Text>
+  <Text base="span">
     If you wish to be up to date with new posts you can
     <Link
       href="/rss.xml"
@@ -27,10 +27,12 @@ import { cn } from '@digital-garden/utils';
     </Link>
   </Text>
 
-  <Text>There will also be an email newsletter somewhere in the future</Text>
+  <Text base="span"
+    >There will also be an email newsletter somewhere in the future</Text
+  >
 
   <Divider>
-    <Headline>How to reach me</Headline>
+    <Title base="h3">How to reach me</Title>
   </Divider>
 
   <ul class="mx-auto grid grid-cols-3 gap-5">

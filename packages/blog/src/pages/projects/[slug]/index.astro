@@ -1,0 +1,74 @@
+---
+import { Comments } from '@/components/Comments';
+import { Divider } from '@/components/Divider';
+import { ProjectChangelogs } from '@/components/ProjectChangelogs';
+import { ProjectFrontmatter } from '@/components/ProjectFrontmatter.tsx';
+import { Title } from '@/components/Title.tsx';
+import MainLayout from '@/layouts/MainLayout/MainLayout.astro';
+import type { Changelog } from '@/shared/changelog.helpers.ts';
+import type { Project } from '@/shared/project.helpers.ts';
+import { getImage } from 'astro:assets';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  const allChangelogs = await getCollection('changelogs');
+
+  return await Promise.all(
+    projects.map(async (project) => {
+      const projectChangelogs = allChangelogs.filter(
+        (changelog) => changelog.data.project.slug === project.slug,
+      );
+
+      return {
+        params: { slug: project.slug },
+        props: { project, changelogs: projectChangelogs },
+      };
+    }),
+  );
+}
+
+interface Props {
+  project: Project;
+  changelogs: Changelog[];
+}
+
+const { project, changelogs } = Astro.props;
+
+const { logo, name, slogan } = project.data;
+
+let logoSrc: string | undefined;
+if (logo) {
+  const image = await getImage({
+    src: logo,
+    format: logo.format,
+  });
+  logoSrc = image.src;
+}
+
+const { Content } = await project.render();
+---
+
+<MainLayout
+  title={name}
+  image={logoSrc}
+  description={slogan}>
+  <ProjectFrontmatter project={project} />
+
+  <article class="prose dark:prose-invert prose-img:mx-auto mt-6">
+    <Content />
+  </article>
+
+  <Divider isLeft={false}>
+    <Title base="h3">Changelogs</Title>
+  </Divider>
+
+  <ProjectChangelogs changelogs={changelogs} />
+
+  <Comments
+    category="Projects"
+    categoryId="DIC_kwDOKWcyP84Cd672"
+    term={project.slug}
+    client:only="react"
+  />
+</MainLayout>
