@@ -91,7 +91,30 @@ In Web you can achieve exactly the same with JavaScript and inline styles, but m
 }
 ```
 
-Now, now can we programmatically control animation flow? In short we can't. As a result of CSS being a man-in-the-middle we "animating" elements by **adding or removing classes** from them. We can't control one element animation from the other, we can't change it half-way and so on and so forth. We can't program it, which actually gives me a feeling of playing with no-code🤷‍♂️
+Now, how can we programmatically control animation flow? In short we can't. As a result of CSS being a man-in-the-middle we "animating" elements by **adding or removing classes** from them. We can't control one element animation from the other, we can't change it half-way and so on and so forth. We can't program it, which actually gives me a feeling of playing with no-code🤷‍♂️
+
+Also if your element has some sort of exit animation (for example fade-out) you can't just set appropriate class and remove element from DOM. If removing occurs before animation is finished animation is skipped. So you need to switch class, wait until animation is finished and only then remove it from DOM.
+
+#### Overkill or developer experience?
+
+After a little bit of searching for a solution I found [motion-framer](https://www.framer.com/motion/). It is one of the most popular solutions for animation inside React apps. I went with it, it looks something like the following:
+
+```tsx
+<AnimatePresence>
+  {isOpen && (
+    <motion.div
+      key="modal"
+      initial={{ y: '-100%' }}
+      animate={{ y: '0' }}
+      exit={{ y: '-100%' }}
+      transition={{ duration: 0.3 }}>
+      content goes here
+    </motion.div>
+  )}
+</AnimatePresence>
+```
+
+No switching classes, no writing CSS, no waiting for animation is finished. And while I do acknowledge that it is definitely overkill for some random blog with only 1 not so complex animation at the moment I do think that my enjoyment from coding this blog should be prioritized. After all I don't get payed for this coding, it's just a hobby, so it have to bring me joy and it is definitely more enjoyable to play around with some popular lib and how it works instead of juggle CSS classes around.
 
 ## Swap comments platform
 
