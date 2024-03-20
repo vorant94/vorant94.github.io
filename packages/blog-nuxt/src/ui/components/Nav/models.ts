@@ -1,4 +1,7 @@
-import type { NavLinkItem } from '~/components/NavLink/models';
+export interface NavLinkItem {
+  label: string;
+  url: string;
+}
 
 export const navItems = [
   { label: '👨‍💻 About', url: '/about' },

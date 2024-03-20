@@ -1,3 +1,3 @@
 <template>
-  <Button>test</Button>
+  <Intro />
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HeaderLogo from '~/ui/assets/img/logo.webp';
-import HeaderLogoDark from '~/ui/assets/img/logo-dark.webp';
+import HeaderLogo from '~/ui/assets/img/header-logo.webp';
+import HeaderLogoDark from '~/ui/assets/img/header-logo-dark.webp';
 import { defaultLayoutPortal } from '~/ui/layouts/default/models';
 
 const portalRef = ref(null);

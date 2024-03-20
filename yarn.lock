@@ -1028,6 +1028,7 @@ __metadata:
     "@nuxtjs/tailwindcss": "npm:^6.11.4"
     "@tailwindcss/typography": "npm:^0.5.10"
     "@vueuse/core": "npm:^10.9.0"
+    "@vueuse/motion": "npm:^2.1.0"
     "@vueuse/nuxt": "npm:^10.9.0"
     autoprefixer: "npm:^10.4.18"
     cssnano: "npm:^6.1.0"
@@ -2083,7 +2084,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/kit@npm:3.11.1, @nuxt/kit@npm:^3.10.2, @nuxt/kit@npm:^3.8.2, @nuxt/kit@npm:^3.9.1, @nuxt/kit@npm:^3.9.3":
+"@nuxt/kit@npm:3.11.1, @nuxt/kit@npm:^3.10.2, @nuxt/kit@npm:^3.5.1, @nuxt/kit@npm:^3.8.2, @nuxt/kit@npm:^3.9.1, @nuxt/kit@npm:^3.9.3":
   version: 3.11.1
   resolution: "@nuxt/kit@npm:3.11.1"
   dependencies:
@@ -3992,7 +3993,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:10.9.0, @vueuse/core@npm:^10.9.0":
+"@vueuse/core@npm:10.9.0, @vueuse/core@npm:^10.1.2, @vueuse/core@npm:^10.9.0":
   version: 10.9.0
   resolution: "@vueuse/core@npm:10.9.0"
   dependencies:
@@ -4011,6 +4012,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vueuse/motion@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@vueuse/motion@npm:2.1.0"
+  dependencies:
+    "@nuxt/kit": "npm:^3.5.1"
+    "@vueuse/core": "npm:^10.1.2"
+    "@vueuse/shared": "npm:^10.1.2"
+    csstype: "npm:^3.1.2"
+    framesync: "npm:^6.1.2"
+    popmotion: "npm:^11.0.5"
+    style-value-types: "npm:^5.1.2"
+  peerDependencies:
+    vue: ">=3.0.0"
+  dependenciesMeta:
+    "@nuxt/kit":
+      optional: true
+  checksum: 10c0/ca16535106545d00af12016b9d9551eb6801223cf61fe7fa618b3d032ef1033f56965d8d66e50d5f00b48f1868e2f7b0d2c6098d9174e318b9ca57578e0fd7b7
+  languageName: node
+  linkType: hard
+
 "@vueuse/nuxt@npm:^10.9.0":
   version: 10.9.0
   resolution: "@vueuse/nuxt@npm:10.9.0"
@@ -4026,7 +4047,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/shared@npm:10.9.0":
+"@vueuse/shared@npm:10.9.0, @vueuse/shared@npm:^10.1.2":
   version: 10.9.0
   resolution: "@vueuse/shared@npm:10.9.0"
   dependencies:
@@ -5765,7 +5786,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^3.1.3":
+"csstype@npm:^3.1.2, csstype@npm:^3.1.3":
   version: 3.1.3
   resolution: "csstype@npm:3.1.3"
   checksum: 10c0/80c089d6f7e0c5b2bd83cf0539ab41474198579584fa10d86d0cafe0642202343cbc119e076a0b1aece191989477081415d66c9fefbf3c957fc2fc4b7009f248
@@ -7147,6 +7168,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"framesync@npm:6.1.2, framesync@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "framesync@npm:6.1.2"
+  dependencies:
+    tslib: "npm:2.4.0"
+  checksum: 10c0/9e7d240ddf0bbe062bc9b71ffffd889b9923ee5d9c638ed84f2fe31aaa42e25e624eaf0b28ccca1d08f5ae170b8d083a6dabe5983f5dabea6bbbe6d4a9f8d27a
+  languageName: node
+  linkType: hard
+
 "fresh@npm:0.5.2, fresh@npm:~0.5.2":
   version: 0.5.2
   resolution: "fresh@npm:0.5.2"
@@ -7921,6 +7951,13 @@ __metadata:
   bin:
     he: bin/he
   checksum: 10c0/a27d478befe3c8192f006cdd0639a66798979dfa6e2125c6ac582a19a5ebfec62ad83e8382e6036170d873f46e4536a7e795bf8b95bf7c247f4cc0825ccc8c17
+  languageName: node
+  linkType: hard
+
+"hey-listen@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "hey-listen@npm:1.0.8"
+  checksum: 10c0/38db3028b4756f3d536c0f6a92da53bad577ab649b06dddfd0a4d953f9a46bbc6a7f693c8c5b466a538d6d23dbc469260c848427f0de14198a2bbecbac37b39e
   languageName: node
   linkType: hard
 
@@ -11476,6 +11513,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"popmotion@npm:^11.0.5":
+  version: 11.0.5
+  resolution: "popmotion@npm:11.0.5"
+  dependencies:
+    framesync: "npm:6.1.2"
+    hey-listen: "npm:^1.0.8"
+    style-value-types: "npm:5.1.2"
+    tslib: "npm:2.4.0"
+  checksum: 10c0/b89189fbe24f3051a555aa4a86658f11046c6f818f0a2e6e5afb14575db02bc45f64fe24bc1cead1e1fe692185ba92be8b2cebc68668ba1f4b7ffa55bdb52509
+  languageName: node
+  linkType: hard
+
 "portfinder@npm:^1.0.26":
   version: 1.0.32
   resolution: "portfinder@npm:1.0.32"
@@ -13945,6 +13994,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"style-value-types@npm:5.1.2, style-value-types@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "style-value-types@npm:5.1.2"
+  dependencies:
+    hey-listen: "npm:^1.0.8"
+    tslib: "npm:2.4.0"
+  checksum: 10c0/c9d82c21ead726196cdf056bfd00591800eb695c6282ef2107c27b9b917e94c91797a1810c6fbda8ac0e4a4dda1453790a91f0cbfd56ef7107c66785c6f90889
+  languageName: node
+  linkType: hard
+
 "stylehacks@npm:^6.1.0":
   version: 6.1.0
   resolution: "stylehacks@npm:6.1.0"
@@ -14470,6 +14529,13 @@ __metadata:
   bin:
     tsconfck: bin/tsconfck.js
   checksum: 10c0/3614f52675b6c279c6e3d72f4dfdc8bb80c7b051e6d3227bcc67c6af9e8a4449a3eee9c6cf92b6720906bb32df03bc85830786fc7cf9ed3a9a98edb21b2ccc90
+  languageName: node
+  linkType: hard
+
+"tslib@npm:2.4.0":
+  version: 2.4.0
+  resolution: "tslib@npm:2.4.0"
+  checksum: 10c0/eb19bda3ae545b03caea6a244b34593468e23d53b26bf8649fbc20fce43e9b21a71127fd6d2b9662c0fe48ee6ff668ead48fd00d3b88b2b716b1c12edae25b5d
   languageName: node
   linkType: hard
 
