@@ -3,17 +3,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "build": "nuxt generate",
+    "postinstall": "nuxt prepare",
+    "nuxt": "nuxt",
+    "preview": "serve .output/public",
+    "serve": "serve"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/vue-fontawesome": "^3.0.6",
+    "@lottiefiles/lottie-player": "^2.0.4",
     "@vueuse/core": "^10.9.0",
     "@vueuse/motion": "^2.1.0",
     "@vueuse/nuxt": "^10.9.0",
@@ -28,6 +30,7 @@
     "cssnano": "^6.1.0",
     "postcss": "^8.4.36",
     "postcss-load-config": "^5.0.3",
+    "serve": "^14.2.1",
     "tailwindcss": "^3.4.1"
   }
 }

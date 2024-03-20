@@ -1,2 +1,2 @@
-export const linkLevels = ['sm', 'md'] as const;
-export type AppLinkLevel = (typeof linkLevels)[number];
+export const appLinkLevels = ['sm', 'md'] as const;
+export type AppLinkLevel = (typeof appLinkLevels)[number];
