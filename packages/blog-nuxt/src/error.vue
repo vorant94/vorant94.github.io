@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import lottie404dark from '~/assets/json/lottie-404-dark.json';
 import lottie404 from '~/assets/json/lottie-404.json';
+
+useHead({
+  title: 'vorant94 | 404 Not Found',
+});
 </script>
 
 <template>

@@ -1,3 +1,9 @@
+<script setup lang="ts">
+useHead({
+  title: 'vorant94 | About',
+});
+</script>
+
 <template>
   <Intro />
 
