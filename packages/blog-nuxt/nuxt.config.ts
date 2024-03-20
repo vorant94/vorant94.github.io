@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   srcDir: './src',
-  modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', '@vueuse/motion/nuxt'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@vueuse/nuxt',
+    '@vueuse/motion/nuxt',
+    '@nuxt/test-utils/module',
+  ],
   extends: ['./src/ui', './src/home', './src/projects', './src/posts'],
   devtools: { enabled: true },
   postcss: {
