@@ -1,0 +1,3 @@
+#__nuxt {
+  @apply flex-1 flex flex-col;
+}

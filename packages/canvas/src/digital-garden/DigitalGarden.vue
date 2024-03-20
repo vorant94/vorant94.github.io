@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import dark from './dark.png';
 import light from './light.png';
+import CenteredLayout from '@/shared/layouts/CenteredLayout.vue';
 </script>
 
 <template>

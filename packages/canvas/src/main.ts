@@ -5,14 +5,11 @@ import Home from '@/home/Home.vue';
 import { Route, routeToName } from '@/home/route.ts';
 import ThoughtsOnModernFrameworkFeatures from '@/thoughts-on-modern-framework-features/ThoughtsOnModernFrameworkFeatures.vue';
 import TypescriptMonoreposAreAMess from '@/typescript-monorepos-are-a-mess/TypescriptMonoreposAreAMess.vue';
-import components from '@digital-garden/components';
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import App from './App.vue';
 
 const app = createApp(App);
-
-app.use(components);
 
 app.use(
   createRouter({

@@ -3,6 +3,7 @@ import angularLogo from './angular-logo.png';
 import reactLogo from './react-logo.svg';
 import spiderManTriple from './spider-man-triple.jpg';
 import vueLogo from './vue-logo.png';
+import CenteredLayout from '@/shared/layouts/CenteredLayout.vue';
 </script>
 
 <template>
