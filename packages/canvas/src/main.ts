@@ -1,10 +1,10 @@
 import './index.css';
 
-import DigitalGarden from '@/digital-garden/DigitalGarden.vue';
-import Home from '@/home/Home.vue';
-import { Route, routeToName } from '@/home/route.ts';
-import ThoughtsOnModernFrameworkFeatures from '@/thoughts-on-modern-framework-features/ThoughtsOnModernFrameworkFeatures.vue';
-import TypescriptMonoreposAreAMess from '@/typescript-monorepos-are-a-mess/TypescriptMonoreposAreAMess.vue';
+import DigitalGarden from '@/DigitalGarden/index.vue';
+import { IndexMeta, routeToName } from '@/Home/index.meta.ts';
+import Home from '@/Home/index.vue';
+import ThoughtsOnModernFrameworkFeatures from '@/ThoughtsOnModernFrameworkFeatures/index.vue';
+import TypescriptMonoreposAreAMess from '@/TypescriptMonoreposAreAMess/index.vue';
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import App from './App.vue';
@@ -16,23 +16,23 @@ app.use(
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
       {
-        path: Route.HOME,
-        name: routeToName[Route.HOME],
+        path: IndexMeta.HOME,
+        name: routeToName[IndexMeta.HOME],
         component: Home,
       },
       {
-        path: Route.TYPESCRIPT_MONOREPOS_ARE_A_MESS,
-        name: routeToName[Route.TYPESCRIPT_MONOREPOS_ARE_A_MESS],
+        path: IndexMeta.TYPESCRIPT_MONOREPOS_ARE_A_MESS,
+        name: routeToName[IndexMeta.TYPESCRIPT_MONOREPOS_ARE_A_MESS],
         component: TypescriptMonoreposAreAMess,
       },
       {
-        path: Route.THOUGHTS_ON_MODERN_FRAMEWORK_FEATURES,
-        name: routeToName[Route.THOUGHTS_ON_MODERN_FRAMEWORK_FEATURES],
+        path: IndexMeta.THOUGHTS_ON_MODERN_FRAMEWORK_FEATURES,
+        name: routeToName[IndexMeta.THOUGHTS_ON_MODERN_FRAMEWORK_FEATURES],
         component: ThoughtsOnModernFrameworkFeatures,
       },
       {
-        path: Route.DIGITAL_GARDEN,
-        name: routeToName[Route.DIGITAL_GARDEN],
+        path: IndexMeta.DIGITAL_GARDEN,
+        name: routeToName[IndexMeta.DIGITAL_GARDEN],
         component: DigitalGarden,
       },
     ],
