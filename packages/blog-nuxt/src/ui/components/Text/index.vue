@@ -8,10 +8,10 @@ defineProps<{ base: TextBase }>();
 </script>
 
 <template>
-  <Component
+  <component
     :is="base"
     class="text-slate-800 dark:text-slate-100"
     :class="textBaseToStyle[base]">
     <slot />
-  </Component>
+  </component>
 </template>
