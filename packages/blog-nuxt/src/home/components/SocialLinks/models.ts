@@ -1,4 +1,4 @@
-import type { IconGlyph } from '~/ui/components/Icon/models';
+import type { IconGlyph } from '~/ui/components/Icon/index.meta';
 
 export interface SocialLink {
   glyph: IconGlyph;

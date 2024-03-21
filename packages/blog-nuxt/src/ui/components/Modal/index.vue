@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const mobileNav = useMobileNav();
+const isMobileNavOpen = useMobileNav();
 const motions = useMotions();
 
 function hideMobileNav() {
-  mobileNav.value = false;
+  isMobileNavOpen.value = false;
 }
 </script>
 
@@ -12,7 +12,7 @@ function hideMobileNav() {
     :css="false"
     @leave="(_, done) => motions.mobileNav.leave(done)">
     <div
-      v-if="mobileNav"
+      v-if="isMobileNavOpen"
       v-motion="'mobileNav'"
       :initial="{
         transform: 'translateY(-100%)',

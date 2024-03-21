@@ -1,12 +1,23 @@
 export function useMobileNav() {
-  const state = useState('mobileNav', () => false);
+  const isMobileNavOpen = useState(() => false);
   const isLgScreen = useMediaQuery('(min-width: 1024px)');
 
-  watch(isLgScreen, () => {
-    if (isLgScreen) {
-      state.value = false;
+  watchEffect(() => {
+    if (!isLgScreen.value || !isMobileNavOpen.value) {
+      return;
     }
+
+    isMobileNavOpen.value = false;
   });
 
-  return state;
+  watchEffect(() => {
+    // to make it SSR friendly
+    if (!document) {
+      return;
+    }
+
+    document.body.style.overflow = isMobileNavOpen.value ? 'hidden' : 'unset';
+  });
+
+  return isMobileNavOpen;
 }

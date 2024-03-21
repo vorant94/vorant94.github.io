@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { AppLinkLevel } from './models.ts';
+import type { AppLinkLevel } from './index.meta.ts';
 
 // for some reason just AppLink instead of AppLink is not recognised
 defineProps<{ level?: AppLinkLevel }>();

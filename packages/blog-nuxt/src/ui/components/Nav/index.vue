@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { navItems } from '~/ui/components/Nav/models';
-import { defaultLayoutPortal } from '~/ui/layouts/default/models';
+import { navItems } from '~/ui/components/Nav/index.meta';
+import { defaultLayoutPortal } from '~/ui/layouts/default/index.meta';
 
 const portalRef = inject(defaultLayoutPortal);
 

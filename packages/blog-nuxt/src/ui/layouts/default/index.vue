@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { defaultLayoutPortal } from '~/ui/layouts/default/index.meta';
+
 useHead({
   htmlAttrs: {
     class: 'dark:[color-scheme:dark]',
@@ -23,6 +25,9 @@ useHead({
     },
   ],
 });
+
+const portalRef = ref(null);
+provide(defaultLayoutPortal, portalRef);
 </script>
 
 <template>
@@ -37,4 +42,6 @@ useHead({
   </main>
 
   <Footer />
+
+  <div ref="portalRef"></div>
 </template>

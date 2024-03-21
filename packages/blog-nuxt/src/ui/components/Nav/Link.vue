@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavLinkItem } from '~/ui/components/NavLink/models';
+import type { NavLinkItem } from '~/ui/components/Nav/Link.meta';
 
 defineProps<{ item: NavLinkItem }>();
 </script>

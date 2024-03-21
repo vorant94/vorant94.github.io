@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import HeaderLogo from '~/ui/assets/img/header-logo.webp';
 import HeaderLogoDark from '~/ui/assets/img/header-logo-dark.webp';
-import { defaultLayoutPortal } from '~/ui/layouts/default/models';
-
-const portalRef = ref(null);
-provide(defaultLayoutPortal, portalRef);
 </script>
 
 <template>
@@ -26,6 +22,4 @@ provide(defaultLayoutPortal, portalRef);
 
     <slot />
   </header>
-
-  <div ref="portalRef"></div>
 </template>
