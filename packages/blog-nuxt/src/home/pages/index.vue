@@ -5,19 +5,11 @@ useHead({
 </script>
 
 <template>
-  <!--  Pinned Posts -->
+  <PinnedPosts />
 
   <Intro />
 
-  <Divider>
-    <AppTitle base="h3">Featured Projects</AppTitle>
-  </Divider>
+  <FeaturedProjects />
 
-  <!-- Featured Projects -->
-
-  <Divider>
-    <AppTitle base="h3">Recent Posts</AppTitle>
-  </Divider>
-
-  <!-- Recent Posts -->
+  <RecentPosts />
 </template>

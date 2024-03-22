@@ -5,7 +5,7 @@ import IntroLogoDark from '~/home/assets/img/intro-logo-dark.webp';
 
 <template>
   <StandOut
-    class="items-center dark:!border-2 dark:!rounded-lg dark:!border-sky-200 dark:rotate-3 dark:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_rgb(6,182,255),0_0_15px_rgb(6,182,255),0_0_30px_rgb(6,182,255)]">
+    class="items-center dark:my-4 dark:!border-2 dark:!rounded-lg dark:!border-sky-200 dark:rotate-3 dark:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_rgb(6,182,255),0_0_15px_rgb(6,182,255),0_0_30px_rgb(6,182,255)]">
     <div class="hidden lg:block shrink-0">
       <ThemedImage
         :src="IntroLogo"
