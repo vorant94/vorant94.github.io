@@ -1,3 +1,4 @@
+// TODO check if it duplicates the state between multiple components or not
 export function useMobileNav() {
   const isMobileNavOpen = useState(() => false);
   const isLgScreen = useMediaQuery('(min-width: 1024px)');

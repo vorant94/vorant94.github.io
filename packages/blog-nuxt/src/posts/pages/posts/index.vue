@@ -13,6 +13,7 @@ const { data } = await useAsyncData(() =>
 );
 
 const postsByYear = computed(() => {
+  // TODO move sorting to the query builder code #3
   const sortedPosts = data.value!.toSorted((a, b) =>
     compareDesc(a.publishedAt, b.publishedAt),
   );

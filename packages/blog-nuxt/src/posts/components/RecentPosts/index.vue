@@ -7,6 +7,8 @@ const { data } = await useAsyncData(() =>
   queryContent<PostModel>('/posts').find(),
 );
 
+// TODO move sorting to the query builder code #1
+//  https://github.com/nuxt/content/issues/2383
 const sortedRecentPosts = data
   .value!.toSorted((a, b) => compareDesc(a.publishedAt, b.publishedAt))
   .slice(0, 3);

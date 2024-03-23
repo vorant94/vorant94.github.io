@@ -7,6 +7,7 @@ const { data } = await useAsyncData(() =>
   queryContent<PostModel>('/posts').where({ isPinned: true }).find(),
 );
 
+// TODO move sorting to the query builder code #2
 const sortedPosts = computed(() =>
   data.value!.toSorted((a, b) => compareDesc(a.publishedAt, b.publishedAt)),
 );
