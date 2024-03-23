@@ -8,8 +8,8 @@ defineProps<{ title: string }>();
       <AppTitle base="h3">{{ title }}</AppTitle>
     </Divider>
 
-    <ul class="flex flex-col gap-2">
+    <menu class="flex flex-col gap-2">
       <slot />
-    </ul>
+    </menu>
   </div>
 </template>

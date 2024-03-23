@@ -14,7 +14,7 @@ const sortedPosts = computed(() =>
 </script>
 
 <template>
-  <ul>
+  <menu>
     <StandOut
       v-for="post in sortedPosts"
       class="flex-col">
@@ -31,5 +31,5 @@ const sortedPosts = computed(() =>
         </ArchiveListItem>
       </span>
     </StandOut>
-  </ul>
+  </menu>
 </template>

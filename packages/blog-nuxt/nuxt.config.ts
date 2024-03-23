@@ -11,7 +11,8 @@ export default defineNuxtConfig({
     '@nuxt/test-utils/module',
     // need it to store assets right aside of md files instead of public folder
     //  https://github.com/nuxt/content/issues/106
-    'nuxt-content-assets', // make sure to add before content!
+    // make sure to add before content!
+    'nuxt-content-assets',
     '@nuxt/content',
   ],
   extends: ['./src/ui', './src/home', './src/projects', './src/posts'],
@@ -19,10 +20,40 @@ export default defineNuxtConfig({
   // TODO this works as a workaround since it seems that Nuxt Content doesn't support Nuxt Layers
   //  probably a good idea for PR
   content: {
+    markdown: {
+      remarkPlugins: ['remark-reading-time'],
+    },
     sources: {
       posts: {
         driver: 'fs',
         base: new URL('./src/posts/content', import.meta.url).pathname,
+      },
+    },
+    highlight: {
+      langs: [
+        'json',
+        'html',
+        'yaml',
+        'sass',
+        'javascript',
+        'typescript',
+        'dart',
+        'dockerfile',
+        'json5',
+      ],
+      theme: {
+        default: 'github-light-default',
+        dark: 'github-dark-default',
+      },
+    },
+  },
+  // TODO create issue for Nuxt Content that in dev mode
+  //  start app, go to content-based route - it has no trailing slash
+  //  refresh the page while you are in this nested route - trailing slash appears
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        trailingSlash: 'remove',
       },
     },
   },
@@ -41,7 +72,7 @@ export default defineNuxtConfig({
         //  since its vue adapter doesn't have typescript and
         //  seems way more outdated than react one web elements one
         compilerOptions: {
-          isCustomElement: (tag) => tag.includes('-'),
+          isCustomElement: (tag: string) => tag.includes('-'),
         },
       },
     },

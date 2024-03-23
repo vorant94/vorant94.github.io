@@ -2,7 +2,7 @@
 import { socialLinks } from '~/home/components/SocialLinks/models';
 </script>
 <template>
-  <ul class="mx-auto grid grid-cols-3 gap-5">
+  <menu class="mx-auto grid grid-cols-3 gap-5">
     <li v-for="item in socialLinks">
       <ButtonLink
         variant="outlined"
@@ -15,5 +15,5 @@ import { socialLinks } from '~/home/components/SocialLinks/models';
         <span class="truncate max-w-full">{{ item.glyph }}</span>
       </ButtonLink>
     </li>
-  </ul>
+  </menu>
 </template>

@@ -7,9 +7,9 @@ defineProps<{ title: string }>();
     <Divider :isLeft="false">
       <AppTitle base="h3">{{ title }}</AppTitle>
     </Divider>
-    <ul
+    <menu
       class="flex flex-col divide-y divide-dashed border-slate-300 dark:border-slate-600">
       <slot />
-    </ul>
+    </menu>
   </div>
 </template>
