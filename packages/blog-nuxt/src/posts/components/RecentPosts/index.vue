@@ -34,7 +34,7 @@ const sortedRecentPosts = data
 
   <AppLink
     class="self-center"
-    href="posts"
-    >See all</AppLink
-  >
+    href="/posts">
+    See all
+  </AppLink>
 </template>
