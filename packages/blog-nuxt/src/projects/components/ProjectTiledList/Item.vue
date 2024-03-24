@@ -1,18 +1,14 @@
 <script setup lang="ts">
 import type { ProjectModel } from '~/projects/utils/project.model';
-import { compareDesc } from 'date-fns';
 import type { ChangelogModel } from '~/projects/utils/changelog.model';
 
 const props = defineProps<{ project: ProjectModel }>();
 
-const { data } = useAsyncData(() =>
-  queryContent<ChangelogModel>(`${props.project._path}/changelogs`).find(),
-);
-
-const changelogs = computed(() =>
-  data
-    .value!.toSorted((a, b) => compareDesc(a.publishedAt, b.publishedAt))
-    .slice(0, 2),
+const { data } = await useAsyncData(() =>
+  queryContent<ChangelogModel>(`${props.project._path}/changelogs`)
+    .sort({ publishedAt: -1 })
+    .limit(2)
+    .find(),
 );
 </script>
 
@@ -52,7 +48,7 @@ const changelogs = computed(() =>
 
         <menu class="flex flex-col divide-y divide-dashed">
           <li
-            v-for="changelog in changelogs"
+            v-for="changelog in data"
             class="flex flex-col py-1">
             <AppLink
               level="sm"

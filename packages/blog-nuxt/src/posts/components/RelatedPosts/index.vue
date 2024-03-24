@@ -8,17 +8,14 @@ const props = defineProps<{ slug: string }>();
 const { data } = await useAsyncData(() =>
   queryContent<PostModel>('/posts')
     .where({ related: { $contains: props.slug } })
+    .sort({ publishedAt: -1 })
     .find(),
-);
-
-const sortedPosts = computed(() =>
-  data.value!.toSorted((a, b) => compareDesc(a.publishedAt, b.publishedAt)),
 );
 </script>
 
 <template>
   <StandOut
-    v-if="sortedPosts.length"
+    v-if="data?.length"
     class="flex-col">
     <details class="text-slate-800 dark:text-slate-100">
       <summary class="hover:cursor-pointer">
@@ -31,7 +28,7 @@ const sortedPosts = computed(() =>
 
       <ArchiveList>
         <ArchiveListItem
-          v-for="post in sortedPosts"
+          v-for="post in data"
           :href="post._path">
           <template v-slot:left>{{ post.title }}</template>
           <template v-slot:right>

@@ -1,22 +1,20 @@
 <script setup lang="ts">
 import type { PostModel } from '~/posts/utils/post.model';
-import { compareDesc, format } from 'date-fns';
+import { format } from 'date-fns';
 import { PublishedAtFormat } from '~/utils/published-at-format';
 
 const { data } = await useAsyncData(() =>
-  queryContent<PostModel>('/posts').where({ isPinned: true }).find(),
-);
-
-// TODO move sorting to the query builder code #2
-const sortedPosts = computed(() =>
-  data.value!.toSorted((a, b) => compareDesc(a.publishedAt, b.publishedAt)),
+  queryContent<PostModel>('/posts')
+    .where({ isPinned: true })
+    .sort({ publishedAt: -1 })
+    .find(),
 );
 </script>
 
 <template>
   <menu>
     <StandOut
-      v-for="post in sortedPosts"
+      v-for="post in data"
       class="flex-col">
       <span class="flex gap-3 items-center">
         <span class="-scale-x-100">📌</span>

@@ -8,11 +8,8 @@ const route = useRoute();
 const { data } = await useAsyncData(() =>
   queryContent<PostModel>()
     .where({ tags: { $contains: route.params.tag } })
+    .sort({ publishedAt: -1 })
     .find(),
-);
-
-const sortedPosts = computed(() =>
-  data.value!.toSorted((a, b) => compareDesc(a.publishedAt, b.publishedAt)),
 );
 
 const title = computed(() => `#${route.params.tag}`);
@@ -21,7 +18,7 @@ const title = computed(() => `#${route.params.tag}`);
 <template>
   <ArchiveList :title="title">
     <ArchiveListItem
-      v-for="post in sortedPosts"
+      v-for="post in data"
       :href="post._path">
       <template v-slot:left>{{ post.title }}</template>
       <template v-slot:right>

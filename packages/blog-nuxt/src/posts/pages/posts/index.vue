@@ -9,19 +9,14 @@ useHead({
 });
 
 const { data } = await useAsyncData(() =>
-  queryContent<PostModel>('/posts').find(),
+  queryContent<PostModel>('/posts').sort({ publishedAt: -1 }).find(),
 );
 
-const postsByYear = computed(() => {
-  // TODO move sorting to the query builder code #3
-  const sortedPosts = data.value!.toSorted((a, b) =>
-    compareDesc(a.publishedAt, b.publishedAt),
-  );
-
-  return groupBy(sortedPosts, (post) =>
+const postsByYear = computed(() =>
+  groupBy(data.value, (post) =>
     format(post.publishedAt, PublishedAtFormat.YEAR),
-  );
-});
+  ),
+);
 
 const postYears = computed(() => Object.keys(postsByYear.value).reverse());
 </script>

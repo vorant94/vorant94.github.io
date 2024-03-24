@@ -1,22 +1,15 @@
 <script setup lang="ts">
 import type { PostModel } from '~/posts/utils/post.model';
-import { compareDesc } from 'date-fns';
 
 const { data } = await useAsyncData(() =>
-  queryContent<PostModel>('/posts').find(),
+  queryContent<PostModel>('/posts').sort({ publishedAt: -1 }).limit(3).find(),
 );
-
-// TODO move sorting to the query builder code #1
-//  https://github.com/nuxt/content/issues/2383
-const sortedRecentPosts = data
-  .value!.toSorted((a, b) => compareDesc(a.publishedAt, b.publishedAt))
-  .slice(0, 3);
 </script>
 
 <template>
   <PostTiledList title="Recent Posts">
     <PostTiledListItem
-      v-for="post in sortedRecentPosts"
+      v-for="post in data"
       :post="post" />
   </PostTiledList>
 
