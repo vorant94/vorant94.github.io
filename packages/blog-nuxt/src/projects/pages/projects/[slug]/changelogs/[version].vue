@@ -27,13 +27,9 @@ useHead({
   </div>
 
   <article class="mt-6">
-    <!--
-      https://github.com/nuxt/content/issues/2128#issuecomment-1979464682
-       workaround for https://github.com/nuxt/content/issues/2128
-    -->
-    <LazyContentDoc
+    <ContentRendererMarkdown
       class="prose dark:prose-invert"
-      :head="false" />
+      :value="changelog" />
   </article>
 
   <Giscus
