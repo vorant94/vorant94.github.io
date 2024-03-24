@@ -28,6 +28,10 @@ export default defineNuxtConfig({
         driver: 'fs',
         base: new URL('./src/posts/content', import.meta.url).pathname,
       },
+      projects: {
+        driver: 'fs',
+        base: new URL('./src/projects/content', import.meta.url).pathname,
+      },
     },
     highlight: {
       langs: [
