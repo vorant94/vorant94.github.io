@@ -5,7 +5,7 @@ import Giscus from '@giscus/vue';
 
 const route = useRoute();
 
-const { data } = await useAsyncData('post', () =>
+const { data } = await useAsyncData(() =>
   queryContent<PostModel>(route.path).findOne(),
 );
 </script>

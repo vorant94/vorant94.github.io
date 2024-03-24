@@ -7,8 +7,8 @@ const { data } = await useAsyncData(() =>
 </script>
 
 <template>
-  <TiledGrid title="Featured Projects">
-    <TiledGridCell
+  <ProjectTiledGrid title="Featured Projects">
+    <ProjectTiledGridCell
       v-for="project in data"
       :href="project._path"
       :status="project.status">
@@ -21,8 +21,10 @@ const { data } = await useAsyncData(() =>
           :srcDark="project.logoDark" />
       </template>
       <template v-slot:version>{{ project.version }}</template>
-    </TiledGridCell>
+    </ProjectTiledGridCell>
 
-    <TiledGridEmptyCell href="/projects"> See all </TiledGridEmptyCell>
-  </TiledGrid>
+    <ProjectTiledGridEmptyCell href="/projects">
+      See all
+    </ProjectTiledGridEmptyCell>
+  </ProjectTiledGrid>
 </template>

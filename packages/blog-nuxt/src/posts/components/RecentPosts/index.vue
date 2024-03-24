@@ -15,8 +15,8 @@ const sortedRecentPosts = data
 </script>
 
 <template>
-  <TiledList title="Recent Posts">
-    <TiledListItem
+  <PostTiledList title="Recent Posts">
+    <PostTiledListItem
       v-for="post in sortedRecentPosts"
       :href="post._path">
       <template v-slot:title>{{ post.title }}</template>
@@ -29,8 +29,8 @@ const sortedRecentPosts = data
           :alt="post.coverImageAlt"
           :srcDark="post.coverImageDark" />
       </template>
-    </TiledListItem>
-  </TiledList>
+    </PostTiledListItem>
+  </PostTiledList>
 
   <AppLink
     class="self-center"

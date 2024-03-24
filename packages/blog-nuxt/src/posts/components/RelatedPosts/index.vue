@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/solid.css';
 
 const props = defineProps<{ slug: string }>();
 
-const { data } = await useAsyncData('relatedPosts', () =>
+const { data } = await useAsyncData(() =>
   queryContent<PostModel>('/posts')
     .where({ related: { $contains: props.slug } })
     .find(),
