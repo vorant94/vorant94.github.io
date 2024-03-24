@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { PostModel } from '~/posts/utils/post.model';
-import { compareDesc, format } from 'date-fns';
-import { PublishedAtFormat } from '~/utils/published-at-format';
+import { compareDesc } from 'date-fns';
 
 const { data } = await useAsyncData(() =>
   queryContent<PostModel>('/posts').find(),
@@ -18,18 +17,7 @@ const sortedRecentPosts = data
   <PostTiledList title="Recent Posts">
     <PostTiledListItem
       v-for="post in sortedRecentPosts"
-      :href="post._path">
-      <template v-slot:title>{{ post.title }}</template>
-      <template v-slot:description>
-        {{ format(post.publishedAt, PublishedAtFormat.FULL) }}
-      </template>
-      <template v-slot:image>
-        <ThemedImage
-          :src="post.coverImage"
-          :alt="post.coverImageAlt"
-          :srcDark="post.coverImageDark" />
-      </template>
-    </PostTiledListItem>
+      :post="post" />
   </PostTiledList>
 
   <AppLink
