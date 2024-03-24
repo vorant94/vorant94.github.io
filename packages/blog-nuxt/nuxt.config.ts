@@ -44,6 +44,8 @@ export default defineNuxtConfig({
         'dart',
         'dockerfile',
         'json5',
+        'css',
+        'tsx',
       ],
       theme: {
         default: 'github-light-default',
