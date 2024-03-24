@@ -1,9 +1,5 @@
-import process from 'node:process';
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  srcDir: './src',
-  serverDir: './server',
   modules: [
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
@@ -15,7 +11,7 @@ export default defineNuxtConfig({
     'nuxt-content-assets',
     '@nuxt/content',
   ],
-  extends: ['./src/ui', './src/home', './src/projects', './src/posts'],
+  extends: ['./ui', './home', './projects', './posts'],
   devtools: { enabled: true },
   // TODO this works as a workaround since it seems that Nuxt Content doesn't support Nuxt Layers
   //  probably a good idea for PR
@@ -26,11 +22,11 @@ export default defineNuxtConfig({
     sources: {
       posts: {
         driver: 'fs',
-        base: new URL('./src/posts/content', import.meta.url).pathname,
+        base: new URL('./posts/content', import.meta.url).pathname,
       },
       projects: {
         driver: 'fs',
-        base: new URL('./src/projects/content', import.meta.url).pathname,
+        base: new URL('./projects/content', import.meta.url).pathname,
       },
     },
     highlight: {
@@ -84,7 +80,8 @@ export default defineNuxtConfig({
     },
   },
   hooks: {
-    close: () => {
+    close(nuxt) {
+      // TODO it also prevents test from running and breaks nuxt codegen after yarn install
       // https://github.com/nuxt/cli/issues/169#issuecomment-1729300497
       //  workaround for https://github.com/nuxt/cli/issues/169
       process.exit(0);

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import IntroLogo from '~/home/assets/img/intro-logo.webp';
-import IntroLogoDark from '~/home/assets/img/intro-logo-dark.webp';
+import IntroLogo from '../../assets/img/intro-logo.webp';
+import IntroLogoDark from '../../assets/img/intro-logo-dark.webp';
 </script>
 
 <template>

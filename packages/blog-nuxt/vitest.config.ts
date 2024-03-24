@@ -2,8 +2,8 @@ import { defineVitestConfig } from '@nuxt/test-utils/config';
 
 export default defineVitestConfig({
   test: {
-    dir: './src',
-    environment: 'happy-dom',
+    environment: 'nuxt',
     setupFiles: ['./test-setup.ts'],
+    exclude: ['./e2e'],
   },
 });
