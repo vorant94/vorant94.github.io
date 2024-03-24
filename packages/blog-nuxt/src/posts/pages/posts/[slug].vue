@@ -8,6 +8,10 @@ const route = useRoute();
 const { data } = await useAsyncData(() =>
   queryContent<PostModel>(route.path).findOne(),
 );
+
+useHead({
+  title: `vorant94 | ${data.value!.title}`,
+});
 </script>
 
 <template>
