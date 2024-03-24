@@ -5,7 +5,7 @@ import Giscus from '@giscus/vue';
 
 const route = useRoute();
 
-const { data } = await useAsyncData(() =>
+const { data } = await useAsyncData('post', () =>
   queryContent<PostModel>(route.path).findOne(),
 );
 </script>
@@ -55,8 +55,16 @@ const { data } = await useAsyncData(() =>
   </div>
 
   <article class="mt-6">
-    <ContentDoc class="prose dark:prose-invert" />
+    <!--
+      https://github.com/nuxt/content/issues/2128#issuecomment-1979464682
+       workaround for https://github.com/nuxt/content/issues/2128
+    -->
+    <LazyContentDoc
+      class="prose dark:prose-invert"
+      :head="false" />
   </article>
+
+  <RelatedPosts :slug="route.params.slug" />
 
   <Giscus
     repo="vorant94/digital-garden"

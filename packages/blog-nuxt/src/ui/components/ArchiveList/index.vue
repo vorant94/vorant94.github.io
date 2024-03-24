@@ -1,10 +1,12 @@
 <script setup lang="ts">
-defineProps<{ title: string }>();
+defineProps<{ title?: string }>();
 </script>
 
 <template>
   <div class="flex flex-col">
-    <Divider :isLeft="false">
+    <Divider
+      v-if="title"
+      :isLeft="false">
       <AppTitle base="h3">{{ title }}</AppTitle>
     </Divider>
     <menu

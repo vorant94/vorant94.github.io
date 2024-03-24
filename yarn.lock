@@ -1030,6 +1030,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@digital-garden/blog-nuxt@workspace:packages/blog-nuxt"
   dependencies:
+    "@fortawesome/fontawesome-free": "npm:^6.5.1"
     "@fortawesome/fontawesome-svg-core": "npm:^6.5.1"
     "@fortawesome/free-brands-svg-icons": "npm:^6.5.1"
     "@fortawesome/free-solid-svg-icons": "npm:^6.5.1"
