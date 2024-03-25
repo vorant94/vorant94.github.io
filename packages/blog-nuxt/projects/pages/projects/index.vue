@@ -7,7 +7,7 @@ import {
 import { groupBy, orderBy } from 'lodash-es';
 
 useHead({
-  title: `vorant94 | Projects`,
+  title: `Projects`,
 });
 
 const { data } = await useAsyncData(() =>

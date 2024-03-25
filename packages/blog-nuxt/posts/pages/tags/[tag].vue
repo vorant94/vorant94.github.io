@@ -13,6 +13,10 @@ const { data } = await useAsyncData(() =>
 );
 
 const title = computed(() => `#${route.params.tag}`);
+
+useHead({
+  title: `${title.value} Posts`,
+});
 </script>
 
 <template>

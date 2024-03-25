@@ -17,7 +17,7 @@ const { data: project } = await useAsyncData(() =>
 );
 
 useHead({
-  title: `vorant94 | ${project.value!.name} v${changelog.value!.version}`,
+  title: `${project.value!.name} v${changelog.value!.version}`,
 });
 </script>
 

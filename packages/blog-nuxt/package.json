@@ -25,6 +25,7 @@
     "@giscus/vue": "^3.0.0",
     "@lottiefiles/lottie-player": "^2.0.4",
     "@nuxt/content": "^2.12.1",
+    "@nuxtjs/seo": "^2.0.0-rc.10",
     "@vueuse/core": "^10.9.0",
     "@vueuse/motion": "^2.1.0",
     "@vueuse/nuxt": "^10.9.0",

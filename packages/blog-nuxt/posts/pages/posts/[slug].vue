@@ -10,7 +10,7 @@ const { data } = await useAsyncData(() =>
 );
 
 useHead({
-  title: `vorant94 | ${data.value!.title}`,
+  title: data.value!.title,
 });
 </script>
 

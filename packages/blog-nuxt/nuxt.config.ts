@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     // make sure to add before content!
     'nuxt-content-assets',
     '@nuxt/content',
+    '@nuxtjs/seo',
   ],
   extends: ['./ui', './home', './projects', './posts'],
   devtools: { enabled: true },
@@ -78,6 +79,12 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+  site: {
+    url: 'https://www.vorant94.io',
+    name: `vorant94's Digital Garden`,
+    description: 'My personal piece of the Internet',
+    defaultLocale: 'en',
   },
   hooks: {
     close(nuxt) {

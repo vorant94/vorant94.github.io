@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { compareDesc, format } from 'date-fns';
+import { format } from 'date-fns';
 import { PublishedAtFormat } from '~/utils/published-at-format';
 import { groupBy } from 'lodash-es';
 import type { PostModel } from '~/posts/utils/post.model';
 
 useHead({
-  title: `vorant94 | Posts`,
+  title: `Posts`,
 });
 
 const { data } = await useAsyncData(() =>
