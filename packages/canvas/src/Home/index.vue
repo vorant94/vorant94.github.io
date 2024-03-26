@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { routeToName } from '@/Home/index.meta.ts';
+import { routeToName } from './index.meta.ts';
 import CenteredLayout from '@/shared/layouts/CenteredLayout/index.vue';
 </script>
 

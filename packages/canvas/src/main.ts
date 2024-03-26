@@ -1,7 +1,7 @@
 import './index.css';
 
 import DigitalGarden from '@/DigitalGarden/index.vue';
-import { IndexMeta, routeToName } from '@/Home/index.meta.ts';
+import { Route, routeToName } from '@/Home/index.meta.ts';
 import Home from '@/Home/index.vue';
 import ThoughtsOnModernFrameworkFeatures from '@/ThoughtsOnModernFrameworkFeatures/index.vue';
 import TypescriptMonoreposAreAMess from '@/TypescriptMonoreposAreAMess/index.vue';
@@ -16,23 +16,23 @@ app.use(
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
       {
-        path: IndexMeta.HOME,
-        name: routeToName[IndexMeta.HOME],
+        path: Route.HOME,
+        name: routeToName[Route.HOME],
         component: Home,
       },
       {
-        path: IndexMeta.TYPESCRIPT_MONOREPOS_ARE_A_MESS,
-        name: routeToName[IndexMeta.TYPESCRIPT_MONOREPOS_ARE_A_MESS],
+        path: Route.TYPESCRIPT_MONOREPOS_ARE_A_MESS,
+        name: routeToName[Route.TYPESCRIPT_MONOREPOS_ARE_A_MESS],
         component: TypescriptMonoreposAreAMess,
       },
       {
-        path: IndexMeta.THOUGHTS_ON_MODERN_FRAMEWORK_FEATURES,
-        name: routeToName[IndexMeta.THOUGHTS_ON_MODERN_FRAMEWORK_FEATURES],
+        path: Route.THOUGHTS_ON_MODERN_FRAMEWORK_FEATURES,
+        name: routeToName[Route.THOUGHTS_ON_MODERN_FRAMEWORK_FEATURES],
         component: ThoughtsOnModernFrameworkFeatures,
       },
       {
-        path: IndexMeta.DIGITAL_GARDEN,
-        name: routeToName[IndexMeta.DIGITAL_GARDEN],
+        path: Route.DIGITAL_GARDEN,
+        name: routeToName[Route.DIGITAL_GARDEN],
         component: DigitalGarden,
       },
     ],
