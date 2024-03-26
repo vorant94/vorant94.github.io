@@ -6,12 +6,12 @@
     "dev": "concurrently \"yarn:dev:*\"",
     "dev:generate:template": "tsx watch --clear-screen=false src/main.tsx",
     "dev:generate:style": "postcss src/style.css --watch -o .output/assets/style.css",
-    "dev:live-reload": "livereload .output",
-    "dev:serve": "live-server .output --port=3000 --no-browser",
+    "dev:serve": "vite",
     "build": "concurrently \"yarn:build:*\"",
     "build:generate:template": "tsx src/main.tsx",
     "build:generate:style": "postcss src/style.css -o .output/assets/style.css",
-    "build:check": "tsc"
+    "build:check": "tsc",
+    "preview": "serve .output"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
@@ -23,8 +23,6 @@
     "cssnano": "^6.1.2",
     "dotenv": "^16.4.5",
     "fs-extra": "^11.2.0",
-    "live-server": "^1.2.2",
-    "livereload": "^0.9.3",
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.0",
@@ -32,10 +30,12 @@
     "postcss-nested": "^6.0.1",
     "preact": "^10.20.1",
     "preact-render-to-string": "^6.4.1",
+    "serve": "^14.2.1",
     "tailwind-merge": "^2.2.2",
     "tailwindcss": "^3.4.1",
     "tsx": "^4.7.1",
     "typescript": "^5.4.3",
+    "vite": "^5.2.6",
     "zod": "^3.22.4"
   }
 }

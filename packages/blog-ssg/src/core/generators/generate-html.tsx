@@ -1,4 +1,3 @@
-import { env } from '@/core/env.js';
 import fs from 'fs-extra';
 import path from 'node:path';
 import process from 'node:process';
@@ -16,16 +15,6 @@ export async function generateHtml(
   await fs.writeFile(
     path.resolve(process.cwd(), outputDir, filename),
     `<!doctype html>${renderToString(Page)}`,
-  );
-
-  // livereload is needed only during local development
-  if (env.CI) {
-    return;
-  }
-
-  await fs.appendFile(
-    path.resolve(process.cwd(), outputDir, filename),
-    `<script src="http://localhost:35729/livereload.js?snipver=1"></script>`,
   );
 }
 
