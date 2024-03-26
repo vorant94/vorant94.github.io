@@ -35,8 +35,7 @@
     /* Misc */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@digital-garden/components": ["../components/src/index.ts"]
+      "@/*": ["src/*"]
     }
   },
   "include": ["src"]

@@ -7,12 +7,9 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "vite": "vite",
-    "vue-tsc": "vue-tsc",
-    "codegen:web-types": "vue-docgen-web-types --configFile web-types.config.json",
-    "vue-docgen-web-types": "vue-docgen-web-types"
+    "vue-tsc": "vue-tsc"
   },
   "dependencies": {
-    "@digital-garden/components": "workspace:^",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
@@ -23,11 +20,10 @@
     "cssnano": "^6.1.0",
     "postcss": "^8.4.35",
     "postcss-load-config": "^5.0.3",
+    "postcss-nested": "^6.0.1",
     "tailwindcss": "^3.4.1",
     "typescript": "~5.4.2",
     "vite": "^5.1.6",
-    "vue-docgen-web-types": "^0.1.8",
     "vue-tsc": "^2.0.6"
-  },
-  "web-types": "./web-types.json"
+  }
 }

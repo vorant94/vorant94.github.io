@@ -8,10 +8,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-      '@digital-garden/components': new URL(
-        '../components/src/index.ts',
-        import.meta.url,
-      ).pathname,
     },
   },
 });

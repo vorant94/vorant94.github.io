@@ -1,18 +1,15 @@
 import './index.css';
 
-import DigitalGarden from '@/digital-garden/DigitalGarden.vue';
-import Home from '@/home/Home.vue';
-import { Route, routeToName } from '@/home/route.ts';
-import ThoughtsOnModernFrameworkFeatures from '@/thoughts-on-modern-framework-features/ThoughtsOnModernFrameworkFeatures.vue';
-import TypescriptMonoreposAreAMess from '@/typescript-monorepos-are-a-mess/TypescriptMonoreposAreAMess.vue';
-import components from '@digital-garden/components';
+import DigitalGarden from '@/DigitalGarden/index.vue';
+import { Route, routeToName } from '@/Home/index.meta.ts';
+import Home from '@/Home/index.vue';
+import ThoughtsOnModernFrameworkFeatures from '@/ThoughtsOnModernFrameworkFeatures/index.vue';
+import TypescriptMonoreposAreAMess from '@/TypescriptMonoreposAreAMess/index.vue';
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import App from './App.vue';
 
 const app = createApp(App);
-
-app.use(components);
 
 app.use(
   createRouter({
