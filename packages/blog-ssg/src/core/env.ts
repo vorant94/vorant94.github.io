@@ -1,16 +1,15 @@
 import dotenv from 'dotenv';
 import { z } from 'zod';
 
-const commonSchema = z.object({
+const common = z.object({
   OUTPUT_DIR: z.string().default('.output'),
 });
-const ciSchema = commonSchema.extend({
+const ci = common.extend({
   CI: z.coerce.boolean().pipe(z.literal(true)),
 });
-const localSchema = commonSchema.extend({
+const local = common.extend({
   CI: z.void(),
+  PORT: z.coerce.number().default(3000),
 });
 
-export const env = z
-  .union([ciSchema, localSchema])
-  .parse(dotenv.config().parsed);
+export const env = z.union([ci, local]).parse(dotenv.config().parsed);

@@ -6,7 +6,6 @@ import { env } from './src/core/env.js';
 export default defineConfig({
   root: path.resolve(process.cwd(), env.OUTPUT_DIR),
   server: {
-    port: 3000,
-    hmr: true,
+    port: env.PORT,
   },
 });
