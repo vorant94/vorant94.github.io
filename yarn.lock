@@ -573,6 +573,7 @@ __metadata:
     clsx: "npm:^2.1.0"
     concurrently: "npm:^8.2.2"
     cssnano: "npm:^6.1.2"
+    dotenv: "npm:^16.4.5"
     fs-extra: "npm:^11.2.0"
     live-server: "npm:^1.2.2"
     livereload: "npm:^0.9.3"

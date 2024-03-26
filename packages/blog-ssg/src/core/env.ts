@@ -1,4 +1,4 @@
-import process from 'node:process';
+import dotenv from 'dotenv';
 import { z } from 'zod';
 
 const ciSchema = z.object({
@@ -8,4 +8,6 @@ const localSchema = z.object({
   CI: z.void(),
 });
 
-export const env = z.union([ciSchema, localSchema]).parse(process.env);
+export const env = z
+  .union([ciSchema, localSchema])
+  .parse(dotenv.config().parsed);

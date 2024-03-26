@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"yarn:dev:*\"",
-    "dev:generate:template": "tsx watch --clear-screen=false --env-file=.env src/main.tsx",
+    "dev:generate:template": "tsx watch --clear-screen=false src/main.tsx",
     "dev:generate:style": "postcss src/style.css --watch -o .output/assets/style.css",
     "dev:live-reload": "livereload .output",
     "dev:serve": "live-server .output --port=3000 --no-browser",
     "build": "concurrently \"yarn:build:*\"",
-    "build:generate:template": "tsx --env-file=.env src/main.tsx",
+    "build:generate:template": "tsx src/main.tsx",
     "build:generate:style": "postcss src/style.css -o .output/assets/style.css",
     "build:check": "tsc"
   },
@@ -21,6 +21,7 @@
     "clsx": "^2.1.0",
     "concurrently": "^8.2.2",
     "cssnano": "^6.1.2",
+    "dotenv": "^16.4.5",
     "fs-extra": "^11.2.0",
     "live-server": "^1.2.2",
     "livereload": "^0.9.3",
