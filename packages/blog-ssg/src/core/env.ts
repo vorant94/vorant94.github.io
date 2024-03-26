@@ -1,10 +1,13 @@
 import dotenv from 'dotenv';
 import { z } from 'zod';
 
-const ciSchema = z.object({
+const commonSchema = z.object({
+  OUTPUT_DIR: z.string().default('.output'),
+});
+const ciSchema = commonSchema.extend({
   CI: z.coerce.boolean().pipe(z.literal(true)),
 });
-const localSchema = z.object({
+const localSchema = commonSchema.extend({
   CI: z.void(),
 });
 

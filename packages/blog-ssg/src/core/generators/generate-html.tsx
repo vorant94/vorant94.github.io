@@ -1,3 +1,4 @@
+import { env } from '@/core/env.js';
 import fs from 'fs-extra';
 import path from 'node:path';
 import process from 'node:process';
@@ -10,12 +11,10 @@ export async function generateHtml(
 ): Promise<void> {
   filename += '.html';
 
-  await fs.ensureDir(path.resolve(process.cwd(), outputDir));
+  await fs.ensureDir(path.resolve(process.cwd(), env.OUTPUT_DIR));
 
   await fs.writeFile(
-    path.resolve(process.cwd(), outputDir, filename),
+    path.resolve(process.cwd(), env.OUTPUT_DIR, filename),
     `<!doctype html>${renderToString(Page)}`,
   );
 }
-
-const outputDir = '.output';
