@@ -5,6 +5,7 @@ import tsLogoDark from './ts-logo-dark.svg';
 import tsLogo from './ts-logo.svg';
 import yarnLogoDark from './yarn-logo-dark.svg';
 import yarnLogo from './yarn-logo.svg';
+import CenteredLayout from '@/shared/layouts/CenteredLayout/index.vue';
 
 // bg-zinc-100 -> #f4f4f5
 // bg-zinc-900 -> #18181b
