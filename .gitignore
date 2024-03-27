@@ -13,6 +13,9 @@
 **/blob-report/
 **/playwright/.cache/
 
+packages/blog-ssg/public/assets/style.css
+packages/blog-ssg/public/assets/main.js
+
 packages/blog/src/content/.obsidian
 packages/blog/src/content/templates
 

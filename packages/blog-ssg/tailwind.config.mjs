@@ -1,13 +1,11 @@
-const plugin = require('tailwindcss/plugin');
+import typography from '@tailwindcss/typography';
+import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ['./src/**/*.{ts,tsx}'],
-  theme: {
-    extend: {},
-  },
   plugins: [
-    require('@tailwindcss/typography'),
+    typography,
     plugin(function ({ addVariant }) {
       addVariant('hover', [
         '@media (hover: hover) { &:hover }',

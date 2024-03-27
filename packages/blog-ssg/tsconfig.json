@@ -29,19 +29,20 @@
     /* Bundler/Compiler */
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "noEmit": true,
+    "rootDir": "src",
+    "outDir": "dist",
 
     /* Runtime/Framework */
     "types": ["node"],
     "jsx": "react-jsx",
-    "jsxImportSource": "preact",
-    "allowImportingTsExtensions": true,
 
     /* Misc */
+    "plugins": [{ "transform": "typescript-transform-paths" }],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/client.ts"]
 }
