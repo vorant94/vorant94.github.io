@@ -1,5 +1,5 @@
 import { cn } from '@/core/cn.js';
-import type { FC, PropsWithChildren, ReactNode } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { Link, type LinkProps } from '../../components/link/index.js';
 
 export const DefaultLayoutNavLink: FC<PropsWithChildren<NavLinkProps>> =
@@ -22,21 +22,3 @@ export const DefaultLayoutNavLink: FC<PropsWithChildren<NavLinkProps>> =
   };
 
 export interface NavLinkProps extends LinkProps {}
-
-export const navLinks: ReactNode[] = [
-  <DefaultLayoutNavLink
-    key="about"
-    href="/about">
-    👨‍💻 About
-  </DefaultLayoutNavLink>,
-  <DefaultLayoutNavLink
-    key="posts"
-    href="/posts">
-    ✏️ Posts
-  </DefaultLayoutNavLink>,
-  <DefaultLayoutNavLink
-    key="projects"
-    href="/projects">
-    🏗️ Projects
-  </DefaultLayoutNavLink>,
-];

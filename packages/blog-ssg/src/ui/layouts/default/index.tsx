@@ -1,10 +1,9 @@
 import { cn } from '@/core/cn.js';
 import type { FC, PropsWithChildren } from 'react';
 import { Background } from '../../components/background/index.js';
-import { DefaultLayoutDesktopNav } from './desktop-nav.js';
 import { DefaultLayoutFooter } from './footer.js';
 import { DefaultLayoutHeader } from './header.js';
-import { DefaultLayoutMobileNav } from './mobile-nav.js';
+import { DefaultLayoutNav } from './nav.js';
 
 export const DefaultLayout: FC<PropsWithChildren<DefaultLayoutProps>> =
   function ({ title, children }) {
@@ -51,7 +50,7 @@ export const DefaultLayout: FC<PropsWithChildren<DefaultLayoutProps>> =
           <Background />
 
           <DefaultLayoutHeader>
-            <DefaultLayoutDesktopNav />
+            <DefaultLayoutNav />
           </DefaultLayoutHeader>
 
           <main className={cn('flex flex-1 flex-col gap-2 px-4 py-8')}>
@@ -59,8 +58,6 @@ export const DefaultLayout: FC<PropsWithChildren<DefaultLayoutProps>> =
           </main>
 
           <DefaultLayoutFooter />
-
-          <DefaultLayoutMobileNav />
         </body>
       </html>
     );

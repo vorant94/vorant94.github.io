@@ -2,30 +2,7 @@ import '@fortawesome/fontawesome-free/css/brands.css';
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/solid.css';
 import Alpine from 'alpinejs';
-
 import './style.css';
-
-document.addEventListener('alpine:init', function () {
-  Alpine.store('mobileNav', {
-    isOpen: false,
-    toggle() {
-      this.isOpen = !this.isOpen;
-    },
-  });
-});
-
-window.addEventListener('resize', function () {
-  const width = document.documentElement.clientWidth;
-  const mobileNav = Alpine.store('mobileNav');
-  if (width < 1024 || !mobileNav.isOpen) {
-    return;
-  }
-
-  Alpine.store('mobileNav').toggle();
-});
-
-window.Alpine = Alpine;
-Alpine.start();
 
 declare global {
   interface Window {
@@ -34,12 +11,38 @@ declare global {
 }
 
 declare module 'alpinejs' {
-  interface MobileNavStore {
-    isOpen: boolean;
-    toggle(): void;
+  interface DefaultLayoutStore {
+    isMobileNavOpen: boolean;
+    closeMobileNav(): void;
+    openMobileNav(): void;
   }
 
   interface Stores {
-    mobileNav: MobileNavStore;
+    defaultLayout: DefaultLayoutStore;
   }
 }
+
+document.addEventListener('alpine:init', function () {
+  Alpine.store('defaultLayout', {
+    isMobileNavOpen: false,
+    closeMobileNav() {
+      this.isMobileNavOpen = false;
+    },
+    openMobileNav() {
+      this.isMobileNavOpen = true;
+    },
+  });
+});
+
+window.addEventListener('resize', function () {
+  const width = document.documentElement.clientWidth;
+  const defaultLayout = Alpine.store('defaultLayout');
+  if (width < 1024 || !defaultLayout.isMobileNavOpen) {
+    return;
+  }
+
+  Alpine.store('defaultLayout').closeMobileNav();
+});
+
+window.Alpine = Alpine;
+Alpine.start();
