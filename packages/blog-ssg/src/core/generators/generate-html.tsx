@@ -9,12 +9,10 @@ export async function generateHtml(
   Page: VNode,
   filename: string,
 ): Promise<void> {
-  filename += '.html';
-
   await fs.ensureDir(path.resolve(process.cwd(), env.OUTPUT_DIR));
 
   await fs.writeFile(
-    path.resolve(process.cwd(), env.OUTPUT_DIR, filename),
+    path.resolve(process.cwd(), env.OUTPUT_DIR, `${filename}.html`),
     `<!doctype html>${renderToString(Page)}`,
   );
 }

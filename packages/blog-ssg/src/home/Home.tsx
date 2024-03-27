@@ -1,5 +1,5 @@
 import { cn } from '@/core/cn.js';
-import { DefaultLayout } from '@/ui/layouts/DefaultLayout.js';
+import { DefaultLayout } from '@/ui/layouts/DefaultLayout/index.js';
 import type { FunctionComponent } from 'preact';
 
 export const Home: FunctionComponent<HomeProps> = function () {
