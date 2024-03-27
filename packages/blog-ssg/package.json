@@ -9,12 +9,13 @@
     "dev:server": "tsx watch --clear-screen=false src/server.tsx",
     "dev:client": "vite build --watch",
     "build": "concurrently \"yarn:build:*\"",
-    "build:server": "shx rm -rf dist tspc",
+    "build:server": "shx rm -rf dist && tspc",
     "build:client": "vite build"
   },
   "dependencies": {
     "@fastify/static": "^7.0.1",
     "@fortawesome/fontawesome-free": "^6.5.1",
+    "alpinejs": "^3.13.7",
     "clsx": "^2.1.0",
     "dotenv": "^16.4.5",
     "fastify": "^4.26.2",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "@types/alpinejs": "^3.13.10",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.11.30",
     "autoprefixer": "^10.4.19",

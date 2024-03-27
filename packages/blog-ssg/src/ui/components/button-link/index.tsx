@@ -5,17 +5,16 @@ export const ButtonLink: FC<PropsWithChildren<ButtonLinkProps>> = function ({
   children,
   variant = 'default',
   size = 'md',
+  className,
   ...rest
 }) {
   return (
     <a
       className={cn(
         'p-1 hover:text-cyan-500',
-        {
-          'border rounded-2xl hover:outline outline-cyan-500 hover:border-cyan-500':
-            variant === 'outlined',
-        },
+        buttonLinkVariantToStyle[variant],
         buttonLinkSizeToStyles[size],
+        className,
       )}
       {...rest}>
       {children}
@@ -30,6 +29,11 @@ export interface ButtonLinkProps extends ComponentPropsWithoutRef<'a'> {
 
 export const buttonLinkVariants = ['default', 'outlined'] as const;
 export type ButtonLinkVariant = (typeof buttonLinkVariants)[number];
+const buttonLinkVariantToStyle = {
+  default: '',
+  outlined:
+    'border rounded-2xl hover:outline outline-cyan-500 hover:border-cyan-500',
+} as const satisfies Record<ButtonLinkVariant, string>;
 
 export const buttonLinkSizes = ['md', 'sm'] as const;
 export type ButtonLinkSize = (typeof buttonLinkSizes)[number];

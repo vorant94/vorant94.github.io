@@ -1,8 +1,8 @@
-import { ButtonLink } from '@/ui/components/ButtonLink/index.js';
-import { Icon } from '@/ui/components/Icon/index.js';
 import type { FunctionComponent } from 'react';
+import { ButtonLink } from '../../components/button-link/index.js';
+import { Icon } from '../../components/icon/index.js';
 
-export const Footer: FunctionComponent<FooterProps> = function () {
+export const DefaultLayoutFooter: FunctionComponent<FooterProps> = function () {
   return (
     <footer className="flex gap-1 items-center p-4 border-t border-slate-300 dark:border-slate-600 text-slate-500">
       {/* TODO replace with Text */}
