@@ -1,8 +1,8 @@
 import { cn } from '@/core/cn.js';
-import { DefaultLayoutHeader } from '@/ui/layouts/default/header.js';
-import type { FC, ReactNode } from 'react';
+import type { FC } from 'react';
 import { Button } from '../../components/button/index.js';
 import { Icon } from '../../components/icon/index.js';
+import { DefaultLayoutHeader } from './header.js';
 import { DefaultLayoutNavLink } from './nav-link.js';
 
 export const DefaultLayoutNav: FC = function () {
@@ -52,20 +52,16 @@ export const DefaultLayoutNav: FC = function () {
   );
 };
 
-const navLinks: ReactNode[] = [
+const navLinksMeta = [
+  { label: '👨‍💻 About', url: '/about' },
+  { label: '✏️ Posts', url: '/posts' },
+  { label: '🏗️ Projects', url: '/projects' },
+] as const;
+
+const navLinks = navLinksMeta.map((navLink) => (
   <DefaultLayoutNavLink
-    key="about"
-    href="/about">
-    👨‍💻 About
-  </DefaultLayoutNavLink>,
-  <DefaultLayoutNavLink
-    key="posts"
-    href="/posts">
-    ✏️ Posts
-  </DefaultLayoutNavLink>,
-  <DefaultLayoutNavLink
-    key="projects"
-    href="/projects">
-    🏗️ Projects
-  </DefaultLayoutNavLink>,
-];
+    key={navLink.url}
+    href={navLink.url}>
+    {navLink.label}
+  </DefaultLayoutNavLink>
+));

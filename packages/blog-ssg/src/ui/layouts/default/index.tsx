@@ -22,13 +22,13 @@ export const DefaultLayout: FC<PropsWithChildren<DefaultLayoutProps>> =
           <link
             rel="icon"
             type="image/svg+xml"
-            href="/favicon-dark.ico"
+            href="/ui/images/favicon-dark.ico"
             media="(prefers-color-scheme: dark)"
           />
           <link
             rel="icon"
             type="image/svg+xml"
-            href="/favicon.ico"
+            href="/ui/images/favicon.ico"
             media="(prefers-color-scheme: light)"
           />
 
@@ -36,11 +36,11 @@ export const DefaultLayout: FC<PropsWithChildren<DefaultLayoutProps>> =
 
           <link
             rel="stylesheet"
-            href="/assets/style.css"
+            href="/style.css"
           />
           <script
             type="module"
-            src="/assets/main.js"
+            src="/main.js"
             defer></script>
         </head>
         <body

@@ -5,7 +5,7 @@ import process from 'node:process';
 export default {
   publicDir: false,
   build: {
-    outDir: 'public/assets',
+    outDir: 'public',
     lib: {
       entry: path.resolve(process.cwd(), 'src/client.ts'),
       fileName: 'main',

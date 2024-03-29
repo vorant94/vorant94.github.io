@@ -576,6 +576,7 @@ __metadata:
     autoprefixer: "npm:^10.4.19"
     clsx: "npm:^2.1.0"
     concurrently: "npm:^8.2.2"
+    consola: "npm:^3.2.3"
     cssnano: "npm:^6.1.2"
     dotenv: "npm:^16.4.5"
     fastify: "npm:^4.26.2"
@@ -4128,6 +4129,13 @@ __metadata:
     conc: dist/bin/concurrently.js
     concurrently: dist/bin/concurrently.js
   checksum: 10c0/0e9683196fe9c071d944345d21d8f34aa6c0cc50c0dd897e95619f2f1c9eb4871dca851b2569da17888235b7335b4c821ca19deed35bebcd9a131ee5d247f34c
+  languageName: node
+  linkType: hard
+
+"consola@npm:^3.2.3":
+  version: 3.2.3
+  resolution: "consola@npm:3.2.3"
+  checksum: 10c0/c606220524ec88a05bb1baf557e9e0e04a0c08a9c35d7a08652d99de195c4ddcb6572040a7df57a18ff38bbc13ce9880ad032d56630cef27bef72768ef0ac078
   languageName: node
   linkType: hard
 
