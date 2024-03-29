@@ -1,6 +1,6 @@
 import { env, isCiEnv } from '@/core/env.js';
-import { homePlugin } from '@/home/index.js';
-import { uiPlugin } from '@/ui/index.js';
+import { homeModule } from '@/home/home.module.js';
+import { uiPlugin } from '@/ui/ui.module.js';
 import fastifyStatic from '@fastify/static';
 import consola from 'consola';
 import fastify from 'fastify';
@@ -22,7 +22,7 @@ app.register(fastifyStatic, {
 });
 
 await app.register(uiPlugin);
-await app.register(homePlugin);
+await app.register(homeModule);
 
 app.listen({ port: env.PORT }, (err, address) => {
   if (err) {

@@ -1,8 +1,8 @@
 import { cn } from '@/core/cn.js';
-import { Divider } from '@/ui/components/divider/index.js';
-import { Link } from '@/ui/components/link/index.js';
-import { Text } from '@/ui/components/text/index.js';
-import { Title } from '@/ui/components/title/index.js';
+import { Divider } from '@/ui/components/Divider.js';
+import { Link } from '@/ui/components/Link.js';
+import { Text } from '@/ui/components/Text.js';
+import { Title } from '@/ui/components/Title.js';
 import type { FC } from 'react';
 
 export const StayUpToDate: FC = function () {

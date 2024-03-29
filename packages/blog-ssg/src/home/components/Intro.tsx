@@ -1,7 +1,7 @@
 import { cn } from '@/core/cn.js';
-import { StandOut } from '@/ui/components/stand-out/index.js';
-import { Text } from '@/ui/components/text/index.js';
-import { ThemedImage } from '@/ui/components/themed-image/index.js';
+import { StandOut } from '@/ui/components/StandOut.js';
+import { Text } from '@/ui/components/Text.js';
+import { ThemedImage } from '@/ui/components/ThemedImage.js';
 import type { FC } from 'react';
 
 export const Intro: FC = function () {
@@ -9,8 +9,8 @@ export const Intro: FC = function () {
     <StandOut className="items-center dark:!border-2 dark:!rounded-lg dark:!border-sky-200 dark:rotate-3 dark:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_rgb(6,182,255),0_0_15px_rgb(6,182,255),0_0_30px_rgb(6,182,255)]">
       <div className="hidden lg:block shrink-0">
         <ThemedImage
-          src="/home/images/intro-logo.webp"
-          srcDark="/home/images/intro-logo-dark.webp"
+          src="/home/intro-logo.webp"
+          srcDark="/home/intro-logo-dark.webp"
           alt="Logo"
           width="80"
         />

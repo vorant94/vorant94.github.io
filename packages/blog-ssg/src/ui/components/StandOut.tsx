@@ -1,6 +1,6 @@
 import { cn } from '@/core/cn.js';
 import type { FC, PropsWithChildren } from 'react';
-import { Card, type CardProps } from '../card/index.js';
+import { Card, type CardProps } from './Card.js';
 
 export const StandOut: FC<PropsWithChildren<StandOutProps>> = function ({
   className,

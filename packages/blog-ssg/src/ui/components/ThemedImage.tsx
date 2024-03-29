@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, FC } from 'react';
 
-// in some cases you must set both height and width or prefer width over height because of this tailwindcss default
+// in some cases you must set both height and width or prefer width over height because of this tailwindcss DefaultLayout
 // https://github.com/tailwindlabs/tailwindcss/issues/506
 export const ThemedImage: FC<ThemedImageProps> = function ({
   src,

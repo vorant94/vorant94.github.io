@@ -1,8 +1,8 @@
 import { cn } from '@/core/cn.js';
-import { ButtonLink } from '@/ui/components/button-link/index.js';
-import { Divider } from '@/ui/components/divider/index.js';
-import { Icon } from '@/ui/components/icon/index.js';
-import { Title } from '@/ui/components/title/index.js';
+import { ButtonLink } from '@/ui/components/ButtonLink.js';
+import { Divider } from '@/ui/components/Divider.js';
+import { Icon } from '@/ui/components/Icon.js';
+import { Title } from '@/ui/components/Title.js';
 import type { FC, ReactNode } from 'react';
 
 export const SocialLinks: FC = function () {

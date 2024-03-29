@@ -5,7 +5,7 @@ import type {
   PropsWithChildren,
   ReactElement,
 } from 'react';
-import type { CardOverlay } from './overlay.js';
+import type { CardOverlay } from './CardOverlay.js';
 
 export const Card: FC<PropsWithChildren<CardProps>> = function ({
   children,

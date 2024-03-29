@@ -1,16 +1,12 @@
 import { cn } from '@/core/cn.js';
-import type {
-  ComponentPropsWithoutRef,
-  PropsWithChildren,
-  ReactElement,
-} from 'react';
+import type { ComponentPropsWithoutRef, FC, PropsWithChildren } from 'react';
 
-export function Text({
+export const Text: FC<PropsWithChildren<TextProps>> = function ({
   children,
   base,
   className,
   ...rest
-}: PropsWithChildren<TextProps>): ReactElement {
+}) {
   const Base = base;
 
   return (
@@ -24,7 +20,7 @@ export function Text({
       {children}
     </Base>
   );
-}
+};
 
 export interface TextProps extends ComponentPropsWithoutRef<'span'> {
   base: TextBase;
