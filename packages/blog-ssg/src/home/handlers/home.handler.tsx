@@ -7,7 +7,7 @@ export const homeHandler: FastifyPluginAsync = async function (app) {
   app.get('/', async (_, reply) => {
     reply.type('text/html');
     return render(
-      <DefaultLayout title={`vorant94's Digital Garden`}>
+      <DefaultLayout>
         <Intro />
       </DefaultLayout>,
     );

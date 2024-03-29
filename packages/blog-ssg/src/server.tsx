@@ -1,5 +1,7 @@
 import { env, isCiEnv } from '@/core/env.js';
 import { homeModule } from '@/home/home.module.js';
+import { postsModule } from '@/posts/posts.module.js';
+import { projectsModule } from '@/projects/projects.module.js';
 import { uiPlugin } from '@/ui/ui.module.js';
 import fastifyStatic from '@fastify/static';
 import consola from 'consola';
@@ -21,8 +23,12 @@ app.register(fastifyStatic, {
   root: path.resolve(process.cwd(), 'public'),
 });
 
-await app.register(uiPlugin);
-await app.register(homeModule);
+await Promise.all([
+  app.register(uiPlugin),
+  app.register(homeModule),
+  app.register(postsModule),
+  app.register(projectsModule),
+]);
 
 app.listen({ port: env.PORT }, (err, address) => {
   if (err) {

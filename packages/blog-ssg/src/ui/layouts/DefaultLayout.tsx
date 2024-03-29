@@ -9,6 +9,10 @@ import { ThemedImage } from '../components/ThemedImage.js';
 
 export const DefaultLayout: FC<PropsWithChildren<DefaultLayoutProps>> =
   function ({ title, children }) {
+    const fullTitle = title
+      ? `${title} | vorant94's Digital Garden`
+      : `vorant94's Digital Garden`;
+
     return (
       <html
         className={cn(`dark:[color-scheme:dark]`)}
@@ -34,7 +38,7 @@ export const DefaultLayout: FC<PropsWithChildren<DefaultLayoutProps>> =
             media="(prefers-color-scheme: light)"
           />
 
-          <title>{title}</title>
+          <title>{fullTitle}</title>
 
           <link
             rel="stylesheet"
@@ -66,7 +70,7 @@ export const DefaultLayout: FC<PropsWithChildren<DefaultLayoutProps>> =
   };
 
 export interface DefaultLayoutProps {
-  title: string;
+  title?: string;
 }
 
 const Header: FC<PropsWithChildren> = function ({ children }) {
