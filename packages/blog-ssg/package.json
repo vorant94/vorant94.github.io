@@ -4,13 +4,14 @@
   "private": true,
   "main": "dist/server.js",
   "scripts": {
-    "start": "node .",
-    "dev": "concurrently \"yarn:dev:*\"",
-    "dev:server": "tsx watch --clear-screen=false src/server.tsx",
-    "dev:client": "vite build --watch",
+    "watch": "concurrently \"yarn:watch:*\"",
+    "watch:client": "vite build --watch",
+    "watch:server": "tspc --watch",
+    "dev:start": "node --watch .",
     "build": "concurrently \"yarn:build:*\"",
+    "build:client": "vite build",
     "build:server": "shx rm -rf dist && tspc",
-    "build:client": "vite build"
+    "prod:start": "node ."
   },
   "dependencies": {
     "@fastify/static": "^7.0.1",
@@ -30,7 +31,9 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.0",
     "rss": "^1.2.2",
+    "source-map-support": "^0.5.21",
     "to-vfile": "^8.0.0",
+    "tsconfig-paths": "^4.2.0",
     "unified": "^11.0.4",
     "vfile": "^6.0.1",
     "vfile-matter": "^5.0.0",
@@ -42,6 +45,7 @@
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.11.30",
     "@types/rss": "^0.0.32",
+    "@types/source-map-support": "^0.5.10",
     "autoprefixer": "^10.4.19",
     "concurrently": "^8.2.2",
     "cssnano": "^6.1.2",
@@ -52,7 +56,6 @@
     "tailwind-merge": "^2.2.2",
     "tailwindcss": "^3.4.1",
     "ts-patch": "^3.1.2",
-    "tsx": "^4.7.1",
     "typescript": "^5.4.3",
     "typescript-transform-paths": "^3.4.7",
     "vite": "^5.2.6"

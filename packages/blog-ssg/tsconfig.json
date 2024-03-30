@@ -31,6 +31,8 @@
     "moduleResolution": "NodeNext",
     "rootDir": "src",
     "outDir": "dist",
+    "sourceMap": true,
+    "preserveWatchOutput": true,
 
     /* Runtime/Framework */
     "types": ["node"],

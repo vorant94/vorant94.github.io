@@ -8,6 +8,7 @@ import consola from 'consola';
 import fastify from 'fastify';
 import path from 'node:path';
 import process from 'node:process';
+import 'source-map-support/register.js';
 
 consola.start('Starting server...');
 
