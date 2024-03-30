@@ -35,7 +35,7 @@
     "preserveWatchOutput": true,
 
     /* Runtime/Framework */
-    "types": ["node"],
+    "types": ["node", "@total-typescript/ts-reset"],
     "jsx": "react-jsx",
 
     /* Misc */

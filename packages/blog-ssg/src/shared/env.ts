@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+import process from 'node:process';
 import { z } from 'zod';
 
 const base = z.object({
@@ -13,7 +13,7 @@ const local = base.extend({
 });
 const envSchema = z.union([ci, local]);
 
-export const env = envSchema.parse(dotenv.config().parsed);
+export const env = envSchema.parse(process.env);
 
 export function isCiEnv(
   env: z.infer<typeof envSchema>,
