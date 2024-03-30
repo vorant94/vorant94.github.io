@@ -42,11 +42,11 @@ export const DefaultLayout: FC<PropsWithChildren<DefaultLayoutProps>> =
 
           <link
             rel="stylesheet"
-            href="/style.css"
+            href="/client/style.css"
           />
           <script
             type="module"
-            src="/main.js"
+            src="/client/main.js"
             defer></script>
         </head>
         <body
