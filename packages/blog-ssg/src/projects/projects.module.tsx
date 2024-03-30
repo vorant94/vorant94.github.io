@@ -8,13 +8,13 @@ import { projectHandler } from './handlers/project.handler.js';
 import { projectsHandler } from './handlers/projects.handler.js';
 
 export const projectsModule: FastifyPluginAsync = async function (app) {
-  app.register(fastifyStatic, {
-    root: path.resolve(process.cwd(), 'src/home/assets'),
+  await app.register(fastifyStatic, {
+    root: path.resolve(process.cwd(), 'src/projects/assets'),
     prefix: '/projects/',
   });
 
-  app.register(projectsHandler);
-  app.register(projectHandler);
-  app.register(projectChangelogsHandler);
-  app.register(projectChangelogHandler);
+  await app.register(projectsHandler);
+  await app.register(projectHandler);
+  await app.register(projectChangelogsHandler);
+  await app.register(projectChangelogHandler);
 };

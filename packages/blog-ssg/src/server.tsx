@@ -2,7 +2,7 @@ import { env, isCiEnv } from '@/core/env.js';
 import { homeModule } from '@/home/home.module.js';
 import { postsModule } from '@/posts/posts.module.js';
 import { projectsModule } from '@/projects/projects.module.js';
-import { uiPlugin } from '@/ui/ui.module.js';
+import { uiModule } from '@/ui/ui.module.js';
 import fastifyStatic from '@fastify/static';
 import consola from 'consola';
 import fastify from 'fastify';
@@ -17,18 +17,18 @@ if (isCiEnv(env)) {
   throw err;
 }
 
-const app = fastify();
+const app = fastify({
+  ignoreTrailingSlash: true,
+});
 
-app.register(fastifyStatic, {
+await app.register(fastifyStatic, {
   root: path.resolve(process.cwd(), 'public'),
 });
 
-await Promise.all([
-  app.register(uiPlugin),
-  app.register(homeModule),
-  app.register(postsModule),
-  app.register(projectsModule),
-]);
+await app.register(uiModule);
+await app.register(homeModule);
+await app.register(postsModule);
+await app.register(projectsModule);
 
 app.listen({ port: env.PORT }, (err, address) => {
   if (err) {

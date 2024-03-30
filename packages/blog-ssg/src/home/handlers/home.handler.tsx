@@ -5,11 +5,12 @@ import type { FastifyPluginAsync } from 'fastify';
 
 export const homeHandler: FastifyPluginAsync = async function (app) {
   app.get('/', async (_, reply) => {
-    reply.type('text/html');
-    return render(
-      <DefaultLayout>
-        <Intro />
-      </DefaultLayout>,
+    return reply.type('text/html').send(
+      render(
+        <DefaultLayout>
+          <Intro />
+        </DefaultLayout>,
+      ),
     );
   });
 };

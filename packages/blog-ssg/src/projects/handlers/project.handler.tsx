@@ -6,10 +6,15 @@ export const projectHandler: FastifyPluginAsync = async function (app) {
   app.get<{ Params: { slug: string } }>(
     '/projects/:slug',
     async (request, reply) => {
-      reply.type('text/html');
-      return render(
-        <DefaultLayout title={`Projects`}>{request.params.slug}</DefaultLayout>,
-      );
+      return reply
+        .type('text/html')
+        .send(
+          render(
+            <DefaultLayout title={`Projects`}>
+              {request.params.slug}
+            </DefaultLayout>,
+          ),
+        );
     },
   );
 };

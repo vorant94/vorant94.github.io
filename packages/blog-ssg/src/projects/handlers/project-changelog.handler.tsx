@@ -8,11 +8,12 @@ export const projectChangelogHandler: FastifyPluginAsync = async function (
   app.get<{ Params: { slug: string; version: string } }>(
     '/projects/:slug/changelogs/:version',
     async (request, reply) => {
-      reply.type('text/html');
-      return render(
-        <DefaultLayout>
-          {request.params.slug} {request.params.version} changelogs
-        </DefaultLayout>,
+      return reply.type('text/html').send(
+        render(
+          <DefaultLayout>
+            {request.params.slug} {request.params.version} changelogs
+          </DefaultLayout>,
+        ),
       );
     },
   );

@@ -6,8 +6,9 @@ export const postHandler: FastifyPluginAsync = async function (app) {
   app.get<{ Params: { slug: string } }>(
     '/posts/:slug',
     async (request, reply) => {
-      reply.type('text/html');
-      return render(<DefaultLayout>{request.params.slug}</DefaultLayout>);
+      return reply
+        .type('text/html')
+        .send(render(<DefaultLayout>{request.params.slug}</DefaultLayout>));
     },
   );
 };

@@ -4,7 +4,8 @@ import type { FastifyPluginAsync } from 'fastify';
 
 export const projectsHandler: FastifyPluginAsync = async function (app) {
   app.get('/projects', async (_, reply) => {
-    reply.type('text/html');
-    return render(<DefaultLayout title={`Projects`}>projects</DefaultLayout>);
+    return reply
+      .type('text/html')
+      .send(render(<DefaultLayout title={`Projects`}>projects</DefaultLayout>));
   });
 };

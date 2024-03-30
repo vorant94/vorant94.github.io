@@ -11,7 +11,6 @@ export const rssHandler: FastifyPluginAsync = async function (app) {
       language: 'en',
     });
 
-    reply.type('application/xml');
-    return rss.xml();
+    return reply.type('application/xml').send(rss.xml());
   });
 };

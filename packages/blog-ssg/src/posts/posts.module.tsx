@@ -6,11 +6,11 @@ import { postHandler } from './handlers/post.handler.js';
 import { postsHandler } from './handlers/posts.handler.js';
 
 export const postsModule: FastifyPluginAsync = async function (app) {
-  app.register(fastifyStatic, {
-    root: path.resolve(process.cwd(), 'src/home/assets'),
+  await app.register(fastifyStatic, {
+    root: path.resolve(process.cwd(), 'src/posts/assets'),
     prefix: '/posts/',
   });
 
-  app.register(postsHandler);
-  app.register(postHandler);
+  await app.register(postsHandler);
+  await app.register(postHandler);
 };
