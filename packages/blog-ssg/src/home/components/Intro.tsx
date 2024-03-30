@@ -1,4 +1,4 @@
-import { cn } from '@/core/cn.js';
+import { cn } from '@/shared/cn.js';
 import { StandOut } from '@/ui/components/StandOut.js';
 import { Text } from '@/ui/components/Text.js';
 import { ThemedImage } from '@/ui/components/ThemedImage.js';

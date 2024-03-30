@@ -1,4 +1,4 @@
-import { cn } from '@/core/cn.js';
+import { cn } from '@/shared/cn.js';
 import type { FC, PropsWithChildren } from 'react';
 
 export const Divider: FC<PropsWithChildren<DividerProps>> = function ({

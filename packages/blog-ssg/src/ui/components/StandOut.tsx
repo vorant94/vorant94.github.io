@@ -1,4 +1,4 @@
-import { cn } from '@/core/cn.js';
+import { cn } from '@/shared/cn.js';
 import type { FC, PropsWithChildren } from 'react';
 import { Card, type CardProps } from './Card.js';
 

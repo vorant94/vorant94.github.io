@@ -1,7 +1,7 @@
-import { env, isCiEnv } from '@/core/env.js';
 import { homeModule } from '@/home/home.module.js';
 import { postsModule } from '@/posts/posts.module.js';
 import { projectsModule } from '@/projects/projects.module.js';
+import { env, isCiEnv } from '@/shared/env.js';
 import { uiModule } from '@/ui/ui.module.js';
 import fastifyStatic from '@fastify/static';
 import consola from 'consola';

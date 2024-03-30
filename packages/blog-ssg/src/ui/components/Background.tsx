@@ -1,4 +1,4 @@
-import { cn } from '@/core/cn.js';
+import { cn } from '@/shared/cn.js';
 import { type FC } from 'react';
 
 export const Background: FC = function () {

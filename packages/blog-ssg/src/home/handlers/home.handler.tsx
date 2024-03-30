@@ -1,5 +1,5 @@
-import { render } from '@/core/render.js';
 import { Intro } from '@/home/components/Intro.js';
+import { render } from '@/shared/render.js';
 import { DefaultLayout } from '@/ui/layouts/DefaultLayout.js';
 import type { FastifyPluginAsync } from 'fastify';
 

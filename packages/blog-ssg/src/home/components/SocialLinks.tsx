@@ -1,4 +1,4 @@
-import { cn } from '@/core/cn.js';
+import { cn } from '@/shared/cn.js';
 import { ButtonLink } from '@/ui/components/ButtonLink.js';
 import { Divider } from '@/ui/components/Divider.js';
 import { Icon } from '@/ui/components/Icon.js';

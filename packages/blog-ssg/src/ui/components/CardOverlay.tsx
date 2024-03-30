@@ -1,4 +1,4 @@
-import { cn } from '@/core/cn.js';
+import { cn } from '@/shared/cn.js';
 import type { ComponentPropsWithoutRef, FC } from 'react';
 
 export const CardOverlay: FC<OverlayProps> = function ({ className, ...rest }) {

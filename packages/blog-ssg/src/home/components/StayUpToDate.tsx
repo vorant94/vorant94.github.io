@@ -1,4 +1,4 @@
-import { cn } from '@/core/cn.js';
+import { cn } from '@/shared/cn.js';
 import { Divider } from '@/ui/components/Divider.js';
 import { Link } from '@/ui/components/Link.js';
 import { Text } from '@/ui/components/Text.js';

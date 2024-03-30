@@ -1,23 +1,22 @@
 import dotenv from 'dotenv';
 import { z } from 'zod';
 
-const common = z.object({
-  OUTPUT_DIR: z.string().default('.output'),
+const base = z.object({
   NODE_ENV: z.enum(['development', 'production']).default('development'),
 });
-const ci = common.extend({
+const ci = base.extend({
   CI: z.coerce.boolean().pipe(z.literal(true)),
 });
-const local = common.extend({
+const local = base.extend({
   CI: z.void(),
   PORT: z.coerce.number().default(3000),
 });
-const united = z.union([ci, local]);
+const envSchema = z.union([ci, local]);
 
-export const env = united.parse(dotenv.config().parsed);
+export const env = envSchema.parse(dotenv.config().parsed);
 
 export function isCiEnv(
-  env: z.infer<typeof united>,
+  env: z.infer<typeof envSchema>,
 ): env is z.infer<typeof ci> {
   return 'CI' in env;
 }
