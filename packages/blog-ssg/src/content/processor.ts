@@ -21,7 +21,7 @@ const remarkContentSlug: Plugin = function () {
   };
 };
 
-export const contentProcessor = unified()
+export const processor = unified()
   .use(remarkParse) // parses the content itself
   .use(remarkFrontmatter) // adds support for yaml frontmatter so it is treated separately from other content
   .use(remarkFrontmatterParse) // parses frontmatter and attaches it as metadata
