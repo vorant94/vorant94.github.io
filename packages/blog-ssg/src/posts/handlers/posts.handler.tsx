@@ -1,4 +1,4 @@
-import { listContentFiles, resolveContentPath } from '@/content/path-utils.js';
+import { readContentDir, readContentFile } from '@/content/fs.js';
 import { processor } from '@/content/processor.js';
 import { PublishedAtFormat } from '@/shared/published-at-format.js';
 import { render } from '@/shared/render.js';
@@ -8,13 +8,12 @@ import { DefaultLayout } from '@/ui/layouts/DefaultLayout.js';
 import { compareDesc, format } from 'date-fns';
 import type { FastifyPluginAsync } from 'fastify';
 import { groupBy } from 'lodash-es';
-import { read } from 'to-vfile';
 import { postSchema, type PostModel } from '../models/post.model.js';
 
 export const postsHandler: FastifyPluginAsync = async function (app) {
   app.get('/posts', async (_, reply) => {
-    const postFiles = await listContentFiles('posts');
-    const posts = await parsePostFiles(postFiles);
+    const postFilePaths = await readContentDir('posts');
+    const posts = await readPostFiles(postFilePaths);
     const postsByPublishedAt = sortAndGroupPostsByPublishedAt(posts);
 
     const years = Object.keys(postsByPublishedAt).reverse();
@@ -45,10 +44,10 @@ export const postsHandler: FastifyPluginAsync = async function (app) {
   });
 };
 
-async function parsePostFiles(filePaths: string[]): Promise<PostModel[]> {
+async function readPostFiles(filePaths: string[]): Promise<PostModel[]> {
   return await Promise.all(
     filePaths.map(async (filePath) => {
-      const rawFile = await read(resolveContentPath(`posts/${filePath}`));
+      const rawFile = await readContentFile(filePath);
 
       const processedFile = await processor.process(rawFile);
 
