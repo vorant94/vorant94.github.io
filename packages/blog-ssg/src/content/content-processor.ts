@@ -21,10 +21,10 @@ const remarkContentSlug: Plugin = function () {
   };
 };
 
-export const processor = unified()
-  .use(remarkParse) // parses the markdown itself
+export const contentProcessor = unified()
+  .use(remarkParse) // parses the content itself
   .use(remarkFrontmatter) // adds support for yaml frontmatter so it is treated separately from other content
   .use(remarkFrontmatterParse) // parses frontmatter and attaches it as metadata
-  .use(remarkRehype) // converts markdown tree to html tree
-  .use(remarkContentSlug) // attach slug of the markdown itself
+  .use(remarkRehype) // converts content tree to html tree
+  .use(remarkContentSlug) // attach slug of the content itself
   .use(rehypeStringify); // renders html tree to actual html

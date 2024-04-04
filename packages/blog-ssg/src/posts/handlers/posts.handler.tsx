@@ -1,4 +1,5 @@
-import { processor } from '@/markdown/processor.js';
+import { contentProcessor } from '@/content/content-processor.js';
+import { resolveContent } from '@/content/resolve-content.js';
 import { PublishedAtFormat } from '@/shared/published-at-format.js';
 import { render } from '@/shared/render.js';
 import { ArchiveList } from '@/ui/components/ArchiveList.js';
@@ -8,8 +9,6 @@ import { compareDesc, format } from 'date-fns';
 import type { FastifyPluginAsync } from 'fastify';
 import { groupBy } from 'lodash-es';
 import fs from 'node:fs/promises';
-import path from 'node:path';
-import process from 'node:process';
 import { read } from 'to-vfile';
 import { postSchema, type PostModel } from '../models/post.model.js';
 
@@ -48,13 +47,10 @@ export const postsHandler: FastifyPluginAsync = async function (app) {
 };
 
 async function listPostFilesPaths(): Promise<string[]> {
-  const contentFilesPaths = await fs.readdir(
-    path.resolve(process.cwd(), 'src/posts/content'),
-    {
-      recursive: true,
-      encoding: 'utf-8',
-    },
-  );
+  const contentFilesPaths = await fs.readdir(resolveContent('posts'), {
+    recursive: true,
+    encoding: 'utf-8',
+  });
 
   return contentFilesPaths.filter((f) => f.endsWith('index.md'));
 }
@@ -62,11 +58,9 @@ async function listPostFilesPaths(): Promise<string[]> {
 async function parsePostFiles(filePaths: string[]): Promise<PostModel[]> {
   return await Promise.all(
     filePaths.map(async (filePath) => {
-      const rawFile = await read(
-        path.resolve(process.cwd(), `src/posts/content/${filePath}`),
-      );
+      const rawFile = await read(resolveContent(`posts/${filePath}`));
 
-      const processedFile = await processor.process(rawFile);
+      const processedFile = await contentProcessor.process(rawFile);
 
       return postSchema.parse(processedFile.data);
     }),
