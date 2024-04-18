@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run build:server --workspace=@digital-garden/blog
+npm run test --workspace=@digital-garden/blog

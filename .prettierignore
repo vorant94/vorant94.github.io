@@ -1,20 +1,20 @@
 **/.idea
 **/node_modules
 **/dist
-# despite the fact that this codegen dir should be git ignored, it still needs to be indexed by IDEA
-# to property inherit types of built-in Astro Collection helpers
-**/.astro
-**/.vercel
+**/.env
 
 **/test-results/
 **/playwright-report/
 **/blob-report/
 **/playwright/.cache/
 
-packages/blog/src/content/.obsidian
+packages/blog/public/client/style.css
+packages/blog/public/client/main.js
 
-# Yarn
-.pnp.*
-.yarn/*
+**/.DS_Store
 
-**/.DS_Store=
+.docker/*
+!.docker/proxy
+.docker/proxy/*
+!.docker/proxy/example.env
+!.docker/proxy/templates
