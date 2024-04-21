@@ -17,3 +17,4 @@ COPY --from=build /usr/local/blog/packages/blog/dist /usr/local/blog/packages/bl
 COPY --from=build /usr/local/blog/packages/blog/public/client /usr/local/blog/packages/blog/public/client
 
 CMD ["npm", "run", "start:prod", "--workspace=@digital-garden/blog"]
+EXPOSE 3000

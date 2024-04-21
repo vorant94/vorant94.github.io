@@ -9,15 +9,12 @@ services:
       - '80:80'
     volumes:
       - './.docker/proxy/templates:/etc/nginx/templates'
-      - './.docker/proxy/certs:/etc/ssl/certs'
-      - './.docker/proxy/private:/etc/ssl/private'
     depends_on:
       - blog
 
   blog:
-    image: ghcr.io/vorant94/digital-garden-blog:2.0.0
-    #    build:
-    #      dockerfile: ./packages/blog/Dockerfile
+    build:
+      dockerfile: ./packages/blog/Dockerfile
     container_name: blog
     hostname: blog
     restart: unless-stopped

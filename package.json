@@ -13,6 +13,7 @@
     "format:fix": "prettier . --write"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.5",
     "create-vite": "^5.2.3",
     "husky": "^9.0.11",
     "prettier": "^3.2.5",
