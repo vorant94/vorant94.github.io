@@ -15,7 +15,7 @@ services:
       - blog
 
   blog:
-    image: vorant94/digital-garden-blog:2.0.0
+    image: ghcr.io/vorant94/digital-garden-blog:2.0.0
     #    build:
     #      dockerfile: ./packages/blog/Dockerfile
     container_name: blog
