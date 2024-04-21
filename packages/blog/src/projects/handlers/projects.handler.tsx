@@ -1,5 +1,5 @@
 import type { FastifyPluginAsync } from 'fastify';
-import { groupBy, orderBy } from 'lodash-es';
+import { groupBy } from 'lodash-es';
 import { contentType, statusCode } from '../../http/index.js';
 import { DefaultLayout, render } from '../../ui/index.js';
 import { ProjectTiledList } from '../components/ProjectTiledList.js';
@@ -27,10 +27,9 @@ export const projectsHandler: FastifyPluginAsync = async function (app) {
       (project) => project.matter.status,
     );
 
-    const statuses = orderBy(
-      Object.keys(projectsByStatus) as ProjectStatus[],
-      (status) => projectStatusOrder[status],
-    );
+    const statuses = (
+      Object.keys(projectsByStatus) as ProjectStatus[]
+    ).toSorted((a, b) => projectStatusOrder[a] - projectStatusOrder[b]);
 
     const changelogsByProject = groupBy(allChangelogs, (changelog) =>
       getProjectIdFromChangelogPath(changelog.path),
