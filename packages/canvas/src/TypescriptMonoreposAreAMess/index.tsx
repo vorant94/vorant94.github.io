@@ -1,9 +1,9 @@
 import type { FC } from 'react';
-import gitLogoDark from './git-logo-dark.svg';
+import gitDarkLogo from './git-logo-dark.svg';
 import gitLogo from './git-logo.svg';
-import tsLogoDark from './ts-logo-dark.svg';
+import tsDarkLogo from './ts-logo-dark.svg';
 import tsLogo from './ts-logo.svg';
-import yarnLogoDark from './yarn-logo-dark.svg';
+import yarnDarkLogo from './yarn-logo-dark.svg';
 import yarnLogo from './yarn-logo.svg';
 
 export const TypescriptMonoreposAreAMess: FC = function () {
@@ -14,7 +14,7 @@ export const TypescriptMonoreposAreAMess: FC = function () {
       <div
         style={{
           '--bg-image-url': `url(${yarnLogo})`,
-          '--bg-image-dark-url': `url(${yarnLogoDark})`,
+          '--bg-image-dark-url': `url(${yarnDarkLogo})`,
         }}
         className="p-12 col-span-2 row-span-2 bg-[image:var(--bg-image-url)] dark:bg-[image:var(--bg-image-dark-url)] bg-[length:65%_65%] bg-center bg-no-repeat bg-[#2C8EBB]"></div>
       <div className="p-12 border-4 border-slate-900 dark:border-slate-100 row-span-2"></div>
@@ -23,13 +23,13 @@ export const TypescriptMonoreposAreAMess: FC = function () {
       <div
         style={{
           '--bg-image-url': `url(${gitLogo})`,
-          '--bg-image-dark-url': `url(${gitLogoDark})`,
+          '--bg-image-dark-url': `url(${gitDarkLogo})`,
         }}
         className="p-12 col-span-2 row-span-2 bg-[image:var(--bg-image-url)] dark:bg-[image:var(--bg-image-dark-url)] bg-[length:65%_65%] bg-center bg-no-repeat bg-[#f03c2e]"></div>
       <div
         style={{
           '--bg-image-url': `url(${tsLogo})`,
-          '--bg-image-dark-url': `url(${tsLogoDark})`,
+          '--bg-image-dark-url': `url(${tsDarkLogo})`,
         }}
         className="p-12 col-span-2 row-span-2 bg-[image:var(--bg-image-url)] dark:bg-[image:var(--bg-image-dark-url)] bg-cover bg-[#3178C6]"></div>
       <div className="p-12 border-4 border-slate-900 dark:border-slate-100"></div>

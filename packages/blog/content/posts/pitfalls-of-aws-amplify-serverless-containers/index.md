@@ -8,8 +8,7 @@ tags:
 publishedAt: 2023-01-31
 related:
   - aws-amplify-functions-on-steroids
-isPinned:
-code: https://github.com/vorant94/amplify-serverless-containers
+codeUrl: https://github.com/vorant94/amplify-serverless-containers
 ---
 
 ## Starting point

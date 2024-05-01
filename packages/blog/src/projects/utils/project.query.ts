@@ -39,15 +39,15 @@ export async function queryProjectFile(id: string): Promise<VFile> {
 }
 
 function adjustProjectMatterAssets(project: ProjectModel): ProjectModel {
-  project.matter.logo = `${project.path}/${project.matter.logo}`;
-  project.matter.logoDark = project.matter.logoDark
-    ? `${project.path}/${project.matter.logoDark}`
-    : project.matter.logoDark;
+  project.matter.logoImage = `${project.path}/${project.matter.logoImage}`;
+  project.matter.darkLogoImage = project.matter.darkLogoImage
+    ? `${project.path}/${project.matter.darkLogoImage}`
+    : project.matter.darkLogoImage;
 
-  project.matter.demo = `${project.path}/${project.matter.demo}`;
-  project.matter.demoDark = project.matter.demoDark
-    ? `${project.path}/${project.matter.demoDark}`
-    : project.matter.demoDark;
+  project.matter.demoImage = `${project.path}/${project.matter.demoImage}`;
+  project.matter.darkDemoImage = project.matter.darkDemoImage
+    ? `${project.path}/${project.matter.darkDemoImage}`
+    : project.matter.darkDemoImage;
 
   return project;
 }

@@ -45,7 +45,7 @@ export const projectHandler: FastifyPluginAsync = async function (app) {
             <DefaultLayout
               title={project.matter.name}
               description={project.matter.slogan}
-              image={project.matter.logo}
+              image={project.matter.logoImage}
               type={`article`}
               currentPath={project.path}
               env={app.env}>
@@ -59,8 +59,8 @@ export const projectHandler: FastifyPluginAsync = async function (app) {
                 </Version>
 
                 <ThemedImage
-                  src={project.matter.demo}
-                  srcDark={project.matter.demoDark}
+                  src={project.matter.demoImage}
+                  srcDark={project.matter.darkDemoImage}
                   alt={'demo'}
                 />
 

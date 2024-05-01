@@ -54,8 +54,8 @@ export const postHandler: FastifyPluginAsync = async function (app) {
                 <div className={cn(`self-center`)}>
                   <ThemedImage
                     src={post.matter.coverImage}
-                    srcDark={post.matter.coverImageDark}
-                    alt={post.matter.coverImageAlt}
+                    srcDark={post.matter.darkCoverImage}
+                    alt={post.matter.coverAlt}
                   />
                 </div>
               )}
@@ -84,11 +84,11 @@ export const postHandler: FastifyPluginAsync = async function (app) {
 
               <Text base="em">{post.matter.description}</Text>
 
-              {post.matter.code && (
+              {post.matter.codeUrl && (
                 <p>
                   All the code mentioned in the post can be found in my{' '}
                   <a
-                    href={post.matter.code}
+                    href={post.matter.codeUrl}
                     target="_blank">
                     GitHub
                   </a>

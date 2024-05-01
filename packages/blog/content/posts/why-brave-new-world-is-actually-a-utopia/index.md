@@ -5,7 +5,7 @@ tags:
   - books
 publishedAt: 2020-05-02
 coverImage: ./cover.jpg
-coverImageAlt: Brave New World book cover
+coverAlt: Brave New World book cover
 ---
 
 ## Before we begin

@@ -4,9 +4,7 @@ import { contentSchema } from '../../content/index.js';
 export const changelogSchema = contentSchema.extend({
   matter: z.object({
     publishedAt: z.coerce.date(),
-    version: z.string().transform(function (value) {
-      return `v${value}`;
-    }),
+    version: z.string().transform((value) => `v${value}`),
   }),
 });
 

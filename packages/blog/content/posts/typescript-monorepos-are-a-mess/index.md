@@ -7,11 +7,9 @@ tags:
   - infra
 publishedAt: 2024-01-03
 coverImage: ./cover.webp
-coverImageAlt: Logos of Yarn, Git and TypeScript arranged like a bento box
-coverImageDark: ./cover-dark.webp
-related:
-isPinned:
-code: https://github.com/vorant94/typescript-monorepo
+coverAlt: Logos of Yarn, Git and TypeScript arranged like a bento box
+darkCoverImage: ./cover-dark.webp
+codeUrl: https://github.com/vorant94/typescript-monorepo
 ---
 
 ## Why TypeScript?

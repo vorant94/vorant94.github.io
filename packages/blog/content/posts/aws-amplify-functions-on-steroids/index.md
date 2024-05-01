@@ -7,11 +7,10 @@ tags:
   - lambda
 publishedAt: 2023-07-05
 coverImage: ./cover.webp
-coverImageAlt: Amplify and TypeScript logos on the blue background
+coverAlt: Amplify and TypeScript logos on the blue background
 related:
   - pitfalls-of-aws-amplify-serverless-containers
-isPinned:
-code: https://github.com/vorant94/amplify-functions-on-steroids
+codeUrl: https://github.com/vorant94/amplify-functions-on-steroids
 ---
 
 ## What we have out of the box

@@ -8,12 +8,12 @@ const base = z.object({
   publishedAt: z.coerce.date(),
   related: z.array(z.string()).nullish(),
   isPinned: z.boolean().nullish().default(false),
-  code: z.string().url().nullish(),
+  codeUrl: z.string().url().nullish(),
 });
 const withCover = base.extend({
   coverImage: z.string(),
-  coverImageAlt: z.string(),
-  coverImageDark: z.string().nullish(),
+  coverAlt: z.string(),
+  darkCoverImage: z.string().nullish(),
 });
 const withoutCover = base.extend({
   coverImage: z.void(),

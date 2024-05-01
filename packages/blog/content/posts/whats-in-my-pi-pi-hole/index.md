@@ -7,11 +7,10 @@ tags:
   - raspberry-pi
 publishedAt: 2023-10-06
 coverImage: ./cover.webp
-coverImageAlt: Pi-hole logo
+coverAlt: Pi-hole logo
 related:
   - whats-in-my-pi-pi-hole
   - whats-in-my-pi-bitwarden
-isPinned:
 ---
 
 If you have ever searched anything on the Internet, you probably are pissed of by the amount of ads modern websites have. It literally can be just a simple cooking recipe page, where after each step there is reserved placeholder for a targeting ad.

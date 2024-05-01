@@ -7,7 +7,7 @@ tags:
   - programming
 publishedAt: 2024-03-10
 coverImage: ./cover.webp
-coverImageAlt: Julius Caesar statue
+coverAlt: Julius Caesar statue
 ---
 
 ## Historical reference (in less than 30 mins)

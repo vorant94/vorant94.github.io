@@ -16,8 +16,8 @@ export const ProjectTiledGridCell: FC<ProjectTiledGridCellProps> = function ({
         className={cn('flex items-center p-3 gap-2')}>
         <ThemedImage
           className={cn('h-12 w-12 object-scale-down')}
-          src={project.matter.logo}
-          srcDark={project.matter.logoDark}
+          src={project.matter.logoImage}
+          srcDark={project.matter.darkLogoImage}
         />
         <div className={cn('flex-1')}>
           <Title

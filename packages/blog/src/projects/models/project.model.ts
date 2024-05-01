@@ -15,16 +15,14 @@ export const projectSchema = contentSchema.extend({
     name: z.string(),
     slogan: z.string(),
     status: z.enum(projectStatuses),
-    version: z.string().transform(function (value) {
-      return `v${value}`;
-    }),
+    version: z.string().transform((value) => `v${value}`),
     isFeatured: z.boolean().default(false),
     sourceCodeUrl: z.string().url(),
     productionUrl: z.string().url().nullish(),
-    logo: z.string(),
-    logoDark: z.string().nullish(),
-    demo: z.string(),
-    demoDark: z.string().nullish(),
+    logoImage: z.string(),
+    darkLogoImage: z.string().nullish(),
+    demoImage: z.string(),
+    darkDemoImage: z.string().nullish(),
   }),
 });
 

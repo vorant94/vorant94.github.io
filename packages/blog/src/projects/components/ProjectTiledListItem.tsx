@@ -22,8 +22,8 @@ export const ProjectTiledListItem: FC<ProjectTiledListItemProps> = function ({
   return (
     <Card
       style={{
-        '--bg-image-url': `url(${project.matter.logo})`,
-        '--bg-image-dark-url': `url(${project.matter.logoDark})`,
+        '--bg-image-url': `url(${project.matter.logoImage})`,
+        '--bg-image-dark-url': `url(${project.matter.darkLogoImage})`,
       }}
       className={cn(
         'flex-1 flex-col bg-[image:var(--bg-image-url)] dark:bg-[image:var(--bg-image-dark-url)] bg-right bg-no-repeat bg-[length:auto_200%]',

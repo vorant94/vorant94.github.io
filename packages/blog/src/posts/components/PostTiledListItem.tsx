@@ -32,8 +32,8 @@ export const PostTiledListItem: FC<PostTiledListItemProps> = function ({
           <ThemedImage
             className="h-20 w-20 object-scale-down"
             src={post.matter.coverImage}
-            srcDark={post.matter.coverImageDark}
-            alt={post.matter.coverImageAlt}
+            srcDark={post.matter.darkCoverImage}
+            alt={post.matter.coverAlt}
           />
         )}
       </Link>

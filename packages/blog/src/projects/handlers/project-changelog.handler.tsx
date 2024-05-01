@@ -45,7 +45,7 @@ export const projectChangelogHandler: FastifyPluginAsync = async function (
             <DefaultLayout
               title={title}
               description={project.matter.slogan}
-              image={project.matter.logo}
+              image={project.matter.logoImage}
               type={`article`}
               currentPath={changelog.path}
               env={app.env}>

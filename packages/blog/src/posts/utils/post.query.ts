@@ -2,6 +2,7 @@ import { compareDesc } from 'date-fns';
 import type { VFile } from 'vfile';
 import {
   getIdFromContentFilePath,
+  ParsingError,
   processor,
   readContentDir,
   readContentFile,
@@ -21,7 +22,14 @@ export async function queryPosts(): Promise<PostModel[]> {
 
       // TODO make it process only the matter in cases where the content is not needed
       const processedFile = await processor.process(rawFile);
-      const parsedPost = postSchema.parse(processedFile.data);
+
+      let parsedPost: PostModel;
+      try {
+        parsedPost = postSchema.parse(processedFile.data);
+      } catch (e) {
+        throw new ParsingError(processedFile.data as PostModel, e);
+      }
+
       return adjustPostMatterAssets(parsedPost);
     }),
   );
@@ -71,9 +79,9 @@ function adjustPostMatterAssets(post: PostModel): PostModel {
   }
 
   post.matter.coverImage = `${post.path}/${post.matter.coverImage}`;
-  post.matter.coverImageDark = post.matter.coverImageDark
-    ? `${post.path}/${post.matter.coverImageDark}`
-    : post.matter.coverImageDark;
+  post.matter.darkCoverImage = post.matter.darkCoverImage
+    ? `${post.path}/${post.matter.darkCoverImage}`
+    : post.matter.darkCoverImage;
 
   return post;
 }

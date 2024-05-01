@@ -23,7 +23,7 @@ describe('getUniqueTags', () => {
           publishedAt: new Date('2024-03-10T00:00:00.000Z'),
           isPinned: false,
           coverImage: './cover.webp',
-          coverImageAlt: 'Julius Caesar statue',
+          coverAlt: 'Julius Caesar statue',
         },
       },
       {
@@ -43,11 +43,11 @@ describe('getUniqueTags', () => {
           publishedAt: new Date('2024-01-03T00:00:00.000Z'),
           related: null,
           isPinned: null,
-          code: 'https://github.com/vorant94/typescript-monorepo',
+          codeUrl: 'https://github.com/vorant94/typescript-monorepo',
           coverImage: './cover.webp',
-          coverImageAlt:
+          coverAlt:
             'Logos of Yarn, Git and TypeScript arranged like a bento box',
-          coverImageDark: './cover-dark.webp',
+          darkCoverImage: './cover-dark.webp',
         },
       },
       {
@@ -68,7 +68,7 @@ describe('getUniqueTags', () => {
           related: ['whats-in-my-pi-pi-hole', 'whats-in-my-pi-freshrss'],
           isPinned: null,
           coverImage: './cover.webp',
-          coverImageAlt: 'Bitwarden logo',
+          coverAlt: 'Bitwarden logo',
         },
       },
       {
@@ -89,7 +89,7 @@ describe('getUniqueTags', () => {
           related: null,
           isPinned: null,
           coverImage: './cover.webp',
-          coverImageAlt: 'Dart logo on blue background with some small icons',
+          coverAlt: 'Dart logo on blue background with some small icons',
         },
       },
       {
@@ -110,7 +110,7 @@ describe('getUniqueTags', () => {
           related: ['whats-in-my-pi-freshrss', 'whats-in-my-pi-bitwarden'],
           isPinned: null,
           coverImage: './cover.webp',
-          coverImageAlt: 'FreshRSS logo',
+          coverAlt: 'FreshRSS logo',
         },
       },
       {
@@ -131,7 +131,7 @@ describe('getUniqueTags', () => {
           related: null,
           isPinned: true,
           coverImage: './cover.webp',
-          coverImageAlt: 'Waving Israel flag on the cloud sky background',
+          coverAlt: 'Waving Israel flag on the cloud sky background',
         },
       },
       {
@@ -152,7 +152,7 @@ describe('getUniqueTags', () => {
           related: ['whats-in-my-pi-pi-hole', 'whats-in-my-pi-bitwarden'],
           isPinned: null,
           coverImage: './cover.webp',
-          coverImageAlt: 'Pi-hole logo',
+          coverAlt: 'Pi-hole logo',
         },
       },
       {
@@ -172,9 +172,9 @@ describe('getUniqueTags', () => {
           publishedAt: new Date('2023-07-05T00:00:00.000Z'),
           related: ['pitfalls-of-aws-amplify-serverless-containers'],
           isPinned: null,
-          code: 'https://github.com/vorant94/amplify-functions-on-steroids',
+          codeUrl: 'https://github.com/vorant94/amplify-functions-on-steroids',
           coverImage: './cover.webp',
-          coverImageAlt: 'Amplify and TypeScript logos on the blue background',
+          coverAlt: 'Amplify and TypeScript logos on the blue background',
         },
       },
       {
@@ -232,7 +232,7 @@ describe('getUniqueTags', () => {
           publishedAt: new Date('2023-01-31T00:00:00.000Z'),
           related: ['aws-amplify-functions-on-steroids'],
           isPinned: null,
-          code: 'https://github.com/vorant94/amplify-serverless-containers',
+          codeUrl: 'https://github.com/vorant94/amplify-serverless-containers',
         },
       },
       {
@@ -272,7 +272,7 @@ describe('getUniqueTags', () => {
           publishedAt: new Date('2020-05-02T00:00:00.000Z'),
           isPinned: false,
           coverImage: './cover.jpg',
-          coverImageAlt: 'Brave New World book cover',
+          coverAlt: 'Brave New World book cover',
         },
       },
     ];

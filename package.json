@@ -8,7 +8,6 @@
   ],
   "scripts": {
     "prepare": "husky install",
-    "husky": "husky",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write"
   },

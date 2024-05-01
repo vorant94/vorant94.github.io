@@ -7,9 +7,7 @@ tags:
   - typescript
 publishedAt: 2023-11-27
 coverImage: ./cover.webp
-coverImageAlt: Dart logo on blue background with some small icons
-related:
-isPinned:
+coverAlt: Dart logo on blue background with some small icons
 ---
 
 ## Intro

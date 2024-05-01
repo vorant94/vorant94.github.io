@@ -7,8 +7,7 @@ tags:
   - self-reflection
 publishedAt: 2023-10-14
 coverImage: ./cover.webp
-coverImageAlt: Waving Israel flag on the cloud sky background
-related:
+coverAlt: Waving Israel flag on the cloud sky background
 isPinned: true
 ---
 
