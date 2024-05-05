@@ -16,7 +16,7 @@ export const ArchiveList: FC<PropsWithChildren<ArchiveListProps>> = function ({
       )}
       <menu
         className={cn(
-          'flex flex-col divide-y divide-dashed border-slate-300 dark:border-slate-600',
+          'flex flex-col divide-y divide-dashed divide-slate-300 dark:divide-slate-600',
         )}>
         {children}
       </menu>

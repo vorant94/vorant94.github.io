@@ -26,7 +26,7 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
 
 export const buttonVariants = ['default', 'outlined'] as const;
 export type ButtonVariant = (typeof buttonVariants)[number];
-export const buttonVariantToStyles = {
+const buttonVariantToStyles = {
   outlined:
     'border rounded-2xl hover:outline outline-cyan-500 hover:border-cyan-500',
   default: '',
