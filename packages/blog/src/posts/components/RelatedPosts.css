@@ -1,0 +1,20 @@
+.related-posts__details {
+  > summary {
+    /* Chrome */
+    list-style-type: none;
+
+    /* Safari */
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::before {
+      content: '\f0d7';
+      font: var(--fa-font-solid);
+    }
+  }
+
+  &[open] > summary::before {
+    content: '\f0d8';
+  }
+}

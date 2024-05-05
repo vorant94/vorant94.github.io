@@ -3,7 +3,7 @@
     /* Base */
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "target": "ESNext",
+    "target": "ES2022",
     "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
@@ -14,6 +14,8 @@
     "verbatimModuleSyntax": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false,
 
     /* Linting */
     "noUnusedLocals": true,
@@ -21,24 +23,23 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
 
     /* Bundler/Compiler */
-    "moduleResolution": "Bundler",
     "module": "NodeNext",
-    "noEmit": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "preserveWatchOutput": true,
+    "sourceMap": true,
 
     /* Runtime/Framework */
-    "lib": ["ESNext"],
+    "lib": ["ES2023"],
     "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "allowImportingTsExtensions": true,
 
     /* Misc */
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "@digital-garden/utils": ["../utils/src/index.ts"]
-    }
+    "types": ["@total-typescript/ts-reset"]
   },
-  "exclude": ["dist"]
+  "include": ["src"],
+  "exclude": ["src/client.ts"]
 }

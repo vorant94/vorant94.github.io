@@ -1,0 +1,10 @@
+@import './posts/components/RelatedPosts.css';
+@import './ui/layouts/DefaultLayout.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+  display: none !important;
+}

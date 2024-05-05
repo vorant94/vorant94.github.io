@@ -1,0 +1,21 @@
+services:
+  proxy:
+    image: nginx:1.25-alpine
+    container_name: proxy
+    hostname: proxy
+    restart: unless-stopped
+    env_file: ./.docker/proxy/.env
+    ports:
+      - '80:80'
+    volumes:
+      - './.docker/proxy/templates:/etc/nginx/templates'
+    depends_on:
+      - blog
+
+  blog:
+    build:
+      dockerfile: ./packages/blog/Dockerfile
+    container_name: blog
+    hostname: blog
+    restart: unless-stopped
+    env_file: ./packages/blog/.env
