@@ -11,12 +11,14 @@ export const Link: FC<PropsWithChildren<LinkProps>> = function ({
   className,
   children,
   href,
+  bindClass = '',
   ...rest
 }) {
   return (
     <a
-      x-data={`{ link: "${href && isInternalUrl(href) ? href : ''}" }`}
-      x-on:mouseenter="$store.prefetchedLinks.prefetchLink(link)"
+      x-data={`{href: '${href}'}`}
+      x-on:mouseenter={`$store.prefetchedLinks.prefetchLink("${href && isInternalUrl(href) ? href : ''}")`}
+      x-bind:class={bindClass}
       className={cn(
         'text-slate-500 decoration-cyan-500 decoration-dotted decoration-4 underline-offset-4 hover:text-cyan-500 hover:underline group-hover:text-cyan-500 group-hover:underline',
         linkSizeToStyles[size],
@@ -31,6 +33,7 @@ export const Link: FC<PropsWithChildren<LinkProps>> = function ({
 
 export interface LinkProps extends ComponentPropsWithoutRef<'a'> {
   size?: LinkSize;
+  bindClass?: string;
 }
 
 export const linkSizes = ['sm', 'md'] as const;

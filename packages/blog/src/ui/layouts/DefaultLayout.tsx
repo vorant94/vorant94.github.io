@@ -200,13 +200,12 @@ const NavLink: FC<PropsWithChildren<NavLinkProps>> = function ({
   return (
     <li>
       <Link
-        x-data={`{href: '${href}'}`}
-        x-bind:class={`window.location.pathname.startsWith(href) && 'underline !text-cyan-500'`}
         href={href}
         className={cn(
           'font-semibold block text-center text-2xl p-3 md:p-4 rounded-full border-2 bg-slate-50 dark:bg-slate-900 border-slate-300 dark:border-slate-600 lg:text-sm lg:p-0 lg:bg-none dark:lg:bg-none lg:rounded-none lg:border-none',
           className,
         )}
+        bindClass={`window.location.pathname.startsWith(href) && 'underline !text-cyan-500'`}
         {...rest}>
         {children}
       </Link>
