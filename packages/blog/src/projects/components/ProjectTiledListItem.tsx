@@ -58,7 +58,10 @@ export const ProjectTiledListItem: FC<ProjectTiledListItemProps> = function ({
           <Divider isLeft={false}>
             <Text base="span">Latest Changes</Text>
           </Divider>
-          <menu className={cn('flex flex-col divide-y divide-dashed')}>
+          <menu
+            className={cn(
+              'flex flex-col divide-y divide-dashed divide-slate-300 dark:divide-slate-600',
+            )}>
             {changelogs.map((changelog) => (
               <li
                 className={cn('flex flex-col py-1')}
