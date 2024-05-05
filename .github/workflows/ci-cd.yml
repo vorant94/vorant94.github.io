@@ -37,6 +37,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     concurrency: deploy-group
+    needs:
+      - format-build-test-and-e2e
     steps:
       - uses: actions/checkout@v4
 
