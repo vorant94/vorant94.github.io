@@ -1,3 +1,4 @@
+import { compareDesc } from 'date-fns';
 import path from 'node:path';
 import type { VFile } from 'vfile';
 import {
@@ -13,7 +14,7 @@ import {
 export async function queryAllChangelogs(): Promise<ChangelogModel[]> {
   const projectFilePaths = await readContentDir(`projects/*/changelogs`);
 
-  return await Promise.all(
+  const changelogs = await Promise.all(
     projectFilePaths.map(async (filePath) => {
       const rawFile = await readContentFile(filePath);
 
@@ -21,6 +22,10 @@ export async function queryAllChangelogs(): Promise<ChangelogModel[]> {
 
       return changelogSchema.parse(processedFile.data);
     }),
+  );
+
+  return changelogs.toSorted((a, b) =>
+    compareDesc(a.matter.publishedAt, b.matter.publishedAt),
   );
 }
 
@@ -31,7 +36,7 @@ export async function queryChangelogsByProject(
     `projects/${projectId}/changelogs`,
   );
 
-  return await Promise.all(
+  const changelogs = await Promise.all(
     projectFilePaths.map(async (filePath) => {
       const rawFile = await readContentFile(filePath);
 
@@ -39,6 +44,10 @@ export async function queryChangelogsByProject(
 
       return changelogSchema.parse(processedFile.data);
     }),
+  );
+
+  return changelogs.toSorted((a, b) =>
+    compareDesc(a.matter.publishedAt, b.matter.publishedAt),
   );
 }
 
