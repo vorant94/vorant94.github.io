@@ -32,7 +32,7 @@ At this point of time I got really depressed about the project, because I didn't
 
 I realised there is a difference between reinventing the wheel (building yet another all-purpose site generator) and writing stuff from a scratch (building generator of exactly my site). After I started to spin up a generator I noticed I was _so close_ technically to a regular NodeJS webserver. Since I anyway planned to migrate to SSR at some point of time, I decided to do it now.
 
-**Astro is dead, long live Fastify!**
+> Astro is dead, long live Fastify!
 
 The only thing I was worried about is template engine choice. There are a lot of such that are alive since the era of MVC: [ejs](https://ejs.co/), [pug](https://pugjs.org/), [handlebars](https://handlebarsjs.com/), [mustache](https://mustache.github.io/), you name it. But I got used to how templates work in modern front-end frameworks: re-usage of code with components, scoped styles, build-time type-safety. It happens that all of these modern out-of-the-box features not so out-of-the-box in case of prev-gen technologies. Template engines I mentioned above have some kind of partials support (e.g. components), layouts, but the developer experience is way clankier.
 
