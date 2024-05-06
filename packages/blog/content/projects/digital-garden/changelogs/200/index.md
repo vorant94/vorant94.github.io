@@ -14,7 +14,7 @@ Prior to that it was written with Astro. Long story short I'm not a fan of the f
 
 #### First rewrite: NuxtJS
 
-First I looked on NuxtJS. It sadly also has file-based routing, but the app can be split into domain-specific "sub-apps" with Nuxt Layers. Underlying Vue still introduces the its own file extension (`.vue`), but this one is old enough for IDE to have a good support. Just like Astro it has plugin for working with Markdown files as a CMS, called Nuxt Content. It can be built with SSG or SSR-mode and has a mature ecosystem of all sorts of integrations.
+First I looked on NuxtJS. It sadly also has file-based routing, but the app can be split into domain-specific "sub-apps" with Nuxt Layers. Underlying Vue still introduces its own file extension (`.vue`), but this one is old enough for IDE to have a good support. Just like Astro it has a plugin for working with Markdown files as a CMS, called Nuxt Content. It can be built with SSG or SSR-mode and has a mature ecosystem of all sorts of integrations.
 
 Everything looked perfect from the outside, but when I glued everything together it started to feel like serious overkill, the mother of all overkills. Even worse than that I faced several issues that are there only because how the framework is build:
 
