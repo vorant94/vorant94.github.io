@@ -1,6 +1,9 @@
 name: CI/CD
 
-on: push
+on:
+  push:
+    branches: ['master']
+  workflow_dispatch:
 
 jobs:
   format-build-test-and-e2e:
@@ -9,12 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - run: npm ci --ignore-scripts --no-audit
+      - uses: ./.github/actions/setup
 
       - run: npm run format:check
 

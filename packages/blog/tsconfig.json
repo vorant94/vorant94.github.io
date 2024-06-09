@@ -38,7 +38,7 @@
     "jsx": "react-jsx",
 
     /* Misc */
-    "types": ["@total-typescript/ts-reset"]
+    "types": ["node", "@total-typescript/ts-reset"]
   },
   "include": ["src"],
   "exclude": ["src/client.ts"]
