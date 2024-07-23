@@ -15,7 +15,7 @@ export const Card: FC<PropsWithChildren<CardProps>> = ({
 }) => (
 	<div
 		className={cn(
-			"border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 border rounded-md p-5 flex gap-3 relative",
+			"relative flex gap-3 rounded-md border border-slate-300 bg-slate-50 p-5 dark:border-slate-600 dark:bg-slate-900",
 			className,
 		)}
 		{...rest}

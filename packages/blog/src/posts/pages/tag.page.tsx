@@ -1,5 +1,6 @@
 import { format } from "date-fns";
-import type { FastifyPluginAsync } from "fastify";
+import type { FastifyPluginCallback } from "fastify";
+import { publishedAtFormat } from "../../content/globals/published-at-format.js";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
 import { ArchiveListItem } from "../../ui/components/archive-list-item.js";
@@ -7,9 +8,9 @@ import { ArchiveList } from "../../ui/components/archive-list.js";
 import { DefaultLayout } from "../../ui/layouts/default.layout.js";
 import { render } from "../../ui/utils/render.js";
 import { findPosts } from "../models/post.table.js";
-import { publishedAtFormat } from "../../content/globals/published-at-format.js";
 
-export const tagPage: FastifyPluginAsync = async (app) => {
+export const tagPage: FastifyPluginCallback = (app, _, done) => {
+	// biome-ignore lint/style/useNamingConvention: 3-rd party type
 	app.get<{ Params: { tag: string } }>("/tags/:tag", async (request, reply) => {
 		const allPosts = await findPosts();
 
@@ -44,4 +45,6 @@ export const tagPage: FastifyPluginAsync = async (app) => {
 				),
 			);
 	});
+
+	done();
 };

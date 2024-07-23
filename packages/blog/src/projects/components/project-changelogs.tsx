@@ -21,5 +21,5 @@ export const ProjectChangelogs: FC<ProjectChangelogsProps> = ({
 );
 
 export interface ProjectChangelogsProps {
-	changelogs: ChangelogModel[];
+	changelogs: Array<ChangelogModel>;
 }

@@ -14,7 +14,7 @@ export const Badge: FC<PropsWithChildren<BadgeProps>> = ({
 }) => (
 	<span
 		className={cn(
-			"text-slate-800 dark:text-slate-100 inline-flex items-center rounded-full text-xs px-2.5 py-0.5 font-semibold",
+			"inline-flex items-center rounded-full px-2.5 py-0.5 font-semibold text-slate-800 text-xs dark:text-slate-100",
 			...badgeColorToBg[color],
 			className,
 		)}

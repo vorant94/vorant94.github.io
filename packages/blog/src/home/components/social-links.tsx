@@ -47,20 +47,20 @@ const socialLinksMeta = [
 	},
 ] as const;
 
-const socialLinks: ReactNode[] = socialLinksMeta.map((socialLink) => (
+const socialLinks: Array<ReactNode> = socialLinksMeta.map((socialLink) => (
 	<li key={socialLink.url}>
 		<ButtonLink
 			variant="outlined"
 			href={socialLink.url}
 			target="_blank"
 			className={cn(
-				"text-slate-800 dark:text-slate-100 flex h-24 w-24 flex-col items-center justify-center gap-2 p-2",
+				"flex h-24 w-24 flex-col items-center justify-center gap-2 p-2 text-slate-800 dark:text-slate-100",
 			)}
 		>
 			<span className="text-xl">
 				<Icon glyph={socialLink.glyph} />
 			</span>
-			<span className="truncate max-w-full">{socialLink.label}</span>
+			<span className="max-w-full truncate">{socialLink.label}</span>
 		</ButtonLink>
 	</li>
 ));

@@ -1,4 +1,4 @@
-import type { FastifyPluginAsync } from "fastify";
+import type { FastifyPluginCallback } from "fastify";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
 import { PinnedPosts } from "../../posts/components/pinned-posts.js";
@@ -10,7 +10,7 @@ import { DefaultLayout } from "../../ui/layouts/default.layout.js";
 import { render } from "../../ui/utils/render.js";
 import { Intro } from "../components/intro.js";
 
-export const homePage: FastifyPluginAsync = async (app) => {
+export const homePage: FastifyPluginCallback = (app, _, done) => {
 	app.get("/", async (_, reply) => {
 		const [allPosts, allProjects] = await Promise.all([
 			findPosts(),
@@ -45,4 +45,6 @@ export const homePage: FastifyPluginAsync = async (app) => {
 				),
 			);
 	});
+
+	done();
 };

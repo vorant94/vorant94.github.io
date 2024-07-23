@@ -13,14 +13,14 @@ export const PinnedPosts: FC<PinnedPostsProps> = ({ posts }) => (
 				className="flex-col"
 				key={post.id}
 			>
-				<span className="flex gap-3 items-center">
+				<span className="flex items-center gap-3">
 					<span className="-scale-x-100">📌</span>
 
 					<ArchiveListItem
 						left={post.matter.title}
 						right={format(post.matter.publishedAt, publishedAtFormat.short)}
 						href={post.path}
-						className={cn("flex-1 !py-0")}
+						className={cn("!py-0 flex-1")}
 					/>
 				</span>
 			</StandOut>
@@ -29,5 +29,5 @@ export const PinnedPosts: FC<PinnedPostsProps> = ({ posts }) => (
 );
 
 export interface PinnedPostsProps {
-	posts: PostModel[];
+	posts: Array<PostModel>;
 }

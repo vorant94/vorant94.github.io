@@ -12,7 +12,7 @@ export const ProjectTiledGrid: FC<PropsWithChildren<ProjectTiledGridProps>> = ({
 			<Title base="h3">{title}</Title>
 		</Divider>
 
-		<div className={cn("grid grid-cols-1 md:grid-cols-2 gap-2")}>
+		<div className={cn("grid grid-cols-1 gap-2 md:grid-cols-2")}>
 			{children}
 		</div>
 	</div>

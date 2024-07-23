@@ -5,8 +5,8 @@ import { ThemedImage } from "../../ui/components/themed-image.js";
 import { cn } from "../../ui/utils/cn.js";
 
 export const Intro: FC = () => (
-	<StandOut className="items-center my-4 dark:!border-2 dark:!rounded-lg dark:!border-sky-200 dark:rotate-3 dark:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_rgb(6,182,255),0_0_15px_rgb(6,182,255),0_0_30px_rgb(6,182,255)]">
-		<div className="hidden lg:block shrink-0">
+	<StandOut className="dark:!border-2 dark:!rounded-lg dark:!border-sky-200 my-4 items-center dark:rotate-3 dark:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_rgb(6,182,255),0_0_15px_rgb(6,182,255),0_0_30px_rgb(6,182,255)]">
+		<div className="hidden shrink-0 lg:block">
 			<ThemedImage
 				src="/home/intro-logo.webp"
 				srcDark="/home/intro-logo-dark.webp"
@@ -19,7 +19,7 @@ export const Intro: FC = () => (
 			<Text base="strong">Hi, there, I'm Mordechai! 👋</Text>
 			<Text
 				base="span"
-				className={cn("text-sm font-light")}
+				className={cn("font-light text-sm")}
 			>
 				Welcome to my digital garden, here I write about all sorts of things
 				(mostly about technologies, a little bit on gaming, traveling and
@@ -27,7 +27,7 @@ export const Intro: FC = () => (
 			</Text>
 			<Text
 				base="span"
-				className={cn("text-sm font-light")}
+				className={cn("font-light text-sm")}
 			>
 				Make yourself at home, take a sit and grab something to{" "}
 				<span className="line-through">drink</span> read

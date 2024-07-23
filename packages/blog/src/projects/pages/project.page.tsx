@@ -1,4 +1,4 @@
-import type { FastifyPluginAsync } from "fastify";
+import type { FastifyPluginCallback } from "fastify";
 import type { VFile } from "vfile";
 import { isErrnoException } from "../../filesystem/models/error.model.js";
 import { contentType } from "../../http/types/content-type.js";
@@ -18,7 +18,8 @@ import { findChangelogs } from "../models/changelog.table.js";
 import type { ProjectModel } from "../models/project.model.js";
 import { getProjectFile } from "../models/project.table.js";
 
-export const projectPage: FastifyPluginAsync = async (app) => {
+export const projectPage: FastifyPluginCallback = (app, _, done) => {
+	// biome-ignore lint/style/useNamingConvention: 3-rd party type
 	app.get<{ Params: ProjectParams }>(
 		"/projects/:slug",
 		async (request, reply) => {
@@ -77,7 +78,7 @@ export const projectPage: FastifyPluginAsync = async (app) => {
 												href={project.matter.productionUrl}
 												variant={"outlined"}
 												className={cn(
-													"bg-slate-50 dark:bg-slate-900 p-2 flex gap-1.5 items-center",
+													"flex items-center gap-1.5 bg-slate-50 p-2 dark:bg-slate-900",
 												)}
 											>
 												<Icon glyph="globe" />
@@ -93,7 +94,7 @@ export const projectPage: FastifyPluginAsync = async (app) => {
 											href={project.matter.sourceCodeUrl}
 											variant={"outlined"}
 											className={cn(
-												"bg-slate-50 dark:bg-slate-900 p-2 flex gap-1.5 items-center",
+												"flex items-center gap-1.5 bg-slate-50 p-2 dark:bg-slate-900",
 											)}
 										>
 											<Icon glyph="github" />
@@ -105,6 +106,7 @@ export const projectPage: FastifyPluginAsync = async (app) => {
 
 							<article
 								className={cn("prose dark:prose-invert prose-img:mx-auto mt-6")}
+								// biome-ignore lint/security/noDangerouslySetInnerHtml: html comes from a markdown file, that is part of this project and is checked for security stuff
 								dangerouslySetInnerHTML={{ __html: projectFile.toString() }}
 							/>
 
@@ -133,6 +135,8 @@ export const projectPage: FastifyPluginAsync = async (app) => {
 				);
 		},
 	);
+
+	done();
 };
 
 interface ProjectParams {

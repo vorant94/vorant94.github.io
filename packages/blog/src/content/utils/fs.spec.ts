@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import { getIdFromContentFilePath } from "./fs.js";
 
 describe("getIdFromContentFilePath", () => {
-	it("should return the slug from the file path", async () => {
+	it("should return the slug from the file path", () => {
 		const input =
 			"posts/branding-an-angular-app-with-docker-volumes-and-css3-variables/index.md";
 		const expected =
@@ -23,7 +23,7 @@ describe("getIdFromContentFilePath", () => {
 		});
 	});
 
-	it("should throw an error if the slug cannot be extracted", async () => {
+	it("should throw an error if the slug cannot be extracted", () => {
 		const input = "posts/index.md";
 
 		assert.throws(() => getIdFromContentFilePath(input), {

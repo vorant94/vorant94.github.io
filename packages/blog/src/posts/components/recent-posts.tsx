@@ -17,5 +17,5 @@ export const RecentPosts: FC<RecentPostsProps> = ({ posts }) => (
 );
 
 export interface RecentPostsProps {
-	posts: PostModel[];
+	posts: Array<PostModel>;
 }

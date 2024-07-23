@@ -12,12 +12,12 @@ export const ProjectTiledGridCell: FC<ProjectTiledGridCellProps> = ({
 }) => (
 	<div
 		className={cn(
-			"flex h-24 items-center justify-center relative overflow-hidden rounded-md duration-100 border border-transparent group cursor-pointer hover:border-slate-300 hover:dark:border-slate-600 hover:shadow-md hover:scale-105",
+			"group relative flex h-24 cursor-pointer items-center justify-center overflow-hidden rounded-md border border-transparent duration-100 hover:scale-105 hover:border-slate-300 hover:shadow-md hover:dark:border-slate-600",
 		)}
 	>
 		<Link
 			href={project.path}
-			className={cn("flex items-center p-3 gap-2")}
+			className={cn("flex items-center gap-2 p-3")}
 		>
 			<ThemedImage
 				className={cn("h-12 w-12 object-scale-down")}

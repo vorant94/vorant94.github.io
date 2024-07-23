@@ -1,4 +1,4 @@
-import type { FastifyPluginAsync } from "fastify";
+import type { FastifyPluginCallback } from "fastify";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
 import { DefaultLayout } from "../../ui/layouts/default.layout.js";
@@ -7,8 +7,8 @@ import { Intro } from "../components/intro.js";
 import { SocialLinks } from "../components/social-links.js";
 import { StayUpToDate } from "../components/stay-up-to-date.js";
 
-export const aboutPage: FastifyPluginAsync = async (app) => {
-	app.get("/about", async (_, reply) => {
+export const aboutPage: FastifyPluginCallback = (app, _, done) => {
+	app.get("/about", (_, reply) => {
 		return reply
 			.status(statusCode.ok)
 			.type(contentType.html)
@@ -28,4 +28,6 @@ export const aboutPage: FastifyPluginAsync = async (app) => {
 				),
 			);
 	});
+
+	done();
 };

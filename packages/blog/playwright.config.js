@@ -1,5 +1,5 @@
-import { defineConfig, devices } from "@playwright/test";
 import process from "node:process";
+import { defineConfig, devices } from "@playwright/test";
 import { envSchema } from "./src/config/models/env.model.js";
 
 const env = envSchema.parse(process.env);
@@ -12,6 +12,7 @@ export default defineConfig({
 	workers: env.CI ? 1 : undefined,
 	reporter: "html",
 	use: {
+		// biome-ignore lint/style/useNamingConvention: 3-rd party type
 		baseURL: `http://localhost:${env.PORT}`,
 		trace: "on-first-retry",
 	},

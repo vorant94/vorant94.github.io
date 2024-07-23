@@ -24,7 +24,7 @@ export const ProjectTiledListItem: FC<ProjectTiledListItemProps> = ({
 			"--bg-image-dark-url": `url(${project.matter.darkLogoImage})`,
 		}}
 		className={cn(
-			"flex-1 flex-col bg-[image:var(--bg-image-url)] dark:bg-[image:var(--bg-image-dark-url)] bg-right bg-no-repeat bg-[length:auto_200%]",
+			"flex-1 flex-col bg-[image:var(--bg-image-url)] bg-[length:auto_200%] bg-right bg-no-repeat dark:bg-[image:var(--bg-image-dark-url)]",
 		)}
 		overlay={
 			<CardOverlay
@@ -34,7 +34,7 @@ export const ProjectTiledListItem: FC<ProjectTiledListItemProps> = ({
 			/>
 		}
 	>
-		<div className="flex gap-2 items-center z-10">
+		<div className="z-10 flex items-center gap-2">
 			<Link href={project.path}>
 				<Title
 					base="h6"
@@ -54,7 +54,7 @@ export const ProjectTiledListItem: FC<ProjectTiledListItemProps> = ({
 
 		<Caption className={cn("z-10")}>{project.matter.slogan}</Caption>
 
-		<div className="grid grid-cols-2 z-10">
+		<div className="z-10 grid grid-cols-2">
 			<div className="flex flex-col">
 				<Divider isLeft={false}>
 					<Text base="span">Latest Changes</Text>
@@ -80,7 +80,7 @@ export const ProjectTiledListItem: FC<ProjectTiledListItemProps> = ({
 				</menu>
 			</div>
 
-			<div className="flex flex-col gap-2 items-end justify-end self-end">
+			<div className="flex flex-col items-end justify-end gap-2 self-end">
 				{project.matter.productionUrl && (
 					<ButtonLink
 						size="sm"
@@ -88,7 +88,7 @@ export const ProjectTiledListItem: FC<ProjectTiledListItemProps> = ({
 						href={project.matter.productionUrl}
 						variant={"outlined"}
 						className={cn(
-							"bg-slate-50 dark:bg-slate-900 p-2 flex gap-1.5 items-center",
+							"flex items-center gap-1.5 bg-slate-50 p-2 dark:bg-slate-900",
 						)}
 					>
 						<Icon glyph="globe" />
@@ -102,7 +102,7 @@ export const ProjectTiledListItem: FC<ProjectTiledListItemProps> = ({
 					href={project.matter.sourceCodeUrl}
 					variant={"outlined"}
 					className={cn(
-						"bg-slate-50 dark:bg-slate-900 p-2 flex gap-1.5 items-center",
+						"flex items-center gap-1.5 bg-slate-50 p-2 dark:bg-slate-900",
 					)}
 				>
 					<Icon glyph="github" />
@@ -115,5 +115,5 @@ export const ProjectTiledListItem: FC<ProjectTiledListItemProps> = ({
 
 export interface ProjectTiledListItemProps {
 	project: ProjectModel;
-	changelogs: ChangelogModel[];
+	changelogs: Array<ChangelogModel>;
 }

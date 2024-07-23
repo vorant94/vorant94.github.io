@@ -9,7 +9,9 @@ import {
 import { processor } from "../../content/utils/processor.js";
 import { isPostWithCover, postSchema, type PostModel } from "./post.model.js";
 
-export async function findPosts(ids: string[] = []): Promise<PostModel[]> {
+export async function findPosts(
+	ids: Array<string> = [],
+): Promise<Array<PostModel>> {
 	let postFilePaths = await readContentDir("posts");
 
 	const idsSet = new Set(ids);

@@ -39,5 +39,5 @@ export const RelatedPosts: FC<RelatedPostsProps> = ({ posts }) => (
 );
 
 export interface RelatedPostsProps {
-	posts: PostModel[];
+	posts: Array<PostModel>;
 }

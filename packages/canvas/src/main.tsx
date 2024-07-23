@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { DigitalGardenPage } from "./canvas/pages/digital-garden.page.tsx";
 import { ThoughtsOnModernFrameworkFeaturesPage } from "./canvas/pages/thoughts-on-modern-framework-features.page.tsx";
@@ -27,10 +27,15 @@ const router = createBrowserRouter([
 	},
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-	<React.StrictMode>
-		<main className="min-w-dvw min-h-dvh flex items-center justify-center bg-slate-50 dark:bg-slate-900">
+const rootElement = document.getElementById("root");
+if (!rootElement) {
+	throw new Error("Root element not found!");
+}
+
+createRoot(rootElement).render(
+	<StrictMode>
+		<main className="flex min-h-dvh min-w-dvw items-center justify-center bg-slate-50 dark:bg-slate-900">
 			<RouterProvider router={router} />
 		</main>
-	</React.StrictMode>,
+	</StrictMode>,
 );

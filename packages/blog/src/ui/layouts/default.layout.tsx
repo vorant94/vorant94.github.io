@@ -85,7 +85,7 @@ export const DefaultLayout: FC<PropsWithChildren<DefaultLayoutProps>> = ({
 			</head>
 			<body
 				className={cn(
-					"bg-slate-50 dark:bg-slate-900 mx-auto sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl flex min-h-dvh flex-col",
+					"mx-auto flex min-h-dvh flex-col bg-slate-50 sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl dark:bg-slate-900",
 				)}
 			>
 				<Background />
@@ -117,7 +117,7 @@ export interface DefaultLayoutProps {
 const Header: FC<PropsWithChildren> = ({ children }) => (
 	<header
 		className={cn(
-			"flex gap-1 items-center p-4 border-b border-slate-300 dark:border-slate-600",
+			"flex items-center gap-1 border-slate-300 border-b p-4 dark:border-slate-600",
 		)}
 	>
 		<nav>
@@ -162,12 +162,12 @@ const Nav: FC = () => (
 				x-bind:class="$store.defaultLayout.isMobileNavOpen ? 'translate-y-0' : '-translate-y-full'"
 				x-cloak="true"
 				className={cn(
-					"fixed top-0 left-0 w-dvw h-dvh backdrop-filter backdrop-blur z-10 transition duration-300",
+					"fixed top-0 left-0 z-10 h-dvh w-dvw backdrop-blur backdrop-filter transition duration-300",
 				)}
 			>
 				<div
 					className={cn(
-						"mx-auto sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl flex flex-col h-full",
+						"mx-auto flex h-full flex-col sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl",
 					)}
 				>
 					<Header>
@@ -181,7 +181,7 @@ const Nav: FC = () => (
 
 					<nav
 						data-testid="mobile-nav"
-						className="flex-1 flex flex-col justify-center"
+						className="flex flex-1 flex-col justify-center"
 					>
 						<menu className="flex flex-col gap-3 px-6">{navLinks}</menu>
 					</nav>
@@ -207,7 +207,7 @@ const NavLink: FC<PropsWithChildren<NavLinkProps>> = ({
 		<Link
 			href={href}
 			className={cn(
-				"font-semibold block text-center text-2xl p-3 md:p-4 rounded-full border-2 bg-slate-50 dark:bg-slate-900 border-slate-300 dark:border-slate-600 lg:text-sm lg:p-0 lg:bg-none dark:lg:bg-none lg:rounded-none lg:border-none",
+				"block rounded-full border-2 border-slate-300 bg-slate-50 p-3 text-center font-semibold text-2xl md:p-4 lg:rounded-none lg:border-none lg:bg-none lg:p-0 lg:text-sm dark:border-slate-600 dark:bg-slate-900 dark:lg:bg-none",
 				className,
 			)}
 			bindClass={`window.location.pathname.startsWith(href) && 'underline !text-cyan-500'`}
@@ -230,7 +230,7 @@ const navLinks = navLinksMeta.map((navLink) => (
 ));
 
 const Footer: FC = () => (
-	<footer className="flex gap-1 items-center p-4 border-t border-slate-300 dark:border-slate-600 text-slate-500">
+	<footer className="flex items-center gap-1 border-slate-300 border-t p-4 text-slate-500 dark:border-slate-600">
 		{/* TODO replace with Text */}
 		<span className="text-sm">Mordechai Dror © 2023-present</span>
 

@@ -1,4 +1,4 @@
-import type { FastifyPluginAsync } from "fastify";
+import type { FastifyPluginCallback } from "fastify";
 import type { VFile } from "vfile";
 import { isErrnoException } from "../../filesystem/models/error.model.js";
 import { contentType } from "../../http/types/content-type.js";
@@ -13,7 +13,8 @@ import { getChangelog } from "../models/changelog.table.js";
 import type { ProjectModel } from "../models/project.model.js";
 import { getProject } from "../models/project.table.js";
 
-export const projectChangelogPage: FastifyPluginAsync = async (app) => {
+export const projectChangelogPage: FastifyPluginCallback = (app, _, done) => {
+	// biome-ignore lint/style/useNamingConvention: 3-rd party type
 	app.get<{ Params: ProjectChangelogParams }>(
 		"/projects/:projectSlug/changelogs/:changelogVersion",
 		async (request, reply) => {
@@ -59,6 +60,7 @@ export const projectChangelogPage: FastifyPluginAsync = async (app) => {
 
 							<article
 								className={cn("prose dark:prose-invert prose-img:mx-auto mt-6")}
+								// biome-ignore lint/security/noDangerouslySetInnerHtml: html comes from a markdown file, that is part of this project and is checked for security stuff
 								dangerouslySetInnerHTML={{ __html: changelogFile.toString() }}
 							/>
 
@@ -85,6 +87,8 @@ export const projectChangelogPage: FastifyPluginAsync = async (app) => {
 				);
 		},
 	);
+
+	done();
 };
 
 interface ProjectChangelogParams {

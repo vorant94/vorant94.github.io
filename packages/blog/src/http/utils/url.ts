@@ -1,7 +1,7 @@
 import { URL } from "node:url";
 
 export function isHttpUrl(string: string): boolean {
-	let url;
+	let url: URL;
 	try {
 		url = new URL(string);
 	} catch (_) {
@@ -16,7 +16,7 @@ export function isInternalUrl(string: string): boolean {
 		return false;
 	}
 
-	let url;
+	let url: URL;
 	try {
 		url = new URL(string, "https://www.vorant94.io");
 	} catch (_) {

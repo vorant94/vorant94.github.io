@@ -11,7 +11,7 @@ import { publishedAtFormat } from "../../content/globals/published-at-format.js"
 export const PostTiledListItem: FC<PostTiledListItemProps> = ({ post }) => (
 	<li
 		className={cn(
-			"flex flex-col text-medium rounded-md duration-100 border border-transparent group cursor-pointer hover:border-slate-300 hover:dark:border-slate-600 hover:shadow-md hover:scale-105",
+			"group flex cursor-pointer flex-col rounded-md border border-transparent text-medium duration-100 hover:scale-105 hover:border-slate-300 hover:shadow-md hover:dark:border-slate-600",
 		)}
 	>
 		<Link

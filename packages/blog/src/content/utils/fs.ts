@@ -1,5 +1,5 @@
-import fg from "fast-glob";
 import path from "node:path";
+import fg from "fast-glob";
 import { read } from "to-vfile";
 import type { VFile } from "vfile";
 import { resolveContentPath } from "./path.js";
@@ -8,7 +8,7 @@ import { resolveContentPath } from "./path.js";
  * content-specific replacement for fs.readdir with filter for only content files (excluding content assets files)
  * @returns list of content file paths relative to content root directory
  */
-export async function readContentDir(prefix = ""): Promise<string[]> {
+export async function readContentDir(prefix = ""): Promise<Array<string>> {
 	const prefixAdjusted = `${prefix}/**/index.md`;
 
 	return await fg(prefixAdjusted, {
@@ -40,7 +40,7 @@ export function getIdFromContentFilePath(filePath: string): string {
 		throw new Error(`Invalid content file path: ${filePath}`);
 	}
 
-	return filepathParts.at(-2)!;
+	return filepathParts.at(-2) as string;
 }
 
 const minValidContentFilePathLength = 3;

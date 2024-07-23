@@ -1,7 +1,7 @@
+import path from "node:path";
 import rehypeShiki from "@shikijs/rehype";
 import type { Root, Text } from "hast";
 import { h } from "hastscript";
-import path from "node:path";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeSlug from "rehype-slug";
@@ -11,7 +11,7 @@ import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkReadingTime from "remark-reading-time";
 import remarkRehype from "remark-rehype";
-import { unified, type Plugin } from "unified";
+import { type Plugin, unified } from "unified";
 import { visit } from "unist-util-visit";
 import { matter } from "vfile-matter";
 import { isHttpUrl } from "../../http/utils/url.js";
@@ -28,7 +28,9 @@ const remarkContent: Plugin = () => (_, file) => {
 		throw new Error("Expected dirname to be defined");
 	}
 
-	(file.data as ContentModel).id = file.dirname.split(path.sep).at(-1)!;
+	(file.data as ContentModel).id = file.dirname
+		.split(path.sep)
+		.at(-1) as string;
 	(file.data as ContentModel).path = file.dirname.replace(
 		resolveContentPath(),
 		"",

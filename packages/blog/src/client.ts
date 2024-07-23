@@ -7,6 +7,7 @@ import "./style.css";
 
 declare global {
 	interface Window {
+		// biome-ignore lint/style/useNamingConvention: 3-rd party type
 		Alpine: typeof Alpine;
 	}
 }

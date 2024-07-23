@@ -5,7 +5,7 @@ import { describe, it } from "node:test";
 import { resolveContentPath } from "./path.js";
 
 describe("resolveContentPath", () => {
-	it("should resolve absolute path to content", async () => {
+	it("should resolve absolute path to content", () => {
 		const input = "posts";
 		const expected = path.resolve(process.cwd(), "content/posts");
 
@@ -13,7 +13,7 @@ describe("resolveContentPath", () => {
 		assert.equal(actual, expected);
 	});
 
-	it("should ignore leading slash", async () => {
+	it("should ignore leading slash", () => {
 		const input = "/posts";
 		const expected = path.resolve(process.cwd(), "content/posts");
 

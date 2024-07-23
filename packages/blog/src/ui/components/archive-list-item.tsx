@@ -16,7 +16,7 @@ export const ArchiveListItem: FunctionComponent<ArchiveListItemProps> = ({
 		<Link
 			href={href}
 			className={cn(
-				"text-slate-800 dark:text-slate-100 flex gap-3 items-center",
+				"flex items-center gap-3 text-slate-800 dark:text-slate-100",
 			)}
 			aria-label={left}
 		>

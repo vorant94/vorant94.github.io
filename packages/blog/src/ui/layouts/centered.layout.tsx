@@ -18,7 +18,7 @@ export const CenteredLayout: FC<PropsWithChildren<CenteredLayoutProps>> = ({
 		</head>
 		<body
 			className={cn(
-				"bg-slate-50 dark:bg-slate-900 mx-auto sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl flex min-h-dvh flex-col",
+				"mx-auto flex min-h-dvh flex-col bg-slate-50 sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl dark:bg-slate-900",
 			)}
 		>
 			<Background />

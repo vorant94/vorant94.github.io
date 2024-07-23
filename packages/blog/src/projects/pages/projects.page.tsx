@@ -1,4 +1,4 @@
-import type { FastifyPluginAsync } from "fastify";
+import type { FastifyPluginCallback } from "fastify";
 import { groupBy } from "lodash-es";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
@@ -6,16 +6,17 @@ import { DefaultLayout } from "../../ui/layouts/default.layout.js";
 import { render } from "../../ui/utils/render.js";
 import { ProjectTiledListItem } from "../components/project-tiled-list-item.js";
 import { ProjectTiledList } from "../components/project-tiled-list.js";
+import type { ChangelogModel } from "../models/changelog.model.js";
 import { findChangelogs } from "../models/changelog.table.js";
 import {
+	type ProjectStatus,
 	projectStatusOrder,
 	projectStatusToLabel,
-	type ProjectStatus,
 } from "../models/project.model.js";
 import { findProjects } from "../models/project.table.js";
 import { getProjectIdFromChangelogPath } from "../utils/get-project-id-from-changelog-path.js";
 
-export const projectsPage: FastifyPluginAsync = async (app) => {
+export const projectsPage: FastifyPluginCallback = (app, _, done) => {
 	app.get("/projects", async (_, reply) => {
 		const [allProjects, allChangelogs] = await Promise.all([
 			findProjects(),
@@ -28,7 +29,7 @@ export const projectsPage: FastifyPluginAsync = async (app) => {
 		);
 
 		const statuses = (
-			Object.keys(projectsByStatus) as ProjectStatus[]
+			Object.keys(projectsByStatus) as Array<ProjectStatus>
 		).toSorted((a, b) => projectStatusOrder[a] - projectStatusOrder[b]);
 
 		const changelogsByProject = groupBy(allChangelogs, (changelog) =>
@@ -54,7 +55,9 @@ export const projectsPage: FastifyPluginAsync = async (app) => {
 									<ProjectTiledListItem
 										key={project.id}
 										project={project}
-										changelogs={changelogsByProject[project.id]!}
+										changelogs={
+											changelogsByProject[project.id] as Array<ChangelogModel>
+										}
 									/>
 								))}
 							</ProjectTiledList>
@@ -63,4 +66,6 @@ export const projectsPage: FastifyPluginAsync = async (app) => {
 				),
 			);
 	});
+
+	done();
 };

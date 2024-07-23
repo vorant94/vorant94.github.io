@@ -6,11 +6,11 @@ export const Divider: FC<PropsWithChildren<DividerProps>> = ({
 	isLeft = true,
 	children,
 }) => (
-	<div className="relative flex py-5 items-center">
+	<div className="relative flex items-center py-5">
 		{isLeft && (
 			<div
 				className={cn(
-					"border-slate-300 dark:border-slate-600 flex-grow border-t",
+					"flex-grow border-slate-300 border-t dark:border-slate-600",
 				)}
 			/>
 		)}
@@ -25,7 +25,7 @@ export const Divider: FC<PropsWithChildren<DividerProps>> = ({
 		{isRight && (
 			<div
 				className={cn(
-					"border-slate-300 dark:border-slate-600 flex-grow border-t",
+					"flex-grow border-slate-300 border-t dark:border-slate-600",
 				)}
 			/>
 		)}

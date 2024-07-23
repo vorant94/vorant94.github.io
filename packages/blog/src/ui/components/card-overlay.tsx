@@ -4,7 +4,7 @@ import { cn } from "../utils/cn.js";
 export const CardOverlay: FC<OverlayProps> = ({ className, ...rest }) => (
 	<div
 		className={cn(
-			"rounded-md p-5 absolute left-0 top-0 w-full h-full",
+			"absolute top-0 left-0 h-full w-full rounded-md p-5",
 			className,
 		)}
 		{...rest}

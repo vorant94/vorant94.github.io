@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import { getProjectIdFromChangelogPath } from "../utils/get-project-id-from-changelog-path.js";
 
 describe("getProjectIdFromChangelogPath", () => {
-	it("should return project id from the file path", async () => {
+	it("should return project id from the file path", () => {
 		const input = "/projects/digital-garden/changelogs/100";
 		const expected = "digital-garden";
 

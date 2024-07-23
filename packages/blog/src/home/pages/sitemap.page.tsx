@@ -1,6 +1,6 @@
-import type { FastifyPluginAsync } from "fastify";
 import { Readable } from "node:stream";
-import { SitemapStream, streamToPromise, type IndexItem } from "sitemap";
+import type { FastifyPluginCallback } from "fastify";
+import { type IndexItem, SitemapStream, streamToPromise } from "sitemap";
 import type { ContentModel } from "../../content/models/content.model.js";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
@@ -9,7 +9,7 @@ import { getUniqueTags } from "../../posts/utils/get-unique-tags.js";
 import { findChangelogs } from "../../projects/models/changelog.table.js";
 import { findProjects } from "../../projects/models/project.table.js";
 
-export const sitemapPage: FastifyPluginAsync = async (app) => {
+export const sitemapPage: FastifyPluginCallback = (app, _, done) => {
 	app.get("/sitemap.xml", async (_, reply) => {
 		const sitemapStream = new SitemapStream({
 			hostname: app.env.BASE_URL,
@@ -22,7 +22,7 @@ export const sitemapPage: FastifyPluginAsync = async (app) => {
 		]);
 		const tags = getUniqueTags(posts);
 
-		const links: IndexItem[] = [
+		const links: Array<IndexItem> = [
 			{ url: "/" },
 			{ url: "/about" },
 			{ url: "/posts" },
@@ -42,6 +42,8 @@ export const sitemapPage: FastifyPluginAsync = async (app) => {
 			.type(contentType.xml)
 			.send(sitemap.toString());
 	});
+
+	done();
 };
 
 function contentToIndexItem(content: ContentModel): IndexItem {

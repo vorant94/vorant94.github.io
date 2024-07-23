@@ -5,7 +5,7 @@ import { getUniqueTags } from "./get-unique-tags.js";
 
 describe("getUniqueTags", () => {
 	it("should return all unique tags", () => {
-		const input: PostModel[] = [
+		const input: Array<PostModel> = [
 			{
 				id: "divide-and-conquer-right-concerns-to-separate",
 				path: "posts/divide-and-conquer-right-concerns-to-separate",

@@ -5,18 +5,18 @@ import light from "../assets/light.png";
 import styles from "./digital-garden.module.css";
 
 export const DigitalGardenPage: FC = () => (
-	<div className="relative w-dvw h-dvh">
+	<div className="relative h-dvh w-dvw">
 		<img
 			src={dark}
 			alt=""
-			className="absolute top-0 left-0 w-full h-full"
+			className="absolute top-0 left-0 h-full w-full"
 		/>
 		<img
 			src={light}
 			alt=""
 			className={clsx(
 				styles.light,
-				"light absolute top-0 left-0 w-full h-full",
+				"light absolute top-0 left-0 h-full w-full",
 			)}
 		/>
 	</div>

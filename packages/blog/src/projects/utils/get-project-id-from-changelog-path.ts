@@ -6,5 +6,5 @@ export function getProjectIdFromChangelogPath(filepath: string): string {
 		throw new Error(`Invalid changelog path: ${filepath}`);
 	}
 
-	return filepath.split(path.sep).at(2)!;
+	return filepath.split(path.sep).at(2) as string;
 }

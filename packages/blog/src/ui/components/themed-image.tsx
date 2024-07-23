@@ -14,6 +14,7 @@ export const ThemedImage: FC<ThemedImageProps> = ({
 				media="(prefers-color-scheme:dark)"
 			/>
 		)}
+		{/* biome-ignore lint/a11y/useAltText: alt-text is controlled by a parent */}
 		<img
 			src={src}
 			{...rest}

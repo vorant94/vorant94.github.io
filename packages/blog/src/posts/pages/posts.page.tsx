@@ -1,6 +1,7 @@
 import { format } from "date-fns";
-import type { FastifyPluginAsync } from "fastify";
+import type { FastifyPluginCallback } from "fastify";
 import { groupBy } from "lodash-es";
+import { publishedAtFormat } from "../../content/globals/published-at-format.js";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
 import { ArchiveListItem } from "../../ui/components/archive-list-item.js";
@@ -8,9 +9,8 @@ import { ArchiveList } from "../../ui/components/archive-list.js";
 import { DefaultLayout } from "../../ui/layouts/default.layout.js";
 import { render } from "../../ui/utils/render.js";
 import { findPosts } from "../models/post.table.js";
-import { publishedAtFormat } from "../../content/globals/published-at-format.js";
 
-export const postsPage: FastifyPluginAsync = async (app) => {
+export const postsPage: FastifyPluginCallback = (app, _opts, done) => {
 	app.get("/posts", async (_, reply) => {
 		const allPosts = await findPosts();
 
@@ -51,4 +51,6 @@ export const postsPage: FastifyPluginAsync = async (app) => {
 				),
 			);
 	});
+
+	done();
 };

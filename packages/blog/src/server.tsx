@@ -1,8 +1,8 @@
+import path from "node:path";
+import process from "node:process";
 import fastifyStatic from "@fastify/static";
 import closeWithGrace from "close-with-grace";
 import Fastify from "fastify";
-import path from "node:path";
-import process from "node:process";
 import { envSchema } from "./config/models/env.model.js";
 import { homeModule } from "./home/home.module.js";
 import { sendNotFound } from "./http/utils/send-not-found.js";
@@ -26,7 +26,7 @@ await app.register(homeModule);
 await app.register(postsModule);
 await app.register(projectsModule);
 
-app.setNotFoundHandler(async (_, reply) => {
+app.setNotFoundHandler((_, reply) => {
 	return sendNotFound(reply);
 });
 

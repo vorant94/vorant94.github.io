@@ -20,5 +20,5 @@ export const FeaturedProjects: FC<FeaturedProjectsProps> = ({ projects }) => (
 );
 
 export interface FeaturedProjectsProps {
-	projects: ProjectModel[];
+	projects: Array<ProjectModel>;
 }

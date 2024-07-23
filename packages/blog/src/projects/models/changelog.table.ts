@@ -6,7 +6,7 @@ import { changelogSchema, type ChangelogModel } from "./changelog.model.js";
 
 export async function findChangelogs(
 	projectId = "*",
-): Promise<ChangelogModel[]> {
+): Promise<Array<ChangelogModel>> {
 	const projectFilePaths = await readContentDir(
 		`projects/${projectId}/changelogs`,
 	);
