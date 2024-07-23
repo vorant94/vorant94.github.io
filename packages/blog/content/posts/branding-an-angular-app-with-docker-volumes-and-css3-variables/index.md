@@ -56,7 +56,7 @@ Let's say we want to replace the following image in our app
 In order to replace it we can we can use Docker volumes as I already mentioned before. And since images are only files and nothings more there is no bicycle to invent, the syntax of `docker-compose.yml` can be as follows. The only thing I can advise here is to create a folder to store all theme related images so there will be no need to create new volume for each new themed image
 
 ```yaml
-version: '3.1'
+version: "3.1"
 
 services:
   ng-app:
@@ -65,7 +65,7 @@ services:
       context: ..
       dockerfile: Dockerfile
     ports:
-      - '4200:80'
+      - "4200:80"
     volumes:
       - ng-app-theme:/usr/share/nginx/html/assets/theme
 
@@ -93,7 +93,7 @@ And of course you need to provide a file where you configure all default values 
 ```javascript
 var root = document.documentElement;
 
-root.style.setProperty('--styled-text-color', 'blue');
+root.style.setProperty("--styled-text-color", "blue");
 ```
 
 and add it manually to `index.html`
@@ -107,11 +107,13 @@ and add it manually to `index.html`
     <base href="/" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1" />
+      content="width=device-width, initial-scale=1"
+    />
     <link
       rel="icon"
       type="image/x-icon"
-      href="favicon.ico" />
+      href="favicon.ico"
+    />
   </head>
   <body>
     <app-root></app-root>

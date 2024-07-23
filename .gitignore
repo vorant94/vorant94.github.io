@@ -12,9 +12,3 @@ packages/blog/public/client/style.css
 packages/blog/public/client/main.js
 
 **/.DS_Store
-
-.docker/*
-!.docker/proxy
-.docker/proxy/*
-!.docker/proxy/example.env
-!.docker/proxy/templates

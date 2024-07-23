@@ -1,5 +1,5 @@
 ---
-title: '[Browser tour]: Google Chrome'
+title: "[Browser tour]: Google Chrome"
 description: This year I noticed that a long-established traditional set of browsers (Chrome, Firefox, Safari, Opera) started to be supplemented by a new generation of alternatives. Personally, for the last few years, I've been switching back and forth between Chrome and Safari (peeking at Firefox from a long distance), but the drums of Brave, Vivaldi, Edge, Arc, and SigmaOS are getting stronger and stronger. So to add some variety to the day-to-day routine I decided to try something new and share it with you.
 tags:
   - tech

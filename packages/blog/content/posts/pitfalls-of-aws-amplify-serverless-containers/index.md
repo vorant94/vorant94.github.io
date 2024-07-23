@@ -26,7 +26,7 @@ I started by adding a new api with `amplify add api` and followed by `REST -> AP
 Gotenberg provides a simple docker compose [example](https://gotenberg.dev/docs/get-started/docker-compose) of how to add it to your stack, so I copied it to the project and added mapping of ports (since I want the API to be exposed on port 80 and not 3000). At this point of time compose file looks like this:
 
 ```yaml
-version: '3'
+version: "3"
 
 services:
   gotenberg:
@@ -40,7 +40,7 @@ I ran it locally to make sure everything is working as expected and after it ran
 Now lets fast-forward half a day me playing "Spot 5 differences!" with out-of-the-box examples (particularly with "Docker Compose - ExpressJS + Flask template") that are working by the way perfectly I noticed that syntax of the given compose file doesn't use `image` statement, but `build` instead, e.g. it goes like this:
 
 ```yaml
-version: '3.8'
+version: "3.8"
 
 services:
   express:
@@ -48,7 +48,7 @@ services:
     context: ./express
     dockerfile: Dockerfile
   ports:
-    - '8080:8080'
+    - "8080:8080"
   networks:
     - public
     - private
@@ -61,7 +61,7 @@ python:
     - public
     - private
   ports:
-    - '5000:5000'
+    - "5000:5000"
 
 networks:
   public:

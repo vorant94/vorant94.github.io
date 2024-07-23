@@ -1,31 +1,21 @@
 {
-  "name": "digital-garden",
-  "type": "module",
-  "version": "2.0.0",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
-  "scripts": {
-    "prepare": "husky install",
-    "format:check": "prettier . --check",
-    "format:fix": "prettier . --write"
-  },
-  "devDependencies": {
-    "@flydotio/dockerfile": "^0.5.5",
-    "create-vite": "^5.2.3",
-    "husky": "^9.0.11",
-    "prettier": "^3.2.5",
-    "prettier-plugin-css-order": "^2.1.2",
-    "prettier-plugin-organize-imports": "^3.2.4",
-    "prettier-plugin-tailwindcss": "^0.5.14",
-    "typescript": "^5.4.5"
-  },
-  "engines": {
-    "node": ">=20"
-  },
-  "os": [
-    "darwin",
-    "linux"
-  ]
+	"name": "digital-garden",
+	"type": "module",
+	"version": "2.0.0",
+	"private": true,
+	"workspaces": ["packages/*"],
+	"scripts": {
+		"prepare": "husky install",
+		"format:check": "biome format .",
+		"format:fix": "biome format --write ."
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.3",
+		"@flydotio/dockerfile": "^0.5.5",
+		"husky": "^9.0.11"
+	},
+	"engines": {
+		"node": ">=20"
+	},
+	"os": ["darwin", "linux"]
 }

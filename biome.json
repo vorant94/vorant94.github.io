@@ -1,0 +1,31 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+	"formatter": {
+		"attributePosition": "multiline"
+	},
+	"files": {
+		"ignore": [
+			"**/.idea",
+			"**/node_modules",
+			"**/dist",
+			"**/.env",
+			"**/test-results/",
+			"**/playwright-report/",
+			"**/blob-report/",
+			"**/playwright/.cache/",
+			"packages/blog/public/client/style.css",
+			"packages/blog/public/client/main.js",
+			"**/.DS_Store"
+		]
+	},
+	"overrides": [
+		{
+			"include": ["tsconfig.*.json"],
+			"json": {
+				"parser": {
+					"allowComments": true
+				}
+			}
+		}
+	]
+}

@@ -104,10 +104,11 @@ After a little bit of searching for a solution I found [motion-framer](https://w
   {isOpen && (
     <motion.div
       key="modal"
-      initial={{ y: '-100%' }}
-      animate={{ y: '0' }}
-      exit={{ y: '-100%' }}
-      transition={{ duration: 0.3 }}>
+      initial={{ y: "-100%" }}
+      animate={{ y: "0" }}
+      exit={{ y: "-100%" }}
+      transition={{ duration: 0.3 }}
+    >
       content goes here
     </motion.div>
   )}

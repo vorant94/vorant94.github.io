@@ -90,12 +90,12 @@ Since we have a support for monorepo on package manager level it won't be a prob
 ```json5
 // app package.json
 {
-  name: 'app',
+  name: "app",
   scripts: {
-    start: 'node src/main.js',
+    start: "node src/main.js",
   },
   dependencies: {
-    lib: 'workspace:^',
+    lib: "workspace:^",
     // ...
   },
   // ...
@@ -105,8 +105,8 @@ Since we have a support for monorepo on package manager level it won't be a prob
 ```json5
 // lib package.json
 {
-  name: 'lib',
-  main: 'src/index.js',
+  name: "lib",
+  main: "src/index.js",
   // ...
 }
 ```
@@ -123,19 +123,19 @@ Compiling a monorepo is also relatively easy task: `tsc`, built-in compiler of T
 ```json5
 // app package.json
 {
-  name: 'app',
+  name: "app",
   scripts: {
-    start: 'node dist/main.js',
-    clean: 'shx rm -rf dist',
-    build: 'yarn clean && tsc --build',
+    start: "node dist/main.js",
+    clean: "shx rm -rf dist",
+    build: "yarn clean && tsc --build",
   },
   dependencies: {
-    lib: 'workspace:^',
+    lib: "workspace:^",
     // ...
   },
   devDependencies: {
-    shx: '^0.3.4',
-    typescript: '^5.3.3',
+    shx: "^0.3.4",
+    typescript: "^5.3.3",
     // ...
   },
   // ...
@@ -148,7 +148,7 @@ Compiling a monorepo is also relatively easy task: `tsc`, built-in compiler of T
   compilerOptions: {
     // ...
   },
-  references: [{ path: '../lib' }],
+  references: [{ path: "../lib" }],
   // ...
 }
 ```
@@ -156,16 +156,16 @@ Compiling a monorepo is also relatively easy task: `tsc`, built-in compiler of T
 ```json5
 // lib package.json
 {
-  name: 'lib',
-  main: 'dist/index.js',
-  types: 'dist/index.d.ts',
+  name: "lib",
+  main: "dist/index.js",
+  types: "dist/index.d.ts",
   scripts: {
-    clean: 'shx rm -rf dist && shx rm -f tsconfig.tsbuildinfo',
-    build: 'yarn clean && tsc --build',
+    clean: "shx rm -rf dist && shx rm -f tsconfig.tsbuildinfo",
+    build: "yarn clean && tsc --build",
   },
   devDependencies: {
-    shx: '^0.3.4',
-    typescript: '^5.3.3',
+    shx: "^0.3.4",
+    typescript: "^5.3.3",
   },
   // ...
 }
@@ -225,23 +225,23 @@ The final solution that I found working for me is actually avoiding all 3-party 
 ```json5
 // app package.json
 {
-  name: 'app',
-  packageManager: 'yarn@4.0.2',
+  name: "app",
+  packageManager: "yarn@4.0.2",
   // ...
   scripts: {
-    start: 'node dist/main.js',
-    'start:watch': 'node --watch dist/main.js',
-    clean: 'shx rm -rf dist',
-    build: 'yarn clean && tsc --build',
-    'build:watch': 'tsc --build --watch',
+    start: "node dist/main.js",
+    "start:watch": "node --watch dist/main.js",
+    clean: "shx rm -rf dist",
+    build: "yarn clean && tsc --build",
+    "build:watch": "tsc --build --watch",
   },
   dependencies: {
-    lib: 'workspace:^',
+    lib: "workspace:^",
     // ...
   },
   devDependencies: {
-    shx: '^0.3.4',
-    typescript: '^5.3.3',
+    shx: "^0.3.4",
+    typescript: "^5.3.3",
     // ...
   },
 }
@@ -254,15 +254,15 @@ Also as a small semantic sugar: we can run both those processes with a single co
 ```json5
 // root package.json
 {
-  name: 'typescript-monorepo',
-  packageManager: 'yarn@4.0.2',
+  name: "typescript-monorepo",
+  packageManager: "yarn@4.0.2",
   // ...
   scripts: {
     dev: 'concurrently "yarn workspace app build:watch" "yarn workspace app start:watch"',
   },
-  workspaces: ['packages/*'],
+  workspaces: ["packages/*"],
   devDependencies: {
-    concurrently: '^8.2.2',
+    concurrently: "^8.2.2",
   },
 }
 ```

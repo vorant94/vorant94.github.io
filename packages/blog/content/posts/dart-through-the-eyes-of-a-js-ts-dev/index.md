@@ -63,7 +63,7 @@ Have you ever thought while using some built-in class methods or some third-part
 ```typescript
 function getOrThrow<K, V>(map: Map<K, V>, key: K): V {
   if (!map.has(key)) {
-    throw new Error('Not found');
+    throw new Error("Not found");
   }
 
   return map.get(key)!;
@@ -141,10 +141,10 @@ Another new for me concept that I used in my everyday job, but didn't know it wa
 
 ```javascript
 const a = {
-  firstName: 'Hello',
+  firstName: "Hello",
 };
 
-a.lastName = 'World';
+a.lastName = "World";
 ```
 
 Did you notice anything strange here? I wouldn't notice it before, but here we see that despite the fact that object `a` was defined with a particular structure (e.g. having only one property of `firstName`), later on it is modified and now has two properties (`firstName` and `lastName`). It has no built-in dynamic structure, but it is dynamic by nature and it is an outcome of the fact that JS is a reflective programming language.
@@ -155,11 +155,11 @@ Ok, so how did I get here, you ask? Long story short I tried to access a propert
 
 ```javascript
 const a = {
-  firstName: 'Hello',
+  firstName: "Hello",
 };
 
 console.log(a.firstName); // ✅ perfectly fine
-console.log(a['firstName']); // ✅ fine as well
+console.log(a["firstName"]); // ✅ fine as well
 ```
 
 In JS both ways to access `firstName` are valid, but the second implies reflection. In order to access property this way process should be able to examine the structure of the `a`. Lets make it a little more clear:
@@ -170,10 +170,10 @@ function logProperty(value, propertyName) {
 }
 
 const a = {
-  firstName: 'Hello',
+  firstName: "Hello",
 };
 
-logProperty(a, 'firstName');
+logProperty(a, "firstName");
 ```
 
 In this example `logProperty` function has no clue about `value` structure, but it still is able to process normally. Why? Because it examines `value`. And in Dart as well as in a bunch of other languages you simply cannot do it

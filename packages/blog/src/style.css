@@ -1,5 +1,5 @@
-@import './posts/components/RelatedPosts.css';
-@import './ui/layouts/DefaultLayout.css';
+@import "posts/components/related-posts.css";
+@import "ui/layouts/default.layout.css";
 
 @tailwind base;
 @tailwind components;

@@ -1,45 +1,45 @@
 {
-  "compilerOptions": {
-    /* Base */
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "target": "ES2022",
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "moduleDetection": "force",
-    "isolatedModules": true,
+	"compilerOptions": {
+		/* Base */
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"target": "ES2022",
+		"allowJs": true,
+		"resolveJsonModule": true,
+		"moduleDetection": "force",
+		"isolatedModules": true,
 
-    /* Strictness */
-    "strict": true,
-    "verbatimModuleSyntax": true,
-    "forceConsistentCasingInFileNames": true,
-    "useDefineForClassFields": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": false,
+		/* Strictness */
+		"strict": true,
+		"verbatimModuleSyntax": true,
+		"forceConsistentCasingInFileNames": true,
+		"useDefineForClassFields": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": false,
 
-    /* Linting */
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true,
-    "noImplicitReturns": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
+		/* Linting */
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitReturns": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
 
-    /* Bundler/Compiler */
-    "module": "NodeNext",
-    "rootDir": "src",
-    "outDir": "dist",
-    "preserveWatchOutput": true,
-    "sourceMap": true,
+		/* Bundler/Compiler */
+		"module": "NodeNext",
+		"rootDir": "src",
+		"outDir": "dist",
+		"preserveWatchOutput": true,
+		"sourceMap": true,
 
-    /* Runtime/Framework */
-    "lib": ["ES2023"],
-    "jsx": "react-jsx",
+		/* Runtime/Framework */
+		"lib": ["ES2023"],
+		"jsx": "react-jsx",
 
-    /* Misc */
-    "types": ["node", "@total-typescript/ts-reset"]
-  },
-  "include": ["src"],
-  "exclude": ["src/client.ts"]
+		/* Misc */
+		"types": ["node", "@total-typescript/ts-reset"]
+	},
+	"include": ["src"],
+	"exclude": ["src/client.ts"]
 }

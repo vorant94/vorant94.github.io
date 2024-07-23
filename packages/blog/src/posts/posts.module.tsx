@@ -1,17 +1,17 @@
-import fastifyStatic from '@fastify/static';
-import type { FastifyPluginAsync } from 'fastify';
-import { resolveContentPath } from '../content/index.js';
-import { postHandler } from './handlers/post.handler.js';
-import { postsHandler } from './handlers/posts.handler.js';
-import { tagHandler } from './handlers/tag.handler.js';
+import fastifyStatic from "@fastify/static";
+import type { FastifyPluginAsync } from "fastify";
+import { resolveContentPath } from "../content/utils/path.js";
+import { postPage } from "./pages/post.page.js";
+import { postsPage } from "./pages/posts.page.js";
+import { tagPage } from "./pages/tag.page.js";
 
-export const postsModule: FastifyPluginAsync = async function (app) {
-  await app.register(fastifyStatic, {
-    root: resolveContentPath('posts'),
-    prefix: '/posts/',
-  });
+export const postsModule: FastifyPluginAsync = async (app) => {
+	await app.register(fastifyStatic, {
+		root: resolveContentPath("posts"),
+		prefix: "/posts/",
+	});
 
-  await app.register(postsHandler);
-  await app.register(postHandler);
-  await app.register(tagHandler);
+	await app.register(postsPage);
+	await app.register(postPage);
+	await app.register(tagPage);
 };
