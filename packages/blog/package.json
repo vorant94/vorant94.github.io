@@ -12,7 +12,7 @@
     "test": "glob dist/**/*.spec.js -c 'node --test'",
     "test:watch": "glob dist/**/*.spec.js -c 'node --test --watch'",
     "e2e": "playwright test",
-    "e2e:setup": "playwright install",
+    "e2e:setup": "playwright install --with-deps",
     "clean": "shx rm -rf dist && shx rm -rf public/client"
   },
   "dependencies": {

@@ -1,11 +1,11 @@
-import { DigitalGarden } from '@/DigitalGarden';
-import { Home } from '@/Home';
-import { ThoughtsOnModernFrameworkFeatures } from '@/ThoughtsOnModernFrameworkFeatures';
-import { TypescriptMonoreposAreAMess } from '@/TypescriptMonoreposAreAMess';
 import { route } from '@/router/route.ts';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { DigitalGarden } from 'src/digital-garden';
+import { Home } from 'src/home';
+import { ThoughtsOnModernFrameworkFeatures } from 'src/thoughts-on-modern-framework-features';
+import { TypescriptMonoreposAreAMess } from 'src/typescript-monorepos-are-a-mess';
 import './index.css';
 
 const router = createBrowserRouter([
