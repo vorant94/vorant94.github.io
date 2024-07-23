@@ -3,9 +3,9 @@ import RSS from "rss";
 import { profile } from "../../config/globals/profile.js";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
-import { findPosts } from "../../posts/models/post.table.js";
+import { findPosts } from "../../posts/models/post.datasource.js";
 
-export const rssPage: FastifyPluginCallback = (app, _, done) => {
+export const rssHandler: FastifyPluginCallback = (app, _, done) => {
 	app.get("/rss.xml", async (_, reply) => {
 		const rss = new RSS({
 			title: profile.title,

@@ -3,14 +3,14 @@ import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
 import { PinnedPosts } from "../../posts/components/pinned-posts.js";
 import { RecentPosts } from "../../posts/components/recent-posts.js";
-import { findPosts } from "../../posts/models/post.table.js";
+import { findPosts } from "../../posts/models/post.datasource.js";
 import { FeaturedProjects } from "../../projects/components/featured-projects.js";
-import { findProjects } from "../../projects/models/project.table.js";
+import { findProjects } from "../../projects/models/project.datasource.js";
 import { DefaultLayout } from "../../ui/layouts/default.layout.js";
 import { render } from "../../ui/utils/render.js";
 import { Intro } from "../components/intro.js";
 
-export const homePage: FastifyPluginCallback = (app, _, done) => {
+export const homeHandler: FastifyPluginCallback = (app, _, done) => {
 	app.get("/", async (_, reply) => {
 		const [allPosts, allProjects] = await Promise.all([
 			findPosts(),

@@ -7,7 +7,7 @@ import { Intro } from "../components/intro.js";
 import { SocialLinks } from "../components/social-links.js";
 import { StayUpToDate } from "../components/stay-up-to-date.js";
 
-export const aboutPage: FastifyPluginCallback = (app, _, done) => {
+export const aboutHandler: FastifyPluginCallback = (app, _, done) => {
 	app.get("/about", (_, reply) => {
 		return reply
 			.status(statusCode.ok)

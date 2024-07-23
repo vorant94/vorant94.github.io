@@ -1,11 +1,11 @@
-import fastifyStatic from "@fastify/static";
-import type { FastifyPluginAsync } from "fastify";
 import path from "node:path";
 import process from "node:process";
-import { aboutPage } from "./pages/about.page.js";
-import { homePage } from "./pages/home.page.js";
-import { rssPage } from "./pages/rss.page.js";
-import { sitemapPage } from "./pages/sitemap.page.js";
+import fastifyStatic from "@fastify/static";
+import type { FastifyPluginAsync } from "fastify";
+import { aboutHandler } from "./handlers/about.handler.js";
+import { homeHandler } from "./handlers/home.handler.js";
+import { rssHandler } from "./handlers/rss.handler.js";
+import { sitemapHandler } from "./handlers/sitemap.handler.js";
 
 export const homeModule: FastifyPluginAsync = async (app) => {
 	await app.register(fastifyStatic, {
@@ -13,8 +13,8 @@ export const homeModule: FastifyPluginAsync = async (app) => {
 		prefix: "/home/",
 	});
 
-	await app.register(homePage);
-	await app.register(aboutPage);
-	await app.register(rssPage);
-	await app.register(sitemapPage);
+	await app.register(homeHandler);
+	await app.register(aboutHandler);
+	await app.register(rssHandler);
+	await app.register(sitemapHandler);
 };

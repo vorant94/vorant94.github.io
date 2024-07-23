@@ -10,4 +10,4 @@ export const envSchema = z.object({
 	// biome-ignore lint/style/useNamingConvention: env variables have different convention
 	BASE_URL: z.string().default("http://localhost:3000"),
 });
-export type EnvModel = z.infer<typeof envSchema>;
+export type Env = z.infer<typeof envSchema>;

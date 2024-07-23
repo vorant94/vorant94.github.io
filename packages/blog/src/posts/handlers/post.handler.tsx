@@ -2,7 +2,7 @@ import { format } from "date-fns";
 import type { FastifyPluginCallback } from "fastify";
 import type { VFile } from "vfile";
 import { publishedAtFormat } from "../../content/globals/published-at-format.js";
-import { isErrnoException } from "../../filesystem/models/error.model.js";
+import { isErrnoException } from "../../filesystem/utils/is-errno-exception.js";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
 import { sendNotFound } from "../../http/utils/send-not-found.js";
@@ -15,10 +15,10 @@ import { cn } from "../../ui/utils/cn.js";
 import { render } from "../../ui/utils/render.js";
 import { RelatedPosts } from "../components/related-posts.js";
 import { Tag } from "../components/tag.js";
+import { findPosts, getPostFile } from "../models/post.datasource.js";
 import { type PostModel, isPostWithCover } from "../models/post.model.js";
-import { findPosts, getPostFile } from "../models/post.table.js";
 
-export const postPage: FastifyPluginCallback = (app, _, done) => {
+export const postHandler: FastifyPluginCallback = (app, _, done) => {
 	// biome-ignore lint/style/useNamingConvention: 3-rd party type
 	app.get<{ Params: PostParams }>("/posts/:slug", async (request, reply) => {
 		let postFile: VFile;

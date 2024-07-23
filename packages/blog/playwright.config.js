@@ -1,6 +1,6 @@
 import process from "node:process";
 import { defineConfig, devices } from "@playwright/test";
-import { envSchema } from "./src/config/models/env.model.js";
+import { envSchema } from "./src/config/types/env.ts";
 
 const env = envSchema.parse(process.env);
 

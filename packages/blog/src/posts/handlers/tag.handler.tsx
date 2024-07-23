@@ -7,9 +7,9 @@ import { ArchiveListItem } from "../../ui/components/archive-list-item.js";
 import { ArchiveList } from "../../ui/components/archive-list.js";
 import { DefaultLayout } from "../../ui/layouts/default.layout.js";
 import { render } from "../../ui/utils/render.js";
-import { findPosts } from "../models/post.table.js";
+import { findPosts } from "../models/post.datasource.js";
 
-export const tagPage: FastifyPluginCallback = (app, _, done) => {
+export const tagHandler: FastifyPluginCallback = (app, _, done) => {
 	// biome-ignore lint/style/useNamingConvention: 3-rd party type
 	app.get<{ Params: { tag: string } }>("/tags/:tag", async (request, reply) => {
 		const allPosts = await findPosts();

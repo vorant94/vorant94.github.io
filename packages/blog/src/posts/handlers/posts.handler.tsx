@@ -8,9 +8,9 @@ import { ArchiveListItem } from "../../ui/components/archive-list-item.js";
 import { ArchiveList } from "../../ui/components/archive-list.js";
 import { DefaultLayout } from "../../ui/layouts/default.layout.js";
 import { render } from "../../ui/utils/render.js";
-import { findPosts } from "../models/post.table.js";
+import { findPosts } from "../models/post.datasource.js";
 
-export const postsPage: FastifyPluginCallback = (app, _opts, done) => {
+export const postsHandler: FastifyPluginCallback = (app, _opts, done) => {
 	app.get("/posts", async (_, reply) => {
 		const allPosts = await findPosts();
 

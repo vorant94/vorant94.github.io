@@ -1,7 +1,7 @@
 import { URL } from "node:url";
 import type { FC, PropsWithChildren } from "react";
 import { profile } from "../../config/globals/profile.js";
-import type { EnvModel } from "../../config/models/env.model.js";
+import type { Env } from "../../config/types/env.js";
 import { Background } from "../components/background.js";
 import { ButtonLink } from "../components/button-link.js";
 import { Button } from "../components/button.js";
@@ -107,7 +107,7 @@ export const DefaultLayout: FC<PropsWithChildren<DefaultLayoutProps>> = ({
 export interface DefaultLayoutProps {
 	// TODO merge currentPath with env.BASE_URL
 	currentPath: string;
-	env: EnvModel;
+	env: Env;
 	title?: string;
 	image?: string;
 	description?: string;
@@ -192,9 +192,9 @@ const Nav: FC = () => (
 );
 
 const navLinksMeta = [
-	{ label: "👨‍💻 About", url: "/about" },
-	{ label: "✏️ Posts", url: "/posts" },
-	{ label: "🏗️ Projects", url: "/projects" },
+	{ label: "👨 About", url: "/about" },
+	{ label: "✏ Posts", url: "/posts" },
+	{ label: "🏗 Projects", url: "/projects" },
 ] as const;
 
 const NavLink: FC<PropsWithChildren<NavLinkProps>> = ({

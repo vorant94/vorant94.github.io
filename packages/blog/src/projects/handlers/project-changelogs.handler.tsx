@@ -4,7 +4,11 @@ import { statusCode } from "../../http/types/status-code.js";
 import { DefaultLayout } from "../../ui/layouts/default.layout.js";
 import { render } from "../../ui/utils/render.js";
 
-export const projectChangelogsPage: FastifyPluginCallback = (app, _, done) => {
+export const projectChangelogsHandler: FastifyPluginCallback = (
+	app,
+	_,
+	done,
+) => {
 	// biome-ignore lint/style/useNamingConvention: 3-rd party type
 	app.get<{ Params: ProjectChangelogsParams }>(
 		"/projects/:slug/changelogs",

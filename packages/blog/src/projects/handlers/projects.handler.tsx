@@ -6,17 +6,17 @@ import { DefaultLayout } from "../../ui/layouts/default.layout.js";
 import { render } from "../../ui/utils/render.js";
 import { ProjectTiledListItem } from "../components/project-tiled-list-item.js";
 import { ProjectTiledList } from "../components/project-tiled-list.js";
+import { findChangelogs } from "../models/changelog.datasource.js";
 import type { ChangelogModel } from "../models/changelog.model.js";
-import { findChangelogs } from "../models/changelog.table.js";
+import { findProjects } from "../models/project.datasource.js";
 import {
 	type ProjectStatus,
 	projectStatusOrder,
 	projectStatusToLabel,
 } from "../models/project.model.js";
-import { findProjects } from "../models/project.table.js";
 import { getProjectIdFromChangelogPath } from "../utils/get-project-id-from-changelog-path.js";
 
-export const projectsPage: FastifyPluginCallback = (app, _, done) => {
+export const projectsHandler: FastifyPluginCallback = (app, _, done) => {
 	app.get("/projects", async (_, reply) => {
 		const [allProjects, allChangelogs] = await Promise.all([
 			findProjects(),

@@ -1,6 +1,6 @@
 import "fastify";
 import "react";
-import type { EnvModel } from "./config/models/env.model.js";
+import type { Env } from "./config/types/env.js";
 
 declare module "react" {
 	// biome-ignore lint/style/useNamingConvention: 3-rd party type
@@ -19,6 +19,6 @@ declare module "react" {
 
 declare module "fastify" {
 	interface FastifyInstance {
-		env: EnvModel;
+		env: Env;
 	}
 }

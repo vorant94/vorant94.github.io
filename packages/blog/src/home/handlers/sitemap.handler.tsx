@@ -4,12 +4,12 @@ import { type IndexItem, SitemapStream, streamToPromise } from "sitemap";
 import type { ContentModel } from "../../content/models/content.model.js";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
-import { findPosts } from "../../posts/models/post.table.js";
+import { findPosts } from "../../posts/models/post.datasource.js";
 import { getUniqueTags } from "../../posts/utils/get-unique-tags.js";
-import { findChangelogs } from "../../projects/models/changelog.table.js";
-import { findProjects } from "../../projects/models/project.table.js";
+import { findChangelogs } from "../../projects/models/changelog.datasource.js";
+import { findProjects } from "../../projects/models/project.datasource.js";
 
-export const sitemapPage: FastifyPluginCallback = (app, _, done) => {
+export const sitemapHandler: FastifyPluginCallback = (app, _, done) => {
 	app.get("/sitemap.xml", async (_, reply) => {
 		const sitemapStream = new SitemapStream({
 			hostname: app.env.BASE_URL,

@@ -1,6 +1,6 @@
 import type { FastifyPluginCallback } from "fastify";
 import type { VFile } from "vfile";
-import { isErrnoException } from "../../filesystem/models/error.model.js";
+import { isErrnoException } from "../../filesystem/utils/is-errno-exception.js";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
 import { sendNotFound } from "../../http/utils/send-not-found.js";
@@ -8,12 +8,16 @@ import { Title } from "../../ui/components/title.js";
 import { DefaultLayout } from "../../ui/layouts/default.layout.js";
 import { cn } from "../../ui/utils/cn.js";
 import { render } from "../../ui/utils/render.js";
+import { getChangelog } from "../models/changelog.datasource.js";
 import type { ChangelogModel } from "../models/changelog.model.js";
-import { getChangelog } from "../models/changelog.table.js";
+import { getProject } from "../models/project.datasource.js";
 import type { ProjectModel } from "../models/project.model.js";
-import { getProject } from "../models/project.table.js";
 
-export const projectChangelogPage: FastifyPluginCallback = (app, _, done) => {
+export const projectChangelogHandler: FastifyPluginCallback = (
+	app,
+	_,
+	done,
+) => {
 	// biome-ignore lint/style/useNamingConvention: 3-rd party type
 	app.get<{ Params: ProjectChangelogParams }>(
 		"/projects/:projectSlug/changelogs/:changelogVersion",

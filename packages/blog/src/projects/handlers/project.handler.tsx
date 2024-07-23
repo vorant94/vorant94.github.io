@@ -1,6 +1,6 @@
 import type { FastifyPluginCallback } from "fastify";
 import type { VFile } from "vfile";
-import { isErrnoException } from "../../filesystem/models/error.model.js";
+import { isErrnoException } from "../../filesystem/utils/is-errno-exception.js";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
 import { sendNotFound } from "../../http/utils/send-not-found.js";
@@ -14,11 +14,11 @@ import { cn } from "../../ui/utils/cn.js";
 import { render } from "../../ui/utils/render.js";
 import { ProjectChangelogs } from "../components/project-changelogs.js";
 import { Version } from "../components/version.js";
-import { findChangelogs } from "../models/changelog.table.js";
+import { findChangelogs } from "../models/changelog.datasource.js";
+import { getProjectFile } from "../models/project.datasource.js";
 import type { ProjectModel } from "../models/project.model.js";
-import { getProjectFile } from "../models/project.table.js";
 
-export const projectPage: FastifyPluginCallback = (app, _, done) => {
+export const projectHandler: FastifyPluginCallback = (app, _, done) => {
 	// biome-ignore lint/style/useNamingConvention: 3-rd party type
 	app.get<{ Params: ProjectParams }>(
 		"/projects/:slug",
