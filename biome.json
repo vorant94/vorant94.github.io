@@ -67,7 +67,8 @@
 			"**/playwright/.cache/",
 			"packages/blog/public/client/style.css",
 			"packages/blog/public/client/main.js",
-			"**/.DS_Store"
+			"**/.DS_Store",
+			".husky/_/*"
 		]
 	},
 	"overrides": [
