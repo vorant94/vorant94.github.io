@@ -1,7 +1,7 @@
 import { URL } from "node:url";
 import type { FC, PropsWithChildren } from "react";
 import { profile } from "../../config/globals/profile.js";
-import type { Env } from "../../config/types/env.js";
+import type { Env } from "../../config/globals/env.js";
 import { Background } from "../components/background.js";
 import { ButtonLink } from "../components/button-link.js";
 import { Button } from "../components/button.js";

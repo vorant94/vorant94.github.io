@@ -3,7 +3,7 @@ import process from "node:process";
 import fastifyStatic from "@fastify/static";
 import closeWithGrace from "close-with-grace";
 import Fastify from "fastify";
-import { envSchema } from "./config/types/env.js";
+import { env } from "./config/globals/env.js";
 import { homeModule } from "./home/home.module.js";
 import { sendNotFound } from "./http/utils/send-not-found.js";
 import { postsModule } from "./posts/posts.module.js";
@@ -15,7 +15,7 @@ const app = Fastify({
 	ignoreTrailingSlash: true,
 });
 
-app.decorate("env", envSchema.parse(process.env));
+app.decorate("env", env);
 
 await app.register(fastifyStatic, {
 	root: path.resolve(process.cwd(), "public"),

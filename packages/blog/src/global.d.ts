@@ -1,6 +1,6 @@
 import "fastify";
 import "react";
-import type { Env } from "./config/types/env.js";
+import type { Env } from "./config/globals/env.js";
 
 declare module "react" {
 	// biome-ignore lint/style/useNamingConvention: 3-rd party type

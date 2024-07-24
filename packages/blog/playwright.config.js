@@ -1,8 +1,5 @@
-import process from "node:process";
 import { defineConfig, devices } from "@playwright/test";
-import { envSchema } from "./src/config/types/env.ts";
-
-const env = envSchema.parse(process.env);
+import { env } from "./src/config/globals/env.js";
 
 export default defineConfig({
 	testDir: "./e2e",
