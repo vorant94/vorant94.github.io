@@ -1,7 +1,6 @@
-import assert from "node:assert";
 import path from "node:path";
 import process from "node:process";
-import { describe, it } from "node:test";
+import { describe, expect, it } from "vitest";
 import { resolveContentPath } from "./path.js";
 
 describe("resolveContentPath", () => {
@@ -10,7 +9,7 @@ describe("resolveContentPath", () => {
 		const expected = path.resolve(process.cwd(), "content/posts");
 
 		const actual = resolveContentPath(input);
-		assert.equal(actual, expected);
+		expect(actual).toEqual(expected);
 	});
 
 	it("should ignore leading slash", () => {
@@ -18,6 +17,6 @@ describe("resolveContentPath", () => {
 		const expected = path.resolve(process.cwd(), "content/posts");
 
 		const actual = resolveContentPath(input);
-		assert.equal(actual, expected);
+		expect(actual).toEqual(expected);
 	});
 });

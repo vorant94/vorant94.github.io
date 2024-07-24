@@ -1,5 +1,4 @@
-import assert from "node:assert";
-import { describe, it } from "node:test";
+import { describe, expect, it } from "vitest";
 import { isHttpUrl, isInternalUrl } from "./url.js";
 
 describe("isHttpUrl", () => {
@@ -8,7 +7,7 @@ describe("isHttpUrl", () => {
 		const expected = true;
 
 		const actual = isHttpUrl(input);
-		assert.equal(actual, expected);
+		expect(actual).toEqual(expected);
 	});
 
 	it("should return false for regular strings", () => {
@@ -16,7 +15,7 @@ describe("isHttpUrl", () => {
 		const expected = false;
 
 		const actual = isHttpUrl(input);
-		assert.equal(actual, expected);
+		expect(actual).toEqual(expected);
 	});
 
 	it("should return false for file urls", () => {
@@ -24,7 +23,7 @@ describe("isHttpUrl", () => {
 		const expected = false;
 
 		const actual = isHttpUrl(input);
-		assert.equal(actual, expected);
+		expect(actual).toEqual(expected);
 	});
 });
 
@@ -34,7 +33,7 @@ describe("isInternalUrl", () => {
 		const expected = true;
 
 		const actual = isInternalUrl(input);
-		assert.equal(actual, expected);
+		expect(actual).toEqual(expected);
 	});
 
 	it("should return false for external urls", () => {
@@ -42,6 +41,6 @@ describe("isInternalUrl", () => {
 		const expected = false;
 
 		const actual = isInternalUrl(input);
-		assert.equal(actual, expected);
+		expect(actual).toEqual(expected);
 	});
 });

@@ -57,17 +57,18 @@
 	},
 	"files": {
 		"ignore": [
-			"**/.idea",
-			"**/node_modules",
-			"**/dist",
+			"**/.idea/*",
+			"**/node_modules/*",
+			"**/dist/*",
 			"**/.env",
-			"**/test-results/",
-			"**/playwright-report/",
-			"**/blob-report/",
-			"**/playwright/.cache/",
+			"**/test-results/*",
+			"**/playwright-report/*",
+			"**/blob-report/*",
+			"**/playwright/.cache/*",
+			"**/coverage/*",
 			"packages/blog/public/client/style.css",
 			"packages/blog/public/client/main.js",
-			"**/.DS_Store",
+			"**/.DS_Store/*",
 			".husky/_/*"
 		]
 	},

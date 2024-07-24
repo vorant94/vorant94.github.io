@@ -1,5 +1,4 @@
-import assert from "node:assert";
-import { describe, it } from "node:test";
+import { describe, expect, it } from "vitest";
 import type { PostModel } from "../models/post.model.js";
 import { getUniqueTags } from "./get-unique-tags.js";
 
@@ -301,6 +300,6 @@ describe("getUniqueTags", () => {
 
 		const actual = getUniqueTags(input);
 
-		assert.deepEqual(actual, expected);
+		expect(actual).toEqual(expected);
 	});
 });

@@ -1,5 +1,4 @@
-import assert from "node:assert";
-import { describe, it } from "node:test";
+import { describe, expect, it } from "vitest";
 import { getIdFromContentFilePath } from "./fs.js";
 
 describe("getIdFromContentFilePath", () => {
@@ -11,23 +10,23 @@ describe("getIdFromContentFilePath", () => {
 
 		const actual = getIdFromContentFilePath(input);
 
-		assert.equal(actual, expected);
+		expect(actual).toEqual(expected);
 	});
 
 	it("should throw an error if the file path is invalid", () => {
 		const input =
 			"posts/branding-an-angular-app-with-docker-volumes-and-css3-variables";
 
-		assert.throws(() => getIdFromContentFilePath(input), {
-			message: `Invalid content file path: ${input}`,
-		});
+		expect(() => getIdFromContentFilePath(input)).toThrowError(
+			`Invalid content file path: ${input}`,
+		);
 	});
 
 	it("should throw an error if the slug cannot be extracted", () => {
 		const input = "posts/index.md";
 
-		assert.throws(() => getIdFromContentFilePath(input), {
-			message: `Invalid content file path: ${input}`,
-		});
+		expect(() => getIdFromContentFilePath(input)).toThrowError(
+			`Invalid content file path: ${input}`,
+		);
 	});
 });

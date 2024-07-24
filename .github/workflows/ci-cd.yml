@@ -55,11 +55,13 @@ jobs:
 
       - uses: ./.github/actions/setup
 
-      - run: npm run build:client --workspace=@digital-garden/blog
+      - run: npm run test:coverage --workspace=@digital-garden/blog
 
-      - run: npm run build:server --workspace=@digital-garden/blog
-
-      - run: npm run test --workspace=@digital-garden/blog
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: packages/blog/coverage/
+          retention-days: 30
 
   e2e:
     timeout-minutes: 60

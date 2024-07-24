@@ -7,6 +7,7 @@
 **/playwright-report/
 **/blob-report/
 **/playwright/.cache/
+**/coverage/
 
 packages/blog/public/client/style.css
 packages/blog/public/client/main.js

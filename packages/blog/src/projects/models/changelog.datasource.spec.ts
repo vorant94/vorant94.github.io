@@ -1,5 +1,4 @@
-import assert from "node:assert";
-import { describe, it } from "node:test";
+import { describe, expect, it } from "vitest";
 import { getProjectIdFromChangelogPath } from "../utils/get-project-id-from-changelog-path.js";
 
 describe("getProjectIdFromChangelogPath", () => {
@@ -9,14 +8,14 @@ describe("getProjectIdFromChangelogPath", () => {
 
 		const actual = getProjectIdFromChangelogPath(input);
 
-		assert.equal(actual, expected);
+		expect(actual).toEqual(expected);
 	});
 
 	it("should throw an error if the file path is invalid", () => {
 		const input = "projects/digital-garden/changelogs/100";
 
-		assert.throws(() => getProjectIdFromChangelogPath(input), {
-			message: `Invalid changelog path: ${input}`,
-		});
+		expect(() => getProjectIdFromChangelogPath(input)).toThrowError(
+			`Invalid changelog path: ${input}`,
+		);
 	});
 });
