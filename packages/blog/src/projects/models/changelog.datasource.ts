@@ -2,7 +2,7 @@ import { compareDesc } from "date-fns";
 import type { VFile } from "vfile";
 import { readContentDir, readContentFile } from "../../content/utils/fs.js";
 import { processor } from "../../content/utils/processor.js";
-import { changelogSchema, type ChangelogModel } from "./changelog.model.js";
+import { type ChangelogModel, changelogSchema } from "./changelog.model.js";
 
 export async function findChangelogs(
 	projectId = "*",

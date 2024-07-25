@@ -1,9 +1,9 @@
 import { format } from "date-fns";
 import type { FC } from "react";
+import { publishedAtFormat } from "../../content/globals/published-at-format.js";
 import { ArchiveListItem } from "../../ui/components/archive-list-item.js";
 import { ArchiveList } from "../../ui/components/archive-list.js";
 import type { ChangelogModel } from "../models/changelog.model.js";
-import { publishedAtFormat } from "../../content/globals/published-at-format.js";
 
 export const ProjectChangelogs: FC<ProjectChangelogsProps> = ({
 	changelogs,

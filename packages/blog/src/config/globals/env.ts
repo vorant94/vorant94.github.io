@@ -1,5 +1,5 @@
-import { z } from "zod";
 import process from "node:process";
+import { z } from "zod";
 
 const envSchema = z.object({
 	// biome-ignore lint/style/useNamingConvention: env variables have different convention

@@ -1,10 +1,10 @@
 import { format } from "date-fns";
 import type { FC } from "react";
+import { publishedAtFormat } from "../../content/globals/published-at-format.js";
 import { ArchiveListItem } from "../../ui/components/archive-list-item.js";
 import { StandOut } from "../../ui/components/stand-out.js";
 import { cn } from "../../ui/utils/cn.js";
 import type { PostModel } from "../models/post.model.js";
-import { publishedAtFormat } from "../../content/globals/published-at-format.js";
 
 export const PinnedPosts: FC<PinnedPostsProps> = ({ posts }) => (
 	<menu>

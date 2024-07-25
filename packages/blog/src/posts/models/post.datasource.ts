@@ -7,7 +7,7 @@ import {
 	readContentFile,
 } from "../../content/utils/fs.js";
 import { processor } from "../../content/utils/processor.js";
-import { isPostWithCover, postSchema, type PostModel } from "./post.model.js";
+import { type PostModel, isPostWithCover, postSchema } from "./post.model.js";
 
 export async function findPosts(
 	ids: Array<string> = [],

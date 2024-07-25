@@ -1,7 +1,7 @@
 import type { VFile } from "vfile";
 import { readContentDir, readContentFile } from "../../content/utils/fs.js";
 import { processor } from "../../content/utils/processor.js";
-import { projectSchema, type ProjectModel } from "./project.model.js";
+import { type ProjectModel, projectSchema } from "./project.model.js";
 
 export async function findProjects(): Promise<Array<ProjectModel>> {
 	const projectFilePaths = await readContentDir("projects");
