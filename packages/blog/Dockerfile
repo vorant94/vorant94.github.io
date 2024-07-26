@@ -1,4 +1,4 @@
-FROM node:20-alpine as build
+FROM node:22-alpine as build
 
 WORKDIR /usr/local/blog
 
@@ -7,7 +7,7 @@ RUN npm ci --ignore-scripts --no-audit
 RUN npm run build:client --workspace=@digital-garden/blog
 RUN npm run build:server --workspace=@digital-garden/blog
 
-FROM node:20-alpine as start
+FROM node:22-alpine as start
 
 WORKDIR /usr/local/blog
 

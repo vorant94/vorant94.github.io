@@ -3,7 +3,7 @@
 		/* Base */
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"target": "ES2022",
+		"target": "ESNext",
 		"allowJs": true,
 		"resolveJsonModule": true,
 		"moduleDetection": "force",
@@ -32,7 +32,7 @@
 		"noEmit": true,
 
 		/* Runtime/Framework */
-		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
 
 		/* Misc */
 		"types": ["vite/client", "@total-typescript/ts-reset"]

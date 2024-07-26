@@ -1,6 +1,5 @@
 import { format } from "date-fns";
 import type { FastifyPluginCallback } from "fastify";
-import { groupBy } from "lodash-es";
 import { publishedAtFormat } from "../../content/globals/published-at-format.js";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
@@ -14,7 +13,7 @@ export const postsHandler: FastifyPluginCallback = (app, _opts, done) => {
 	app.get("/posts", async (_, reply) => {
 		const allPosts = await findPosts();
 
-		const postsByPublishedAt = groupBy(allPosts, (post) =>
+		const postsByPublishedAt = Object.groupBy(allPosts, (post) =>
 			format(post.matter.publishedAt, publishedAtFormat.year),
 		);
 		const years = Object.keys(postsByPublishedAt).reverse();

@@ -1,5 +1,4 @@
 import type { FastifyPluginCallback } from "fastify";
-import { groupBy } from "lodash-es";
 import { contentType } from "../../http/types/content-type.js";
 import { statusCode } from "../../http/types/status-code.js";
 import { DefaultLayout } from "../../ui/layouts/default.layout.js";
@@ -23,7 +22,7 @@ export const projectsHandler: FastifyPluginCallback = (app, _, done) => {
 			findChangelogs(),
 		]);
 
-		const projectsByStatus = groupBy(
+		const projectsByStatus = Object.groupBy(
 			allProjects,
 			(project) => project.matter.status,
 		);
@@ -32,7 +31,7 @@ export const projectsHandler: FastifyPluginCallback = (app, _, done) => {
 			Object.keys(projectsByStatus) as Array<ProjectStatus>
 		).toSorted((a, b) => projectStatusOrder[a] - projectStatusOrder[b]);
 
-		const changelogsByProject = groupBy(allChangelogs, (changelog) =>
+		const changelogsByProject = Object.groupBy(allChangelogs, (changelog) =>
 			getProjectIdFromChangelogPath(changelog.path),
 		);
 
