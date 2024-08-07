@@ -15,6 +15,18 @@ declare module "react" {
 			"lottie-player": unknown;
 		}
 	}
+
+	type AlpineListenableAttribute = `x-on:${"mouseenter" | "click"}`;
+	type AlpineBindableAttribute = `x-bind:${"class"}`;
+
+	interface Attributes
+		extends Partial<
+			Record<AlpineListenableAttribute | AlpineBindableAttribute, string>
+		> {
+		"x-data"?: string;
+		"x-cloak"?: string;
+		"x-teleport"?: string;
+	}
 }
 
 declare module "fastify" {
@@ -22,3 +34,5 @@ declare module "fastify" {
 		env: Env;
 	}
 }
+
+Event;
