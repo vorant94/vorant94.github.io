@@ -69,12 +69,28 @@
 			"packages/blog/public/client/style.css",
 			"packages/blog/public/client/main.js",
 			"**/.DS_Store/*",
-			".husky/_/*"
+			".husky/_/*",
+
+			".DS_Store",
+			".idea",
+			"node_modules",
+			"dist",
+			"coverage",
+			"playwright-report",
+			"test-results",
+			".react-router",
+			".env",
+			".wrangler",
+			".vercel",
+			"data",
+			".obsidian",
+			".astro",
+			".vscode"
 		]
 	},
 	"overrides": [
 		{
-			"include": ["*.config.js"],
+			"include": ["*.config.js", "*.config.ts"],
 			"linter": {
 				"rules": {
 					"style": {
@@ -98,6 +114,19 @@
 			"json": {
 				"parser": {
 					"allowComments": true
+				}
+			}
+		},
+		{
+			"include": ["**/*.astro"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noUnusedImports": "off"
+					},
+					"style": {
+						"useFilenamingConvention": "off"
+					}
 				}
 			}
 		}

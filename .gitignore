@@ -15,3 +15,21 @@ packages/blog/public/client/main.js
 **/.DS_Store
 
 .husky/_/*
+
+
+
+.DS_Store
+.idea
+node_modules
+dist
+coverage
+playwright-report
+test-results
+.react-router
+.env
+.wrangler
+.vercel
+data
+.obsidian
+.astro
+.vscode

@@ -1,0 +1,19 @@
+{
+	"name": "blog-astro",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"astro": "^5.1.2"
+	},
+	"devDependencies": {
+		"@astrojs/check": "^0.9.4",
+		"@total-typescript/ts-reset": "^0.6.1",
+		"typescript": "^5.7.2"
+	}
+}
