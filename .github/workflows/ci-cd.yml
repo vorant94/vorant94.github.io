@@ -2,96 +2,131 @@ name: CI/CD
 
 on:
   push:
-    branches: ["master"]
+    branches:
+      - 'master'
+  pull_request:
+    branches:
+      - 'master'
   workflow_dispatch:
 
 jobs:
   lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - uses: ./.github/actions/setup
+      - name: Setup Node & NPM
+        uses: ./.github/actions/setup
 
-      - run: npm run lint:ci
+      - name: Lint
+        run: npx biome ci .
+
+  ts:
+    name: TS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node & NPM
+        uses: ./.github/actions/setup
+
+      - name: TS
+        run: npm run tsc
 
   build:
+    name: Build
     runs-on: ubuntu-latest
+    needs:
+      - ts
+    outputs:
+      bundle-cache-hit: ${{ steps.cache-bundle.outputs.cache-hit }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - uses: ./.github/actions/setup
+      - name: Setup Node & NPM
+        id: setup
+        uses: ./.github/actions/setup
 
-      - run: npm run build:client --workspace=@digital-garden/blog
+      - name: Build App Bundle
+        run: npm run build --workspace @digital-garden/blog
 
-      - uses: actions/upload-artifact@v4
+      - name: Cache App Bundle
+        id: cache-bundle
+        uses: actions/cache@v4
         with:
-          name: client-build-output
-          path: packages/blog/public/client/
-          retention-days: 30
+          path: packages/blog/dist
+          key: ${{ runner.os }}-${{steps.setup.outputs.node-version}}-bundle-${{hashFiles('packages/blog/dist/**')}}
 
-      - run: npm run build:server --workspace=@digital-garden/blog
-
-      - uses: actions/upload-artifact@v4
+      - name: Upload App Bundle
+# see comment below on row 173
+#        if: steps.cache-bundle.outputs.cache-hit != 'true'
+        uses: actions/upload-artifact@v4
         with:
-          name: server-build-output
-          path: packages/blog/dist/
-          retention-days: 30
-
-  test:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: ./.github/actions/setup
-
-      - run: npm run test:coverage --workspace=@digital-garden/blog
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: coverage
-          path: packages/blog/coverage/
+          name: bundle
+          path: packages/blog/dist
           retention-days: 30
 
   e2e:
+    name: E2E
     timeout-minutes: 60
     runs-on: ubuntu-latest
     needs:
-      - test
       - build
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - uses: ./.github/actions/setup
+      - name: Setup Node & NPM
+        id: setup
+        uses: ./.github/actions/setup
 
-      - run: npm run build:client --workspace=@digital-garden/blog
-
-      - run: npm run build:server --workspace=@digital-garden/blog
-
-      - run: npm run e2e:setup --workspace=@digital-garden/blog
-
-      - run: npm run e2e --workspace=@digital-garden/blog
-
-      - uses: actions/upload-artifact@v4
+      - name: Run E2E Tests
+        uses: ./.github/actions/e2e
         with:
-          name: playwright-report
-          path: ./packages/blog/playwright-report/
-          retention-days: 30
+          env: 'development'
 
-#  deploy:
-#    runs-on: ubuntu-latest
-#    concurrency: deploy-group
-#    needs:
-#      - lint
-#      - test
-#      - e2e
-#      - build
-#    steps:
-#      - uses: actions/checkout@v4
-#
-#      - uses: superfly/flyctl-actions/setup-flyctl@1.5
-#
-#      - run: flyctl deploy --remote-only
-#        env:
-#          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+  deploy:
+    environment:
+      name: production
+      url: https://digital-garden.pages.dev
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs:
+      - lint
+      - ts
+      - e2e
+#    if: |
+#      github.event_name == 'push' &&
+#      github.ref == 'refs/heads/master' &&
+#      needs.build.outputs.bundle-cache-hit != 'true'
+# cannot avoid re-deploys, because if e2e failed in CI/CD and the fix is in e2e
+# files only, then it is considered cache hit of bundle despite there was no deployment
+    if: |
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/master'
+    concurrency:
+      group: deploy
+      cancel-in-progress: false
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node & NPM
+        id: setup
+        uses: ./.github/actions/setup
+
+      - name: Download App Bundle
+        uses: actions/download-artifact@v4
+        with:
+          name: bundle
+          path: packages/blog/dist
+
+      - name: Deploy Bundle
+        run: npx wrangler pages deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}

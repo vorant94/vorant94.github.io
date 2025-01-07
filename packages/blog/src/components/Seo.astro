@@ -1,0 +1,73 @@
+---
+import { profile } from "@/globals/profile";
+
+export interface Props {
+	fullTitle: string;
+	description?: string;
+	image?: string;
+	type?: string;
+}
+
+const {
+	fullTitle,
+	description = profile.description,
+	image = "/favicon.ico",
+	type = "website",
+} = Astro.props;
+
+// biome-ignore lint/style/noNonNullAssertion: we know Astro.site is defined since site is present in config
+const { host } = Astro.site!;
+
+const { href } = Astro.url;
+
+const fullImageHref = new URL(image, href).href;
+---
+
+
+{/* FACEBOOK */}
+<meta
+	property="og:title"
+	content={fullTitle}
+/>
+<meta
+	property="og:description"
+	content={description}
+/>
+<meta
+	property="og:url"
+	content={href}
+/>
+<meta
+	property="og:image"
+	content={fullImageHref}
+/>
+<meta
+	property="og:type"
+	content={type}
+/>
+
+{/* TWITTER */}
+<meta
+	name="twitter:title"
+	content={fullTitle}
+/>
+<meta
+	name="twitter:description"
+	content={description}
+/>
+<meta
+	property="twitter:url"
+	content={href}
+/>
+<meta
+	name="twitter:image"
+	content={fullImageHref}
+/>
+<meta
+	name="twitter:card"
+	content="summary_large_image"
+/>
+<meta
+	property="twitter:domain"
+	content={host}
+/>

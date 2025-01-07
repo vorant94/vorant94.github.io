@@ -1,0 +1,23 @@
+name: Health Check
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    name: Health Check (${{ matrix.shard }}/${{ strategy.job-total }})
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node & NPM
+        uses: ./.github/actions/setup
+
+      - name: Run E2E Tests
+        uses: ./.github/actions/e2e
+        with:
+          env: 'production'
