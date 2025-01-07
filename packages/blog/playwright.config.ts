@@ -22,7 +22,7 @@ export default defineConfig({
 		// biome-ignore lint/style/useNamingConvention: 3-rd party type
 		baseURL:
 			env.NODE_ENV === "production"
-				? "https://digital-garden.pages.dev"
+				? "https://digital-garden-4u8.pages.dev"
 				: "http://localhost:4321",
 		trace: "on-first-retry",
 		...devices["Desktop Chrome"],
