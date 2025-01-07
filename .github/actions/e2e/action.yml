@@ -4,12 +4,6 @@ inputs:
   env:
     description: Environment to run E2E in
     required: true
-  shard:
-    description: Shard of E2E to run
-    default: '1'
-  total_shards:
-    description: Total amount of shards E2E is split to
-    default: '1'
 
 runs:
   using: 'composite'
@@ -30,16 +24,16 @@ runs:
 
     - name: Install Playwright with it's dependencies
       if: steps.playwright-cache.outputs.cache-hit != 'true'
-      run: cd packages/blog npx playwright install --with-deps
+      run: cd packages/blog && npx playwright install --with-deps
       shell: bash
 
     - name: Install Playwright's dependencies
       if: steps.playwright-cache.outputs.cache-hit == 'true'
-      run: cd packages/blog npx playwright install-deps
+      run: cd packages/blog && npx playwright install-deps
       shell: bash
 
     - name: Run E2E
-      run: cd packages/blog npx playwright test --shard=${{ inputs.shard }}/${{ inputs.total_shards }}
+      run: cd packages/blog && npx playwright test
       env:
         NODE_ENV: ${{ inputs.env }}
       shell: bash
