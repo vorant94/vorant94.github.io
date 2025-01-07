@@ -35,15 +35,15 @@ const { Content, remarkPluginFrontmatter } = await render(post);
 <DefaultLayout
 	title={post.data.title}
 	description={post.data.description}
-	image={isPostWithCover(post) ? post.data.coverImage.src : undefined}
+	image={isPostWithCover(post) ? post.data.coverImage : undefined}
 	type="article"
 >
 	<div class="flex flex-col gap-6">
 		{isPostWithCover(post) && (
 			<div class="self-center">
 				<ThemedImage
-					src={post.data.coverImage.src}
-					srcDark={post.data.coverImageDark?.src}
+					src={post.data.coverImage}
+					srcDark={post.data.coverImageDark}
 					alt={post.data.coverAlt}
 				/>
 			</div>

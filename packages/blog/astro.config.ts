@@ -29,7 +29,7 @@ export const env = z
 export default defineConfig({
 	site:
 		env.NODE_ENV === "production"
-			? "https://www.vorant94.dev"
+			? "https://digital-garden-4u8.pages.dev"
 			: "http://localhost:4321",
 	prefetch: true,
 	integrations: [
