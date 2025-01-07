@@ -1,0 +1,30 @@
+---
+import "@fortawesome/fontawesome-free/css/brands.css";
+import "@fortawesome/fontawesome-free/css/fontawesome.css";
+import "@fortawesome/fontawesome-free/css/solid.css";
+
+// TODO report a bug about breaking the astro
+// biome-ignore format: splitting this into multiple lines breaks astro
+export const iconGlyphs = ["linked-in", "github", "medium", "stack-overflow", "telegram", "twitter", "rss", "menu", "close", "globe"] as const;
+export type IconGlyph = (typeof iconGlyphs)[number];
+const iconGlyphToFaIcon = {
+	"linked-in": "fa-brands fa-linkedin",
+	github: "fa-brands fa-github",
+	medium: "fa-brands fa-medium",
+	"stack-overflow": "fa-brands fa-stack-overflow",
+	telegram: "fa-brands fa-telegram",
+	twitter: "fa-brands fa-x-twitter",
+	rss: "fa-solid fa-rss",
+	menu: "fa-solid fa-bars",
+	close: "fa-solid fa-xmark",
+	globe: "fa-solid fa-globe",
+} as const satisfies Record<IconGlyph, string>;
+
+export interface Props {
+	glyph: IconGlyph;
+}
+
+const { glyph } = Astro.props;
+---
+
+<i class={iconGlyphToFaIcon[glyph]} />

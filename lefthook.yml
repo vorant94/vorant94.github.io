@@ -1,10 +1,8 @@
 pre-push:
   commands:
-    build:
-      run: npm run build:server --workspace=@digital-garden/blog
-    test:
-      run: npm run test --workspace=@digital-garden/blog
+    ts:
+      run: npm run tsc
 pre-commit:
   commands:
     lint:
-      run: npm run lint:ci
+      run: npx biome ci .
