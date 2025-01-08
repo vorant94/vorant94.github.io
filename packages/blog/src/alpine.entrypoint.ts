@@ -37,9 +37,8 @@ export default (alpine: Alpine) => {
 	});
 
 	document.addEventListener("astro:before-preparation", () => {
-		const width = document.documentElement.clientWidth;
 		const defaultLayout = alpine.store("defaultLayout");
-		if (width >= 1024 || !defaultLayout.isMobileNavOpen) {
+		if (!defaultLayout.isMobileNavOpen) {
 			return;
 		}
 
