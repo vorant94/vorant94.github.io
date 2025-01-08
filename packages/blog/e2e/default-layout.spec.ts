@@ -13,6 +13,7 @@ test("has desktop navigation links", async ({ page }) => {
 });
 
 test.describe("mobile nav", () => {
+	// TODO configure with projects
 	// Chrome Dimensions for iPhone 12 Pro
 	test.use({ viewport: { width: 390, height: 844 } });
 
