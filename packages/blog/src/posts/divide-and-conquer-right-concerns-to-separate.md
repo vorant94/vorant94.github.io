@@ -6,7 +6,7 @@ tags:
   - separation-of-concerns
   - programming
 publishedAt: 2024-03-10
-coverImage: ../assets/divide-and-conquer-right-concerns-to-separate-cover.webp
+coverImage: ../assets/cesar-statue.webp
 coverAlt: Julius Caesar statue
 ---
 

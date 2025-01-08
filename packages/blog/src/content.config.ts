@@ -1,12 +1,8 @@
-import {
-	type SchemaContext,
-	defineCollection,
-	reference,
-	z,
-} from "astro:content";
+import { defineCollection, reference } from "astro:content";
 import { glob } from "astro/loaders";
+import { z } from "zod";
 
-const base = z.object({
+const basePost = z.object({
 	title: z.string(),
 	description: z.string(),
 	tags: z.array(reference("tags")),
@@ -16,25 +12,26 @@ const base = z.object({
 	codeUrl: z.string().url().nullish(),
 });
 
-const postWithoutCover = base.extend({
-	coverImage: z.void(),
-});
-
-const postWithCover = ({ image }: SchemaContext) =>
-	base.extend({
-		coverImage: image(),
-		coverAlt: z.string(),
-		coverImageDark: image().nullish(),
-	});
-
 const posts = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "./src/posts" }),
-	schema: (ctx) => z.union([postWithCover(ctx), postWithoutCover]),
+	schema: ({ image }) =>
+		z.union([
+			basePost.extend({
+				coverImage: image(),
+				coverAlt: z.string(),
+				coverImageDark: image().nullish(),
+			}),
+			basePost.extend({
+				coverImage: z.void(),
+			}),
+		]),
 });
 
+// TODO report a bug when simultaneously adding a new entry and immediately referencing it
 const tags = defineCollection({
 	loader: () => {
 		return [
+			"books",
 			"lambda",
 			"angular",
 			"dart",

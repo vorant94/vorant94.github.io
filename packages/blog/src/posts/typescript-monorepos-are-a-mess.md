@@ -6,9 +6,9 @@ tags:
   - node
   - infra
 publishedAt: 2024-01-03
-coverImage: ../assets/typescript-monorepos-are-a-mess-cover.webp
+coverImage: ../assets/ts-monorepo-bento.webp
 coverAlt: Logos of Yarn, Git and TypeScript arranged like a bento box
-coverImageDark: ../assets/typescript-monorepos-are-a-mess-cover-dark.webp
+coverImageDark: ../assets/ts-monorepo-bento-dark.webp
 codeUrl: https://github.com/vorant94/typescript-monorepo
 ---
 
@@ -279,7 +279,38 @@ I already feel a taste of Webpack/Rollup/ESbuild in my mouth, stay tuned😜
 
 ---
 
+Upd. on the matter:
+
+Recently I found a [post](https://turbo.build/blog/you-might-not-need-typescript-project-references) that shows it is actually easier to setup TS monorepo without* using `tsc`.
+
+TL;DR; since TS compiler actually provides two somewhat separate functionalities (one - is a compilation of TS to JS and two - type-checking) by separating them the setup can actually become much simpler. Compilation can be thrown to bundler (`vite`/`esbuild`/`rollup`), that can easily understand what to take from where with simpler aliases. And to get correct type-checking you can simply point `main` and `types` properties of `lib`'s `package.json` directly to a source `.ts` file and TS type-checking will handle it as you would expect
+
+```ts
+// app vite.config.ts
+// ...
+export default defineConfig({
+	resolve: {
+		alias: {
+			dtos: path.resolve(process.cwd(), "../lib"),
+		},
+	},
+	// ...
+});
+
+```
+
+```json5
+// lib package.json
+{
+	"name": "lib",
+	"main": "./src/index.ts",
+	"types": "./src/index.ts",
+	// ...
+}
+```
+
+---
+
 [^1]: Container-Presentational Component architecture is defined by splitting all your components into two baskets: presentational components doesn't know where to get data from or what to do upon user interaction, but are responsible for correct rendering, animations and so on; container components do know where to get data and what do upon user clicks, but delegate rendering logic to presentational components. This approach is a direct descend of single responsibility principle. that benefits to a lot of things including greater code reusability, maintainability etc.
-[^2]:
-    Nx basically wraps and abstracts out all the management of different apps and libraries within one repo. If I recall correctly it was created before any of modern package manager introduced support for monorepos and invested a lot into monorepo architecture popularization. So at some point of time it was the only possible Node-based monorepo solution and did it's job well. I worked with this kinda workspaces twice: Angular Workspace implements the same approach and NestJS that is inspired by Angular also has one. And although I'm very satisfied with what Angular provides, Nest abstraction is built on top of other NodeJS libraries and it introduces a lot of problems. Angular under the hood is not built on top of React, but NestJS is built on top of Express, Fastify, TypeORM and many other standalone libraries, which results in lack of flexibility and control. The same way Nx tries to abstract out frameworks that are not internal part of Nx itself. This is why I prefer package manager based monorepo to Nx one, since without abstraction like Nx I have more flexibility and control over packages that I code.
-    [^3]: Another thing about `tsx` I'd like to add is that limits of ESbuild Transform API also means that `tsx` cannot be used with TypeScript decorators (the same issue that I mentioned earlier with Astro, that is using [Vite](https://vitejs.dev) under the hood). There is a stage 3 [proposal](https://github.com/tc39/proposal-decorators) for built-in EcmaScript decorators, but currently used decorators in all major frameworks like Angular and NestJS are TypeScript ones, so `tsx` also cannot be used there as well...
+[^2]: Nx basically wraps and abstracts out all the management of different apps and libraries within one repo. If I recall correctly it was created before any of modern package manager introduced support for monorepos and invested a lot into monorepo architecture popularization. So at some point of time it was the only possible Node-based monorepo solution and did it's job well. I worked with this kinda workspaces twice: Angular Workspace implements the same approach and NestJS that is inspired by Angular also has one. And although I'm very satisfied with what Angular provides, Nest abstraction is built on top of other NodeJS libraries and it introduces a lot of problems. Angular under the hood is not built on top of React, but NestJS is built on top of Express, Fastify, TypeORM and many other standalone libraries, which results in lack of flexibility and control. The same way Nx tries to abstract out frameworks that are not internal part of Nx itself. This is why I prefer package manager based monorepo to Nx one, since without abstraction like Nx I have more flexibility and control over packages that I code.
+[^3]: Another thing about `tsx` I'd like to add is that limits of ESbuild Transform API also means that `tsx` cannot be used with TypeScript decorators (the same issue that I mentioned earlier with Astro, that is using [Vite](https://vitejs.dev) under the hood). There is a stage 3 [proposal](https://github.com/tc39/proposal-decorators) for built-in EcmaScript decorators, but currently used decorators in all major frameworks like Angular and NestJS are TypeScript ones, so `tsx` also cannot be used there as well...

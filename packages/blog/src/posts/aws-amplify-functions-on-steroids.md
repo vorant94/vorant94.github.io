@@ -6,7 +6,7 @@ tags:
   - serverless
   - lambda
 publishedAt: 2023-07-05
-coverImage: ../assets/aws-amplify-functions-on-steroids-cover.webp
+coverImage: ../assets/amplify-typescript-logos.webp
 coverAlt: Amplify and TypeScript logos on the blue background
 related:
   - pitfalls-of-aws-amplify-serverless-containers
