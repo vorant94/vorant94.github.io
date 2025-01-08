@@ -17,7 +17,7 @@ const { post } = Astro.props;
 <li class="group flex cursor-pointer flex-col rounded-md border border-transparent text-medium duration-100 hover:scale-105 hover:border-slate-300 hover:shadow-md hover:dark:border-slate-600">
 	<Link
 		href={`/${post.collection}/${post.id}`}
-		class="flex items-center p-3"
+		class="flex items-center p-3 gap-2"
 	>
 		<!-- adding display: flex here breaks inline-block hack from below -->
 		<div class="flex-1 overflow-hidden">
