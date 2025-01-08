@@ -25,8 +25,19 @@ export default defineConfig({
 				? "https://digital-garden-4u8.pages.dev"
 				: "http://localhost:4321",
 		trace: "on-first-retry",
-		...devices["Desktop Chrome"],
 	},
+	projects: [
+		{
+			name: "Desktop Chrome",
+			use: { ...devices["Desktop Chrome"] },
+			grep: [/@desktop/],
+		},
+		{
+			name: "Mobile Safari",
+			use: { ...devices["iPhone 12 Pro"] },
+			grep: [/@mobile/],
+		},
+	],
 	webServer:
 		env.NODE_ENV === "production"
 			? undefined

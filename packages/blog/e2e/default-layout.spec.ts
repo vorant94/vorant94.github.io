@@ -1,25 +1,25 @@
 import { expect, test } from "@playwright/test";
 
-test("has desktop navigation links", async ({ page }) => {
-	await page.goto("/");
+test(
+	"has desktop navigation links",
+	{ tag: ["@desktop"] },
+	async ({ page }) => {
+		await page.goto("/");
 
-	const desktopNav = page.getByTestId("desktop-nav");
-	const mobileNavBurger = page.getByRole("button", {
-		name: "mobile-nav-burger",
-	});
+		const desktopNav = page.getByTestId("desktop-nav");
+		const mobileNavBurger = page.getByRole("button", {
+			name: "mobile-nav-burger",
+		});
 
-	await expect(desktopNav).toBeVisible();
-	await expect(mobileNavBurger).not.toBeVisible();
-});
+		await expect(desktopNav).toBeVisible();
+		await expect(mobileNavBurger).not.toBeVisible();
+	},
+);
 
-test.describe("mobile nav", () => {
-	// TODO configure with projects
-	// Chrome Dimensions for iPhone 12 Pro
-	test.use({ viewport: { width: 390, height: 844 } });
-
-	test("has mobile nav modal instead of desktop navigation links", async ({
-		page,
-	}) => {
+test(
+	"has mobile nav modal instead of desktop navigation links",
+	{ tag: ["@mobile"] },
+	async ({ page }) => {
 		await page.goto("/");
 
 		const desktopNav = page.getByTestId("desktop-nav");
@@ -65,5 +65,5 @@ test.describe("mobile nav", () => {
 			modalClose,
 			"should hide mobile nav after modal close button is clicked",
 		).not.toBeInViewport();
-	});
-});
+	},
+);
