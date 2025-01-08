@@ -91,6 +91,7 @@ const { Content, remarkPluginFrontmatter } = await render(post);
 
 	{!!post.data.related?.length && <RelatedPosts post={post} />}
 
+	<!-- TODO fork and fix bug of fist reaction -->
 	<giscus-widget
 		id="comments"
 		repo="vorant94/digital-garden"
