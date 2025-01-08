@@ -1,8 +1,8 @@
+import angularLogo from "@/assets/angular-logo.png";
+import reactLogo from "@/assets/react-logo.svg";
+import spiderManTriple from "@/assets/spider-man-triple.jpg";
+import vueLogo from "@/assets/vue-logo.png";
 import type { FC } from "react";
-import angularLogo from "../assets/angular-logo.png";
-import reactLogo from "../assets/react-logo.svg";
-import spiderManTriple from "../assets/spider-man-triple.jpg";
-import vueLogo from "../assets/vue-logo.png";
 
 export const ThoughtsOnModernFrameworkFeaturesPage: FC = () => (
 	<div className="relative">

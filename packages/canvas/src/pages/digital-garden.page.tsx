@@ -1,7 +1,7 @@
+import dark from "@/assets/dark.png";
+import light from "@/assets/light.png";
 import clsx from "clsx";
 import type { FC } from "react";
-import dark from "../assets/dark.png";
-import light from "../assets/light.png";
 import styles from "./digital-garden.module.css";
 
 export const DigitalGardenPage: FC = () => (

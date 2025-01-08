@@ -1,10 +1,10 @@
+import gitDarkLogo from "@/assets/git-logo-dark.svg";
+import gitLogo from "@/assets/git-logo.svg";
+import tsDarkLogo from "@/assets/ts-logo-dark.svg";
+import tsLogo from "@/assets/ts-logo.svg";
+import yarnDarkLogo from "@/assets/yarn-logo-dark.svg";
+import yarnLogo from "@/assets/yarn-logo.svg";
 import type { FC } from "react";
-import gitDarkLogo from "../assets/git-logo-dark.svg";
-import gitLogo from "../assets/git-logo.svg";
-import tsDarkLogo from "../assets/ts-logo-dark.svg";
-import tsLogo from "../assets/ts-logo.svg";
-import yarnDarkLogo from "../assets/yarn-logo-dark.svg";
-import yarnLogo from "../assets/yarn-logo.svg";
 
 // biome-ignore lint/style/useNamingConvention: AMess is two word
 export const TypescriptMonoreposAreAMessPage: FC = () => (

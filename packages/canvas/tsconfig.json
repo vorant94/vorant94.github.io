@@ -37,7 +37,10 @@
 		"jsx": "react-jsx",
 
 		/* Misc */
-		"types": ["vite/client", "@total-typescript/ts-reset"]
+		"types": ["vite/client", "@total-typescript/ts-reset"],
+		"paths": {
+			"@/*": ["./src/*"]
+		}
 	},
 	//	using unified tsconfig.json instead of separate tsconfig.json /
 	//		tsconfig.app.json / tsconfig.node.json because of two reasons:
