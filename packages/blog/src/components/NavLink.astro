@@ -12,7 +12,9 @@ const { pathname } = Astro.url;
 	<Link
 		href={href}
 		class:list={[
-			"block rounded-full border-2 border-slate-300 bg-slate-50 p-3 text-center font-semibold text-2xl md:p-4 lg:rounded-none lg:border-none lg:bg-none lg:p-0 lg:text-sm dark:border-slate-600 dark:bg-slate-900 dark:lg:bg-none",
+			"block rounded-full border-2 p-3 text-center font-semibold text-2xl md:p-4 lg:rounded-none lg:border-none lg:p-0 lg:text-sm",
+			"border-slate-300 bg-slate-50 lg:bg-transparent",
+			"dark:border-slate-600 dark:bg-slate-900 dark:lg:bg-transparent",
 			className,
 		]}
 		isActive={pathname.startsWith(href)}
