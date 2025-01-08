@@ -57,14 +57,13 @@ export default defineConfig({
 	},
 	markdown: {
 		remarkPlugins: [
-			() => {
-				return (tree, { data }) => {
+			() =>
+				(tree, { data }) => {
 					const textOnPage = toString(tree);
 					const readingTime = getReadingTime(textOnPage);
 					// biome-ignore lint/style/noNonNullAssertion: copied from astro docs
 					data.astro!.frontmatter!.minutesRead = readingTime.text;
-				};
-			},
+				},
 		],
 		rehypePlugins: [
 			rehypeSlug,
