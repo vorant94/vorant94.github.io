@@ -1,6 +1,6 @@
 import type { FC } from "react";
-import { Link } from "react-router-dom";
-import { type RootRoute, rootRoute } from "../../ui/types/root-route.ts";
+import { Link } from "react-router";
+import { type RootRoute, rootRoute } from "../globals/root-route.ts";
 
 export const HomePage: FC = () => (
 	<nav>

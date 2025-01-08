@@ -1,12 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { DigitalGardenPage } from "./canvas/pages/digital-garden.page.tsx";
-import { ThoughtsOnModernFrameworkFeaturesPage } from "./canvas/pages/thoughts-on-modern-framework-features.page.tsx";
-import { TypescriptMonoreposAreAMessPage } from "./canvas/pages/typescript-monorepos-are-a-mess.page.tsx";
-import { HomePage } from "./home/pages/home.page.tsx";
-import "./index.css";
-import { rootRoute } from "./ui/types/root-route.ts";
+import { DigitalGardenPage } from "./pages/digital-garden.page.tsx";
+import { HomePage } from "./pages/home.page.tsx";
+import { ThoughtsOnModernFrameworkFeaturesPage } from "./pages/thoughts-on-modern-framework-features.page.tsx";
+import { TypescriptMonoreposAreAMessPage } from "./pages/typescript-monorepos-are-a-mess.page.tsx";
+import "./styles/global.css";
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
+import { rootRoute } from "./globals/root-route.ts";
 
 const router = createBrowserRouter([
 	{
