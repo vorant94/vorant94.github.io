@@ -22,6 +22,7 @@ const optimizedDark =
 			media="(prefers-color-scheme:dark)"
 		/>
 	)}
+	<!-- cannot use here Astro Image component, since it causes TS to fail on passing ...rest props -->
 	<img
 		src={optimized.src}
 		alt={alt}

@@ -18,7 +18,10 @@ const tagHash = tag.data.id
 const color = tailwindColors[tagHash % tailwindColors.length] as TailwindColor;
 ---
 
-<Link href={`/${tag.collection}/${tag.data.id}`}>
+<Link
+	transition:name={`tag.${tag.data.id}`}
+	href={`/${tag.collection}/${tag.data.id}`}
+>
 	<Badge
 		class="!inline-block max-w-24 truncate sm:max-w-none lg:max-w-24 xl:max-w-none"
 		color={color}

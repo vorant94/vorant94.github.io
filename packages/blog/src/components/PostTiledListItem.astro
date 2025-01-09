@@ -22,7 +22,7 @@ const { post } = Astro.props;
 		<!-- adding display: flex here breaks inline-block hack from below -->
 		<div class="flex-1 overflow-hidden">
 			<Title
-				transition:name={`${post.id}title`}
+				transition:name={`post.${post.id}.title`}
 				as="h6"
 				class="truncate group-hover:text-inherit"
 			>
@@ -32,14 +32,14 @@ const { post } = Astro.props;
 				overridden like any other parent css style -->
 			<Caption
 				class="inline-block"
-				transition:name={`${post.id}publishedAt`}
+				transition:name={`post.${post.id}.publishedAt`}
 			>
 				{format(post.data.publishedAt, publishedAtFormat.full)}
 			</Caption>
 		</div>
 		{isPostWithCover(post) && (
 			<ThemedImage
-				transition:name={`${post.id}cover`}
+				transition:name={`post.${post.id}.coverImage`}
 				class="h-20 w-20 object-scale-down"
 				src={post.data.coverImage}
 				srcDark={post.data.coverImageDark}

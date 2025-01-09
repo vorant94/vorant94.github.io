@@ -21,12 +21,12 @@ const pinnedPosts = sortedPosts.filter((post) => post.data.isPinned);
 					post={post}
 					class="!py-0 flex-1"
 				>
-					<span slot="left">
+					<Fragment slot="left">
 						{post.data.title}
-					</span>
-					<span slot="right">
+					</Fragment>
+					<Fragment slot="right">
 						{format(post.data.publishedAt, publishedAtFormat.short)}
-					</span>
+					</Fragment>
 				</PostListItem>
 			</span>
 		</StandOut>

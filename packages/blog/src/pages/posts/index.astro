@@ -18,7 +18,11 @@ const sortedPostYears = Object.keys(groupedPosts).reverse();
 
 <DefaultLayout title="Posts">
 	{sortedPostYears.map((year) => (
-		<PostList title={year}>
+		<PostList>
+			<Fragment slot="title">
+				{year}
+			</Fragment>
+
 			{groupedPosts[year]!.map((post) => (
 				<PostListItem post={post} />
 			))}

@@ -41,7 +41,14 @@ const { tag, tagPosts } = Astro.props;
 ---
 
 <DefaultLayout title={`${tag.id} posts`}>
-	<PostList title={`#${tag.id}`}>
+	<PostList>
+		<span
+			transition:name={`tag.${tag.data.id}`}
+			slot="title"
+		>
+			{`#${tag.id}`}
+		</span>
+
 		{tagPosts.map((post) => (
 			<PostListItem post={post} />
 		))}
