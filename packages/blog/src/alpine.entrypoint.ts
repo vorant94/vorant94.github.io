@@ -17,11 +17,13 @@ export default (alpine: Alpine) => {
 	document.addEventListener("alpine:init", () => {
 		alpine.store("defaultLayout", {
 			isMobileNavOpen: false,
-			closeMobileNav() {
-				this.isMobileNavOpen = false;
-			},
 			openMobileNav() {
+				document.body.classList.add("overflow-y-hidden");
 				this.isMobileNavOpen = true;
+			},
+			closeMobileNav() {
+				document.body.classList.remove("overflow-y-hidden");
+				this.isMobileNavOpen = false;
 			},
 		});
 	});
