@@ -18,9 +18,7 @@
 		"strictPropertyInitialization": false,
 
 		/* Linting */
-		// TODO report bug to astro
-		// disabled because astro components with transition aren't detected as used, see PostTiledListItem
-		// "noUnusedLocals": true,
+		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedIndexedAccess": true,

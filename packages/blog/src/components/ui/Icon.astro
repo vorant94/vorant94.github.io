@@ -3,8 +3,9 @@ import "@fortawesome/fontawesome-free/css/brands.css";
 import "@fortawesome/fontawesome-free/css/fontawesome.css";
 import "@fortawesome/fontawesome-free/css/solid.css";
 
-// TODO report a bug about breaking the astro
-// biome-ignore format: splitting this into multiple lines breaks astro
+// - https://github.com/withastro/astro/issues/12961
+// - https://github.com/withastro/compiler/issues/863
+// biome-ignore format: splitting this into multiple lines breaks astro, see above
 export const iconGlyphs = ["linked-in", "github", "medium", "stack-overflow", "telegram", "twitter", "rss", "menu", "close", "globe", "bluesky"] as const;
 export type IconGlyph = (typeof iconGlyphs)[number];
 const iconGlyphToFaIcon = {
