@@ -31,6 +31,7 @@ const posts = defineCollection({
 const tags = defineCollection({
 	loader: () => {
 		return [
+			"react",
 			"books",
 			"lambda",
 			"angular",
