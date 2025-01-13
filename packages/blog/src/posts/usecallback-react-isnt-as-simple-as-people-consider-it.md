@@ -5,9 +5,8 @@ tags:
   - react
   - programming
 publishedAt: 2024-05-29
-coverImage: ../assets/ts-monorepo-bento.webp
+coverImage: ../assets/react-usecallback.png
 coverAlt: AI generated art of React logo
-coverImageDark: ../assets/react-usecallback.png
 ---
 
 ## What is a UI in React's view
